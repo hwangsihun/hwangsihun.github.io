@@ -74,9 +74,9 @@
     </div>
 
     <!-- 캘린더 -->
-    <div class="overflow-x-auto py-4"> <!-- 이 div가 스크롤 영역 -->
+    <div class="overflow-x-auto py-4">
       <div id="date-bar" class="flex gap-2 min-w-max px-2">
-        <!-- JS로 날짜 들어감 -->
+        <!-- JS로 날짜 아이템 추가 -->
       </div>
     </div>
 
@@ -86,6 +86,7 @@
       const currentMonth = today.getMonth();
       const currentYear = today.getFullYear();
 
+      // 해당 월 모든 날짜 배열 생성
       const getDaysInMonth = (year, month) => {
         const days = [];
         const date = new Date(year, month, 1);
@@ -96,67 +97,42 @@
         return days;
       }
 
+      // 예시: 백에서 받은 하이라이트 날짜
       const highlightDates = ['2026-03-05', '2026-03-09', '2026-03-16', '2026-03-23', '2026-03-30'];
 
-      const days = getDaysInMonth(currentYear, currentMonth);
-      let weekWrapper = document.createElement('div');
-      weekWrapper.style.display = 'flex';
-      weekWrapper.style.alignItems = 'center';
-      weekWrapper.style.gap = '8px';
-
-      days.forEach((d, idx) => {
+      getDaysInMonth(currentYear, currentMonth).forEach(d => {
         const dayDiv = document.createElement('div');
-        dayDiv.style.display = 'flex';
-        dayDiv.style.flexDirection = 'column';
-        dayDiv.style.alignItems = 'center';
-        dayDiv.style.justifyContent = 'center';
-        dayDiv.style.width = '48px';
-        dayDiv.style.height = '48px';
-        dayDiv.style.borderRadius = '9999px';
-        dayDiv.style.cursor = 'pointer';
+        dayDiv.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'w-12', 'h-12', 'rounded-full', 'text-sm', 'cursor-pointer');
 
         const dayOfWeek = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
         const dateStr = d.getDate();
 
-        if ([0, 6].includes(d.getDay())) dayDiv.style.color = '#9CA3AF';
+        // 주말 처리
+        if ([0, 6].includes(d.getDay())) dayDiv.classList.add('text-gray-400');
+
+        // 오늘 강조
         if (d.toDateString() === today.toDateString()) {
-          dayDiv.style.backgroundColor = '#3B82F6';
-          dayDiv.style.color = 'white';
-        }
-        if (highlightDates.includes(d.toISOString().slice(0, 10))) {
-          dayDiv.style.backgroundColor = '#DBEAFE';
-          dayDiv.style.color = '#1D4ED8';
+          dayDiv.classList.add('bg-blue-500', 'text-white');
         }
 
+        // 하이라이트 날짜
+        if (highlightDates.includes(d.toISOString().slice(0, 10))) {
+          dayDiv.classList.add('bg-blue-100', 'text-blue-700');
+        }
+
+        // 요일 표시
         const dayNameDiv = document.createElement('div');
         dayNameDiv.textContent = dayOfWeek;
-        dayNameDiv.style.fontSize = '10px';
-        dayNameDiv.style.marginBottom = '4px';
+        dayNameDiv.classList.add('text-xs', 'mb-1');
 
+        // 날짜 표시
         const dateDiv = document.createElement('div');
         dateDiv.textContent = dateStr;
-        dateDiv.style.fontSize = '14px';
-        dateDiv.style.fontWeight = '600';
+        dateDiv.classList.add('text-base', 'font-semibold');
 
         dayDiv.appendChild(dayNameDiv);
         dayDiv.appendChild(dateDiv);
-        weekWrapper.appendChild(dayDiv);
-
-        // 토요일이면 주 끝점선 추가하고 다음 주 wrapper 생성
-        if (d.getDay() === 6 || idx === days.length - 1) {
-          const separator = document.createElement('div');
-          separator.style.width = '1px';
-          separator.style.height = '44px';
-          separator.style.borderRight = '1px dashed black';
-          separator.style.marginLeft = '4px';
-          weekWrapper.appendChild(separator);
-
-          dateBar.appendChild(weekWrapper);
-          weekWrapper = document.createElement('div');
-          weekWrapper.style.display = 'flex';
-          weekWrapper.style.alignItems = 'center';
-          weekWrapper.style.gap = '8px';
-        }
+        dateBar.appendChild(dayDiv);
       });
     </script>
 

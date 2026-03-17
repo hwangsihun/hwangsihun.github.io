@@ -74,11 +74,7 @@
     </div>
 
     <!-- 캘린더 -->
-    <div class="overflow-x-auto py-4"> <!-- 이 div가 스크롤 영역 -->
-      <div id="date-bar" class="flex gap-2 min-w-max px-2">
-        <!-- JS로 날짜 들어감 -->
-      </div>
-    </div>
+    <div id="date-bar" class="w-[140px] flex gap-2 min-w-max px-2 c_purple"></div>
 
     <script>
       const dateBar = document.getElementById('date-bar');
@@ -98,13 +94,11 @@
 
       const highlightDates = ['2026-03-05', '2026-03-09', '2026-03-16', '2026-03-23', '2026-03-30'];
 
-      const days = getDaysInMonth(currentYear, currentMonth);
-      let weekWrapper = document.createElement('div');
-      weekWrapper.style.display = 'flex';
-      weekWrapper.style.alignItems = 'center';
-      weekWrapper.style.gap = '8px';
+      getDaysInMonth(currentYear, currentMonth).forEach(d => {
+        const dayWrapper = document.createElement('div');
+        dayWrapper.style.display = 'flex';
+        dayWrapper.style.alignItems = 'center';
 
-      days.forEach((d, idx) => {
         const dayDiv = document.createElement('div');
         dayDiv.style.display = 'flex';
         dayDiv.style.flexDirection = 'column';
@@ -118,7 +112,7 @@
         const dayOfWeek = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
         const dateStr = d.getDate();
 
-        if ([0, 6].includes(d.getDay())) dayDiv.style.color = '#9CA3AF';
+        if ([0, 6].includes(d.getDay())) dayDiv.style.color = '#9CA3AF'; // gray-400
         if (d.toDateString() === today.toDateString()) {
           dayDiv.style.backgroundColor = '#3B82F6';
           dayDiv.style.color = 'white';
@@ -140,23 +134,18 @@
 
         dayDiv.appendChild(dayNameDiv);
         dayDiv.appendChild(dateDiv);
-        weekWrapper.appendChild(dayDiv);
+        dayWrapper.appendChild(dayDiv);
 
-        // 토요일이면 주 끝점선 추가하고 다음 주 wrapper 생성
-        if (d.getDay() === 6 || idx === days.length - 1) {
+        if (d.getDay() === 0) {
           const separator = document.createElement('div');
           separator.style.width = '1px';
           separator.style.height = '44px';
-          separator.style.borderRight = '1px dashed black';
+          separator.style.borderRight = '1px dashed #D1D5DB'; // gray-300
           separator.style.marginLeft = '4px';
-          weekWrapper.appendChild(separator);
-
-          dateBar.appendChild(weekWrapper);
-          weekWrapper = document.createElement('div');
-          weekWrapper.style.display = 'flex';
-          weekWrapper.style.alignItems = 'center';
-          weekWrapper.style.gap = '8px';
+          dayWrapper.appendChild(separator);
         }
+
+        dateBar.appendChild(dayWrapper);
       });
     </script>
 
