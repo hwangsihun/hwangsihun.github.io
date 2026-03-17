@@ -1,0 +1,75 @@
+:root {
+    --color-black: #191f28;
+    --color-purple: #d390ff;
+    --color-mint: #00ced4;
+    --color-yellow: #ffff00;
+    --color-blue: #006eff;
+    --color-lightBlue: #519cff;
+    --color-lightGray: #bdbdbd;
+
+    --color-purpleLine: #b254f0;
+    --color-mintLine: #00a4a9;
+    --color-yellowLine: #b2b200;
+    --color-blueLine: #588ac9;
+
+    --color-blueBg: #dbeeff;
+    --color-GrayBg: #eeeeee;
+
+    --color-dateGray: #616161;
+
+    --color-DisabledGrayBg: #f5f5f5;
+    --color-disabledGrayStroke: #e0e0e0;
+}
+
+.c-black {
+    background-color: var(--color-black);
+}
+.c-purple {
+    background-color: var(--color-purple);
+}
+.c-mint {
+    background-color: var(--color-mint);
+}
+.c-yellow {
+    background-color: var(--color-yellow);
+}
+.c-blue {
+    background-color: var(--color-blue);
+}
+.c-lightBlue {
+    background-color: var(--color-lightBlue);
+}
+.c-lightGray {
+    background-color: var(--color-lightGray);
+}
+
+.c-purpleLine {
+    background-color: var(--color-purpleLine);
+}
+.c-mintLine {
+    background-color: var(--color-mintLine);
+}
+.c-yellowLine {
+    background-color: var(--color-yellowLine);
+}
+.c-blueLine {
+    background-color: var(--color-blueLine);
+}
+
+.c-blueBg {
+    background-color: var(--color-blueBg);
+}
+.c-GrayBg {
+    background-color: var(--color-GrayBg);
+}
+
+.c-dateGray {
+    background-color: var(--color-dateGray);
+}
+
+.c-DisabledGrayBg {
+    background-color: var(--color-DisabledGrayBg);
+}
+.c-disabledGrayStroke {
+    background-color: var(--color-disabledGrayStroke);
+}
