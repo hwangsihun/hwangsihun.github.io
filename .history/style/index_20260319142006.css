@@ -1,0 +1,11 @@
+@import './fonts.css';
+@import './global.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #191f28;
+}
