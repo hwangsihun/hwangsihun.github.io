@@ -86,8 +86,12 @@
     </div>
 
     <!-- 캘린더  -->
-    <div class="flex justify-center w-full px-[24px] py-[16px] max-w-[1240px] flex c_blueLine border-2 rounded-full">
-      <div id="date-bar" class="flex w-full justify-between overflow-x-auto">
+    <div
+      class="flex justify-center w-full px-[24px] py-[16px] max-w-[1240px] flex c_blueLine border-2 rounded-full relative">
+      <div class="absolute inset-x-0 bottom-0 h-[auto] overflow-x-auto">
+        <div id="date-bar" class="flex w-max justify-between">
+          <!-- 캘린더 요소들 -->
+        </div>
       </div>
     </div>
 

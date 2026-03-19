@@ -87,8 +87,8 @@ function initializeCalendar() {
                 separator.style.width = '1px';
                 separator.style.height = '44px';
                 separator.style.borderRight = '1px dashed black';
-                separator.style.marginLeft = '8px';
-                separator.style.marginRight = '8px';
+                separator.style.marginLeft = '16px';
+                separator.style.marginRight = '16px';
                 dateBar.appendChild(separator);
             }
 
