@@ -152,7 +152,7 @@ body {
 /* Swiper Navigation Buttons */
 .swiper-button-prev,
 .swiper-button-next {
-    position: relative !important;
+    position: static !important;
     color: var(--color-black) !important;
     width: 32px !important;
     height: 32px !important;
@@ -166,7 +166,6 @@ body {
     padding: 0 !important;
     cursor: pointer;
     transition: all 0.3s ease;
-    flex-shrink: 0;
 }
 
 .swiper-button-prev:hover,
