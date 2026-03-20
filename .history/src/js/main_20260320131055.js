@@ -1,7 +1,6 @@
 import '../style/global.css';
 
 document.addEventListener('DOMContentLoaded', () => {
-    updateMonthDisplay();
     initializeCalendar();
     initializeMobileCalendar();
 });
@@ -35,16 +34,6 @@ function getLocalISODate(year, month, day) {
     return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
 
-// 현재 월을 HTML에 표시 (웹과 모바일 모두)
-function updateMonthDisplay() {
-    const monthElements = document.querySelectorAll('.current-month');
-    const today = new Date();
-    const currentMonth = today.getMonth() + 1;
-    monthElements.forEach(element => {
-        element.textContent = currentMonth;
-    });
-}
-
 function initializeCalendar() {
     const dateBar = document.getElementById('date-bar');
     if (!dateBar) return;
@@ -55,7 +44,7 @@ function initializeCalendar() {
 
     const getDaysInMonth = (year, month) => {
         const days = [];
-        const date = new Date(year, month, 1);
+        const date = new Date(year, month, 2);
         while (date.getMonth() === month) {
             days.push(new Date(date));
             date.setDate(date.getDate() + 1);

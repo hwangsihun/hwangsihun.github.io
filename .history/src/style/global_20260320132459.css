@@ -17,7 +17,6 @@ body {
     --color-blue: #006eff;
     --color-lightBlue: #519cff;
     --color-lightGray: #bdbdbd;
-    --color-darkGray: #616161;
 
     --color-purpleLine: #b254f0;
     --color-mintLine: #00a4a9;
@@ -66,12 +65,8 @@ body {
     background-color: var(--color-blueLine);
 }
 
-.c_lightGrayFont {
+.c_lightGray {
     background-color: var(--color-lightGray);
-}
-
-.c_darkGrayFont {
-    color: var(--color-darkGray);
 }
 
 .c_purpleLine {

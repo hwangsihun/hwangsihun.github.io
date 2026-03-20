@@ -1,7 +1,6 @@
 import '../style/global.css';
 
 document.addEventListener('DOMContentLoaded', () => {
-    updateMonthDisplay();
     initializeCalendar();
     initializeMobileCalendar();
 });
@@ -12,7 +11,7 @@ const highlightDates = [
     '2026-03-09',
     '2026-03-12',
     '2026-03-16',
-    '2026-03-17',
+    '2026-03-21',
     '2026-03-23',
     '2026-03-26',
     '2026-03-31',
@@ -33,16 +32,6 @@ function getDateStyle(iso, dayOfWeek) {
 
 function getLocalISODate(year, month, day) {
     return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-}
-
-// 현재 월을 HTML에 표시 (웹과 모바일 모두)
-function updateMonthDisplay() {
-    const monthElements = document.querySelectorAll('.current-month');
-    const today = new Date();
-    const currentMonth = today.getMonth() + 1;
-    monthElements.forEach(element => {
-        element.textContent = currentMonth;
-    });
 }
 
 function initializeCalendar() {

@@ -67,10 +67,10 @@ body {
 }
 
 .c_lightGrayFont {
-    background-color: var(--color-lightGray);
+    color: var(--color-lightGray);
 }
 
-.c_darkGrayFont {
+.c_darkGray {
     color: var(--color-darkGray);
 }
 

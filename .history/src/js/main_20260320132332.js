@@ -35,14 +35,14 @@ function getLocalISODate(year, month, day) {
     return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
 
-// 현재 월을 HTML에 표시 (웹과 모바일 모두)
+// 현재 월을 HTML에 표시
 function updateMonthDisplay() {
-    const monthElements = document.querySelectorAll('.current-month');
-    const today = new Date();
-    const currentMonth = today.getMonth() + 1;
-    monthElements.forEach(element => {
-        element.textContent = currentMonth;
-    });
+    const monthElement = document.getElementById('current-month');
+    if (monthElement) {
+        const today = new Date();
+        const currentMonth = today.getMonth() + 1;
+        monthElement.textContent = currentMonth;
+    }
 }
 
 function initializeCalendar() {
