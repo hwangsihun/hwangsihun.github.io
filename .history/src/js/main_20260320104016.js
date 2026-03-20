@@ -67,7 +67,7 @@ function initializeCalendar() {
         dayNameDiv.textContent = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
         dayNameDiv.style.fontSize = '12px';
         dayNameDiv.style.marginBottom = '4px';
-        dayNameDiv.style.fontWeight = '600';
+        dayNameDiv.style.fontWeight = '800';
 
         const dateCircle = document.createElement('div');
         dateCircle.textContent = d.getDate();
@@ -126,14 +126,12 @@ function initializeMobileCalendar() {
 
     calendarGrid.innerHTML = '';
 
-    // 빈 셀 추가 (월의 첫 번째 날 이전)
     for (let i = 0; i < startingDayOfWeek; i++) {
         const emptyCell = document.createElement('div');
         emptyCell.className = 'grid place-items-center';
         calendarGrid.appendChild(emptyCell);
     }
 
-    // 날짜 셀만 추가 (요일 텍스트 없이)
     for (let day = 1; day <= daysInMonth; day++) {
         const iso = getLocalISODate(currentYear, currentMonth, day);
         const dayOfWeek = new Date(currentYear, currentMonth, day).getDay();
@@ -142,22 +140,36 @@ function initializeMobileCalendar() {
         const dateCell = document.createElement('div');
         dateCell.className = 'grid place-items-center';
 
-        if (style.isWeekend || style.isHighlighted) {
-            // 주말 또는 지정 날짜: 원형 배경
-            const span = document.createElement('span');
-            span.className =
-                'grid h-10 w-10 place-items-center rounded-full text-[16px] font-semibold sm:h-11 sm:w-11 sm:text-[17px]';
-            span.style.backgroundColor = style.bgColor;
-            span.style.color = style.isHighlighted ? '#ffffff' : style.textColor;
-            span.textContent = day;
-            dateCell.appendChild(span);
-        } else {
-            // 일반 날짜
-            dateCell.className =
-                'grid place-items-center text-[17px] font-medium text-[#111827] sm:text-[18px]';
-            dateCell.textContent = day;
-        }
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'flex';
+        wrapper.style.flexDirection = 'column';
+        wrapper.style.alignItems = 'center';
 
+        const dayName = document.createElement('div');
+        dayName.textContent = new Date(currentYear, currentMonth, day)
+            .toLocaleDateString('en-US', { weekday: 'short' })
+            .toUpperCase();
+        dayName.style.fontSize = '12px';
+        dayName.style.marginBottom = '4px';
+        dayName.style.fontWeight = '700';
+        dayName.style.color = style.dayNameColor;
+
+        const dateCircle = document.createElement('div');
+        dateCircle.textContent = day;
+        dateCircle.style.display = 'flex';
+        dateCircle.style.alignItems = 'center';
+        dateCircle.style.justifyContent = 'center';
+        dateCircle.style.width = '40px';
+        dateCircle.style.height = '40px';
+        dateCircle.style.borderRadius = '9999px';
+        dateCircle.style.fontSize = '16px';
+        dateCircle.style.fontWeight = '600';
+        dateCircle.style.backgroundColor = style.bgColor;
+        dateCircle.style.color = style.textColor;
+
+        wrapper.appendChild(dayName);
+        wrapper.appendChild(dateCircle);
+        dateCell.appendChild(wrapper);
         calendarGrid.appendChild(dateCell);
     }
 }

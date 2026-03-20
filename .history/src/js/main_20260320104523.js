@@ -67,7 +67,7 @@ function initializeCalendar() {
         dayNameDiv.textContent = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
         dayNameDiv.style.fontSize = '12px';
         dayNameDiv.style.marginBottom = '4px';
-        dayNameDiv.style.fontWeight = '600';
+        dayNameDiv.style.fontWeight = '800';
 
         const dateCircle = document.createElement('div');
         dateCircle.textContent = d.getDate();
@@ -153,8 +153,7 @@ function initializeMobileCalendar() {
             dateCell.appendChild(span);
         } else {
             // 일반 날짜
-            dateCell.className =
-                'grid place-items-center text-[17px] font-medium text-[#111827] sm:text-[18px]';
+            dateCell.className = 'grid place-items-center text-[17px] font-medium text-[#111827] sm:text-[18px]';
             dateCell.textContent = day;
         }
 

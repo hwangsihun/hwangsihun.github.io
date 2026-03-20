@@ -67,7 +67,7 @@ function initializeCalendar() {
         dayNameDiv.textContent = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
         dayNameDiv.style.fontSize = '12px';
         dayNameDiv.style.marginBottom = '4px';
-        dayNameDiv.style.fontWeight = '600';
+        dayNameDiv.style.fontWeight = '800';
 
         const dateCircle = document.createElement('div');
         dateCircle.textContent = d.getDate();

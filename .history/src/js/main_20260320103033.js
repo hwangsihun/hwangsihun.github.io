@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMobileCalendar();
 });
 
+// 특정 지정 날짜 (이 날짜들만 파란색으로 표시)
 const highlightDates = [
     '2026-03-02',
     '2026-03-05',
@@ -17,6 +18,7 @@ const highlightDates = [
     '2026-03-31',
 ];
 
+// 날짜 스타일 결정 함수
 function getDateStyle(iso, dayOfWeek) {
     const isWeekend = [0, 6].includes(dayOfWeek);
     const isHighlighted = highlightDates.includes(iso);
@@ -25,11 +27,12 @@ function getDateStyle(iso, dayOfWeek) {
         isWeekend,
         isHighlighted,
         bgColor: isWeekend ? '#EDEDED' : isHighlighted ? '#0A66FF' : 'transparent',
-        textColor: isWeekend ? '#D1D5DB' : isHighlighted ? '#ffffff' : '#111827',
+        textColor: isWeekend ? '#D1D5DB' : isHighlighted ? '#0A66FF' : '#111827',
         dayNameColor: isWeekend ? '#8F8F8F' : isHighlighted ? '#0A66FF' : '#111827',
     };
 }
 
+// 로컬 시간 기준의 ISO 날짜 형식 생성 (타임존 문제 해결)
 function getLocalISODate(year, month, day) {
     return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
@@ -67,7 +70,7 @@ function initializeCalendar() {
         dayNameDiv.textContent = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
         dayNameDiv.style.fontSize = '12px';
         dayNameDiv.style.marginBottom = '4px';
-        dayNameDiv.style.fontWeight = '600';
+        dayNameDiv.style.fontWeight = '800';
 
         const dateCircle = document.createElement('div');
         dateCircle.textContent = d.getDate();
@@ -80,7 +83,7 @@ function initializeCalendar() {
         dateCircle.style.fontSize = '16px';
         dateCircle.style.fontWeight = '600';
 
-        const iso = getLocalISODate(d.getFullYear(), d.getMonth(), d.getDate());
+        const iso = d.toISOString().slice(0, 10);
         const style = getDateStyle(iso, d.getDay());
 
         dateCircle.style.backgroundColor = style.bgColor;
@@ -126,35 +129,36 @@ function initializeMobileCalendar() {
 
     calendarGrid.innerHTML = '';
 
-    // 빈 셀 추가 (월의 첫 번째 날 이전)
+    // 빈 셀 추가
     for (let i = 0; i < startingDayOfWeek; i++) {
         const emptyCell = document.createElement('div');
         emptyCell.className = 'grid place-items-center';
         calendarGrid.appendChild(emptyCell);
     }
 
-    // 날짜 셀만 추가 (요일 텍스트 없이)
+    // 날짜 셀 추가
     for (let day = 1; day <= daysInMonth; day++) {
-        const iso = getLocalISODate(currentYear, currentMonth, day);
-        const dayOfWeek = new Date(currentYear, currentMonth, day).getDay();
+        const date = new Date(currentYear, currentMonth, day);
+        const iso = date.toISOString().slice(0, 10);
+        const dayOfWeek = date.getDay();
         const style = getDateStyle(iso, dayOfWeek);
 
         const dateCell = document.createElement('div');
-        dateCell.className = 'grid place-items-center';
 
         if (style.isWeekend || style.isHighlighted) {
             // 주말 또는 지정 날짜: 원형 배경
+            dateCell.className = 'grid place-items-center';
             const span = document.createElement('span');
             span.className =
                 'grid h-10 w-10 place-items-center rounded-full text-[16px] font-semibold sm:h-11 sm:w-11 sm:text-[17px]';
             span.style.backgroundColor = style.bgColor;
-            span.style.color = style.isHighlighted ? '#ffffff' : style.textColor;
+            span.style.color = style.textColor;
             span.textContent = day;
             dateCell.appendChild(span);
         } else {
             // 일반 날짜
-            dateCell.className =
-                'grid place-items-center text-[17px] font-medium text-[#111827] sm:text-[18px]';
+            dateCell.className = 'grid place-items-center text-[17px] font-medium sm:text-[18px]';
+            dateCell.style.color = style.dayNameColor;
             dateCell.textContent = day;
         }
 
