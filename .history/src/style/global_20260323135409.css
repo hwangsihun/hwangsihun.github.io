@@ -102,9 +102,4 @@ body {
     background-color: var(--color-GrayBg);
 }
 
-/* active */
-.active {
-    background-color: black;
-    color: #ffffff;
-    border: none;
-}
+/* ============ Swiper Gallery ============ */

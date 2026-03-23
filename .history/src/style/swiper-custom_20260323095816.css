@@ -1,0 +1,6 @@
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-rtl .swiper-button-next {
+    left: var(--swiper-navigation-sides-offset);
+    right: var(--swiper-navigation-sides-offset);
+}

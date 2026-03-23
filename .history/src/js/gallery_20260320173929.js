@@ -15,7 +15,7 @@ function initializeGallerySwiper() {
 
         // 자동 재생
         autoplay: {
-            delay: 3000,
+            delay: 5000,
             disableOnInteraction: false,
         },
 
@@ -34,7 +34,7 @@ function initializeGallerySwiper() {
 
         // 효과 및 속도
         effect: 'slide',
-        speed: 800,
+        speed: 300,
 
         // 마우스 드래그 및 터치 제스처
         grabCursor: true, // 마우스 커서를 grab 모양으로

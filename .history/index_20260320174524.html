@@ -10,11 +10,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
-<body class="flex flex-col items-center justify-center">
+<body>
 
   <!-- main-1 -->
   <div id="main-1"
-    class="flex justify-between flex-col h-dvh pt-[120px] gap-[40px] sm_tablet:gap-[0] sm_tablet:pt-[200px] pb-[100px]">
+    class="flex justify-between items-center flex-col h-dvh pt-[120px] gap-[40px] sm_tablet:gap-[0] sm_tablet:pt-[200px] pb-[100px]">
 
     <!-- 웹 메인비주얼 -->
     <div class="flex justify-start flex-col gap-[16px] px-[20px]">
@@ -25,12 +25,11 @@
           class="font-clash-rg leading-none whitespace-nowrap text-[65px] sm_tablet:text-[80px] laptop:text-[100px] desktop:text-[115px]">
           ARTS</p>
         <a href="#"
-          class="flex justify-between c_purple px-[24px] py-[16px] rounded-full border-2 c_purpleLine hidden laptop:flex laptop:w-[226px] laptop:h-[87px] desktop:w-[260px] desktop:h-[100px] ">
+          class="flex justify-between c_purple px-[24px] py-[16px] rounded-full border-2 c_purpleLine hidden laptop:flex laptop:w-[226px] laptop:h-[87px] desktop:w-[260px] desktop:h-[100px]">
           <span class="whitespace-nowrap text-[18px] desktop:text-[20px]">
             <strong>투어</strong> 신청
           </span>
-          <div
-            class="group flex justify-center items-center bg-white rounded-full w-[50px] h-[50px] hover:bg-black transition-all duration-300 ease-in-out">
+          <div class="group flex justify-center items-center bg-white rounded-full w-[50px] h-[50px] hover:bg-black">
             <img src="/assets/imgs/icons/arrow.svg" class="w-[20px] h-[20px] group-hover:invert" alt="화살표">
           </div>
         </a>
@@ -48,8 +47,7 @@
         <a href="#"
           class="flex justify-between c_mint px-[24px] py-[16px] rounded-full border-2 c_mintLine hidden laptop:flex laptop:w-[226px] laptop:h-[87px] desktop:w-[260px] desktop:h-[100px]">
           <span class="text-[18px] desktop:text-[20px]"><strong>대관·시설</strong> 신청</span>
-          <div
-            class="group flex justify-center items-center bg-white rounded-full w-[50px] h-[50px] hover:bg-black trasition-all duration-300 ease-in-out">
+          <div class="group flex justify-center items-center bg-white rounded-full w-[50px] h-[50px] hover:bg-black">
             <img src="/assets/imgs/icons/arrow.svg" class="w-[20px] h-[20px] group-hover:invert" alt="화살표">
           </div>
         </a>
@@ -67,8 +65,7 @@
         <a href="#"
           class="flex justify-between c_yellow px-[24px] py-[16px] rounded-full border-2 c_yellowLine hidden laptop:flex laptop:w-[226px] laptop:h-[87px] desktop:w-[260px] desktop:h-[100px]">
           <span class="text-[18px] desktop:text-[20px]"><strong>비즈 컨설팅</strong> 신청</span>
-          <div
-            class="group flex justify-center items-center bg-white rounded-full w-[50px] h-[50px] hover:bg-black transition-all duration-300 ease-in-out">
+          <div class="group flex justify-center items-center bg-white rounded-full w-[50px] h-[50px] hover:bg-black">
             <img src="/assets/imgs/icons/arrow.svg" class="w-[20px] h-[20px] group-hover:invert" alt="화살표">
           </div>
         </a>
@@ -149,78 +146,73 @@
   </div>
 
   <!-- main-2 -->
-  <div id="main-2"
-    class="grid grid-cols-2 gap-[40px] place-items-center aspect-[1240/474] w-full max-w-[1240px] border h-dvh px-[20px] ">
+  <div id="main-2" class="flex justify-between items-center h-dvh px-[20px]">
+    <div class="flex items-center justify-center w-full h-full gap-[40px]">
 
-    <!-- 이벤트 배너 스와이프 -->
-    <div class="gallery-wrapper flex flex-col items-end gap gap-[24px] w-full">
+      <!-- 이벤트 배너 스와이프 -->
+      <div class="gallery-wrapper flex flex-col items-end">
 
-      <div class="flex items-center justify-between w-full">
-
-        <div class="flex items-center gap-[12px]">
-          <img class="w-[36px]" src="/assets/imgs/img/keyVisual_3.svg" alt="키비주얼3">
-          <h1 class="font-inter text-[24px] font-medium">ARTS KOREA LAB <span class="font-bold">NEWS</span></h1>
-        </div>
-
-        <div class="gallery-controls flex items-center gap-[8px]">
-          <span class="slide-counter ml-[16px] text-[14px] font-medium"><span class="current-slide"></span>/<span
-              class="total-slides"></span></span>
+        <div class="gallery-controls flex items-center gap-[8px] mb-[24px]">
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
+          <span class="slide-counter ml-[16px] text-[14px] font-medium"><span class="current-slide"></span>/<span
+              class="total-slides"></span></span>
         </div>
 
+        <!-- Swiper Gallery -->
+        <div class="swiper-container w-full">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <img src="/assets/imgs/img/example_1.png" alt="Gallery Image 1" class="w-full h-full object-cover">
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <img src="/assets/imgs/img/example_2.png" alt="Gallery Image 2" class="w-full h-full object-cover">
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <img src="/assets/imgs/img/example_3.png" alt="Gallery Image 3" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
 
-      <!-- Swiper Gallery -->
-      <div class="swiper-container w-full">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <img src="/assets/imgs/img/example_1.png" alt="Gallery Image 1" class="w-full h-full object-cover">
-          </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <img src="/assets/imgs/img/example_2.png" alt="Gallery Image 2" class="w-full h-full object-cover">
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <img src="/assets/imgs/img/example_3.png" alt="Gallery Image 3" class="w-full h-full object-cover">
-          </div>
+      <div class="gallery-wrapper flex flex-col items-end">
+
+        <div class="gallery-controls flex items-center gap-[8px] mb-[24px]">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <span class="slide-counter ml-[16px] text-[14px] font-medium"><span class="current-slide"></span>/<span
+              class="total-slides"></span></span>
         </div>
 
-        <!-- Pagination -->
-        <div class="swiper-pagination"></div>
+        <!-- Swiper Gallery -->
+        <div class="swiper-container w-full">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <img src="/assets/imgs/img/example_1.png" alt="Gallery Image 1" class="w-full h-full object-cover">
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <img src="/assets/imgs/img/example_2.png" alt="Gallery Image 2" class="w-full h-full object-cover">
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <img src="/assets/imgs/img/example_3.png" alt="Gallery Image 3" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
+
     </div>
-
-    <!-- 공지사항 -->
-    <div class="flex flex-col items-end gap gap-[24px] w-full">
-
-      <div class="flex flex-end justify-center items-center gap-[16px]">
-        <div class="flex flex-end justify-center items-center gap-[8px] font-regular text-[18px]">
-          <button
-            class="w-[120px] h-[48px] rounded-full flex items-center justify-center c_lightGrayLine border-[1px] active">전체</button>
-          <button
-            class="w-[120px] h-[48px] rounded-full flex items-center justify-center c_lightGrayLine border-[1px]">공지사항</button>
-          <button
-            class="w-[120px] h-[48px] rounded-full flex items-center justify-center c_lightGrayLine border-[1px]">공모소식</button>
-        </div>
-        <div
-          class="w-[50px] h-[50px] flex justify-center items-center c_lightGrayLine border-[1px] rounded-full group hover:border-none hover:bg-black transition-all duration-300 ease-in-out">
-          <img src="/assets/imgs/icons/arrow.svg" class="w-[16px] h-[16px] group-hover:invert" alt="페이지이동">
-        </div>
-      </div>
-
-      <div
-        class="w-full h-full aspect-[596/400] rounded-[16px] overflow-hidden c_blueBg mt-[-10px] flex flex-col gap-[20px] p-[32px]">
-        <div class="w-full aspect-[536/168] flex items-center gap-[20px]">
-          <div class="w-full h-full bg-white rounded-[20px]"></div>
-          <div class="w-full h-full bg-white rounded-[20px]"></div>
-        </div>
-      </div>
-    </div>
-
-
   </div>
 
   <!-- Swiper JS -->

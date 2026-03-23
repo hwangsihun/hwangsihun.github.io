@@ -40,7 +40,7 @@ function updateMonthDisplay() {
     const monthElements = document.querySelectorAll('.current-month');
     const today = new Date();
     const currentMonth = today.getMonth() + 1;
-    monthElements.forEach((element) => {
+    monthElements.forEach(element => {
         element.textContent = currentMonth;
     });
 }
