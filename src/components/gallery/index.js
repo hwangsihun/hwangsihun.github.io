@@ -1,13 +1,16 @@
 function initializeGallerySwiper() {
     const mainSection = document.querySelector('#main-2');
     const swiperContainer = mainSection?.querySelector('.main2-swiper');
+    const controlsRoot = mainSection?.querySelector('[data-swiper-controls]');
 
     if (!mainSection || !swiperContainer) return;
 
     const totalSlides = swiperContainer.querySelectorAll('.swiper-slide').length;
     const progressFill = mainSection.querySelector('.main2-swiper-progress-fill');
-    const toggleButton = mainSection.querySelector('.main2-swiper-toggle');
-    const toggleIcon = toggleButton?.querySelector('[data-role="toggle-icon"]');
+    const prevButton = controlsRoot?.querySelector('[data-icon="prev"] [data-pagination-button="prev"]');
+    const toggleButton = controlsRoot?.querySelector('[data-icon="stop"] [data-pagination-button="stop"]');
+    const nextButton = controlsRoot?.querySelector('[data-icon="next"] [data-pagination-button="next"]');
+    const toggleIcon = toggleButton?.querySelector('img');
     let isUserPaused = false;
 
     const swiper = new Swiper(swiperContainer, {
@@ -25,8 +28,8 @@ function initializeGallerySwiper() {
             clickable: true,
         },
         navigation: {
-            nextEl: mainSection.querySelector('.main2-swiper-next'),
-            prevEl: mainSection.querySelector('.main2-swiper-prev'),
+            nextEl: nextButton,
+            prevEl: prevButton,
         },
         effect: 'slide',
         speed: 800,
@@ -60,7 +63,7 @@ function initializeGallerySwiper() {
     function updateToggleIcon() {
         if (!toggleButton || !toggleIcon) return;
 
-        toggleIcon.textContent = isUserPaused ? '\u25B6' : '\u2016';
+        toggleIcon.style.opacity = isUserPaused ? '0.45' : '1';
         toggleButton.setAttribute('aria-label', isUserPaused ? 'play slide' : 'pause slide');
     }
 
