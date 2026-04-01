@@ -5,7 +5,7 @@
 }
 
 .ml-\[16px\] {
-    margin-left: 0px;
+    margin-left: 0;
     margin-right: 8px;
     font-size: 16px;
 }
@@ -13,7 +13,6 @@
 .gallery-wrapper {
     position: relative;
     width: 100%;
-    max-width: 596px;
     flex: 0 1 auto;
 }
 
@@ -30,9 +29,10 @@
     font-weight: 600;
 }
 
-.swiper-container {
+.swiper-container,
+.main2-swiper {
     width: 100%;
-    aspect-ratio: 596 / 400; /* 비율 유지: 너비가 줄어들면 높이도 함께 줄어듦 */
+    aspect-ratio: 596 / 400;
     border-radius: 16px;
     overflow: hidden;
 }
@@ -48,7 +48,6 @@
     object-fit: cover;
 }
 
-/* Swiper Pagination */
 .swiper-pagination {
     bottom: 12px !important;
 }
@@ -63,9 +62,10 @@
     background-color: rgba(255, 255, 255, 1) !important;
 }
 
-/* Swiper Navigation Buttons */
 .swiper-button-prev,
-.swiper-button-next {
+.swiper-button-next,
+.main2-swiper-prev,
+.main2-swiper-next {
     position: relative !important;
     color: var(--color-black) !important;
     width: 40px !important;
@@ -84,14 +84,108 @@
 }
 
 .swiper-button-prev:hover,
-.swiper-button-next:hover {
+.swiper-button-next:hover,
+.main2-swiper-prev:hover,
+.main2-swiper-next:hover {
     background-color: var(--color-black) !important;
-    color: white !important;
+    color: #fff !important;
 }
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
     font-size: 14px !important;
+}
+
+.main2-swiper-prev::after,
+.main2-swiper-next::after {
+    display: none !important;
+}
+
+.main2-swiper-prev:hover img,
+.main2-swiper-next:hover img {
+    filter: invert(1);
+}
+
+#main-2 .main2-swiper {
+    aspect-ratio: auto;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+#main-2 .main2-swiper .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#main-2 .main2-swiper .swiper-slide {
+    height: auto;
+    width: 100% !important;
+    flex-shrink: 0;
+}
+
+#main-2 .main2-swiper-pagination {
+    display: none !important;
+}
+
+#main-2 .main2-invert-button {
+    color: var(--color-black);
+}
+
+#main-2 .main2-invert-button img,
+#main-2 .main2-invert-button svg {
+    transition: all 0.3s ease;
+}
+
+#main-2 .main2-invert-button:hover {
+    background-color: var(--color-black) !important;
+    color: #fff !important;
+}
+
+#main-2 .main2-invert-button:hover img {
+    filter: invert(1);
+}
+
+#main-2 .main2-invert-button .main2-icon-light {
+    filter: brightness(0);
+}
+
+#main-2 .main2-invert-button:hover .main2-icon-light {
+    filter: brightness(0) invert(1);
+}
+
+#main-2 .main2-swiper-progress {
+    overflow: visible;
+}
+
+#main-2 .main2-swiper-progress-fill {
+    left: 0;
+    border-radius: 999px;
+}
+
+#main-2 .main2-control-button,
+#main-2 .main2-swiper-prev,
+#main-2 .main2-swiper-next {
+    width: 50px !important;
+    height: 50px !important;
+    background-color: #fff !important;
+    border-color: var(--color-black) !important;
+    border-radius: 999px !important;
+}
+
+#main-2 .main2-control-button:hover,
+#main-2 .main2-swiper-prev:hover,
+#main-2 .main2-swiper-next:hover {
+    background-color: var(--color-black) !important;
+    color: #fff !important;
+}
+
+#main-2 .main2-swiper-prev:hover img,
+#main-2 .main2-swiper-next:hover img {
+    filter: invert(1);
+}
+
+#main-2 .main2-control-button {
+    padding: 0 !important;
 }
 
 .c_dateGray {

@@ -1,5 +1,3 @@
-import '../style/global.css';
-
 document.addEventListener('DOMContentLoaded', () => {
     updateMonthDisplay();
     initializeCalendar();
@@ -7,15 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const highlightDates = [
-    '2026-03-02',
-    '2026-03-05',
-    '2026-03-09',
-    '2026-03-12',
-    '2026-03-16',
-    '2026-03-17',
-    '2026-03-23',
-    '2026-03-26',
-    '2026-03-31',
+    '2026-04-02',
+    '2026-04-05',
+    '2026-04-09',
+    '2026-04-12',
+    '2026-04-16',
+    '2026-04-17',
+    '2026-04-23',
+    '2026-04-26',
+    '2026-04-31',
 ];
 
 function getDateStyle(iso, dayOfWeek) {
@@ -35,11 +33,11 @@ function getLocalISODate(year, month, day) {
     return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
 
-// 현재 월을 HTML에 표시 (웹과 모바일 모두)
 function updateMonthDisplay() {
     const monthElements = document.querySelectorAll('.current-month');
     const today = new Date();
     const currentMonth = today.getMonth() + 1;
+
     monthElements.forEach((element) => {
         element.textContent = currentMonth;
     });
@@ -56,10 +54,12 @@ function initializeCalendar() {
     const getDaysInMonth = (year, month) => {
         const days = [];
         const date = new Date(year, month, 1);
+
         while (date.getMonth() === month) {
             days.push(new Date(date));
             date.setDate(date.getDate() + 1);
         }
+
         return days;
     };
 
@@ -68,20 +68,20 @@ function initializeCalendar() {
     weekWrapper.style.display = 'flex';
     weekWrapper.style.gap = '8px';
 
-    days.forEach((d, idx) => {
+    days.forEach((dayItem, index) => {
         const container = document.createElement('div');
         container.style.display = 'flex';
         container.style.flexDirection = 'column';
         container.style.alignItems = 'center';
 
         const dayNameDiv = document.createElement('div');
-        dayNameDiv.textContent = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
+        dayNameDiv.textContent = dayItem.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
         dayNameDiv.style.fontSize = '12px';
         dayNameDiv.style.marginBottom = '4px';
         dayNameDiv.style.fontWeight = '600';
 
         const dateCircle = document.createElement('div');
-        dateCircle.textContent = d.getDate();
+        dateCircle.textContent = dayItem.getDate();
         dateCircle.style.display = 'flex';
         dateCircle.style.alignItems = 'center';
         dateCircle.style.justifyContent = 'center';
@@ -91,8 +91,8 @@ function initializeCalendar() {
         dateCircle.style.fontSize = '16px';
         dateCircle.style.fontWeight = '600';
 
-        const iso = getLocalISODate(d.getFullYear(), d.getMonth(), d.getDate());
-        const style = getDateStyle(iso, d.getDay());
+        const iso = getLocalISODate(dayItem.getFullYear(), dayItem.getMonth(), dayItem.getDate());
+        const style = getDateStyle(iso, dayItem.getDay());
 
         dateCircle.style.backgroundColor = style.bgColor;
         dateCircle.style.color = style.textColor;
@@ -102,10 +102,10 @@ function initializeCalendar() {
         container.appendChild(dateCircle);
         weekWrapper.appendChild(container);
 
-        if (d.getDay() === 0 || idx === days.length - 1) {
+        if (dayItem.getDay() === 0 || index === days.length - 1) {
             dateBar.appendChild(weekWrapper);
 
-            if (idx !== days.length - 1) {
+            if (index !== days.length - 1) {
                 const separator = document.createElement('div');
                 separator.style.width = '1px';
                 separator.style.height = '44px';
@@ -137,24 +137,21 @@ function initializeMobileCalendar() {
 
     calendarGrid.innerHTML = '';
 
-    // 빈 셀 추가 (월의 첫 번째 날 이전)
-    for (let i = 0; i < startingDayOfWeek; i++) {
+    for (let index = 0; index < startingDayOfWeek; index += 1) {
         const emptyCell = document.createElement('div');
         emptyCell.className = 'grid place-items-center';
         calendarGrid.appendChild(emptyCell);
     }
 
-    // 날짜 셀만 추가 (요일 텍스트 없이)
-    for (let day = 1; day <= daysInMonth; day++) {
+    for (let day = 1; day <= daysInMonth; day += 1) {
         const iso = getLocalISODate(currentYear, currentMonth, day);
         const dayOfWeek = new Date(currentYear, currentMonth, day).getDay();
         const style = getDateStyle(iso, dayOfWeek);
-
         const dateCell = document.createElement('div');
+
         dateCell.className = 'grid place-items-center';
 
         if (style.isWeekend || style.isHighlighted) {
-            // 주말 또는 지정 날짜: 원형 배경
             const span = document.createElement('span');
             span.className =
                 'grid h-10 w-10 place-items-center rounded-full text-[16px] font-semibold sm:h-11 sm:w-11 sm:text-[17px]';
@@ -163,7 +160,6 @@ function initializeMobileCalendar() {
             span.textContent = day;
             dateCell.appendChild(span);
         } else {
-            // 일반 날짜
             dateCell.className =
                 'grid place-items-center text-[17px] font-medium text-[#111827] sm:text-[18px]';
             dateCell.textContent = day;

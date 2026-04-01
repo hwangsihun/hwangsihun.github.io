@@ -7,7 +7,6 @@
 body {
     font-family: 'Noto Sans KR', sans-serif;
     color: #191f28;
-    line-height: 1.5;
 }
 
 /* 공통 색상 */
@@ -107,9 +106,8 @@ body {
 .c_GrayBg {
     background-color: var(--color-GrayBg);
 }
-
-.c_lightGrayBg {
-    background-color: var(--color-lightGrayBg);
+.c_lightBlueBg {
+    background-color: var(--color-lightBlueBg);
 }
 
 /* active */
