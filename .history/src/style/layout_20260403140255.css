@@ -1,4 +1,4 @@
-html,
+﻿html,
 body {
     height: 100%;
 }
@@ -16,6 +16,10 @@ body {
     scrollbar-width: none;
     overflow-x: auto;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .snap_page::-webkit-scrollbar {
@@ -29,9 +33,4 @@ body {
 .snap_section {
     min-height: 100dvh;
     scroll-snap-align: none;
-}
-
-/* main-1 */
-.btn_main1_primary {
-    border-radius: 999px;
 }

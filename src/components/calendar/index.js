@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     updateMonthDisplay();
     initializeCalendar();
     initializeMobileCalendar();
@@ -73,7 +73,7 @@ function initializeCalendar() {
 
         const dayNameDiv = document.createElement('div');
         dayNameDiv.textContent = dayItem.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
-        dayNameDiv.className = 'fs12 fw600 mb4';
+        dayNameDiv.className = 'fs12 fw600 mb4px';
 
         const dateCircle = document.createElement('div');
         dateCircle.textContent = dayItem.getDate();
@@ -152,5 +152,6 @@ function initializeMobileCalendar() {
         calendarGrid.appendChild(dateCell);
     }
 }
+
 
 

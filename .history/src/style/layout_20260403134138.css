@@ -10,12 +10,12 @@ body {
 
 .snap_page {
     height: 100dvh;
-    scroll-snap-type: none;
-    scroll-behavior: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     overflow-x: auto;
     overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .snap_page::-webkit-scrollbar {
@@ -28,10 +28,9 @@ body {
 
 .snap_section {
     min-height: 100dvh;
-    scroll-snap-align: none;
-}
-
-/* main-1 */
-.btn_main1_primary {
-    border-radius: 999px;
+    height: 100%;
+    max-width: 1240px;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }

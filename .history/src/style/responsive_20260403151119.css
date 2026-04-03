@@ -26,6 +26,24 @@
     }
 }
 
+@media (max-width: 1268px) {
+    #main-1 .fs115 {
+        font-size: 100px !important;
+    }
+
+    #main-1 .btn_main1_primary .fs20 {
+        font-size: 18px !important;
+    }
+
+    #main-1 .w260px {
+        width: 226px !important;
+    }
+
+    #main-1 .h100px {
+        height: 84px !important;
+    }
+}
+
 @media (min-width: 1268px) {
     .snap_page {
         padding-left: 60px;

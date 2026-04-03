@@ -1,4 +1,4 @@
-html,
+﻿html,
 body {
     height: 100%;
 }
@@ -29,9 +29,4 @@ body {
 .snap_section {
     min-height: 100dvh;
     scroll-snap-align: none;
-}
-
-/* main-1 */
-.btn_main1_primary {
-    border-radius: 999px;
 }
