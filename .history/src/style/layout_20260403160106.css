@@ -1,0 +1,38 @@
+html,
+body {
+    height: 100%;
+}
+
+.page_body {
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.snap_page {
+    height: 100dvh;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.snap_page::-webkit-scrollbar {
+    width: 0;
+}
+
+.snap_page::-webkit-scrollbar:vertical {
+    width: 0;
+}
+
+/* 섹션 최상위 부모 */
+.snap_section {
+    min-height: 100dvh;
+    scroll-snap-align: none;
+}
+
+/* main-1 */
+.btn_main1_primary {
+    border-radius: 999px;
+}

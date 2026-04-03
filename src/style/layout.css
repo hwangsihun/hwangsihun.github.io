@@ -26,12 +26,69 @@ body {
     width: 0;
 }
 
+/* 섹션 최상위 부모 */
 .snap_section {
     min-height: 100dvh;
     scroll-snap-align: none;
 }
 
 /* main-1 */
+.snap_section {
+    width: 100%;
+    max-width: 1240px;
+    height: 100%;
+    padding-top: 160px;
+    padding-bottom: 120px;
+}
+
+.container_visual_calendar {
+    width: 100%;
+}
+
+.container_visual {
+    width: 100%;
+    gap: 16px;
+    line-height: 1;
+}
+
+.wrapper_visual {
+    width: 100%;
+    gap: 24px;
+}
+
+.icon_visual1 {
+    width: 120px;
+}
+
+.icon_visual2 {
+    width: 110px;
+}
+
+.icon_visual3 {
+    width: 288px;
+}
+
+.icon_arrow1 {
+    width: 80px;
+    margin-left: 5%;
+}
+
+.text_visual {
+    font-size: 115px;
+}
+
+.btn_visual {
+    width: 260px;
+    height: 100px;
+    padding: 24px 32px;
+}
+
+.quick_link {
+    width: 50px;
+    height: 50px;
+    border-radius: 9999px;
+}
+
 .btn_main1_primary {
     border-radius: 999px;
 }
