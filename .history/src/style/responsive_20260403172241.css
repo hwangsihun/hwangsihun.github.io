@@ -47,20 +47,19 @@
 }
 
 /* tablet */
-@media (max-width: 991px) {
+@media (min-width: 786px) {
     .snap_page {
         padding-left: 20px;
         padding-right: 20px;
     }
 
-    /* main-1 visual */
+    /* main-1 visual_pc */
     .container_visual_pc {
         display: none;
     }
 
     .container_visual_mobile {
         display: flex;
-        align-items: center;
     }
 }
 

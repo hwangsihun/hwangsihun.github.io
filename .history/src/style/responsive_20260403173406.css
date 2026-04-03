@@ -60,7 +60,7 @@
 
     .container_visual_mobile {
         display: flex;
-        align-items: center;
+        justify-content: center;
     }
 }
 

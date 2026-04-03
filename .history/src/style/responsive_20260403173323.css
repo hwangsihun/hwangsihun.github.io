@@ -54,13 +54,15 @@
     }
 
     /* main-1 visual */
+    .container_visual_calendar {
+        justify-content: center;
+    }
     .container_visual_pc {
         display: none;
     }
 
     .container_visual_mobile {
         display: flex;
-        align-items: center;
     }
 }
 

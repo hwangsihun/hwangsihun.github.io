@@ -97,14 +97,8 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 6px;
-    line-height: 1;
 }
 
 .wrapper_visual_mobile {
     font-size: 56px;
-    gap: 12px;
-}
-
-.icon_visual_mobile {
-    width: 50px;
 }

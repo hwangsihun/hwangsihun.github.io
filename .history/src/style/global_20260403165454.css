@@ -2004,27 +2004,27 @@ h6 {
 .font_dateGray {
     color: var(--color-dateGray);
 }
-.line_purple {
+.line_purpleLine {
     border: 2px solid;
     border-color: var(--color-purpleLine);
 }
-.line_mint {
+.line_mintLine {
     border: 2px solid;
     border-color: var(--color-mintLine);
 }
-.line_yellow {
+.line_yellowLine {
     border: 2px solid;
     border-color: var(--color-yellowLine);
 }
-.line_blue {
+.line_blueLine {
     border: 2px solid;
     border-color: var(--color-blueLine);
 }
-.line_lightGray {
+.line_lightGrayLine {
     border: 2px solid;
     border-color: var(--color-lightGray);
 }
-.line_darkGray {
+.line_darkGrayLine {
     border: 2px solid;
     border-color: var(--color-darkGray);
 }
