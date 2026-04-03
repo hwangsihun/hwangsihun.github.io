@@ -1,7 +1,0 @@
-/* 폰트 선언 */
-@font-face {
-    font-family: 'Pretendard';
-    font-weight: 300;
-    font-style: normal;
-    src: url('../font/pretendard/Pretendard-Light.woff') format('woff');
-}

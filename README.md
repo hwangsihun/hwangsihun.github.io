@@ -16,6 +16,7 @@ src/
     home.js
   style/
     fonts.css
+    layout.css
     global.css
     swiper-custom.css
   main.js
@@ -28,6 +29,7 @@ index.html
 - `src/js/main.js` and `src/main.js` had confusingly similar names.
 - Reusable UI behavior like calendar and gallery lived next to page logic instead of component logic.
 - `pages/` existed but had no purpose documented.
+- Tailwind usage was removed in favor of plain CSS utilities in `global.css` and page-level rules in `layout.css`.
 
 ## Suggested JSP Mapping
 

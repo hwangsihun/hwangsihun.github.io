@@ -1,0 +1,23 @@
+@media (max-width: 360px) {
+}
+
+@media (max-width: 768px) {
+    .snap_page {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .snap_page {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .snap_page {
+        padding-left: 60px;
+        padding-right: 60p;
+    }
+}

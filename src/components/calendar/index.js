@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     updateMonthDisplay();
     initializeCalendar();
     initializeMobileCalendar();
@@ -65,31 +65,19 @@ function initializeCalendar() {
 
     const days = getDaysInMonth(currentYear, currentMonth);
     let weekWrapper = document.createElement('div');
-    weekWrapper.style.display = 'flex';
-    weekWrapper.style.gap = '8px';
+    weekWrapper.className = 'flex gap8';
 
     days.forEach((dayItem, index) => {
         const container = document.createElement('div');
-        container.style.display = 'flex';
-        container.style.flexDirection = 'column';
-        container.style.alignItems = 'center';
+        container.className = 'flex col aic';
 
         const dayNameDiv = document.createElement('div');
         dayNameDiv.textContent = dayItem.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
-        dayNameDiv.style.fontSize = '12px';
-        dayNameDiv.style.marginBottom = '4px';
-        dayNameDiv.style.fontWeight = '600';
+        dayNameDiv.className = 'fs12 fw600 mb4';
 
         const dateCircle = document.createElement('div');
         dateCircle.textContent = dayItem.getDate();
-        dateCircle.style.display = 'flex';
-        dateCircle.style.alignItems = 'center';
-        dateCircle.style.justifyContent = 'center';
-        dateCircle.style.width = '30px';
-        dateCircle.style.height = '30px';
-        dateCircle.style.borderRadius = '9999px';
-        dateCircle.style.fontSize = '16px';
-        dateCircle.style.fontWeight = '600';
+        dateCircle.className = 'flex_aic jcc w32px h32px rfull fs16 fw600';
 
         const iso = getLocalISODate(dayItem.getFullYear(), dayItem.getMonth(), dayItem.getDate());
         const style = getDateStyle(iso, dayItem.getDay());
@@ -116,8 +104,7 @@ function initializeCalendar() {
             }
 
             weekWrapper = document.createElement('div');
-            weekWrapper.style.display = 'flex';
-            weekWrapper.style.gap = '4px';
+            weekWrapper.className = 'flex gap4';
         }
     });
 }
@@ -139,7 +126,7 @@ function initializeMobileCalendar() {
 
     for (let index = 0; index < startingDayOfWeek; index += 1) {
         const emptyCell = document.createElement('div');
-        emptyCell.className = 'grid place-items-center';
+        emptyCell.className = 'calendar-empty-cell';
         calendarGrid.appendChild(emptyCell);
     }
 
@@ -149,22 +136,21 @@ function initializeMobileCalendar() {
         const style = getDateStyle(iso, dayOfWeek);
         const dateCell = document.createElement('div');
 
-        dateCell.className = 'grid place-items-center';
+        dateCell.className = 'calendar-mobile-date';
 
         if (style.isWeekend || style.isHighlighted) {
             const span = document.createElement('span');
-            span.className =
-                'grid h-10 w-10 place-items-center rounded-full text-[16px] font-semibold sm:h-11 sm:w-11 sm:text-[17px]';
+            span.className = 'calendar-mobile-highlight';
             span.style.backgroundColor = style.bgColor;
             span.style.color = style.isHighlighted ? '#ffffff' : style.textColor;
             span.textContent = day;
             dateCell.appendChild(span);
         } else {
-            dateCell.className =
-                'grid place-items-center text-[17px] font-medium text-[#111827] sm:text-[18px]';
             dateCell.textContent = day;
         }
 
         calendarGrid.appendChild(dateCell);
     }
 }
+
+

@@ -4,22 +4,22 @@ const PAGINATION_ICON_MAP = {
     next: {
         src: '/assets/imgs/icons/next,prev.svg',
         alt: 'next',
-        imgClass: 'rotate-180',
+        imageClass: 'rotate180',
     },
     prev: {
         src: '/assets/imgs/icons/next,prev.svg',
         alt: 'prev',
-        imgClass: '',
+        imageClass: '',
     },
     stop: {
         src: '/assets/imgs/icons/stop.svg',
         alt: 'stop',
-        imgClass: '',
+        imageClass: '',
     },
     link: {
         src: '/assets/imgs/icons/link.svg',
         alt: 'link',
-        imgClass: '',
+        imageClass: '',
     },
 };
 
@@ -36,19 +36,18 @@ function createPaginationButton(element) {
     const iconType = resolveIconType(element);
     const iconConfig = PAGINATION_ICON_MAP[iconType];
     const label = element.dataset.label || `${iconType} button`;
-    const imageClass = `h-[16px] w-[16px] ${iconConfig.imgClass}`.trim();
 
     element.innerHTML = `
         <button
             type="button"
-            class="group flex h-[50px] w-[50px] items-center justify-center rounded-[10px] border bg-white text-[#191f28] transition-all duration-300 ease-in-out c_lightGrayLine hover:bg-black hover:text-white"
+            class="main2_round_button c_lightGrayLine"
             data-pagination-button="${iconType}"
             aria-label="${label}"
         >
             <img
                 src="${iconConfig.src}"
                 alt="${iconConfig.alt}"
-                class="${imageClass} transition-all duration-300 ease-in-out group-hover:invert"
+                class="${iconConfig.imageClass}"
             >
         </button>
     `;
