@@ -450,8 +450,8 @@ body {
 
 .wrapper_pagination_pc .btn_pagination_pc:first-child::before,
 .wrapper_pagination_pc .btn_pagination_pc:last-child::before {
-    width: 13px;
-    height: 13px;
+    width: 12px;
+    height: 12px;
     background-image: url('/assets/imgs/icons/next,prev.svg');
 }
 
@@ -460,8 +460,8 @@ body {
 }
 
 .wrapper_pagination_pc .btn_pagination_pc:nth-child(2)::before {
-    width: 9px;
-    height: 13px;
+    width: 8px;
+    height: 12px;
     background-image: url('/assets/imgs/icons/stop.svg');
 }
 
