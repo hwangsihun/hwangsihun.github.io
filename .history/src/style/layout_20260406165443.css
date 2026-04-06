@@ -560,7 +560,7 @@ body {
 .bgicon_noticeBanner_1 {
     position: absolute;
     top: 18%;
-    left: calc(50% + 7vw - 10px);
+    left: 58%;
     width: 100px;
     height: 100px;
     z-index: -10;
@@ -568,17 +568,8 @@ body {
 
 .bgicon_noticeBanner_2 {
     position: absolute;
-    top: 45.5%;
-    left: calc(50% + 50vw - 40px);
-    width: 80px;
-    height: 80px;
-    z-index: -10;
-}
-
-.bgicon_noticeBanner_3 {
-    position: absolute;
-    top: 32%;
-    left: calc(50% - 120px);
+    top: 18%;
+    right: calc(5px);
     width: 60px;
     height: 60px;
     z-index: -10;

@@ -553,33 +553,6 @@ body {
     width: 100vw;
     height: 49vh;
     transform: translateX(-50%);
-    z-index: -20;
+    z-index: -10;
     border-radius: 0 0 0 258px;
-}
-
-.bgicon_noticeBanner_1 {
-    position: absolute;
-    top: 18%;
-    left: calc(50% + 7vw - 10px);
-    width: 100px;
-    height: 100px;
-    z-index: -10;
-}
-
-.bgicon_noticeBanner_2 {
-    position: absolute;
-    top: 45.5%;
-    left: calc(50% + 50vw - 40px);
-    width: 80px;
-    height: 80px;
-    z-index: -10;
-}
-
-.bgicon_noticeBanner_3 {
-    position: absolute;
-    top: 32%;
-    left: calc(50% - 120px);
-    width: 60px;
-    height: 60px;
-    z-index: -10;
 }

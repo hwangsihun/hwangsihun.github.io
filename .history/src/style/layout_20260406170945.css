@@ -577,8 +577,8 @@ body {
 
 .bgicon_noticeBanner_3 {
     position: absolute;
-    top: 32%;
-    left: calc(50% - 120px);
+    top: 30%;
+    left: calc(50% + 50vw - 40px);
     width: 60px;
     height: 60px;
     z-index: -10;
