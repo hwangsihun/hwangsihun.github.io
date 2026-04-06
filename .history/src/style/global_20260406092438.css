@@ -110,16 +110,19 @@ h6 {
 }
 .flex_r {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 .flex_rb {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
 .flex_b {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 

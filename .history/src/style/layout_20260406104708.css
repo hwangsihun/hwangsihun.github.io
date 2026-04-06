@@ -194,13 +194,14 @@ body {
     border-radius: 999px;
     overflow: hidden;
     background-color: #ffffff;
-    padding: 16px 32px;
+    padding: 24px 12px;
 }
 
 .viewport_calendar_pc {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
+    padding: 12px 24px;
     scrollbar-width: thin;
     -ms-overflow-style: auto;
 }

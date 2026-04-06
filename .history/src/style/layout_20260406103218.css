@@ -1,4 +1,4 @@
-html,
+﻿html,
 body {
     height: 100%;
 }
@@ -194,13 +194,13 @@ body {
     border-radius: 999px;
     overflow: hidden;
     background-color: #ffffff;
-    padding: 16px 32px;
 }
 
 .viewport_calendar_pc {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
+    padding: 12px 24px;
     scrollbar-width: thin;
     -ms-overflow-style: auto;
 }
@@ -219,16 +219,16 @@ body {
 }
 
 .track_calendar_pc {
-    gap: 4px;
+    width: max-content;
+    min-width: max-content;
     flex-wrap: nowrap;
     align-items: flex-start;
 }
 
 .item_calendar_pc {
-    flex: 0 0 32px;
-    width: 32px;
-    min-width: 32px;
-    flex-shrink: 0;
+    flex: 0 0 44px;
+    width: 44px;
+    min-width: 44px;
     text-align: center;
     color: #191f28;
 }
@@ -236,37 +236,32 @@ body {
 .item_calendar_pc::before {
     content: attr(data-week);
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     font-size: 11px;
     font-weight: 600;
     line-height: 1;
-    color: var(--calendar-day-color, #191f28);
 }
 
 .item_calendar_pc span {
     display: block;
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border-radius: 999px;
     text-align: center;
     font-size: 16px;
-    line-height: 32px;
+    line-height: 30px;
 }
 
 .line_calendar_pc {
     position: relative;
-    flex: 0 0 12px;
-    width: 12px;
-    min-width: 12px;
     height: 44px;
-    flex-shrink: 0;
 }
 
 .line_calendar_pc::before {
     content: '';
     position: absolute;
     left: 50%;
-    top: 4px;
+    top: 6px;
     bottom: 2px;
     border-left: 1.5px dashed #454545;
 }

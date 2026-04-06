@@ -13,6 +13,7 @@ const highlightDates = [
     '2026-04-17',
     '2026-04-23',
     '2026-04-26',
+    '2026-04-31',
 ];
 
 function getDateStyle(iso, dayOfWeek) {
@@ -151,3 +152,6 @@ function initializeMobileCalendar() {
         calendarGrid.appendChild(dateCell);
     }
 }
+
+
+

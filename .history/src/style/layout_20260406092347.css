@@ -1,0 +1,111 @@
+html,
+body {
+    height: 100%;
+}
+
+.page_body {
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.snap_page {
+    height: 100dvh;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.snap_page::-webkit-scrollbar {
+    width: 0;
+}
+
+.snap_page::-webkit-scrollbar:vertical {
+    width: 0;
+}
+
+/* 섹션 최상위 부모 */
+.snap_section {
+    min-height: 100dvh;
+    scroll-snap-align: none;
+}
+
+/* main-1 visual_pc */
+.snap_section {
+    width: 100%;
+    max-width: 1240px;
+    height: 100%;
+    padding-top: 160px;
+    padding-bottom: 120px;
+}
+
+.container_visual_calendar {
+    width: 100%;
+}
+
+.container_visual_pc {
+    width: 100%;
+    gap: 16px;
+    line-height: 1;
+}
+
+.wrapper_visual_pc {
+    width: 100%;
+    gap: 24px;
+    font-size: 115px;
+    flex-wrap: nowrap;
+}
+
+.btn_visual {
+    width: 260px;
+    height: 100px;
+    border-radius: 999px;
+    padding: 24px 32px;
+}
+
+.btn_visual span {
+    font-size: 20px;
+}
+
+.quick_link {
+    width: 50px;
+    height: 50px;
+    border-radius: 999px;
+}
+
+.quick_link::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url('/assets/imgs/icons/arrow.svg') center / contain no-repeat;
+}
+
+.icon_arrow1 {
+    margin-left: 5%;
+}
+
+.icon_arrow2 {
+    margin-left: 18%;
+}
+
+/* main-1 visual_mobile */
+.container_visual_mobile {
+    display: none;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 6px;
+    line-height: 1;
+}
+
+.wrapper_visual_mobile {
+    font-size: 56px;
+    gap: 12px;
+}
+
+.icon_visual_mobile {
+    width: 50px;
+}

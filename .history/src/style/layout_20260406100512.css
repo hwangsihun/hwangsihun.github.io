@@ -26,7 +26,7 @@ body {
     width: 0;
 }
 
-/* ?뱀뀡 理쒖긽??遺紐?*/
+/* 섹션 최상위 부모 */
 .snap_section {
     min-height: 100dvh;
     scroll-snap-align: none;
@@ -143,8 +143,8 @@ body {
 }
 
 .notice_calendar_pc {
-    gap: 8px;
-    font-size: 15px;
+    gap: 10px;
+    font-size: 16px;
     line-height: 1.5;
     color: #757575;
     flex-wrap: nowrap;
@@ -161,12 +161,11 @@ body {
 }
 
 .legend_calendar_pc {
-    gap: 24px;
+    gap: 28px;
     color: #757575;
-    font-size: 15px;
+    font-size: 16px;
     flex-wrap: nowrap;
     flex-shrink: 0;
-    margin-right: 16px;
 }
 
 .item_legend_calendar_pc {
@@ -174,10 +173,10 @@ body {
 }
 
 .dot_legend_calendar_pc {
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
     border-radius: 999px;
-    flex: 0 0 20px;
+    flex: 0 0 26px;
 }
 
 .dot_legend_calendar_pc.is_event_calendar_pc {
@@ -194,41 +193,31 @@ body {
     border-radius: 999px;
     overflow: hidden;
     background-color: #ffffff;
-    padding: 16px 32px;
 }
 
 .viewport_calendar_pc {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-width: thin;
-    -ms-overflow-style: auto;
+    padding: 12px 24px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .viewport_calendar_pc::-webkit-scrollbar {
-    height: 8px;
-}
-
-.viewport_calendar_pc::-webkit-scrollbar-thumb {
-    background-color: rgba(25, 31, 40, 0.22);
-    border-radius: 999px;
-}
-
-.viewport_calendar_pc::-webkit-scrollbar-track {
-    background-color: transparent;
+    display: none;
 }
 
 .track_calendar_pc {
-    gap: 4px;
+    width: max-content;
+    min-width: max-content;
     flex-wrap: nowrap;
     align-items: flex-start;
 }
 
 .item_calendar_pc {
-    flex: 0 0 32px;
-    width: 32px;
-    min-width: 32px;
-    flex-shrink: 0;
+    width: 44px;
+    min-width: 44px;
     text-align: center;
     color: #191f28;
 }
@@ -236,37 +225,36 @@ body {
 .item_calendar_pc::before {
     content: attr(data-week);
     display: block;
-    margin-bottom: 4px;
-    font-size: 11px;
+    margin-bottom: 12px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 1;
-    color: var(--calendar-day-color, #191f28);
 }
 
 .item_calendar_pc span {
     display: block;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
     border-radius: 999px;
     text-align: center;
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 18px;
+    line-height: 40px;
 }
 
 .line_calendar_pc {
     position: relative;
-    flex: 0 0 12px;
-    width: 12px;
-    min-width: 12px;
-    height: 44px;
-    flex-shrink: 0;
+    width: 28px;
+    min-width: 28px;
+    height: 56px;
+    margin: 0 6px;
 }
 
 .line_calendar_pc::before {
     content: '';
     position: absolute;
     left: 50%;
-    top: 4px;
+    top: 6px;
     bottom: 2px;
     border-left: 1.5px dashed #454545;
 }

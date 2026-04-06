@@ -13,6 +13,7 @@ const highlightDates = [
     '2026-04-17',
     '2026-04-23',
     '2026-04-26',
+    '2026-04-31',
 ];
 
 function getDateStyle(iso, dayOfWeek) {
@@ -71,7 +72,9 @@ function initializeCalendar() {
         container.className = 'flex col aic';
 
         const dayNameDiv = document.createElement('div');
-        dayNameDiv.textContent = dayItem.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
+        dayNameDiv.textContent = dayItem
+            .toLocaleDateString('en-US', { weekday: 'short' })
+            .toUpperCase();
         dayNameDiv.className = 'fs12 fw600 mb4px';
 
         const dateCircle = document.createElement('div');

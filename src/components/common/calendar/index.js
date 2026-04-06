@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMobileCalendar();
 });
 
+const CALENDAR_SELECTOR = '.container_calendar_pc';
+const TRACK_SELECTOR = '.track_calendar_pc';
+const WEEKDAY_LABELS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const highlightDates = [
     '2026-04-02',
     '2026-04-05',
@@ -22,9 +25,9 @@ function getDateStyle(iso, dayOfWeek) {
     return {
         isWeekend,
         isHighlighted,
-        bgColor: isWeekend ? '#EDEDED' : isHighlighted ? '#0A66FF' : 'transparent',
-        textColor: isWeekend ? '#D1D5DB' : isHighlighted ? '#ffffff' : '#111827',
-        dayNameColor: isWeekend ? '#8F8F8F' : isHighlighted ? '#0A66FF' : '#111827',
+        bgColor: isWeekend ? '#F3F3F3' : isHighlighted ? '#16BCC6' : 'transparent',
+        textColor: isWeekend ? '#D9D9D9' : '#191F28',
+        dayNameColor: isHighlighted ? '#16BCC6' : '#191F28',
     };
 }
 
@@ -42,9 +45,41 @@ function updateMonthDisplay() {
     });
 }
 
+function createDayItem(dayItem) {
+    const item = document.createElement('li');
+    const number = document.createElement('span');
+    const iso = getLocalISODate(dayItem.getFullYear(), dayItem.getMonth(), dayItem.getDate());
+    const style = getDateStyle(iso, dayItem.getDay());
+
+    item.className = 'item_calendar_pc';
+    item.dataset.week = WEEKDAY_LABELS[dayItem.getDay()];
+    item.style.color = style.textColor;
+    item.style.setProperty('--calendar-day-color', style.dayNameColor);
+
+    if (style.isHighlighted) {
+        item.classList.add('is_event_calendar_pc', 'is_accent_calendar_pc');
+    } else if (style.isWeekend) {
+        item.classList.add('is_off_calendar_pc');
+    }
+
+    number.textContent = dayItem.getDate();
+    number.style.backgroundColor = style.bgColor;
+    number.style.color = style.textColor;
+    item.appendChild(number);
+
+    return item;
+}
+
+function createSeparator() {
+    const separator = document.createElement('li');
+    separator.className = 'line_calendar_pc';
+    separator.setAttribute('aria-hidden', 'true');
+    return separator;
+}
+
 function initializeCalendar() {
-    const dateBar = document.getElementById('date-bar');
-    if (!dateBar) return;
+    const calendars = document.querySelectorAll(CALENDAR_SELECTOR);
+    if (calendars.length === 0) return;
 
     const today = new Date();
     const currentMonth = today.getMonth();
@@ -63,48 +98,20 @@ function initializeCalendar() {
     };
 
     const days = getDaysInMonth(currentYear, currentMonth);
-    let weekWrapper = document.createElement('div');
-    weekWrapper.className = 'flex gap8';
 
-    days.forEach((dayItem, index) => {
-        const container = document.createElement('div');
-        container.className = 'flex col aic';
+    calendars.forEach((calendarRoot) => {
+        const dateBar = calendarRoot.querySelector(TRACK_SELECTOR);
+        if (!dateBar) return;
 
-        const dayNameDiv = document.createElement('div');
-        dayNameDiv.textContent = dayItem.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
-        dayNameDiv.className = 'fs12 fw600 mb4px';
+        dateBar.innerHTML = '';
 
-        const dateCircle = document.createElement('div');
-        dateCircle.textContent = dayItem.getDate();
-        dateCircle.className = 'flex_aic jcc w32px h32px rfull fs16 fw600';
+        days.forEach((dayItem, index) => {
+            dateBar.appendChild(createDayItem(dayItem));
 
-        const iso = getLocalISODate(dayItem.getFullYear(), dayItem.getMonth(), dayItem.getDate());
-        const style = getDateStyle(iso, dayItem.getDay());
-
-        dateCircle.style.backgroundColor = style.bgColor;
-        dateCircle.style.color = style.textColor;
-        dayNameDiv.style.color = style.dayNameColor;
-
-        container.appendChild(dayNameDiv);
-        container.appendChild(dateCircle);
-        weekWrapper.appendChild(container);
-
-        if (dayItem.getDay() === 0 || index === days.length - 1) {
-            dateBar.appendChild(weekWrapper);
-
-            if (index !== days.length - 1) {
-                const separator = document.createElement('div');
-                separator.style.width = '1px';
-                separator.style.height = '44px';
-                separator.style.borderRight = '1px dashed black';
-                separator.style.marginLeft = '8px';
-                separator.style.marginRight = '8px';
-                dateBar.appendChild(separator);
+            if (dayItem.getDay() === 0 && index !== days.length - 1) {
+                dateBar.appendChild(createSeparator());
             }
-
-            weekWrapper = document.createElement('div');
-            weekWrapper.className = 'flex gap4';
-        }
+        });
     });
 }
 
@@ -141,7 +148,7 @@ function initializeMobileCalendar() {
             const span = document.createElement('span');
             span.className = 'calendar-mobile-highlight';
             span.style.backgroundColor = style.bgColor;
-            span.style.color = style.isHighlighted ? '#ffffff' : style.textColor;
+            span.style.color = style.textColor;
             span.textContent = day;
             dateCell.appendChild(span);
         } else {

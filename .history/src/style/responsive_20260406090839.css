@@ -4,14 +4,13 @@
         gap: 20px;
     }
 
-    .wrapper_visual_pc {
-        width: 95%;
+    .text_visual {
         font-size: 100px;
     }
 
     .btn_visual {
         width: 226px;
-        height: 92px;
+        height: 86px;
         padding: 24px;
     }
 
@@ -30,11 +29,6 @@
     .icon_visual3 {
         width: 250px;
     }
-
-    /* main-1 calendar_pc */
-    .viewport_calendar_pc {
-        padding-bottom: 8px;
-    }
 }
 
 @media (max-width: 1110px) {
@@ -52,17 +46,27 @@
     }
 }
 
-/* laptop */
-@media (min-width: 768px) and (max-width: 992px) {
+/* tablet */
+@media (max-width: 991px) {
     .snap_page {
         padding-left: 20px;
         padding-right: 20px;
     }
-    /* main-1 visual_pc */
-    .wrapper_visual_pc {
-        font-size: 80px;
+
+    /* main-1 visual */
+    .container_visual_pc {
+        display: none;
     }
 
+    .container_visual_mobile {
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* laptop */
+@media (min-width: 768px) and (max-width: 992px) {
+    /* main-1 visual_pc */
     .btn_visual {
         display: none;
     }
@@ -73,17 +77,6 @@
 
     .icon_arrow2 {
         margin-left: 22%;
-    }
-}
-
-@media (max-width: 767px) {
-    .wrapper_visual_pc {
-        display: none;
-    }
-
-    .container_visual_mobile {
-        display: flex;
-        align-items: center;
     }
 }
 
