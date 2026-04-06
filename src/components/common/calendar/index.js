@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     updateMonthDisplay();
     initializeCalendar();
     initializeMobileCalendar();
@@ -91,11 +91,11 @@ function createMobileDayItem(year, month, day) {
     const style = getDateStyle(iso, dayOfWeek);
     const dateCell = document.createElement('div');
 
-    dateCell.className = 'item_calendar_mobile flex_r text_black';
+    dateCell.className = 'item_calendar_mobile flex_row_center text_black';
 
     if (style.isWeekend || style.isHighlighted) {
         const number = document.createElement('span');
-        number.className = `number_calendar_mobile flex_r ${style.isHighlighted ? 'bg_mint text_black' : 'bg_lightGray text_lightgray'}`;
+        number.className = `number_calendar_mobile flex_row_center ${style.isHighlighted ? 'bg_mint text_black' : 'bg_lightGray text_lightgray'}`;
         number.textContent = day;
         dateCell.appendChild(number);
     } else {

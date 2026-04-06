@@ -52,11 +52,10 @@
     position: absolute;
     top: 50%;
     left: 0;
-    height: 6px;
+    height: 4px;
     background-color: var(--color-black);
     transform: translateY(-50%);
     transition:
         left 0.3s ease,
         width 0.3s ease;
-    border-radius: 999px;
 }

@@ -1,35 +1,36 @@
 function initializeGallerySwiper() {
     const mainSection = document.querySelector('#main-2');
     const swiperContainer = mainSection?.querySelector('.main2-swiper');
-    const controlsRoot = mainSection?.querySelector('[data-swiper-controls]');
+    const controlsRoot = mainSection?.querySelector('.wrapper_pagination_pc');
 
     if (!mainSection || !swiperContainer) return;
 
+    if (swiperContainer.swiper) {
+        swiperContainer.swiper.destroy(true, true);
+    }
+
     const totalSlides = swiperContainer.querySelectorAll('.swiper-slide').length;
     const progressFill = mainSection.querySelector('.main2-swiper-progress-fill');
-    const prevButton = controlsRoot?.querySelector('[data-icon="prev"] [data-pagination-button="prev"]');
-    const toggleButton = controlsRoot?.querySelector('[data-icon="stop"] [data-pagination-button="stop"]');
-    const nextButton = controlsRoot?.querySelector('[data-icon="next"] [data-pagination-button="next"]');
-    const toggleIcon = toggleButton?.querySelector('img');
+    const paginationButtons = controlsRoot?.querySelectorAll('.btn_pagination_pc');
+    const prevButton = paginationButtons?.[0];
+    const toggleButton = paginationButtons?.[1];
+    const nextButton = paginationButtons?.[2];
     let isUserPaused = false;
 
     const swiper = new Swiper(swiperContainer, {
         direction: 'horizontal',
-        loop: true,
-        loopFillGroupWithBlank: false,
+        loop: false,
+        rewind: true,
+        initialSlide: totalSlides - 1,
         slidesPerView: 1,
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
+            reverseDirection: true,
         },
         pagination: {
             el: mainSection.querySelector('.main2-swiper-pagination'),
-            type: 'bullets',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: nextButton,
-            prevEl: prevButton,
+            clickable: false,
         },
         effect: 'slide',
         speed: 800,
@@ -42,14 +43,7 @@ function initializeGallerySwiper() {
     });
 
     function updateSlideState() {
-        const currentSlideEl = mainSection.querySelector('.current-slide');
-        const totalSlidesEl = mainSection.querySelector('.total-slides');
-        const currentIndex = (swiper.realIndex % totalSlides) + 1;
-
-        if (currentSlideEl && totalSlidesEl) {
-            currentSlideEl.textContent = String(currentIndex).padStart(2, '0');
-            totalSlidesEl.textContent = String(totalSlides).padStart(2, '0');
-        }
+        const currentIndex = totalSlides - swiper.realIndex;
 
         if (progressFill) {
             const segmentWidth = 100 / totalSlides;
@@ -60,19 +54,26 @@ function initializeGallerySwiper() {
         }
     }
 
-    function updateToggleIcon() {
-        if (!toggleButton || !toggleIcon) return;
+    function updateToggleState() {
+        if (!toggleButton) return;
 
-        toggleIcon.style.opacity = isUserPaused ? '0.45' : '1';
-        toggleButton.setAttribute('aria-label', isUserPaused ? 'play slide' : 'pause slide');
+        toggleButton.classList.toggle('is_paused', isUserPaused);
+        toggleButton.setAttribute('aria-label', isUserPaused ? '재생' : '정지');
     }
 
-    updateSlideState();
-    updateToggleIcon();
-
-    swiper.on('slideChange', () => {
-        updateSlideState();
+    prevButton?.addEventListener('click', () => {
+        swiper.slideNext();
     });
+
+    nextButton?.addEventListener('click', () => {
+        swiper.slidePrev();
+    });
+
+    swiper.slideTo(totalSlides - 1, 0, false);
+    updateSlideState();
+    updateToggleState();
+
+    swiper.on('slideChange', updateSlideState);
 
     swiperContainer.addEventListener('mouseenter', () => {
         if (!isUserPaused) {
@@ -95,7 +96,7 @@ function initializeGallerySwiper() {
             swiper.autoplay.start();
         }
 
-        updateToggleIcon();
+        updateToggleState();
     });
 }
 
@@ -110,7 +111,7 @@ if (typeof Swiper !== 'undefined') {
 }
 
 window.addEventListener('load', () => {
-    if (typeof Swiper !== 'undefined' && !document.querySelector('#main-2 .swiper-initialized')) {
+    if (typeof Swiper !== 'undefined') {
         initializeGallerySwiper();
     }
 });

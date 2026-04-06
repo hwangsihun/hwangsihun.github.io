@@ -1,4 +1,4 @@
-﻿@import './fonts.css';
+@import './fonts.css';
 
 /* reset */
 * {
@@ -84,51 +84,47 @@ h6 {
 }
 
 /* display */
-.d_block {
+.block {
     display: block;
 }
-.d_inline_block {
+.inline_block {
     display: inline-block;
 }
-.d_none {
+.hidden {
     display: none;
 }
-.flex_col_start {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-.flex_col {
+.flex_c {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.flex_col_center {
+.flex_cc {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.flex_col_between {
+.flex_cb {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
-.flex_row {
+.flex {
     display: flex;
     align-items: center;
 }
-.flex_row_center {
+.flex_r {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.flex_row_between {
+.flex_rb {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 /* width percent */
 .w5 {
     width: 5% !important;
@@ -2019,27 +2015,27 @@ h6 {
     color: var(--color-mint);
 }
 .line_purple {
-    border: 1px solid;
+    border: 2px solid;
     border-color: var(--color-purpleLine);
 }
 .line_mint {
-    border: 1px solid;
+    border: 2px solid;
     border-color: var(--color-mintLine);
 }
 .line_yellow {
-    border: 1px solid;
+    border: 2px solid;
     border-color: var(--color-yellowLine);
 }
 .line_blue {
-    border: 1px solid;
+    border: 2px solid;
     border-color: var(--color-blueLine);
 }
 .line_lightGray {
-    border: 1px solid;
+    border: 2px solid;
     border-color: var(--color-lightGray);
 }
 .line_darkGray {
-    border: 1px solid;
+    border: 2px solid;
     border-color: var(--color-darkGray);
 }
 .bg_blue {
@@ -2080,4 +2076,3 @@ h6 {
     height: 18px;
     background: url('/assets/imgs/icons/arrow.svg') center / contain no-repeat;
 }
-

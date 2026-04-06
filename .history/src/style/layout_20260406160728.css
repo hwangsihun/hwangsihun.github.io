@@ -471,20 +471,12 @@ body {
     background: url('/assets/imgs/icons/arrow.svg') center / contain no-repeat;
 }
 
-.list_notice_pc {
-    width: 100%;
-}
-
 .item_notice_pc {
     width: 100%;
     align-items: center;
     gap: 20px;
     padding: 20px 0;
     border-bottom: 1px dashed var(--color-black);
-}
-
-.item_notice_pc:last-child {
-    border-bottom: none;
 }
 
 .wrapper_notice_copy_pc {
