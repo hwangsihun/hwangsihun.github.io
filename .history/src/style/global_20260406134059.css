@@ -98,12 +98,6 @@ h6 {
     flex-direction: column;
     align-items: center;
 }
-.flex_cc {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 .flex_cb {
     display: flex;
     flex-direction: column;

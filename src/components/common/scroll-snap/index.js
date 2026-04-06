@@ -1,5 +1,5 @@
-﻿const SNAP_ROOT_SELECTOR = '.snap_page';
-const SNAP_SECTION_SELECTOR = '.snap_section';
+const SNAP_ROOT_SELECTOR = '.snap_page';
+const SNAP_SECTION_SELECTOR = '.snap_section, .snap_visual_section';
 const DEFAULT_DURATION = 1200;
 const DEFAULT_WHEEL_THRESHOLD = 20;
 

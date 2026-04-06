@@ -76,13 +76,9 @@
     }
 
     /* main-1 visual_pc */
-    .snap_visual_section {
-        padding-top: 24%;
-    }
     .container_visual_pc {
         display: none;
     }
-
     /* main-1 visual_mobile */
     .container_calendar_mobile {
         display: flex;

@@ -353,7 +353,7 @@ body {
 }
 
 .number_calendar_mobile {
-    width: 40px;
+    width: min(48px, 100%);
     aspect-ratio: 1 / 1;
     margin: 0 auto;
     border-radius: 999px;

@@ -29,8 +29,7 @@ body {
 }
 
 /* 섹션별 최상위 부모*/
-.snap_section,
-.snap_visual_section {
+.snap_section {
     width: 100%;
     max-width: 1240px;
     height: 100%;
@@ -40,17 +39,12 @@ body {
     scroll-snap-align: none;
 }
 
-.snap_visual_section {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
 /* main-1 visual_pc */
 .container_visual_pc {
     width: 100%;
-    gap: 10%;
+    gap: 24px;
     line-height: 1;
-    height: 100%;
+    height: 70%;
 }
 
 .group_visual_pc {
@@ -180,7 +174,7 @@ body {
     gap: 10px;
 }
 
-.dot_legend_calendar {
+.dot_legend_calendar_pc {
     width: 20px;
     height: 20px;
     border-radius: 999px;
@@ -282,7 +276,7 @@ body {
     width: calc(100% + 40px);
     height: 100%;
     min-height: 0;
-    border-radius: 44px 44px 0 0;
+    border-radius: 44px;
     padding: 24px 20px;
     align-items: stretch;
     gap: 24px;
@@ -319,7 +313,7 @@ body {
     grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 0;
     padding-bottom: 16px;
-    border-bottom: 1px dashed var(--color-lightGray);
+    border-bottom: 1px solid var(--color-lightBlue);
 }
 
 .item_week_calendar_mobile {
@@ -335,8 +329,7 @@ body {
     grid-template-columns: repeat(7, minmax(0, 1fr));
     height: 100%;
     grid-auto-rows: 1fr;
-    column-gap: 4px;
-    row-gap: 4px;
+    row-gap: clamp(16px, 3vw, 28px);
     column-gap: 0;
     justify-content: space-between;
     align-content: space-between;
@@ -353,7 +346,7 @@ body {
 }
 
 .number_calendar_mobile {
-    width: 40px;
+    width: min(48px, 100%);
     aspect-ratio: 1 / 1;
     margin: 0 auto;
     border-radius: 999px;

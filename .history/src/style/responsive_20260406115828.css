@@ -70,26 +70,25 @@
 
 @media (max-width: 767px) {
     #main-1.snap_section {
-        height: 100dvh;
-        min-height: 100dvh;
         padding-bottom: 0;
     }
 
-    /* main-1 visual_pc */
-    .snap_visual_section {
-        padding-top: 24%;
-    }
-    .container_visual_pc {
+    .container_calendar_pc {
         display: none;
     }
 
-    /* main-1 visual_mobile */
     .container_calendar_mobile {
         display: flex;
     }
 
+    .wrapper_visual_pc {
+        display: none;
+    }
+
     .container_visual_mobile {
         display: flex;
+        align-items: stretch;
+        min-height: calc(100dvh - 24px);
     }
 }
 

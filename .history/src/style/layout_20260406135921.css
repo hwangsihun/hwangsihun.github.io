@@ -335,8 +335,8 @@ body {
     grid-template-columns: repeat(7, minmax(0, 1fr));
     height: 100%;
     grid-auto-rows: 1fr;
-    column-gap: 4px;
-    row-gap: 4px;
+    column-gap: clamp(16px, 3vw, 24px);
+    row-gap: clamp(16px, 3vw, 24px);
     column-gap: 0;
     justify-content: space-between;
     align-content: space-between;
@@ -353,7 +353,7 @@ body {
 }
 
 .number_calendar_mobile {
-    width: 40px;
+    width: min(48px, 100%);
     aspect-ratio: 1 / 1;
     margin: 0 auto;
     border-radius: 999px;

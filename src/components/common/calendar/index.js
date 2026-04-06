@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const CALENDAR_SELECTOR = '.container_calendar_pc';
 const TRACK_SELECTOR = '.track_calendar_pc';
+const MOBILE_GRID_SELECTOR = '#mobile-calendar-grid';
 const WEEKDAY_LABELS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const highlightDates = [
     '2026-04-02',
@@ -84,6 +85,26 @@ function createSeparator() {
     return separator;
 }
 
+function createMobileDayItem(year, month, day) {
+    const iso = getLocalISODate(year, month, day);
+    const dayOfWeek = new Date(year, month, day).getDay();
+    const style = getDateStyle(iso, dayOfWeek);
+    const dateCell = document.createElement('div');
+
+    dateCell.className = 'item_calendar_mobile flex_r text_black';
+
+    if (style.isWeekend || style.isHighlighted) {
+        const number = document.createElement('span');
+        number.className = `number_calendar_mobile flex_r ${style.isHighlighted ? 'bg_mint text_black' : 'bg_lightGray text_lightgray'}`;
+        number.textContent = day;
+        dateCell.appendChild(number);
+    } else {
+        dateCell.textContent = day;
+    }
+
+    return dateCell;
+}
+
 function initializeCalendar() {
     const calendars = document.querySelectorAll(CALENDAR_SELECTOR);
     if (calendars.length === 0) return;
@@ -123,7 +144,7 @@ function initializeCalendar() {
 }
 
 function initializeMobileCalendar() {
-    const calendarGrid = document.getElementById('mobile-calendar-grid');
+    const calendarGrid = document.querySelector(MOBILE_GRID_SELECTOR);
     if (!calendarGrid) return;
 
     const today = new Date();
@@ -139,28 +160,11 @@ function initializeMobileCalendar() {
 
     for (let index = 0; index < startingDayOfWeek; index += 1) {
         const emptyCell = document.createElement('div');
-        emptyCell.className = 'calendar-empty-cell';
+        emptyCell.className = 'empty_calendar_mobile';
         calendarGrid.appendChild(emptyCell);
     }
 
     for (let day = 1; day <= daysInMonth; day += 1) {
-        const iso = getLocalISODate(currentYear, currentMonth, day);
-        const dayOfWeek = new Date(currentYear, currentMonth, day).getDay();
-        const style = getDateStyle(iso, dayOfWeek);
-        const dateCell = document.createElement('div');
-
-        dateCell.className = 'calendar-mobile-date';
-
-        if (style.isWeekend || style.isHighlighted) {
-            const span = document.createElement('span');
-            span.className = `calendar-mobile-highlight ${style.isHighlighted ? 'bg_mint text_black' : 'bg_lightGray text_lightgray'}`;
-            span.textContent = day;
-            dateCell.appendChild(span);
-        } else {
-            dateCell.className += ' text_black';
-            dateCell.textContent = day;
-        }
-
-        calendarGrid.appendChild(dateCell);
+        calendarGrid.appendChild(createMobileDayItem(currentYear, currentMonth, day));
     }
 }

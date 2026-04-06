@@ -66,30 +66,21 @@
     .icon_arrow2 {
         margin-left: 22%;
     }
+
+    /* main-1 calendar_pc */
+    .container_calendar_pc {
+        display: none;
+    }
 }
 
 @media (max-width: 767px) {
-    #main-1.snap_section {
-        height: 100dvh;
-        min-height: 100dvh;
-        padding-bottom: 0;
-    }
-
-    /* main-1 visual_pc */
-    .snap_visual_section {
-        padding-top: 24%;
-    }
-    .container_visual_pc {
+    .wrapper_visual_pc {
         display: none;
-    }
-
-    /* main-1 visual_mobile */
-    .container_calendar_mobile {
-        display: flex;
     }
 
     .container_visual_mobile {
         display: flex;
+        align-items: center;
     }
 }
 
