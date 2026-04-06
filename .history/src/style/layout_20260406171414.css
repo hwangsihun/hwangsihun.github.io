@@ -450,7 +450,7 @@ body {
 
 .container_notice_pc {
     width: calc((100% - 40px) / 2);
-    gap: 24px;
+    gap: 20px;
 }
 
 .wrapper_notice_header_pc {
@@ -489,10 +489,6 @@ body {
     gap: 20px;
     padding: 20px 0;
     border-bottom: 1px dashed var(--color-black);
-}
-
-.item_notice_pc:first-child {
-    padding: 0 0 20px 0;
 }
 
 .item_notice_pc:last-child {

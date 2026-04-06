@@ -95,9 +95,10 @@
     /* main-2 notice */
     .container_notice_pc {
         width: 100%;
-        gap: 16px;
     }
     .notice_group_pc {
+        display: flex;
+        align-items: center;
         flex-direction: column;
     }
 }
