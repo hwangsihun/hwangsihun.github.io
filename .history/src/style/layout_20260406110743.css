@@ -141,12 +141,14 @@ body {
 }
 
 .text_month_calendar_pc {
+    color: #16bcc6;
 }
 
 .notice_calendar_pc {
     gap: 8px;
     font-size: 15px;
     line-height: 1.5;
+    color: #757575;
     flex-wrap: nowrap;
 }
 
@@ -155,14 +157,18 @@ body {
     width: 16px;
     height: 16px;
     border-radius: 999px;
+    background-color: #6f6f6f;
+    color: #ffffff;
     font-size: 11px;
 }
 
 .legend_calendar_pc {
     gap: 24px;
+    color: #757575;
     font-size: 15px;
     flex-wrap: nowrap;
     flex-shrink: 0;
+    margin-right: 16px;
 }
 
 .item_legend_calendar_pc {
@@ -176,12 +182,20 @@ body {
     flex: 0 0 20px;
 }
 
+.dot_legend_calendar_pc.is_event_calendar_pc {
+    background-color: #16bcc6;
+}
+
+.dot_legend_calendar_pc.is_off_calendar_pc {
+    background-color: #e2e2e2;
+}
+
 .frame_calendar_pc {
     width: 100%;
-    border-style: solid;
-    border-width: 1.5px;
+    border: 1.5px solid #191f28;
     border-radius: 999px;
     overflow: hidden;
+    background-color: #ffffff;
     padding: 16px 32px;
 }
 
@@ -197,6 +211,15 @@ body {
     height: 8px;
 }
 
+.viewport_calendar_pc::-webkit-scrollbar-thumb {
+    background-color: rgba(25, 31, 40, 0.22);
+    border-radius: 999px;
+}
+
+.viewport_calendar_pc::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
 .track_calendar_pc {
     gap: 4px;
     flex-wrap: nowrap;
@@ -209,17 +232,20 @@ body {
     min-width: 32px;
     flex-shrink: 0;
     text-align: center;
+    color: #191f28;
 }
 
-.label_calendar_pc {
+.item_calendar_pc::before {
+    content: attr(data-week);
     display: block;
     margin-bottom: 4px;
     font-size: 11px;
     font-weight: 600;
     line-height: 1;
+    color: var(--calendar-day-color, #191f28);
 }
 
-.number_calendar_pc {
+.item_calendar_pc span {
     display: block;
     width: 32px;
     height: 32px;
@@ -238,10 +264,27 @@ body {
     flex-shrink: 0;
 }
 
-.separator_calendar_pc {
-    display: block;
-    height: 100%;
-    border-width: 0 0 0 1.5px;
-    border-style: dashed;
-    margin-left: 8px;
+.line_calendar_pc::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    bottom: 2px;
+    border-left: 1.5px dashed #454545;
+}
+
+.is_event_calendar_pc span {
+    background-color: #16bcc6;
+}
+
+.is_off_calendar_pc {
+    color: #d9d9d9;
+}
+
+.is_off_calendar_pc span {
+    background-color: #f3f3f3;
+}
+
+.is_accent_calendar_pc::before {
+    color: #16bcc6;
 }

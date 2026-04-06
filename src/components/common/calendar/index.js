@@ -25,9 +25,6 @@ function getDateStyle(iso, dayOfWeek) {
     return {
         isWeekend,
         isHighlighted,
-        bgColor: isWeekend ? '#F3F3F3' : isHighlighted ? '#16BCC6' : 'transparent',
-        textColor: isWeekend ? '#D9D9D9' : '#191F28',
-        dayNameColor: isHighlighted ? '#16BCC6' : '#191F28',
     };
 }
 
@@ -47,24 +44,29 @@ function updateMonthDisplay() {
 
 function createDayItem(dayItem) {
     const item = document.createElement('li');
+    const label = document.createElement('strong');
     const number = document.createElement('span');
     const iso = getLocalISODate(dayItem.getFullYear(), dayItem.getMonth(), dayItem.getDate());
     const style = getDateStyle(iso, dayItem.getDay());
 
     item.className = 'item_calendar_pc';
-    item.dataset.week = WEEKDAY_LABELS[dayItem.getDay()];
-    item.style.color = style.textColor;
-    item.style.setProperty('--calendar-day-color', style.dayNameColor);
+    label.className = `label_calendar_pc ${style.isHighlighted ? 'text_mint' : 'text_black'}`;
+    label.textContent = WEEKDAY_LABELS[dayItem.getDay()];
+    number.className = 'number_calendar_pc text_black';
 
     if (style.isHighlighted) {
         item.classList.add('is_event_calendar_pc', 'is_accent_calendar_pc');
+        number.classList.add('bg_mint');
     } else if (style.isWeekend) {
         item.classList.add('is_off_calendar_pc');
+        number.classList.remove('text_black');
+        number.classList.add('bg_lightGray', 'text_lightgray');
+    } else {
+        number.classList.add('bg_transparent');
     }
 
     number.textContent = dayItem.getDate();
-    number.style.backgroundColor = style.bgColor;
-    number.style.color = style.textColor;
+    item.appendChild(label);
     item.appendChild(number);
 
     return item;
@@ -72,8 +74,13 @@ function createDayItem(dayItem) {
 
 function createSeparator() {
     const separator = document.createElement('li');
+    const line = document.createElement('span');
+
+    line.className = 'separator_calendar_pc line_darkGray';
     separator.className = 'line_calendar_pc';
     separator.setAttribute('aria-hidden', 'true');
+    separator.appendChild(line);
+
     return separator;
 }
 
@@ -146,12 +153,11 @@ function initializeMobileCalendar() {
 
         if (style.isWeekend || style.isHighlighted) {
             const span = document.createElement('span');
-            span.className = 'calendar-mobile-highlight';
-            span.style.backgroundColor = style.bgColor;
-            span.style.color = style.textColor;
+            span.className = `calendar-mobile-highlight ${style.isHighlighted ? 'bg_mint text_black' : 'bg_lightGray text_lightgray'}`;
             span.textContent = day;
             dateCell.appendChild(span);
         } else {
+            dateCell.className += ' text_black';
             dateCell.textContent = day;
         }
 
