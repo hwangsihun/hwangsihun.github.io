@@ -21,6 +21,8 @@ const SWIPER_SECTION_CONFIGS = [
         paginationSelector: '.main3-swiper-pagination',
         progressSelector: '.main3-swiper-progress',
         progressFillSelector: '.main3-swiper-progress-fill',
+        filterButtonSelector: '[data-main3-filter]',
+        titleSelector: '.title_main3_panel',
         prevButtonSelector: '[data-main3-swiper-controls] [data-pagination-button="prev"]',
         toggleButtonSelector: '[data-main3-swiper-controls] [data-pagination-button="stop"]',
         nextButtonSelector: '[data-main3-swiper-controls] [data-pagination-button="next"]',
@@ -77,6 +79,34 @@ function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
 }
 
+function getGallerySlideDefinitions(mainSection, swiperContainer) {
+    if (Array.isArray(mainSection.__gallerySlideDefinitions)) {
+        return mainSection.__gallerySlideDefinitions;
+    }
+
+    const slideElements = Array.from(swiperContainer.querySelectorAll('.swiper-slide'));
+
+    mainSection.__gallerySlideDefinitions = slideElements.map((slideElement) => ({
+        html: slideElement.outerHTML,
+        title: slideElement.dataset.title || slideElement.querySelector('img')?.alt || '',
+        category: slideElement.dataset.category || 'all',
+    }));
+
+    return mainSection.__gallerySlideDefinitions;
+}
+
+function getFilteredGallerySlides(slideDefinitions, filterValue) {
+    if (filterValue === 'space') {
+        return slideDefinitions.filter((slideDefinition) => slideDefinition.category === 'space');
+    }
+
+    if (filterValue === 'equipment') {
+        return slideDefinitions.filter((slideDefinition) => slideDefinition.category === 'equipment');
+    }
+
+    return slideDefinitions;
+}
+
 function initializeGallerySwiper(config) {
     const mainSection = document.querySelector(config.sectionSelector);
     const swiperContainer = mainSection?.querySelector(config.swiperSelector);
@@ -85,6 +115,21 @@ function initializeGallerySwiper(config) {
 
     if (typeof mainSection.__cleanupGallerySwiper === 'function') {
         mainSection.__cleanupGallerySwiper();
+    }
+
+    const swiperWrapper = swiperContainer.querySelector('.swiper-wrapper');
+    const activeFilter = mainSection.dataset.activeFilter || 'all';
+    const filterButtons = config.filterButtonSelector
+        ? Array.from(mainSection.querySelectorAll(config.filterButtonSelector))
+        : [];
+    const titleElement = config.titleSelector
+        ? mainSection.querySelector(config.titleSelector)
+        : null;
+    const slideDefinitions = getGallerySlideDefinitions(mainSection, swiperContainer);
+    const activeSlides = getFilteredGallerySlides(slideDefinitions, activeFilter);
+
+    if (swiperWrapper && activeSlides.length > 0) {
+        swiperWrapper.innerHTML = activeSlides.map((slideDefinition) => slideDefinition.html).join('');
     }
 
     const totalSlides = swiperContainer.querySelectorAll('.swiper-slide').length;
@@ -129,6 +174,10 @@ function initializeGallerySwiper(config) {
     function updateSlideState(realIndex = swiper.realIndex) {
         const currentIndex = realIndex + 1;
 
+        if (titleElement) {
+            titleElement.textContent = activeSlides[realIndex]?.title || activeSlides[0]?.title || '';
+        }
+
         if (progressFill) {
             const segmentWidth = 100 / totalSlides;
             const segmentOffset = realIndex * segmentWidth;
@@ -160,6 +209,12 @@ function initializeGallerySwiper(config) {
             toggleIcon.alt = isUserPaused ? 'start' : 'stop';
             toggleIcon.className = '';
         }
+    }
+
+    function updateFilterState() {
+        filterButtons.forEach((filterButton) => {
+            filterButton.classList.toggle('is_active', filterButton.dataset.main3Filter === activeFilter);
+        });
     }
 
     function getRealIndexFromPointer(clientX) {
@@ -253,6 +308,17 @@ function initializeGallerySwiper(config) {
         updateToggleState();
     });
 
+    filterButtons.forEach((filterButton) => {
+        bind(filterButton, 'click', () => {
+            const nextFilter = filterButton.dataset.main3Filter || 'all';
+
+            if (nextFilter === activeFilter) return;
+
+            mainSection.dataset.activeFilter = nextFilter;
+            initializeGallerySwiper(config);
+        });
+    });
+
     bind(progressTrack, 'pointerdown', handleProgressPointerDown);
     bind(progressTrack, 'pointermove', handleProgressPointerMove);
     bind(progressTrack, 'pointerup', handleProgressPointerUp);
@@ -260,6 +326,7 @@ function initializeGallerySwiper(config) {
     bind(progressTrack, 'keydown', handleProgressKeydown);
 
     swiper.slideTo(0, 0, false);
+    updateFilterState();
     updateSlideState();
     updateToggleState();
     swiper.on('slideChange', () => updateSlideState());

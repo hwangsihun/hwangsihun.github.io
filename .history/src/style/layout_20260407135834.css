@@ -582,8 +582,9 @@ body {
 }
 
 .wrapper_main3_panel_heading_group {
-    width: 30%;
+    width: 500px;
     max-width: 100%;
+    border: 1px solid black;
 }
 
 .wrapper_main3_panel_heading {
