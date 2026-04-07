@@ -1059,6 +1059,15 @@ body {
     position: relative;
 }
 
+.wrapper_footer_family_site::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 160px;
+}
+
 .btn_footer_family_site,
 .btn_footer_family_link {
     width: 100%;
@@ -1081,7 +1090,7 @@ body {
 
 .wrapper_footer_family_links {
     position: absolute;
-    top: calc(100% + 12px);
+    top: calc(100% + 16px);
     right: 0;
     width: 100%;
     gap: 8px;
@@ -1102,6 +1111,7 @@ body {
 
 .btn_footer_family_link {
     text-align: left;
+    color: var(--color-black);
 }
 
 .line_footer_dashed {

@@ -23,7 +23,7 @@ function initializeCustomScrollSnap() {
     const duration = Number(snapRoot.dataset.snapDuration) || DEFAULT_DURATION;
     const wheelThreshold = Number(snapRoot.dataset.snapWheelThreshold) || DEFAULT_WHEEL_THRESHOLD;
     let isAnimating = false;
-        let touchStartY = 0;
+    let touchStartY = 0;
 
     function getMaxScrollTop() {
         return Math.max(0, snapRoot.scrollHeight - snapRoot.clientHeight);
@@ -72,14 +72,21 @@ function initializeCustomScrollSnap() {
     }
 
     function getCurrentSectionIndex() {
-        const currentCenter = snapRoot.scrollTop + snapRoot.clientHeight / 2;
+        const currentScrollTop = snapRoot.scrollTop;
+        let closestIndex = 0;
+        let smallestDistance = Number.POSITIVE_INFINITY;
 
-        return sections.findIndex((section) => {
-            const top = section.offsetTop;
-            const bottom = top + section.offsetHeight;
+        sections.forEach((section, index) => {
+            const sectionScrollTop = getTargetScrollTop(section);
+            const distance = Math.abs(currentScrollTop - sectionScrollTop);
 
-            return currentCenter >= top && currentCenter < bottom;
+            if (distance < smallestDistance) {
+                smallestDistance = distance;
+                closestIndex = index;
+            }
         });
+
+        return closestIndex;
     }
 
     function moveToAdjacentSection(direction) {
@@ -133,6 +140,8 @@ if (document.readyState === 'loading') {
 } else {
     initializeCustomScrollSnap();
 }
+
+
 
 
 

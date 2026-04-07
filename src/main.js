@@ -368,23 +368,37 @@ function syncActiveSnapSectionPosition() {
     if (!sections.length) return;
 
     requestAnimationFrame(() => {
-        const currentCenter = snapRoot.scrollTop + snapRoot.clientHeight / 2;
+        const currentScrollTop = snapRoot.scrollTop;
         const activeSection =
-            sections.find((section) => {
-                const top = section.offsetTop;
-                const bottom = top + section.offsetHeight;
+            sections.reduce(
+                (closestSection, section) => {
+                    const alignToViewportBottom =
+                        section.classList.contains('footer_section') ||
+                        section.dataset.snapAlign === 'end';
+                    const sectionScrollTop = alignToViewportBottom
+                        ? section.offsetTop + section.offsetHeight - snapRoot.clientHeight
+                        : section.offsetTop;
+                    const clampedSectionScrollTop = Math.max(0, Math.min(snapRoot.scrollHeight - snapRoot.clientHeight, sectionScrollTop));
+                    const distance = Math.abs(currentScrollTop - clampedSectionScrollTop);
 
-                return currentCenter >= top && currentCenter < bottom;
-            }) || sections[0];
+                    if (distance < closestSection.distance) {
+                        return {
+                            section,
+                            distance,
+                            scrollTop: clampedSectionScrollTop,
+                        };
+                    }
 
-        const alignToViewportBottom =
-            activeSection.classList.contains('footer_section') ||
-            activeSection.dataset.snapAlign === 'end';
-        const nextScrollTop = alignToViewportBottom
-            ? activeSection.offsetTop + activeSection.offsetHeight - snapRoot.clientHeight
-            : activeSection.offsetTop;
+                    return closestSection;
+                },
+                {
+                    section: sections[0],
+                    distance: Number.POSITIVE_INFINITY,
+                    scrollTop: 0,
+                },
+            ) || { section: sections[0], scrollTop: 0 };
 
-        snapRoot.scrollTop = Math.max(0, Math.min(snapRoot.scrollHeight - snapRoot.clientHeight, nextScrollTop));
+        snapRoot.scrollTop = activeSection.scrollTop;
     });
 }
 
@@ -492,5 +506,6 @@ window.addEventListener('load', () => {
         }, 0);
     }
 });
+
 
 
