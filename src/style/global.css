@@ -63,6 +63,8 @@ h6 {
 
 /* variable */
 :root {
+    --app-height: 100dvh;
+    --app-width: 100vw;
     --color-black: #191f28;
     --color-purple: #d390ff;
     --color-mint: #00ced4;

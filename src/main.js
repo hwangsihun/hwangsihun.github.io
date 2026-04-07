@@ -47,6 +47,32 @@ const SWIPER_BASE_OPTIONS = {
     touchEventsTarget: 'wrapper',
 };
 
+function syncViewportSize() {
+    const viewportHeight = Math.round(window.visualViewport?.height || window.innerHeight);
+    const viewportWidth = Math.round(window.visualViewport?.width || window.innerWidth);
+
+    document.documentElement.style.setProperty('--app-height', `${viewportHeight}px`);
+    document.documentElement.style.setProperty('--app-width', `${viewportWidth}px`);
+
+    window.dispatchEvent(
+        new CustomEvent('app:viewport-resized', {
+            detail: {
+                height: viewportHeight,
+                width: viewportWidth,
+            },
+        }),
+    );
+}
+
+let viewportSyncFrame = 0;
+
+function scheduleViewportSync() {
+    cancelAnimationFrame(viewportSyncFrame);
+    viewportSyncFrame = requestAnimationFrame(() => {
+        syncViewportSize();
+    });
+}
+
 function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
 }
@@ -245,12 +271,47 @@ function initializeGallerySwiper(config) {
             swiperContainer.swiper.destroy(true, true);
         }
 
+        delete mainSection.__syncGallerySwiperLayout;
         delete mainSection.__cleanupGallerySwiper;
+    };
+
+    mainSection.__syncGallerySwiperLayout = () => {
+        swiper.update();
+        updateSlideState();
     };
 }
 
 function initializeGallerySwipers() {
     SWIPER_SECTION_CONFIGS.forEach(initializeGallerySwiper);
+}
+
+function syncGallerySwiperLayouts() {
+    SWIPER_SECTION_CONFIGS.forEach((config) => {
+        document.querySelector(config.sectionSelector)?.__syncGallerySwiperLayout?.();
+    });
+}
+
+function syncActiveSnapSectionPosition() {
+    const snapRoot = document.querySelector('.snap_page');
+
+    if (!snapRoot) return;
+
+    const sections = Array.from(snapRoot.querySelectorAll('.snap_section, .snap_visual_section'));
+
+    if (!sections.length) return;
+
+    requestAnimationFrame(() => {
+        const currentCenter = snapRoot.scrollTop + snapRoot.clientHeight / 2;
+        const activeSection =
+            sections.find((section) => {
+                const top = section.offsetTop;
+                const bottom = top + section.offsetHeight;
+
+                return currentCenter >= top && currentCenter < bottom;
+            }) || sections[0];
+
+        snapRoot.scrollTop = activeSection.offsetTop;
+    });
 }
 
 if (typeof Swiper !== 'undefined') {
@@ -263,7 +324,19 @@ if (typeof Swiper !== 'undefined') {
     });
 }
 
+scheduleViewportSync();
+window.addEventListener('resize', scheduleViewportSync);
+window.addEventListener('orientationchange', scheduleViewportSync);
+window.addEventListener('app:viewport-resized', () => {
+    syncGallerySwiperLayouts();
+    syncActiveSnapSectionPosition();
+});
+window.visualViewport?.addEventListener('resize', scheduleViewportSync);
+window.visualViewport?.addEventListener('scroll', scheduleViewportSync);
+
 window.addEventListener('load', () => {
+    scheduleViewportSync();
+
     if (typeof Swiper !== 'undefined') {
         initializeGallerySwipers();
         window.setTimeout(() => {

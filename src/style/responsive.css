@@ -70,8 +70,8 @@
 
 @media (max-width: 767px) {
     #main-1.snap_section {
-        height: 100dvh;
-        min-height: 100dvh;
+        height: var(--app-height);
+        min-height: var(--app-height);
         padding-bottom: 0;
     }
 
