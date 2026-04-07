@@ -81,9 +81,9 @@
 #main-3 .main3-swiper-progress.swiper-progress {
     position: absolute;
     bottom: 15%;
-    width: 55vw;
+    width: 75vw;
     left: auto;
-    right: 3%;
+    right: 0;
     z-index: 2;
 }
 

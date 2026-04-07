@@ -109,6 +109,11 @@ h6 {
     align-items: center;
     justify-content: center;
 }
+.flex_col_justify_center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .flex_col_between {
     display: flex;
     flex-direction: column;

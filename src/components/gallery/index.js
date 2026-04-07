@@ -1,4 +1,4 @@
-function initializeGallerySwiper() {
+﻿function initializeGallerySwiper() {
     const mainSection = document.querySelector('#main-2');
     const swiperContainer = mainSection?.querySelector('.main2-swiper');
     const controlsRoot = mainSection?.querySelector('.wrapper_pagination_pc');
@@ -58,7 +58,7 @@ function initializeGallerySwiper() {
         if (!toggleButton) return;
 
         toggleButton.classList.toggle('is_paused', isUserPaused);
-        toggleButton.setAttribute('aria-label', isUserPaused ? '재생' : '정지');
+        toggleButton.setAttribute('aria-label', isUserPaused ? '?ъ깮' : '?뺤?');
     }
 
     prevButton?.addEventListener('click', () => {

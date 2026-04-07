@@ -424,9 +424,15 @@ body {
 }
 
 /* main-2 noticeBanner */
-#main-2,
+#main-2 {
+    position: relative;
+}
+
 #main-3 {
     position: relative;
+    max-width: 2000px;
+    align-items: stretch;
+    justify-content: flex-start;
 }
 
 .container_noticeBanner {
@@ -510,7 +516,6 @@ body {
     flex-shrink: 0;
 }
 
-/* main-3 */
 .main3_fullbleed {
     position: absolute;
     top: 0;
@@ -527,8 +532,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 40vw;
-    min-width: 440px;
+    width: 30vw;
+    min-width: 382px;
     height: 100dvh;
     min-height: 100dvh;
     background-color: #ffffff;
@@ -538,9 +543,17 @@ body {
 }
 
 .container_main3_panel {
-    width: 100%;
-    height: 56%;
-    z-index: 10;
+    width: 30vw;
+    min-width: 382px;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 144px 48px 48px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 4;
+    position: relative;
 }
 
 .wrapper_main3_panel_content {
@@ -584,6 +597,7 @@ body {
 .wrapper_main3_panel_heading {
     width: 100%;
     gap: 24px;
+    align-items: center;
 }
 
 .title_main3_panel {

@@ -30,8 +30,8 @@ body {
 
 /* 섹션별 최상위 부모*/
 .snap_section {
-    width: 100%;
-    max-width: 1600px;
+    width: 80%;
+    /* max-width: 2040px; */
     height: 100%;
     min-height: 100dvh;
     scroll-snap-align: none;
@@ -424,9 +424,15 @@ body {
 }
 
 /* main-2 noticeBanner */
-#main-2,
+#main-2 {
+    position: relative;
+}
+
 #main-3 {
     position: relative;
+    max-width: none;
+    align-items: stretch;
+    justify-content: flex-start;
 }
 
 .container_noticeBanner {
@@ -510,44 +516,45 @@ body {
     flex-shrink: 0;
 }
 
-/* main-3 */
 .main3_fullbleed {
-    position: absolute;
-    top: 0;
-    left: 50%;
+    position: relative;
     width: 100vw;
     height: 100dvh;
     min-height: 100dvh;
-    transform: translateX(-50%);
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     display: block;
-    z-index: 0;
 }
 
 .main3_overlay_panel {
     position: absolute;
     top: 0;
     left: 0;
-    width: 40vw;
-    min-width: 440px;
+    width: 30vw;
+    min-width: 382px;
     height: 100dvh;
     min-height: 100dvh;
     background-color: #ffffff;
     border-bottom-right-radius: 248px;
-    z-index: 1;
-    pointer-events: none;
+    padding: 144px 48px 48px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 3;
 }
 
 .container_main3_panel {
     width: 100%;
-    height: 56%;
-    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .wrapper_main3_panel_content {
     width: 100%;
-    height: 100%;
     gap: 70px;
-    justify-content: flex-start;
 }
 
 .wrapper_main3_tab_menu {
@@ -584,6 +591,7 @@ body {
 .wrapper_main3_panel_heading {
     width: 100%;
     gap: 24px;
+    align-items: center;
 }
 
 .title_main3_panel {
