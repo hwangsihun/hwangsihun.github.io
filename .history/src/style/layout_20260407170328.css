@@ -704,7 +704,7 @@ body {
 
 .wrapper_main4_function_grid {
     width: 100%;
-    height: 40vh;
+    height: 486px;
     min-width: 0;
     display: grid;
     grid-template-columns: minmax(0, 10fr) minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 1.5fr);
@@ -874,7 +874,7 @@ body {
     width: 100%;
     position: relative;
     gap: 40px;
-    padding-bottom: 160px;
+    padding-bottom: 140px;
 }
 
 .bg_main4_checkerboard {
@@ -934,7 +934,7 @@ body {
 .wrapper_main4_partners_marquee {
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: 50;
     width: 100vw;
     transform: translateX(-50%);
     overflow: hidden;
@@ -1129,5 +1129,5 @@ body {
 }
 
 .bg_func {
-    height: 62vh;
+    height: 64vh;
 }

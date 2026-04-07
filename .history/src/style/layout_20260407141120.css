@@ -425,10 +425,8 @@ body {
 
 /* main-2 noticeBanner */
 #main-2,
-#main-3,
-#main-4 {
+#main-3 {
     position: relative;
-    isolation: isolate;
 }
 
 .container_noticeBanner {
@@ -447,7 +445,7 @@ body {
     gap: 70px;
 }
 
-.title_pc {
+.title_banner_pc {
     font-size: 36px;
     line-height: 1.25;
 }
@@ -674,309 +672,6 @@ body {
     z-index: 2;
 }
 
-/* main-4 functions */
-.container_funcPartners {
-    width: 100%;
-    height: 100%;
-    gap: 12%;
-    position: relative;
-    z-index: 1;
-    justify-content: center;
-}
-
-.container_func {
-    width: 100%;
-    gap: 8%;
-    min-width: 0;
-}
-
-.container_main4_function_content {
-    width: 100%;
-    gap: 40px;
-}
-
-.title_main4_function {
-    font-size: 24px;
-    line-height: 1.4;
-    font-weight: 700;
-    letter-spacing: -0.04em;
-}
-
-.wrapper_main4_function_grid {
-    width: 100%;
-    height: 40vh;
-    min-width: 0;
-    display: grid;
-    grid-template-columns: minmax(0, 10fr) minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 1.5fr);
-    gap: 20px;
-    align-items: stretch;
-    overflow: hidden;
-    transition: grid-template-columns 0.8s ease;
-}
-
-.wrapper_main4_function_card {
-    position: relative;
-    --main4-card-copy-gap: 0px;
-    --main4-card-text-gap: 0px;
-    --main4-card-desc-max-height: 0px;
-    --main4-card-desc-opacity: 0;
-    --main4-card-desc-translate-y: 20px;
-    --main4-card-button-size: 0px;
-    --main4-card-button-opacity: 0;
-    --main4-card-button-translate-y: 20px;
-    --main4-card-button-pointer: none;
-    --main4-card-image-scale: 1;
-    --main4-card-image-active-scale: 1.02;
-    --main4-card-image-position: 50% 50%;
-    width: 100%;
-    height: 100%;
-    min-width: 0;
-    border-radius: 20px;
-    overflow: hidden;
-    isolation: isolate;
-    transition:
-        transform 0.8s ease,
-        border-radius 0.8s ease;
-}
-
-.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(1).is_active) {
-    grid-template-columns: minmax(0, 10fr) minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 1.5fr);
-}
-
-.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(2).is_active) {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 10fr) minmax(0, 1.5fr) minmax(0, 1.5fr);
-}
-
-.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(3).is_active) {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 10fr) minmax(0, 1.5fr);
-}
-
-.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(4).is_active) {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 10fr);
-}
-
-.image_main4_function_card {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: var(--main4-card-image-position);
-    transform: scale(var(--main4-card-image-scale));
-    transition:
-        transform 0.8s ease,
-        filter 0.8s ease;
-}
-
-.main4_card_support {
-    --main4-card-image-active-scale: 1;
-    --main4-card-image-position: 50% 44%;
-}
-
-.main4_card_festival {
-    --main4-card-image-active-scale: 1;
-    --main4-card-image-position: 50% 40%;
-}
-
-.main4_card_glossary {
-    --main4-card-image-active-scale: 1;
-    --main4-card-image-position: 50% 48%;
-}
-
-.wrapper_main4_function_dim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(25, 31, 40, 0.08) 0%, rgba(25, 31, 40, 0.62) 100%);
-    z-index: 0;
-    transition: background 0.8s ease;
-}
-
-.wrapper_main4_function_copy {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    gap: var(--main4-card-copy-gap);
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 24px;
-    color: #ffffff;
-    transition: gap 0.8s ease;
-}
-
-.wrapper_main4_function_text {
-    width: 100%;
-    align-items: center;
-    gap: var(--main4-card-text-gap);
-    transition: gap 0.8s ease;
-}
-
-.text_main4_function_title {
-    width: 100%;
-    font-size: 20px;
-    line-height: 1.2;
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    word-break: keep-all;
-    transition:
-        font-size 0.8s ease,
-        transform 0.8s ease,
-        opacity 0.8s ease;
-}
-
-.text_main4_function_description {
-    width: 100%;
-    max-width: 420px;
-    max-height: var(--main4-card-desc-max-height);
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight: 500;
-    word-break: keep-all;
-    text-align: center;
-    opacity: var(--main4-card-desc-opacity);
-    transform: translateY(var(--main4-card-desc-translate-y));
-    overflow: hidden;
-    transition:
-        max-height 0.8s ease,
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.wrapper_main4_function_copy .quick_link {
-    width: var(--main4-card-button-size);
-    height: var(--main4-card-button-size);
-    opacity: var(--main4-card-button-opacity);
-    transform: translateY(var(--main4-card-button-translate-y));
-    pointer-events: var(--main4-card-button-pointer);
-    overflow: hidden;
-    transition:
-        width 0.8s ease,
-        height 0.8s ease,
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.wrapper_main4_function_card.is_active {
-    --main4-card-copy-gap: 24px;
-    --main4-card-text-gap: 24px;
-    --main4-card-desc-max-height: 80px;
-    --main4-card-desc-opacity: 1;
-    --main4-card-desc-translate-y: 0px;
-    --main4-card-button-size: 50px;
-    --main4-card-button-opacity: 1;
-    --main4-card-button-translate-y: 0px;
-    --main4-card-button-pointer: auto;
-    --main4-card-image-scale: var(--main4-card-image-active-scale);
-}
-
-.container_main4_partners {
-    width: 100%;
-    position: relative;
-    gap: 40px;
-    padding-bottom: 160px;
-}
-
-.bg_main4_checkerboard {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 100vw;
-    height: 60vh;
-    transform: translateX(-50%);
-    z-index: -20;
-    pointer-events: none;
-    background-color: #ffffff;
-    background-image:
-        linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
-        linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
-        linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
-    background-size: 18px 18px;
-    background-position:
-        0 0,
-        0 9px,
-        9px -9px,
-        -9px 0;
-}
-
-.bg_main4_surface {
-    z-index: -10;
-    border-radius: 0 0 248px 0;
-}
-
-.wrapper_main4_partners_heading {
-    width: 100%;
-    gap: 24px;
-}
-
-.wrapper_main4_partners_title {
-    gap: 24px;
-    flex-shrink: 0;
-}
-
-.title_main4_partners {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -0.04em;
-}
-
-.wrapper_main4_partners_visual {
-    width: 290px;
-    flex-shrink: 0;
-}
-
-.image_main4_partners_visual {
-    width: 290px;
-    height: auto;
-}
-
-.wrapper_main4_partners_marquee {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 100vw;
-    transform: translateX(-50%);
-    overflow: hidden;
-}
-
-.wrapper_main4_partners_track {
-    display: flex;
-    align-items: center;
-    width: max-content;
-    gap: 24px;
-    animation: main4PartnersMarquee 34s linear infinite;
-}
-
-.wrapper_main4_partners_group {
-    gap: 24px;
-    flex-shrink: 0;
-}
-
-.wrapper_main4_partner_logo {
-    width: 204px;
-    height: 100px;
-    padding: 10px 32px;
-    border-radius: 999px;
-    flex-shrink: 0;
-}
-
-.wrapper_main4_partner_logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-@keyframes main4PartnersMarquee {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(calc(-50% - 12px));
-    }
-}
-
 /* main-2 notice */
 .notice_group_pc {
     display: flex;
@@ -1089,16 +784,15 @@ body {
 }
 
 /* main-2 noticeBanner bg */
-.bg_noticeBanner,
-.bg_func {
+.bg_noticeBanner {
     position: absolute;
     top: 0;
     left: 50%;
     width: 100vw;
-    height: 50vh;
+    height: 49vh;
     transform: translateX(-50%);
-    z-index: -10;
-    border-radius: 0 0 258px 0;
+    z-index: -20;
+    border-radius: 0 0 0 258px;
 }
 
 .bgicon_noticeBanner_1 {
@@ -1128,6 +822,8 @@ body {
     z-index: -10;
 }
 
-.bg_func {
-    height: 62vh;
+/* main-4 funcPartners */
+.container_funcPartners {
+    width: 100%;
+    gap: 8%;
 }

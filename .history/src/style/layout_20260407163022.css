@@ -678,7 +678,7 @@ body {
 .container_funcPartners {
     width: 100%;
     height: 100%;
-    gap: 12%;
+    gap: 8%;
     position: relative;
     z-index: 1;
     justify-content: center;
@@ -704,7 +704,7 @@ body {
 
 .wrapper_main4_function_grid {
     width: 100%;
-    height: 40vh;
+    height: 486px;
     min-width: 0;
     display: grid;
     grid-template-columns: minmax(0, 10fr) minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 1.5fr);
@@ -739,20 +739,24 @@ body {
         border-radius 0.8s ease;
 }
 
-.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(1).is_active) {
-    grid-template-columns: minmax(0, 10fr) minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 1.5fr);
+.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(1):hover),
+.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(1):focus-within) {
+    grid-template-columns: minmax(0, 9fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr);
 }
 
-.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(2).is_active) {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 10fr) minmax(0, 1.5fr) minmax(0, 1.5fr);
+.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(2):hover),
+.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(2):focus-within) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 9fr) minmax(0, 2fr) minmax(0, 2fr);
 }
 
-.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(3).is_active) {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 10fr) minmax(0, 1.5fr);
+.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(3):hover),
+.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(3):focus-within) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 2fr) minmax(0, 9fr) minmax(0, 2fr);
 }
 
-.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(4).is_active) {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 10fr);
+.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(4):hover),
+.wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(4):focus-within) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 9fr);
 }
 
 .image_main4_function_card {
@@ -857,7 +861,21 @@ body {
         transform 0.8s ease;
 }
 
-.wrapper_main4_function_card.is_active {
+.wrapper_main4_function_card:is(:hover, :focus-within) {
+    --main4-card-copy-gap: 24px;
+    --main4-card-text-gap: 24px;
+    --main4-card-desc-max-height: 80px;
+    --main4-card-desc-opacity: 1;
+    --main4-card-desc-translate-y: 0px;
+    --main4-card-button-size: 50px;
+    --main4-card-button-opacity: 1;
+    --main4-card-button-translate-y: 0px;
+    --main4-card-button-pointer: auto;
+    --main4-card-image-scale: var(--main4-card-image-active-scale);
+}
+
+.wrapper_main4_function_grid:not(:has(.wrapper_main4_function_card:is(:hover, :focus-within)))
+    .wrapper_main4_function_card:first-child {
     --main4-card-copy-gap: 24px;
     --main4-card-text-gap: 24px;
     --main4-card-desc-max-height: 80px;
@@ -872,9 +890,7 @@ body {
 
 .container_main4_partners {
     width: 100%;
-    position: relative;
     gap: 40px;
-    padding-bottom: 160px;
 }
 
 .bg_main4_checkerboard {
@@ -932,11 +948,7 @@ body {
 }
 
 .wrapper_main4_partners_marquee {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 100vw;
-    transform: translateX(-50%);
+    width: 100%;
     overflow: hidden;
 }
 
@@ -1089,13 +1101,12 @@ body {
 }
 
 /* main-2 noticeBanner bg */
-.bg_noticeBanner,
-.bg_func {
+.bg_noticeBanner {
     position: absolute;
     top: 0;
     left: 50%;
     width: 100vw;
-    height: 50vh;
+    height: 62vh;
     transform: translateX(-50%);
     z-index: -10;
     border-radius: 0 0 258px 0;
@@ -1126,8 +1137,4 @@ body {
     width: 60px;
     height: 60px;
     z-index: -10;
-}
-
-.bg_func {
-    height: 62vh;
 }
