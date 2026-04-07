@@ -1,4 +1,4 @@
-import './style/global.css';
+﻿import './style/global.css';
 import './style/layout.css';
 import './style/responsive.css';
 import './style/swiper-custom.css';
@@ -363,7 +363,7 @@ function syncActiveSnapSectionPosition() {
 
     if (!snapRoot) return;
 
-    const sections = Array.from(snapRoot.querySelectorAll('.snap_section, .snap_visual_section'));
+    const sections = Array.from(snapRoot.querySelectorAll('.snap_section, .snap_visual_section, .footer_section'));
 
     if (!sections.length) return;
 
@@ -377,7 +377,14 @@ function syncActiveSnapSectionPosition() {
                 return currentCenter >= top && currentCenter < bottom;
             }) || sections[0];
 
-        snapRoot.scrollTop = activeSection.offsetTop;
+        const alignToViewportBottom =
+            activeSection.classList.contains('footer_section') ||
+            activeSection.dataset.snapAlign === 'end';
+        const nextScrollTop = alignToViewportBottom
+            ? activeSection.offsetTop + activeSection.offsetHeight - snapRoot.clientHeight
+            : activeSection.offsetTop;
+
+        snapRoot.scrollTop = Math.max(0, Math.min(snapRoot.scrollHeight - snapRoot.clientHeight, nextScrollTop));
     });
 }
 
@@ -485,3 +492,5 @@ window.addEventListener('load', () => {
         }, 0);
     }
 });
+
+

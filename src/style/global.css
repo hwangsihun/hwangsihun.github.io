@@ -2013,6 +2013,9 @@ h6 {
 .bg_darkGray {
     background-color: var(--color-darkGray);
 }
+.bg_dateGray {
+    background-color: var(--color-dateGray);
+}
 .bg_lightGrayFont {
     background-color: var(--color-lightGray);
 }
