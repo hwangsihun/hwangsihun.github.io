@@ -513,8 +513,13 @@ window.addEventListener('orientationchange', scheduleViewportSync);
 window.addEventListener('app:viewport-resized', (event) => {
     syncGallerySwiperLayouts();
     const viewportResizeDetail = event.detail || {};
+    const shouldSyncSnapSectionPosition =
+        (viewportResizeDetail.heightChanged && !viewportResizeDetail.widthChanged && !viewportResizeDetail.modeChanged) ||
+        (viewportResizeDetail.modeChanged &&
+            viewportResizeDetail.previousMode === 'mobile' &&
+            viewportResizeDetail.mode === 'pc');
 
-    if (viewportResizeDetail.heightChanged && !viewportResizeDetail.widthChanged && !viewportResizeDetail.modeChanged) {
+    if (shouldSyncSnapSectionPosition) {
         syncActiveSnapSectionPosition();
     }
 
