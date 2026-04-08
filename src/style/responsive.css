@@ -115,12 +115,18 @@
     }
 
     /* main-2 notice */
+    #main-2.snap_section {
+        height: auto;
+        min-height: auto;
+    }
+
     .container_notice_pc {
         width: 100%;
         gap: 16px;
     }
 
     .container_noticeBanner {
+        height: auto;
         gap: 40px;
     }
 
