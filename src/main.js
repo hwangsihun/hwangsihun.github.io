@@ -1,4 +1,4 @@
-﻿import './style/global.css';
+import './style/global.css';
 import './style/layout.css';
 import './style/responsive.css';
 import './style/swiper-custom.css';
@@ -361,7 +361,7 @@ function syncGallerySwiperLayouts() {
 function syncActiveSnapSectionPosition() {
     const snapRoot = document.querySelector('.snap_page');
 
-    if (!snapRoot) return;
+    if (!snapRoot || window.innerWidth < 768) return;
 
     const sections = Array.from(snapRoot.querySelectorAll('.snap_section, .snap_visual_section, .footer_section'));
 
@@ -506,6 +506,8 @@ window.addEventListener('load', () => {
         }, 0);
     }
 });
+
+
 
 
 

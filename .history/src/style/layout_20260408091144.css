@@ -800,6 +800,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 40px 24px;
     color: #ffffff;
     transition: gap 0.8s ease;
 }
@@ -1337,5 +1338,4 @@ body {
 
 .bg_func {
     height: 62vh;
-    border-radius: 0 0 258px 0;
 }

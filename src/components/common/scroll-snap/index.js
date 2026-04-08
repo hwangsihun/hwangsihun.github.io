@@ -1,5 +1,6 @@
-﻿const SNAP_ROOT_SELECTOR = '.snap_page';
+const SNAP_ROOT_SELECTOR = '.snap_page';
 const SNAP_SECTION_SELECTOR = '.snap_section, .snap_visual_section, .footer_section';
+const SNAP_MIN_WIDTH = 768;
 const DEFAULT_DURATION = 1200;
 const DEFAULT_WHEEL_THRESHOLD = 20;
 
@@ -27,6 +28,10 @@ function initializeCustomScrollSnap() {
 
     function getMaxScrollTop() {
         return Math.max(0, snapRoot.scrollHeight - snapRoot.clientHeight);
+    }
+
+    function isSnapEnabled() {
+        return window.innerWidth >= SNAP_MIN_WIDTH;
     }
 
     function getTargetScrollTop(targetSection) {
@@ -102,6 +107,8 @@ function initializeCustomScrollSnap() {
     snapRoot.addEventListener(
         'wheel',
         (event) => {
+            if (!isSnapEnabled()) return;
+
             event.preventDefault();
 
             if (isAnimating || Math.abs(event.deltaY) < wheelThreshold) return;
@@ -122,7 +129,7 @@ function initializeCustomScrollSnap() {
     snapRoot.addEventListener(
         'touchend',
         (event) => {
-            if (isAnimating) return;
+            if (!isSnapEnabled() || isAnimating) return;
 
             const touchEndY = event.changedTouches[0].clientY;
             const deltaY = touchStartY - touchEndY;
@@ -140,6 +147,8 @@ if (document.readyState === 'loading') {
 } else {
     initializeCustomScrollSnap();
 }
+
+
 
 
 

@@ -800,6 +800,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 40px 24px;
     color: #ffffff;
     transition: gap 0.8s ease;
 }
