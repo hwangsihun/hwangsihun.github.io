@@ -9,7 +9,6 @@ body {
 }
 
 .snap_page {
-    --page-inline-padding: 60px;
     height: var(--app-height);
     scroll-snap-type: none;
     scroll-behavior: auto;
@@ -17,8 +16,8 @@ body {
     scrollbar-width: none;
     overflow-x: auto;
     overflow-y: auto;
-    padding-left: var(--page-inline-padding);
-    padding-right: var(--page-inline-padding);
+    padding-left: 60px;
+    padding-right: 60px;
 }
 
 .snap_page::-webkit-scrollbar {
@@ -192,7 +191,6 @@ body {
     justify-content: flex-start;
     gap: 24px;
     line-height: 1;
-    padding-top: 140px;
 }
 
 .group_visual_mobile {
@@ -1025,32 +1023,34 @@ body {
     position: relative;
     width: 100%;
     max-width: 1600px;
-    height: auto;
+    height: 435px;
     min-height: 435px;
 }
 
 .container_footer_content {
     position: relative;
     z-index: 1;
-    width: 100vw;
-    min-height: 435px;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    width: 100%;
+    height: 100%;
     padding-top: 24px;
-    padding-left: var(--page-inline-padding);
-    padding-right: var(--page-inline-padding);
     padding-bottom: 70px;
-    box-sizing: border-box;
     gap: 24px;
+}
+
+.bg_footer_surface {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: 0;
 }
 
 .wrapper_footer_top {
     width: 100%;
     align-items: center;
     gap: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .wrapper_footer_brand {
@@ -1113,8 +1113,8 @@ body {
 .btn_footer_family_link {
     width: 100%;
     border-radius: 999px;
-    padding: 12px 16px;
-    font-size: 16px;
+    padding: 16px 24px;
+    font-size: 18px;
     line-height: 1;
 }
 
@@ -1166,9 +1166,6 @@ body {
     min-height: 0;
     gap: 24px;
     align-items: stretch;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .wrapper_footer_info {

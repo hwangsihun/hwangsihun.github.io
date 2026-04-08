@@ -192,7 +192,6 @@ body {
     justify-content: flex-start;
     gap: 24px;
     line-height: 1;
-    padding-top: 140px;
 }
 
 .group_visual_mobile {
@@ -1166,9 +1165,6 @@ body {
     min-height: 0;
     gap: 24px;
     align-items: stretch;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .wrapper_footer_info {

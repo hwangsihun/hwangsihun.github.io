@@ -351,7 +351,6 @@
     .wrapper_main4_function_grid:has(.wrapper_main4_function_card:nth-child(4).is_active) {
         height: auto;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-auto-rows: 100px;
         gap: 8px;
         overflow: visible;
     }
@@ -368,9 +367,7 @@
         --main4-card-button-translate-y: 12px;
         --main4-card-button-pointer: none;
         --main4-card-image-scale: 1;
-        height: 100px;
-        min-height: 100px;
-        aspect-ratio: auto;
+        aspect-ratio: 328 / 112;
         border-radius: 20px;
     }
 
