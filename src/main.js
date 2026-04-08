@@ -49,6 +49,66 @@ const SWIPER_BASE_OPTIONS = {
     touchEventsTarget: 'wrapper',
 };
 
+const SNAP_SECTION_SELECTOR = '.snap_section, .snap_visual_section, .footer_section';
+const LEGACY_HEADER_SUBMENU_ITEMS = {
+    akl: [
+        { label: '소개', target: '#main-1' },
+        { label: '공간/시설', target: '#main-3' },
+        { label: '프로그램', target: '#main-4' },
+        { label: '입주기업', target: '#main-5' },
+    ],
+    rental: [
+        { label: '공간/시설', target: '#main-3' },
+        { label: '대관 안내', target: '#main-3' },
+        { label: '이용 안내', target: '#main-3' },
+    ],
+    biz: [
+        { label: '프로그램', target: '#main-4' },
+        { label: '비즈컨설팅', target: '#main-4' },
+        { label: '입주기업', target: '#main-5' },
+    ],
+    community: [
+        { label: '공지사항', target: '#main-2' },
+        { label: '공모소식', target: '#main-2' },
+        { label: '뉴스레터', target: '#main-2' },
+    ],
+    archive: [
+        { label: '페스티벌', target: '#main-4' },
+        { label: '기술용어 사전', target: '#main-4' },
+        { label: '자료실', target: '#main-5' },
+    ],
+};
+
+const HEADER_SHIFT_SECTION_IDS = new Set(['main-2', 'main-3', 'main-4', 'main-5']);
+const HEADER_SUBMENU_ITEMS = {
+    akl: [
+        { label: '소개', target: '#main-1' },
+        { label: '공간/시설', target: '#main-3' },
+        { label: '프로그램', target: '#main-4' },
+        { label: '입주기업', target: '#main-5' },
+    ],
+    rental: [
+        { label: '공간/시설', target: '#main-3' },
+        { label: '대관 안내', target: '#main-3' },
+        { label: '이용 안내', target: '#main-3' },
+    ],
+    biz: [
+        { label: '프로그램', target: '#main-4' },
+        { label: '비즈컨설팅', target: '#main-1' },
+        { label: '입주기업', target: '#main-5' },
+    ],
+    community: [
+        { label: '공지사항', target: '#main-2' },
+        { label: '공모소식', target: '#main-2' },
+        { label: '뉴스레터', target: '#main-2' },
+    ],
+    archive: [
+        { label: '페스티벌', target: '#main-4' },
+        { label: '기술용어 사전', target: '#main-4' },
+        { label: '자료실', target: '#main-5' },
+    ],
+};
+
 function getViewportMode(viewportWidth = window.innerWidth) {
     return viewportWidth >= 768 ? 'pc' : 'mobile';
 }
@@ -382,48 +442,317 @@ function syncGallerySwiperLayouts() {
     });
 }
 
+function getSnapRoot() {
+    return document.querySelector('.snap_page');
+}
+
+function getSnapSections(snapRoot = getSnapRoot()) {
+    return Array.from(snapRoot?.querySelectorAll(SNAP_SECTION_SELECTOR) || []);
+}
+
+function getSnapSectionScrollTop(snapRoot, section) {
+    if (!snapRoot || !section) return 0;
+
+    const alignToViewportBottom =
+        section.classList.contains('footer_section') ||
+        section.dataset.snapAlign === 'end';
+    const sectionScrollTop = alignToViewportBottom
+        ? section.offsetTop + section.offsetHeight - snapRoot.clientHeight
+        : section.offsetTop;
+
+    return Math.max(0, Math.min(snapRoot.scrollHeight - snapRoot.clientHeight, sectionScrollTop));
+}
+
+function getClosestSnapSectionState(snapRoot, sections = getSnapSections(snapRoot)) {
+    if (!snapRoot || !sections.length) return null;
+
+    return sections.reduce(
+        (closestSectionState, section, index) => {
+            const sectionScrollTop = getSnapSectionScrollTop(snapRoot, section);
+            const distance = Math.abs(snapRoot.scrollTop - sectionScrollTop);
+
+            if (distance < closestSectionState.distance) {
+                return {
+                    section,
+                    index,
+                    distance,
+                    scrollTop: sectionScrollTop,
+                };
+            }
+
+            return closestSectionState;
+        },
+        {
+            section: sections[0],
+            index: 0,
+            distance: Number.POSITIVE_INFINITY,
+            scrollTop: getSnapSectionScrollTop(snapRoot, sections[0]),
+        },
+    );
+}
+
 function syncActiveSnapSectionPosition() {
-    const snapRoot = document.querySelector('.snap_page');
+    const snapRoot = getSnapRoot();
 
     if (!snapRoot || window.innerWidth < 768) return;
 
-    const sections = Array.from(snapRoot.querySelectorAll('.snap_section, .snap_visual_section, .footer_section'));
+    const sections = getSnapSections(snapRoot);
 
     if (!sections.length) return;
 
     requestAnimationFrame(() => {
-        const currentScrollTop = snapRoot.scrollTop;
-        const activeSection =
-            sections.reduce(
-                (closestSection, section) => {
-                    const alignToViewportBottom =
-                        section.classList.contains('footer_section') ||
-                        section.dataset.snapAlign === 'end';
-                    const sectionScrollTop = alignToViewportBottom
-                        ? section.offsetTop + section.offsetHeight - snapRoot.clientHeight
-                        : section.offsetTop;
-                    const clampedSectionScrollTop = Math.max(0, Math.min(snapRoot.scrollHeight - snapRoot.clientHeight, sectionScrollTop));
-                    const distance = Math.abs(currentScrollTop - clampedSectionScrollTop);
+        const activeSectionState = getClosestSnapSectionState(snapRoot, sections);
 
-                    if (distance < closestSection.distance) {
-                        return {
-                            section,
-                            distance,
-                            scrollTop: clampedSectionScrollTop,
-                        };
-                    }
+        if (!activeSectionState) return;
 
-                    return closestSection;
-                },
-                {
-                    section: sections[0],
-                    distance: Number.POSITIVE_INFINITY,
-                    scrollTop: 0,
-                },
-            ) || { section: sections[0], scrollTop: 0 };
-
-        snapRoot.scrollTop = activeSection.scrollTop;
+        snapRoot.scrollTop = activeSectionState.scrollTop;
     });
+}
+
+function initializeGlobalHeader() {
+    const headerElement = document.querySelector('.container_header_global');
+    const snapRoot = getSnapRoot();
+    const headerGnbHolder = headerElement?.querySelector('[data-header-gnb]');
+    const headerGnbBar = headerElement?.querySelector('.wrapper_header_gnb');
+    const headerMenuButtons = Array.from(headerElement?.querySelectorAll('.button_header_gnb[data-header-menu]') || []);
+    const submenuContainer = headerElement?.querySelector('.container_header_submenu');
+    const submenuList = headerElement?.querySelector('[data-header-submenu-list]');
+
+    if (!headerElement || !snapRoot || !headerGnbHolder || !headerGnbBar || !submenuContainer || !submenuList || headerElement.dataset.headerInitialized === 'true') return;
+
+    let headerUpdateFrame = 0;
+    let activeMenuButton = null;
+
+    headerMenuButtons.forEach((headerMenuButton, menuIndex) => {
+        if (!headerMenuButton.id) {
+            headerMenuButton.id = `header-gnb-button-${menuIndex + 1}`;
+        }
+    });
+
+    function closeSubmenu(options = {}) {
+        const { restoreFocus = false } = options;
+        const previousActiveMenuButton = activeMenuButton;
+
+        activeMenuButton = null;
+        submenuContainer.hidden = true;
+        submenuList.innerHTML = '';
+        submenuList.removeAttribute('aria-labelledby');
+        headerElement.classList.remove('is_submenu_open');
+
+        headerMenuButtons.forEach((headerMenuButton) => {
+            headerMenuButton.classList.remove('is_active');
+            headerMenuButton.setAttribute('aria-expanded', 'false');
+        });
+
+        if (restoreFocus) {
+            previousActiveMenuButton?.focus();
+        }
+    }
+
+    function openSubmenu(menuButton) {
+        if (!menuButton || getViewportMode() !== 'pc') return;
+
+        const submenuItems = HEADER_SUBMENU_ITEMS[menuButton.dataset.headerMenu] || [];
+
+        if (!submenuItems.length) {
+            closeSubmenu();
+            return;
+        }
+
+        activeMenuButton = menuButton;
+        submenuList.innerHTML = '';
+
+        const submenuFragment = document.createDocumentFragment();
+        submenuItems.forEach((submenuItem) => {
+            const submenuButton = document.createElement('button');
+
+            submenuButton.type = 'button';
+            submenuButton.className = 'button_header_submenu';
+            submenuButton.textContent = submenuItem.label;
+            submenuButton.dataset.headerTarget = submenuItem.target;
+            submenuFragment.appendChild(submenuButton);
+        });
+
+        submenuList.appendChild(submenuFragment);
+        submenuList.setAttribute('aria-labelledby', menuButton.id);
+        syncSubmenuWidth();
+        submenuContainer.hidden = false;
+        headerElement.classList.add('is_submenu_open');
+
+        headerMenuButtons.forEach((headerMenuButton) => {
+            const isActive = headerMenuButton === menuButton;
+
+            headerMenuButton.classList.toggle('is_active', isActive);
+            headerMenuButton.setAttribute('aria-expanded', String(isActive));
+        });
+    }
+
+    function moveMenuFocus(step) {
+        if (!headerMenuButtons.length) return;
+
+        const activeIndex = headerMenuButtons.findIndex(
+            (headerMenuButton) => headerMenuButton === document.activeElement,
+        );
+        const nextIndex =
+            activeIndex === -1
+                ? 0
+                : (activeIndex + step + headerMenuButtons.length) % headerMenuButtons.length;
+
+        headerMenuButtons[nextIndex]?.focus();
+    }
+
+    function focusSubmenuButton(step) {
+        const submenuButtons = Array.from(submenuList.querySelectorAll('.button_header_submenu'));
+
+        if (!submenuButtons.length) return;
+
+        const activeIndex = submenuButtons.findIndex((submenuButton) => submenuButton === document.activeElement);
+        const nextIndex =
+            activeIndex === -1
+                ? 0
+                : (activeIndex + step + submenuButtons.length) % submenuButtons.length;
+
+        submenuButtons[nextIndex]?.focus();
+    }
+
+    function syncSubmenuWidth() {
+        const gnbWidth = headerGnbBar.offsetWidth;
+
+        if (!gnbWidth) return;
+
+        headerGnbHolder.style.setProperty('--header-gnb-width', `${gnbWidth}px`);
+    }
+
+    function updateHeaderState() {
+        const closestSectionState = getClosestSnapSectionState(snapRoot);
+        const shouldShiftGnb =
+            getViewportMode() === 'pc' &&
+            HEADER_SHIFT_SECTION_IDS.has(closestSectionState?.section?.id || '');
+
+        headerElement.classList.toggle('is_gnb_shifted', shouldShiftGnb);
+        syncSubmenuWidth();
+
+        if (getViewportMode() !== 'pc') {
+            closeSubmenu();
+        }
+    }
+
+    function scheduleHeaderUpdate() {
+        cancelAnimationFrame(headerUpdateFrame);
+        headerUpdateFrame = requestAnimationFrame(updateHeaderState);
+    }
+
+    headerMenuButtons.forEach((headerMenuButton) => {
+        headerMenuButton.addEventListener('pointerenter', () => {
+            openSubmenu(headerMenuButton);
+        });
+
+        headerMenuButton.addEventListener('focusin', () => {
+            openSubmenu(headerMenuButton);
+        });
+
+        headerMenuButton.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                moveMenuFocus(1);
+                event.preventDefault();
+            }
+
+            if (event.key === 'ArrowLeft') {
+                moveMenuFocus(-1);
+                event.preventDefault();
+            }
+
+            if (event.key === 'Home') {
+                headerMenuButtons[0]?.focus();
+                event.preventDefault();
+            }
+
+            if (event.key === 'End') {
+                headerMenuButtons.at(-1)?.focus();
+                event.preventDefault();
+            }
+
+            if (event.key === 'ArrowDown') {
+                openSubmenu(headerMenuButton);
+                requestAnimationFrame(() => {
+                    submenuList.querySelector('.button_header_submenu')?.focus();
+                });
+                event.preventDefault();
+            }
+        });
+    });
+
+    headerElement.addEventListener('click', (event) => {
+        const headerTargetButton = event.target.closest('[data-header-target]');
+
+        if (!headerTargetButton) return;
+
+        const targetSelector = headerTargetButton.dataset.headerTarget;
+        const targetSection = document.querySelector(targetSelector);
+
+        if (!targetSection) return;
+
+        snapRoot.scrollTo({
+            top: getSnapSectionScrollTop(snapRoot, targetSection),
+            behavior: 'smooth',
+        });
+
+        if (headerTargetButton.classList.contains('button_header_submenu')) {
+            closeSubmenu();
+        }
+    });
+
+    submenuList.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') {
+            focusSubmenuButton(1);
+            event.preventDefault();
+        }
+
+        if (event.key === 'ArrowLeft') {
+            focusSubmenuButton(-1);
+            event.preventDefault();
+        }
+
+        if (event.key === 'Home') {
+            submenuList.querySelector('.button_header_submenu')?.focus();
+            event.preventDefault();
+        }
+
+        if (event.key === 'End') {
+            submenuList.querySelector('.button_header_submenu:last-child')?.focus();
+            event.preventDefault();
+        }
+
+        if (event.key === 'ArrowUp') {
+            activeMenuButton?.focus();
+            event.preventDefault();
+        }
+    });
+
+    headerGnbHolder.addEventListener('pointerleave', () => {
+        closeSubmenu();
+    });
+
+    headerGnbHolder.addEventListener('focusout', () => {
+        requestAnimationFrame(() => {
+            if (!headerGnbHolder.contains(document.activeElement)) {
+                closeSubmenu();
+            }
+        });
+    });
+
+    headerElement.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+
+        closeSubmenu({ restoreFocus: true });
+    });
+
+    snapRoot.addEventListener('scroll', scheduleHeaderUpdate, { passive: true });
+    window.addEventListener('app:viewport-resized', scheduleHeaderUpdate);
+
+    headerElement.dataset.headerInitialized = 'true';
+    closeSubmenu();
+    scheduleHeaderUpdate();
 }
 
 function initializeMain4FunctionGrid() {
@@ -506,6 +835,7 @@ if (typeof Swiper !== 'undefined') {
 
 initializeMain4FunctionGrid();
 initializeMain4PartnersMarquee();
+initializeGlobalHeader();
 
 scheduleViewportSync();
 window.addEventListener('resize', scheduleViewportSync);
@@ -532,6 +862,7 @@ window.addEventListener('load', () => {
     scheduleViewportSync();
     initializeMain4FunctionGrid();
     initializeMain4PartnersMarquee();
+    initializeGlobalHeader();
 
     if (typeof Swiper !== 'undefined') {
         initializeGallerySwipers();

@@ -4,12 +4,12 @@ body {
 }
 
 .page_body {
-    --page-inline-padding: 60px;
     overflow: hidden;
     background-color: #ffffff;
 }
 
 .snap_page {
+    --page-inline-padding: 60px;
     height: var(--app-height);
     scroll-snap-type: none;
     scroll-behavior: auto;
@@ -50,33 +50,7 @@ body {
     pointer-events: none;
 }
 
-.container_header_global::after {
-    content: '';
-    position: absolute;
-    top: -24px;
-    left: 50%;
-    width: 100vw;
-    height: calc(var(--app-height) + 24px);
-    transform: translateX(-50%);
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.28) 24%,
-        rgba(0, 0, 0, 0) 78%
-    );
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 0;
-}
-
-.container_header_global.is_submenu_open::after {
-    opacity: 1;
-}
-
 .container_header_global_inner {
-    position: relative;
-    z-index: 1;
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
@@ -96,21 +70,12 @@ body {
 
 .wrapper_header_gnb_holder {
     flex: 1 1 auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    transform: translateY(0);
+    transition: transform 0.45s ease;
 }
 
-.container_header_global.is_submenu_open .wrapper_header_gnb_holder::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: var(--header-gnb-width, auto);
-    height: 18px;
-    transform: translateX(-50%);
+.container_header_global.is_gnb_shifted .wrapper_header_gnb_holder {
+    transform: translateY(40px);
 }
 
 .button_header_logo,
@@ -142,128 +107,26 @@ body {
     border: 1px solid var(--color-black);
     border-radius: 999px;
     background-color: #ffffff;
-    padding: 6px 8px;
+    padding: 10px 0;
 }
 
 .button_header_gnb {
-    position: relative;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
     height: 100%;
     padding: 0 32px;
     font-size: 18px;
     line-height: 1;
     font-weight: 500;
-    border-radius: 999px;
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
     white-space: nowrap;
 }
 
 .button_header_gnb + .button_header_gnb {
-    padding-left: 33px;
-}
-
-.button_header_gnb + .button_header_gnb::before {
-    content: '';
-    position: absolute;
-    top: 12px;
-    bottom: 12px;
-    left: 0;
     border-left: 1px dashed rgba(25, 31, 40, 0.5);
 }
 
-.button_header_gnb.is_active {
-    background-color: var(--color-black);
-    color: #ffffff;
-}
-
-.button_header_gnb.is_active::before,
-.button_header_gnb.is_active + .button_header_gnb::before {
-    opacity: 0;
-}
-
-.button_header_gnb.is_active + .button_header_gnb {
-    padding-left: 33px;
-}
-
-.container_header_submenu {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 50%;
-    z-index: 1;
-    width: var(--header-gnb-width, auto);
-    opacity: 0;
-    transform: translate(-50%, -8px);
-    pointer-events: none;
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-}
-
-.container_header_global.is_submenu_open .container_header_submenu {
-    opacity: 1;
-    transform: translate(-50%, 0);
-    pointer-events: auto;
-}
-
-.wrapper_header_submenu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    width: 100%;
-    height: 58px;
-    min-height: 58px;
-    border: 1px solid var(--color-black);
-    border-radius: 999px;
-    background-color: #e0e0e0;
-    padding: 6px 8px;
-}
-
-.button_header_submenu {
-    flex: 1 1 0;
-    border: 0;
-    background: transparent;
-    box-sizing: border-box;
-    height: 100%;
-    min-height: 100%;
-    padding: 0 24px;
-    font-size: 18px;
-    line-height: 1;
-    font-weight: 500;
-    color: var(--color-black);
-    white-space: nowrap;
-    cursor: pointer;
-    border-radius: 999px;
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
-}
-
-.button_header_submenu:hover,
-.button_header_submenu:focus-visible {
-    background-color: #bdbdbd;
-}
-
-.button_header_gnb:focus-visible,
-.button_header_submenu:focus-visible,
-.button_header_auth:focus-visible,
-.button_header_icon:focus-visible,
-.button_header_logo:focus-visible {
-    outline: 2px solid var(--color-black);
-    outline-offset: 3px;
-}
-
-.button_header_gnb.is_active:focus-visible {
-    outline-color: #ffffff;
-}
-
 .wrapper_header_actions {
-    gap: 24px;
+    gap: 16px;
 }
 
 .button_header_auth {
