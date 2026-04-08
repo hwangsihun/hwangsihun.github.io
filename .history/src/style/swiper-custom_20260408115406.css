@@ -92,30 +92,3 @@
     height: var(--app-height);
     border-radius: 0;
 }
-
-@media (max-width: 767px) {
-    #main-3 .main3-swiper {
-        height: auto;
-        min-height: 0;
-        aspect-ratio: 452 / 305;
-        border-radius: 20px;
-    }
-
-    #main-3 .main3-swiper-progress.swiper-progress {
-        position: relative;
-        width: 100%;
-        right: auto;
-        bottom: auto;
-        left: auto;
-    }
-
-    #main-3 .swiper-progress,
-    #main-3 .swiper-progress.is-white {
-        height: 1px;
-        background-color: var(--color-black);
-    }
-
-    #main-3 .swiper-progress.is-white .swiper-progress-fill {
-        background-color: var(--color-black);
-    }
-}

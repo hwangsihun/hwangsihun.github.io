@@ -133,14 +133,14 @@
     <section id="main-2" class="flex_col_center snap_section">
       <div class="flex_col container_noticeBanner">
 
-        <div class="flex_row_between container_banner">
-          <div class="flex_col_start wrapper_banner_title">
-            <h1 class="font-clash-sb title_banner">ARTS KOREA LAB <br> <span class="">NOW</span></h1>
+        <div class="flex_row_between container_banner_pc">
+          <div class="wrapper_bannerTitle_pc">
+            <h1 class="font-clash-sb title_pc">ARTS KOREA LAB <br> <span class="">NOW</span></h1>
             <img class="icon_visual4" src="/assets/imgs/img/keyVisual_4.svg" alt="키비주얼4">
           </div>
 
           <!-- 스와이퍼 -->
-          <div class="flex_row container_swiper_banner">
+          <div class="flex_row container_swiper_pc">
             <div class="flex_row_center wrapper_pagination_pc">
               <button type="button" class="btn_pagination_pc flex_row_center bg_transparent line_purple"
                 aria-label="이전"></button>
@@ -150,7 +150,7 @@
                 aria-label="다음"></button>
             </div>
 
-            <div class="gallery_wrapper_banner flex_col">
+            <div class="gallery_wrapper_pc flex_col">
               <div class="main2-swiper swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
@@ -295,20 +295,11 @@
     <section id="main-3" class="flex_col_justify_center snap_section">
       <div class="container_main3_panel">
         <div class="wrapper_main3_panel_content flex_col_start">
-          <div class="wrapper_main3_panel_intro flex_col_start">
-            <h2 class="title_main3_section">대관 공간 · 장비 안내</h2>
-
-            <div class="wrapper_main3_panel_top flex_row_between">
-              <div class="wrapper_main3_tab_menu flex_row">
-                <button type="button" class="btn_tab_menu is_active flex_row_center" data-main3-filter="all">전체</button>
-                <button type="button" class="btn_tab_menu flex_row_center bg_white" data-main3-filter="space">공간대관</button>
-                <button type="button" class="btn_tab_menu flex_row_center bg_white"
-                  data-main3-filter="equipment">장비대여</button>
-              </div>
-
-              <button type="button" class="quick_link main3_panel_top_link bg_transparent"
-                aria-label="다음 섹션 이동"></button>
-            </div>
+          <div class="wrapper_main3_tab_menu flex_row">
+            <button type="button" class="btn_tab_menu is_active flex_row_center" data-main3-filter="all">전체</button>
+            <button type="button" class="btn_tab_menu flex_row_center bg_white" data-main3-filter="space">공간대관</button>
+            <button type="button" class="btn_tab_menu flex_row_center bg_white"
+              data-main3-filter="equipment">장비대여</button>
           </div>
 
           <div class="wrapper_main3_panel_info flex_col_start">
@@ -366,10 +357,6 @@
               </div>
             </div>
             <div class="main3-swiper-pagination swiper-pagination"></div>
-          </div>
-
-          <div class="wrapper_main3_slide_title" aria-hidden="true">
-            <p class="text_main3_slide_title">6층 공유오피스</p>
           </div>
 
           <div class="main3-swiper-progress swiper-progress is-white" aria-label="메인 3 슬라이드 진행 상태">

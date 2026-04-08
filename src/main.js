@@ -22,7 +22,7 @@ const SWIPER_SECTION_CONFIGS = [
         progressSelector: '.main3-swiper-progress',
         progressFillSelector: '.main3-swiper-progress-fill',
         filterButtonSelector: '[data-main3-filter]',
-        titleSelector: '.title_main3_panel',
+        titleSelector: '.title_main3_panel, .text_main3_slide_title',
         prevButtonSelector: '[data-main3-swiper-controls] [data-pagination-button="prev"]',
         toggleButtonSelector: '[data-main3-swiper-controls] [data-pagination-button="stop"]',
         nextButtonSelector: '[data-main3-swiper-controls] [data-pagination-button="next"]',
@@ -49,9 +49,21 @@ const SWIPER_BASE_OPTIONS = {
     touchEventsTarget: 'wrapper',
 };
 
+function getViewportMode(viewportWidth = window.innerWidth) {
+    return viewportWidth >= 768 ? 'pc' : 'mobile';
+}
+
+let previousViewportWidth = null;
+let previousViewportHeight = null;
+let previousViewportMode = null;
+
 function syncViewportSize() {
     const viewportHeight = Math.round(window.visualViewport?.height || window.innerHeight);
     const viewportWidth = Math.round(window.visualViewport?.width || window.innerWidth);
+    const nextViewportMode = getViewportMode(viewportWidth);
+    const lastViewportWidth = previousViewportWidth ?? viewportWidth;
+    const lastViewportHeight = previousViewportHeight ?? viewportHeight;
+    const lastViewportMode = previousViewportMode ?? nextViewportMode;
 
     document.documentElement.style.setProperty('--app-height', `${viewportHeight}px`);
     document.documentElement.style.setProperty('--app-width', `${viewportWidth}px`);
@@ -61,9 +73,20 @@ function syncViewportSize() {
             detail: {
                 height: viewportHeight,
                 width: viewportWidth,
+                previousHeight: lastViewportHeight,
+                previousWidth: lastViewportWidth,
+                mode: nextViewportMode,
+                previousMode: lastViewportMode,
+                heightChanged: viewportHeight !== lastViewportHeight,
+                widthChanged: viewportWidth !== lastViewportWidth,
+                modeChanged: nextViewportMode !== lastViewportMode,
             },
         }),
     );
+
+    previousViewportHeight = viewportHeight;
+    previousViewportWidth = viewportWidth;
+    previousViewportMode = nextViewportMode;
 }
 
 let viewportSyncFrame = 0;
@@ -122,9 +145,9 @@ function initializeGallerySwiper(config) {
     const filterButtons = config.filterButtonSelector
         ? Array.from(mainSection.querySelectorAll(config.filterButtonSelector))
         : [];
-    const titleElement = config.titleSelector
-        ? mainSection.querySelector(config.titleSelector)
-        : null;
+    const titleElements = config.titleSelector
+        ? Array.from(mainSection.querySelectorAll(config.titleSelector))
+        : [];
     const slideDefinitions = getGallerySlideDefinitions(mainSection, swiperContainer);
     const activeSlides = getFilteredGallerySlides(slideDefinitions, activeFilter);
 
@@ -174,9 +197,10 @@ function initializeGallerySwiper(config) {
     function updateSlideState(realIndex = swiper.realIndex) {
         const currentIndex = realIndex + 1;
 
-        if (titleElement) {
-            titleElement.textContent = activeSlides[realIndex]?.title || activeSlides[0]?.title || '';
-        }
+        const nextTitle = activeSlides[realIndex]?.title || activeSlides[0]?.title || '';
+        titleElements.forEach((titleElement) => {
+            titleElement.textContent = nextTitle;
+        });
 
         if (progressFill) {
             const segmentWidth = 100 / totalSlides;
@@ -486,9 +510,14 @@ initializeMain4PartnersMarquee();
 scheduleViewportSync();
 window.addEventListener('resize', scheduleViewportSync);
 window.addEventListener('orientationchange', scheduleViewportSync);
-window.addEventListener('app:viewport-resized', () => {
+window.addEventListener('app:viewport-resized', (event) => {
     syncGallerySwiperLayouts();
-    syncActiveSnapSectionPosition();
+    const viewportResizeDetail = event.detail || {};
+
+    if (viewportResizeDetail.heightChanged && !viewportResizeDetail.widthChanged && !viewportResizeDetail.modeChanged) {
+        syncActiveSnapSectionPosition();
+    }
+
     initializeMain4PartnersMarquee();
 });
 window.visualViewport?.addEventListener('resize', scheduleViewportSync);
