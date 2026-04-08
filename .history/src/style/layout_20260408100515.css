@@ -53,27 +53,21 @@ body {
 .group_visual_pc {
     width: fit-content;
     gap: 16px;
-    --visual-row-max-width: none;
-    --visual-row-font-size: 115px;
 }
 
-.wrapper_visual_pc,
-.wrapper_visual_pc_arrow1,
-.wrapper_visual_pc_arrow2 {
+.wrapper_visual_pc {
     width: fit-content;
-    max-width: var(--visual-row-max-width);
     gap: 24px;
-    font-size: var(--visual-row-font-size);
+    font-size: 115px;
     flex-wrap: nowrap;
-    padding-left: var(--visual-arrow-offset, 0);
 }
 
 .wrapper_visual_pc_arrow1 {
-    --visual-arrow-offset: clamp(56px, calc(64px - (1260px - 100vw) * 0.025), 64px);
+    padding-left: clamp(40px, 4vw, 72px);
 }
 
 .wrapper_visual_pc_arrow2 {
-    --visual-arrow-offset: clamp(208px, calc(224px - (1260px - 100vw) * 0.045), 224px);
+    padding-left: clamp(96px, 9vw, 250px);
 }
 
 .btn_visual {
@@ -83,7 +77,6 @@ body {
     border-radius: 999px;
     padding: 24px 32px;
     flex-shrink: 0;
-    white-space: nowrap;
 }
 
 .btn_visual span {
@@ -94,7 +87,6 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 999px;
-    flex-shrink: 0;
 }
 
 .quick_link::before {

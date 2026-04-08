@@ -1,27 +1,56 @@
-@media (max-width: 1259px) {
+@media (max-width: 1270px) {
     /* main-1 visual_pc */
-    .group_visual_pc {
-        max-width: calc(100vw - 120px);
-        --visual-row-max-width: calc(100vw - 120px);
-        --visual-row-font-size: 90px;
+    .wrapper_visual {
+        gap: 20px;
     }
 
-    .wrapper_visual_pc_arrow1 {
-        --visual-arrow-offset: 52px;
-    }
-
-    .wrapper_visual_pc_arrow2 {
-        --visual-arrow-offset: 206px;
+    .wrapper_visual_pc {
+        width: fit-content;
+        font-size: 100px;
     }
 
     .btn_visual {
         width: 226px;
-        height: 86px;
-        padding: 12px 16px;
+        height: 92px;
+        padding: 24px;
     }
 
     .btn_visual span {
         font-size: 18px;
+    }
+
+    /* main-1 calendar_pc */
+    .viewport_calendar_pc {
+        padding-bottom: 8px;
+    }
+}
+
+@media (max-width: 1259px) {
+    /* main-1 visual_pc */
+    .group_visual_pc {
+        max-width: calc(100vw - 120px);
+    }
+
+    .wrapper_visual_pc {
+        max-width: calc(100vw - 120px);
+        font-size: clamp(64px, 7vw, 100px);
+    }
+
+    .wrapper_visual_pc_arrow1 {
+        padding-left: 52px;
+    }
+
+    .wrapper_visual_pc_arrow2 {
+        padding-left: 206px;
+    }
+
+    .btn_visual {
+        width: clamp(172px, 18vw, 226px);
+        padding: 20px 24px;
+    }
+
+    .btn_visual span {
+        font-size: clamp(16px, 1.45vw, 18px);
     }
 
     .icon_visual1 {
@@ -38,9 +67,6 @@
 }
 
 @media (max-width: 1110px) {
-    .wrapper_visual_pc_arrow2 {
-        --visual-arrow-offset: 52px;
-    }
 }
 
 /* laptop */
@@ -50,23 +76,12 @@
         padding-right: 20px;
     }
     /* main-1 visual_pc */
-    .group_visual_pc {
-        --visual-row-font-size: 80px;
-    }
-
-    .wrapper_visual_pc_arrow2 {
-        --visual-arrow-offset: 206px;
+    .wrapper_visual_pc {
+        font-size: 80px;
     }
 
     .btn_visual {
         display: none;
-    }
-}
-
-@media (max-width: 870px) {
-    .group_visual_pc {
-        width: 100%;
-        max-width: none;
     }
 }
 
