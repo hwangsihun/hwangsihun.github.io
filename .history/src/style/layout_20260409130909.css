@@ -723,7 +723,7 @@ body {
 }
 
 .container_noticeBanner {
-    gap: 3%;
+    gap: 4%;
     width: 100%;
 }
 
@@ -737,7 +737,7 @@ body {
     margin-right: calc(50% - 50vw);
     padding-left: var(--page-inline-padding);
     padding-right: var(--page-inline-padding);
-    padding-bottom: 3%;
+    padding-bottom: 4%;
     padding-top: 4%;
     box-sizing: border-box;
     border-radius: 0 0 0 248px;
@@ -1036,8 +1036,9 @@ body {
     padding-left: var(--page-inline-padding);
     padding-right: var(--page-inline-padding);
     padding-bottom: 4%;
+    padding-top: 4%;
     box-sizing: border-box;
-    border-radius: 0 0 248px 0;
+    border-radius: 0 0 0 248px;
     overflow: hidden;
 }
 
@@ -1230,6 +1231,7 @@ body {
 .container_main4_partners {
     width: 100%;
     position: relative;
+    gap: 40px;
     padding-bottom: 160px;
 }
 
@@ -1285,7 +1287,7 @@ body {
 .wrapper_main4_partners_marquee {
     position: absolute;
     left: 50%;
-    bottom: 3%;
+    bottom: 4px;
     width: 100vw;
     transform: translateX(-50%);
     overflow: hidden;

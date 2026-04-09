@@ -1037,7 +1037,7 @@ body {
     padding-right: var(--page-inline-padding);
     padding-bottom: 4%;
     box-sizing: border-box;
-    border-radius: 0 0 248px 0;
+    border-radius: 0 0 0 248px;
     overflow: hidden;
 }
 
@@ -1285,7 +1285,7 @@ body {
 .wrapper_main4_partners_marquee {
     position: absolute;
     left: 50%;
-    bottom: 3%;
+    bottom: 4px;
     width: 100vw;
     transform: translateX(-50%);
     overflow: hidden;

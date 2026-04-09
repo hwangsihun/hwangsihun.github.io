@@ -1037,7 +1037,7 @@ body {
     padding-right: var(--page-inline-padding);
     padding-bottom: 4%;
     box-sizing: border-box;
-    border-radius: 0 0 248px 0;
+    border-radius: 0 0 0 248px;
     overflow: hidden;
 }
 
@@ -1230,7 +1230,7 @@ body {
 .container_main4_partners {
     width: 100%;
     position: relative;
-    padding-bottom: 160px;
+    padding-bottom: 180px;
 }
 
 .bg_main4_checkerboard {

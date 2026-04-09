@@ -514,6 +514,7 @@ function initializeGlobalHeader() {
     const snapRoot = getSnapRoot();
     const headerGnbHolder = headerElement?.querySelector('[data-header-gnb]');
     const headerGnbBar = headerElement?.querySelector('.wrapper_header_gnb');
+    const headerLogoButtons = Array.from(document.querySelectorAll('.button_header_logo[data-header-target]'));
     const headerMenuButtons = Array.from(headerElement?.querySelectorAll('.button_header_gnb[data-header-menu]') || []);
     const submenuContainer = headerElement?.querySelector('.container_header_submenu');
     const submenuList = headerElement?.querySelector('[data-header-submenu-list]');
@@ -642,6 +643,17 @@ function initializeGlobalHeader() {
         headerUpdateFrame = requestAnimationFrame(updateHeaderState);
     }
 
+    function scrollToHeaderTarget(targetSelector) {
+        const targetSection = document.querySelector(targetSelector);
+
+        if (!targetSection) return;
+
+        snapRoot.scrollTo({
+            top: getSnapSectionScrollTop(snapRoot, targetSection),
+            behavior: 'smooth',
+        });
+    }
+
     headerMenuButtons.forEach((headerMenuButton) => {
         headerMenuButton.addEventListener('pointerenter', () => {
             openSubmenu(headerMenuButton);
@@ -688,18 +700,17 @@ function initializeGlobalHeader() {
         if (!headerTargetButton) return;
 
         const targetSelector = headerTargetButton.dataset.headerTarget;
-        const targetSection = document.querySelector(targetSelector);
-
-        if (!targetSection) return;
-
-        snapRoot.scrollTo({
-            top: getSnapSectionScrollTop(snapRoot, targetSection),
-            behavior: 'smooth',
-        });
+        scrollToHeaderTarget(targetSelector);
 
         if (headerTargetButton.classList.contains('button_header_submenu')) {
             closeSubmenu();
         }
+    });
+
+    headerLogoButtons.forEach((headerLogoButton) => {
+        headerLogoButton.addEventListener('click', () => {
+            scrollToHeaderTarget(headerLogoButton.dataset.headerTarget);
+        });
     });
 
     submenuList.addEventListener('keydown', (event) => {
@@ -840,19 +851,9 @@ initializeGlobalHeader();
 scheduleViewportSync();
 window.addEventListener('resize', scheduleViewportSync);
 window.addEventListener('orientationchange', scheduleViewportSync);
-window.addEventListener('app:viewport-resized', (event) => {
+window.addEventListener('app:viewport-resized', () => {
     syncGallerySwiperLayouts();
-    const viewportResizeDetail = event.detail || {};
-    const shouldSyncSnapSectionPosition =
-        (viewportResizeDetail.heightChanged && !viewportResizeDetail.widthChanged && !viewportResizeDetail.modeChanged) ||
-        (viewportResizeDetail.modeChanged &&
-            viewportResizeDetail.previousMode === 'mobile' &&
-            viewportResizeDetail.mode === 'pc');
-
-    if (shouldSyncSnapSectionPosition) {
-        syncActiveSnapSectionPosition();
-    }
-
+    syncActiveSnapSectionPosition();
     initializeMain4PartnersMarquee();
 });
 window.visualViewport?.addEventListener('resize', scheduleViewportSync);

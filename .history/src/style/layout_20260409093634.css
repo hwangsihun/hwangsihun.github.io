@@ -49,6 +49,8 @@ body {
     left: 0;
     width: 100%;
     z-index: 30;
+    padding-left: var(--page-inline-padding);
+    padding-right: var(--page-inline-padding);
     pointer-events: none;
 }
 
@@ -308,11 +310,18 @@ body {
     width: 17px;
 }
 
+/* #main-1 .snap_section {
+    padding-top: 0;
+    padding-bottom: 0;
+} */
+
 /* main-1 visual_pc */
 .container_visual_pc {
     width: 100%;
-    gap: clamp(0px, calc((var(--app-height) - 839px) * 0.4975124378), 100px);
+    gap: clamp(0px, 2vw, 80px);
     line-height: 1;
+    /* height: 50%;
+    max-height: 50%; */
 }
 
 .group_visual_pc {
@@ -714,43 +723,15 @@ body {
     isolation: isolate;
 }
 
-#main-2.snap_section {
-    justify-content: flex-start;
-}
-
-#main-4.snap_section {
-    justify-content: flex-start;
-}
-
 .container_noticeBanner {
-    gap: 3%;
+    gap: 8%;
     width: 100%;
 }
 
 /* main-2 banner */
 .container_banner {
-    position: relative;
-    z-index: 3;
-    width: 100vw;
-    min-height: 50vh;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding-left: var(--page-inline-padding);
-    padding-right: var(--page-inline-padding);
-    padding-bottom: 3%;
-    padding-top: 4%;
-    box-sizing: border-box;
-    border-radius: 0 0 0 248px;
-    overflow: hidden;
-}
-
-.container_banner_inner {
-    position: relative;
-    z-index: 2;
     width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    align-items: flex-start;
+    height: 100%;
     gap: 70px;
 }
 
@@ -771,7 +752,6 @@ body {
 .container_swiper_banner {
     align-items: flex-end;
     gap: 24px;
-    z-index: 20;
 }
 
 .wrapper_pagination_pc {
@@ -1014,10 +994,10 @@ body {
 .container_funcPartners {
     width: 100%;
     height: 100%;
-    gap: 4%;
+    gap: 12%;
     position: relative;
     z-index: 1;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .container_func {
@@ -1027,26 +1007,7 @@ body {
 }
 
 .container_main4_function_content {
-    position: relative;
-    z-index: 3;
-    width: 100vw;
-    min-height: 60vh;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding-left: var(--page-inline-padding);
-    padding-right: var(--page-inline-padding);
-    padding-bottom: 4%;
-    box-sizing: border-box;
-    border-radius: 0 0 248px 0;
-    overflow: hidden;
-}
-
-.container_main4_function_content_inner {
-    position: relative;
-    z-index: 2;
     width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
     gap: 40px;
 }
 
@@ -1058,11 +1019,8 @@ body {
 }
 
 .wrapper_main4_function_grid {
-    position: relative;
-    z-index: 2;
     width: 100%;
-    max-height: 40vh;
-    min-height: 36vh;
+    height: 40vh;
     min-width: 0;
     display: grid;
     grid-template-columns: minmax(0, 10fr) minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 1.5fr);
@@ -1230,6 +1188,7 @@ body {
 .container_main4_partners {
     width: 100%;
     position: relative;
+    gap: 40px;
     padding-bottom: 160px;
 }
 
@@ -1254,6 +1213,11 @@ body {
         0 9px,
         9px -9px,
         -9px 0;
+}
+
+.bg_main4_surface {
+    z-index: -10;
+    border-radius: 0 0 248px 0;
 }
 
 .wrapper_main4_partners_heading {
@@ -1285,7 +1249,7 @@ body {
 .wrapper_main4_partners_marquee {
     position: absolute;
     left: 50%;
-    bottom: 3%;
+    bottom: 0;
     width: 100vw;
     transform: translateX(-50%);
     overflow: hidden;
@@ -1649,24 +1613,35 @@ body {
     transform: translateY(-1px);
 }
 
+/* main-2 noticeBanner bg */
+.bg_noticeBanner,
+.bg_func {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 50vh;
+    transform: translateX(-50%);
+    z-index: -10;
+    border-radius: 0 0 0 258px;
+}
+
 .bgicon_noticeBanner_1 {
     position: absolute;
     top: 18%;
     left: calc(50% + 7vw - 10px);
     width: 100px;
     height: 100px;
-    z-index: 1;
-    pointer-events: none;
+    z-index: -10;
 }
 
 .bgicon_noticeBanner_2 {
     position: absolute;
-    top: 49%;
+    top: 45.5%;
     left: calc(50% + 50vw - 40px);
     width: 80px;
     height: 80px;
-    z-index: 1;
-    pointer-events: none;
+    z-index: -10;
 }
 
 .bgicon_noticeBanner_3 {
@@ -1675,6 +1650,10 @@ body {
     left: calc(50% - 120px);
     width: 60px;
     height: 60px;
-    z-index: 1;
-    pointer-events: none;
+    z-index: -10;
+}
+
+.bg_func {
+    height: 62vh;
+    border-radius: 0 0 258px 0;
 }

@@ -85,7 +85,7 @@
     }
 }
 
-@media (max-height: 900px) and (min-width: 768px) {
+@media (max-height: 969px) and (min-width: 768px) {
     .list_notice_pc .item_notice_pc:nth-child(n + 4) {
         display: none;
     }

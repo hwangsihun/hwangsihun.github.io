@@ -9,33 +9,33 @@
 </head>
 
 <body class="page_body">
+  <header class="container_header_global" aria-label="주요 메뉴">
+    <div class="container_header_global_inner flex_row_center">
+      <div class="wrapper_header_gnb_holder" data-header-gnb>
+        <nav class="wrapper_header_gnb" aria-label="주요 메뉴">
+          <button type="button" class="button_header_gnb" data-header-menu="akl" data-header-target="#main-1"
+            aria-haspopup="true" aria-expanded="false" aria-controls="header-submenu-panel">아트코리아랩</button>
+          <button type="button" class="button_header_gnb" data-header-menu="rental" data-header-target="#main-3"
+            aria-haspopup="true" aria-expanded="false" aria-controls="header-submenu-panel">대관/시설</button>
+          <button type="button" class="button_header_gnb" data-header-menu="biz" data-header-target="#main-4"
+            aria-haspopup="true" aria-expanded="false" aria-controls="header-submenu-panel">비즈센터</button>
+          <button type="button" class="button_header_gnb" data-header-menu="community" data-header-target="#main-2"
+            aria-haspopup="true" aria-expanded="false" aria-controls="header-submenu-panel">커뮤니티</button>
+          <button type="button" class="button_header_gnb" data-header-menu="archive" data-header-target="#main-5"
+            aria-haspopup="true" aria-expanded="false" aria-controls="header-submenu-panel">아카이브</button>
+        </nav>
+
+        <div class="container_header_submenu" id="header-submenu-panel" hidden>
+          <nav class="wrapper_header_submenu" data-header-submenu-list aria-label="하위 메뉴"></nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <main class="snap_page flex_col" data-snap-duration="800">
 
 
     <section id="main-1" class="flex_col_center snap_section pt70px">
-      <header class="container_header_global" aria-label="주요 메뉴">
-        <div class="container_header_global_inner flex_row_center">
-          <div class="wrapper_header_gnb_holder" data-header-gnb>
-            <nav class="wrapper_header_gnb" aria-label="주요 메뉴">
-              <button type="button" class="button_header_gnb" data-header-menu="akl" data-header-target="#main-1"
-                aria-haspopup="true" aria-expanded="false" aria-controls="header-submenu-panel">아트코리아랩</button>
-              <button type="button" class="button_header_gnb" data-header-menu="rental" data-header-target="#main-3"
-                aria-haspopup="true" aria-expanded="false" aria-controls="header-submenu-panel">대관/시설</button>
-              <button type="button" class="button_header_gnb" data-header-menu="biz" data-header-target="#main-4"
-                aria-haspopup="true" aria-expanded="false" aria-controls="header-submenu-panel">비즈센터</button>
-              <button type="button" class="button_header_gnb" data-header-menu="community" data-header-target="#main-2"
-                aria-haspopup="true" aria-expanded="false" aria-controls="header-submenu-panel">커뮤니티</button>
-              <button type="button" class="button_header_gnb" data-header-menu="archive" data-header-target="#main-5"
-                aria-haspopup="true" aria-expanded="false" aria-controls="header-submenu-panel">아카이브</button>
-            </nav>
-
-            <div class="container_header_submenu" id="header-submenu-panel" hidden>
-              <nav class="wrapper_header_submenu" data-header-submenu-list aria-label="하위 메뉴"></nav>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div class="container_header_main1">
         <div class="container_header_main1_inner flex_row_between">
           <div class="wrapper_header_brand">
@@ -177,7 +177,7 @@
     <section id="main-2" class="flex_col_center snap_section">
       <div class="flex_col container_noticeBanner">
 
-        <div class="flex_col_end container_banner bg_purple">
+        <div class="flex_col_center container_banner bg_purple">
           <div class="flex_row_between container_banner_inner">
             <div class="flex_col_start wrapper_banner_title">
               <h1 class="font-clash-sb title_banner">ARTS KOREA LAB <br> <span>NOW</span></h1>
@@ -217,9 +217,6 @@
               </div>
             </div>
           </div>
-          <img class="bgicon_noticeBanner_1" src="/assets/imgs/img/keyVisual_4_1.svg" alt="">
-          <img class="bgicon_noticeBanner_2" src="/assets/imgs/img/keyVisual_4_1.svg" alt="">
-          <img class="bgicon_noticeBanner_3" src="/assets/imgs/img/keyVisual_4_1.svg" alt="">
         </div>
 
         <!-- 공지사항 -->
@@ -333,6 +330,9 @@
             </ul>
           </section>
         </div>
+        <img class="bgicon_noticeBanner_1" src="/assets/imgs/img/keyVisual_4_1.svg" alt="">
+        <img class="bgicon_noticeBanner_2" src="/assets/imgs/img/keyVisual_4_1.svg" alt="">
+        <img class="bgicon_noticeBanner_3" src="/assets/imgs/img/keyVisual_4_1.svg" alt="">
       </div>
     </section>
 
@@ -426,59 +426,57 @@
 
     <section id="main-4" class="flex_col_center snap_section">
       <div class="flex_col_start container_funcPartners">
-        <div class="container_main4_function_content flex_col_end bg_white">
-          <div class="container_main4_function_content_inner flex_col_start">
-            <h1 class="title_main4_function">예술가와 예술기업의 활성화를 위해 지속가능한 성장을 견인합니다.</h1>
+        <div class="container_main4_function_content flex_col_start">
+          <h1 class="title_main4_function">예술가와 예술기업의 활성화를 위해 지속가능한 성장을 견인합니다.</h1>
 
-            <div class="wrapper_main4_function_grid">
-              <article class="wrapper_main4_function_card is_active">
-                <img class="image_main4_function_card" src="/assets/imgs/img/교육프로그램.png" alt="교육 프로그램">
-                <div class="wrapper_main4_function_dim"></div>
-                <div class="wrapper_main4_function_copy flex_col_center">
-                  <div class="wrapper_main4_function_text flex_col_center">
-                    <h2 class="text_main4_function_title">교육 프로그램</h2>
-                    <p class="text_main4_function_description">예술가, 예술기업의 네트워크와 유통, 역량 강화를 지원합니다.</p>
-                  </div>
-                  <button type="button" class="quick_link flex_row_center bg_white" aria-label="교육 프로그램 더보기"></button>
+          <div class="wrapper_main4_function_grid">
+            <article class="wrapper_main4_function_card is_active">
+              <img class="image_main4_function_card" src="/assets/imgs/img/교육프로그램.png" alt="교육 프로그램">
+              <div class="wrapper_main4_function_dim"></div>
+              <div class="wrapper_main4_function_copy flex_col_center">
+                <div class="wrapper_main4_function_text flex_col_center">
+                  <h2 class="text_main4_function_title">교육 프로그램</h2>
+                  <p class="text_main4_function_description">예술가, 예술기업의 네트워크와 유통, 역량 강화를 지원합니다.</p>
                 </div>
-              </article>
+                <button type="button" class="quick_link flex_row_center bg_white" aria-label="교육 프로그램 더보기"></button>
+              </div>
+            </article>
 
-              <article class="wrapper_main4_function_card main4_card_support">
-                <img class="image_main4_function_card" src="/assets/imgs/img/예술기업입주지원.png" alt="예술기업 입주지원">
-                <div class="wrapper_main4_function_dim"></div>
-                <div class="wrapper_main4_function_copy flex_col_center">
-                  <div class="wrapper_main4_function_text flex_col_center">
-                    <h2 class="text_main4_function_title">예술기업 입주지원</h2>
-                    <p class="text_main4_function_description">입주 공간과 협업 환경을 통해 예술기업의 성장을 지원합니다.</p>
-                  </div>
-                  <button type="button" class="quick_link flex_row_center bg_white" aria-label="예술기업 입주지원 더보기"></button>
+            <article class="wrapper_main4_function_card main4_card_support">
+              <img class="image_main4_function_card" src="/assets/imgs/img/예술기업입주지원.png" alt="예술기업 입주지원">
+              <div class="wrapper_main4_function_dim"></div>
+              <div class="wrapper_main4_function_copy flex_col_center">
+                <div class="wrapper_main4_function_text flex_col_center">
+                  <h2 class="text_main4_function_title">예술기업 입주지원</h2>
+                  <p class="text_main4_function_description">입주 공간과 협업 환경을 통해 예술기업의 성장을 지원합니다.</p>
                 </div>
-              </article>
+                <button type="button" class="quick_link flex_row_center bg_white" aria-label="예술기업 입주지원 더보기"></button>
+              </div>
+            </article>
 
-              <article class="wrapper_main4_function_card main4_card_festival">
-                <img class="image_main4_function_card" src="/assets/imgs/img/페스티벌.png" alt="페스티벌">
-                <div class="wrapper_main4_function_dim"></div>
-                <div class="wrapper_main4_function_copy flex_col_center">
-                  <div class="wrapper_main4_function_text flex_col_center">
-                    <h2 class="text_main4_function_title">페스티벌</h2>
-                    <p class="text_main4_function_description">실험적인 전시와 쇼케이스, 현장형 프로그램을 경험할 수 있습니다.</p>
-                  </div>
-                  <button type="button" class="quick_link flex_row_center bg_white" aria-label="페스티벌 더보기"></button>
+            <article class="wrapper_main4_function_card main4_card_festival">
+              <img class="image_main4_function_card" src="/assets/imgs/img/페스티벌.png" alt="페스티벌">
+              <div class="wrapper_main4_function_dim"></div>
+              <div class="wrapper_main4_function_copy flex_col_center">
+                <div class="wrapper_main4_function_text flex_col_center">
+                  <h2 class="text_main4_function_title">페스티벌</h2>
+                  <p class="text_main4_function_description">실험적인 전시와 쇼케이스, 현장형 프로그램을 경험할 수 있습니다.</p>
                 </div>
-              </article>
+                <button type="button" class="quick_link flex_row_center bg_white" aria-label="페스티벌 더보기"></button>
+              </div>
+            </article>
 
-              <article class="wrapper_main4_function_card main4_card_glossary">
-                <img class="image_main4_function_card" src="/assets/imgs/img/기술용어사전.png" alt="기술용어 사전">
-                <div class="wrapper_main4_function_dim"></div>
-                <div class="wrapper_main4_function_copy flex_col_center">
-                  <div class="wrapper_main4_function_text flex_col_center">
-                    <h2 class="text_main4_function_title">기술용어 사전</h2>
-                    <p class="text_main4_function_description">예술기술 이해를 돕는 핵심 용어와 참고 자료를 탐색할 수 있습니다.</p>
-                  </div>
-                  <button type="button" class="quick_link flex_row_center bg_white" aria-label="기술용어 사전 더보기"></button>
+            <article class="wrapper_main4_function_card main4_card_glossary">
+              <img class="image_main4_function_card" src="/assets/imgs/img/기술용어사전.png" alt="기술용어 사전">
+              <div class="wrapper_main4_function_dim"></div>
+              <div class="wrapper_main4_function_copy flex_col_center">
+                <div class="wrapper_main4_function_text flex_col_center">
+                  <h2 class="text_main4_function_title">기술용어 사전</h2>
+                  <p class="text_main4_function_description">예술기술 이해를 돕는 핵심 용어와 참고 자료를 탐색할 수 있습니다.</p>
                 </div>
-              </article>
-            </div>
+                <button type="button" class="quick_link flex_row_center bg_white" aria-label="기술용어 사전 더보기"></button>
+              </div>
+            </article>
           </div>
         </div>
 
@@ -515,6 +513,8 @@
             </div>
           </div>
         </div>
+
+        <div class="bg_func bg_main4_surface bg_white" aria-hidden="true"></div>
         <div class="bg_main4_checkerboard" aria-hidden="true"></div>
       </div>
     </section>
