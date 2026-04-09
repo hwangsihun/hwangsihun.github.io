@@ -311,9 +311,7 @@ body {
 /* main-1 visual_pc */
 .container_visual_pc {
     width: 100%;
-    height: 62vh;
-    max-height: 650px;
-    min-height: 0;
+    height: 650px;
     line-height: 1;
 }
 
@@ -857,7 +855,6 @@ body {
     width: 100%;
     height: 56%;
     z-index: 10;
-    pointer-events: none;
 }
 
 .wrapper_main3_panel_content {
@@ -865,7 +862,6 @@ body {
     height: 100%;
     gap: 70px;
     justify-content: flex-start;
-    pointer-events: none;
 }
 
 .wrapper_main3_panel_intro {
@@ -876,10 +872,6 @@ body {
 .main3_panel_top_link,
 .wrapper_main3_slide_title {
     display: none;
-}
-
-.main3_panel_top_link {
-    pointer-events: auto;
 }
 
 .wrapper_main3_panel_top {
@@ -905,7 +897,6 @@ body {
         background-color 0.2s ease,
         color 0.2s ease,
         border-color 0.2s ease;
-    pointer-events: auto;
 }
 
 .btn_tab_menu.is_active {
@@ -945,7 +936,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: auto;
 }
 
 .text_main3_panel_schedule {
@@ -967,7 +957,6 @@ body {
     font-size: 16px;
     line-height: 1;
     font-weight: 500;
-    pointer-events: auto;
 }
 
 .wrapper_main3_panel_quick_link {
@@ -982,7 +971,6 @@ body {
     height: 50px;
     border-radius: 999px;
     padding: 0;
-    pointer-events: auto;
 }
 
 .main3_gallery_wrapper {

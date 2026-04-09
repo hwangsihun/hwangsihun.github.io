@@ -1,6 +1,7 @@
-const SNAP_ROOT_SELECTOR = '.snap_page';
+﻿const SNAP_ROOT_SELECTOR = '.snap_page';
 const SNAP_SECTION_SELECTOR = '.snap_section, .snap_visual_section, .footer_section';
 const SNAP_MIN_WIDTH = 768;
+const SNAP_MIN_HEIGHT = 901;
 const DEFAULT_DURATION = 1200;
 const DEFAULT_WHEEL_THRESHOLD = 20;
 
@@ -30,8 +31,12 @@ function initializeCustomScrollSnap() {
         return Math.max(0, snapRoot.scrollHeight - snapRoot.clientHeight);
     }
 
+    function getViewportHeight() {
+        return window.visualViewport?.height || window.innerHeight;
+    }
+
     function isSnapEnabled() {
-        return window.innerWidth >= SNAP_MIN_WIDTH;
+        return window.innerWidth >= SNAP_MIN_WIDTH && getViewportHeight() >= SNAP_MIN_HEIGHT;
     }
 
     function getTargetScrollTop(targetSection) {
@@ -147,6 +152,7 @@ if (document.readyState === 'loading') {
 } else {
     initializeCustomScrollSnap();
 }
+
 
 
 
