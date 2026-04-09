@@ -124,7 +124,7 @@
         width: 150px;
     }
 
-    .button_header_menu {
+    .button_header_icon.button_header_menu {
         display: inline-flex;
     }
 

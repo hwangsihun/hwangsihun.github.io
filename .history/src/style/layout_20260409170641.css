@@ -199,7 +199,8 @@ body {
     height: auto;
 }
 
-.image_header_logo_mobile {
+.image_header_logo_mobile,
+.button_header_menu {
     display: none;
 }
 
@@ -347,10 +348,6 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-}
-
-.button_header_icon.button_header_menu {
-    display: none;
 }
 
 .button_header_icon img {
