@@ -101,9 +101,31 @@
 
 @media (max-width: 767px) {
     .container_side_section_navigation,
-    .container_header_global,
-    .container_header_main1 {
+    .container_header_global {
         display: none;
+    }
+
+    .container_header_main1 {
+        display: block;
+    }
+
+    .container_header_main1_inner {
+        align-items: center;
+    }
+
+    .button_header_logo_pc,
+    .button_header_auth,
+    .button_header_lang {
+        display: none;
+    }
+
+    .image_header_logo_mobile {
+        display: block;
+        width: 150px;
+    }
+
+    .button_header_menu {
+        display: inline-flex;
     }
 
     .snap_page {

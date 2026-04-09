@@ -93,7 +93,7 @@ body {
 
 /* global header */
 .container_header_global {
-    position: fixed;
+    position: absolute;
     top: 24px;
     left: 0;
     width: 100%;
