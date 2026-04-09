@@ -338,16 +338,11 @@
 
     .container_main4_function_content {
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 0;
+
         box-sizing: border-box;
         border-radius: 0;
         background-color: transparent;
         overflow: visible;
-        justify-content: flex-start;
     }
 
     .container_main4_function_content_inner {

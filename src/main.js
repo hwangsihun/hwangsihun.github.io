@@ -528,6 +528,103 @@ function syncActiveSnapSectionPosition() {
     });
 }
 
+function initializeSideSectionNavigation() {
+    const sideSectionNavigation = document.querySelector('.container_side_section_navigation');
+    const snapRoot = getSnapRoot();
+    const currentSectionText = sideSectionNavigation?.querySelector('.text_section_nav_current');
+    const sectionNavButtons = Array.from(
+        sideSectionNavigation?.querySelectorAll('.button_section_nav_dot[data-section-nav-target]') || [],
+    );
+
+    if (
+        !sideSectionNavigation ||
+        !snapRoot ||
+        !currentSectionText ||
+        !sectionNavButtons.length ||
+        sideSectionNavigation.dataset.sideSectionNavInitialized === 'true'
+    ) {
+        return;
+    }
+
+    const sectionNavigationItems = sectionNavButtons
+        .map((sectionNavButton) => {
+            const targetSection = document.querySelector(sectionNavButton.dataset.sectionNavTarget);
+
+            if (!targetSection) return null;
+
+            return {
+                button: sectionNavButton,
+                section: targetSection,
+            };
+        })
+        .filter(Boolean);
+
+    if (!sectionNavigationItems.length) return;
+
+    let sideSectionNavUpdateFrame = 0;
+
+    function updateActiveSectionNavigation() {
+        const activeSectionState = getClosestSnapSectionState(
+            snapRoot,
+            sectionNavigationItems.map((sectionNavigationItem) => sectionNavigationItem.section),
+        );
+        const activeSectionIndex = sectionNavigationItems.findIndex(
+            (sectionNavigationItem) => sectionNavigationItem.section === activeSectionState?.section,
+        );
+        const nextActiveIndex = activeSectionIndex === -1 ? 0 : activeSectionIndex;
+
+        sectionNavigationItems.forEach((sectionNavigationItem, sectionIndex) => {
+            const isActive = sectionIndex === nextActiveIndex;
+
+            sectionNavigationItem.button.classList.toggle('is_active', isActive);
+
+            if (isActive) {
+                sectionNavigationItem.button.setAttribute('aria-current', 'true');
+            } else {
+                sectionNavigationItem.button.removeAttribute('aria-current');
+            }
+        });
+
+        currentSectionText.textContent = String(nextActiveIndex + 1);
+    }
+
+    function scheduleSectionNavigationUpdate() {
+        cancelAnimationFrame(sideSectionNavUpdateFrame);
+        sideSectionNavUpdateFrame = requestAnimationFrame(updateActiveSectionNavigation);
+    }
+
+    sectionNavigationItems.forEach((sectionNavigationItem) => {
+        sectionNavigationItem.button.addEventListener('click', () => {
+            snapRoot.scrollTo({
+                top: getSnapSectionScrollTop(snapRoot, sectionNavigationItem.section),
+                behavior: 'smooth',
+            });
+        });
+    });
+
+    snapRoot.addEventListener('scroll', scheduleSectionNavigationUpdate, { passive: true });
+    window.addEventListener('app:viewport-resized', scheduleSectionNavigationUpdate);
+
+    sideSectionNavigation.dataset.sideSectionNavInitialized = 'true';
+    updateActiveSectionNavigation();
+}
+
+function initializeScrollTopButton() {
+    const scrollTopButton = document.querySelector('.button_scroll_top');
+    const snapRoot = getSnapRoot();
+
+    if (!scrollTopButton || !snapRoot || scrollTopButton.dataset.scrollTopInitialized === 'true') return;
+
+    scrollTopButton.addEventListener('click', () => {
+        snapRoot.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    });
+
+    scrollTopButton.dataset.scrollTopInitialized = 'true';
+}
+
 function initializeGlobalHeader() {
     const headerElement = document.querySelector('.container_header_global');
     const snapRoot = getSnapRoot();
@@ -865,6 +962,8 @@ if (typeof Swiper !== 'undefined') {
 
 initializeMain4FunctionGrid();
 initializeMain4PartnersMarquee();
+initializeSideSectionNavigation();
+initializeScrollTopButton();
 initializeGlobalHeader();
 
 scheduleViewportSync();
@@ -882,6 +981,8 @@ window.addEventListener('load', () => {
     scheduleViewportSync();
     initializeMain4FunctionGrid();
     initializeMain4PartnersMarquee();
+    initializeSideSectionNavigation();
+    initializeScrollTopButton();
     initializeGlobalHeader();
 
     if (typeof Swiper !== 'undefined') {

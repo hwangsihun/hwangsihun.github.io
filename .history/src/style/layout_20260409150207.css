@@ -79,18 +79,6 @@ body {
     font-weight: 500;
 }
 
-.button_scroll_top {
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    border-radius: 999px;
-    background: #616161 url('/assets/imgs/icons/moveUp.svg') center / 12px auto no-repeat;
-    z-index: 24;
-}
-
 /* global header */
 .container_header_global {
     position: absolute;
@@ -507,7 +495,7 @@ body {
     justify-content: flex-start;
     gap: 24px;
     line-height: 1;
-    padding-top: 15%;
+    padding-top: 140px;
 }
 
 .group_visual_mobile {
@@ -1100,10 +1088,6 @@ body {
     box-sizing: border-box;
     border-radius: 0 0 248px 0;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
 }
 
 .container_main4_function_content_inner {
@@ -1135,6 +1119,10 @@ body {
     align-items: stretch;
     overflow: hidden;
     transition: grid-template-columns 0.8s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .wrapper_main4_function_card {
@@ -1608,7 +1596,7 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 40px;
+    gap: 24px;
 }
 
 .container_notice_pc {
@@ -1659,7 +1647,6 @@ body {
 }
 
 .item_notice_pc:last-child {
-    padding-bottom: 0;
     border-bottom: none;
 }
 
