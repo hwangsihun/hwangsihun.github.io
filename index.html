@@ -21,7 +21,7 @@
         <button type="button" class="btn_section_nav_dot" data-section-nav-target="#main-4"
           aria-label="메인 4로 이동"></button>
       </div>
-      <p class="text_section_nav_current">1</p>
+      <p class="text_section_nav_current" aria-live="polite">1</p>
     </nav>
     <button type="button" class="btn_scroll_top" aria-label="최상단으로 이동"></button>
 
@@ -71,11 +71,34 @@
             <button type="button" class="btn_header_icon btn_header_search" aria-label="검색">
               <img class="icon_header_search" src="/assets/imgs/icons/search.svg" alt="">
             </button>
-            <button type="button" class="btn_header_icon btn_header_menu" aria-label="전체 메뉴">
+            <button type="button" class="btn_header_icon btn_header_menu" aria-label="전체 메뉴" aria-expanded="false"
+              aria-controls="mobile-sidebar">
               <img class="icon_header_menu" src="/assets/imgs/icons/sideMenu.svg" alt="">
             </button>
           </div>
         </div>
+
+        <aside class="container_mobile_sidebar bg_lightGray" id="mobile-sidebar" data-mobile-sidebar hidden
+          aria-hidden="true" role="dialog" aria-modal="true" aria-label="전체 메뉴">
+          <div class="container_mobile_sidebar_inner flex_col_start">
+            <div class="wrapper_mobile_sidebar_head">
+              <div class="wrapper_mobile_sidebar_head_actions flex_row">
+                <button type="button" class="btn_header_icon btn_header_lang btn_mobile_sidebar_lang"
+                  aria-label="언어 전환">
+                  <img class="icon_header_lang" src="/assets/imgs/icons/eng.svg" alt="">
+                </button>
+                <button type="button" class="btn_header_icon btn_mobile_sidebar_close" data-mobile-sidebar-close
+                  aria-label="전체 메뉴 닫기">
+                  <img class="icon_header_menu" src="/assets/imgs/icons/close.svg" alt="">
+                </button>
+              </div>
+            </div>
+
+            <nav class="container_mobile_sidebar_nav" aria-label="전체 메뉴">
+              <ul class="list_mobile_sidebar_menu flex_col_start" data-mobile-sidebar-list></ul>
+            </nav>
+          </div>
+        </aside>
       </div>
 
       <div class="container_visual_pc flex_col_between">
@@ -86,7 +109,7 @@
             <p class="font-clash-rg">ARTS</p>
             <div class="btn_visual bg_purple line_bold_purple">
               <span><strong>투어</strong> 신청</span>
-              <button type="button" class="quick_link bg_white"></button>
+              <button type="button" class="btn_quickLink bg_white" aria-label="투어 신청 바로가기"></button>
             </div>
           </div>
 
@@ -96,7 +119,7 @@
             <p class="font-clash-rg">KOREA</p>
             <div class="btn_visual bg_mint line_bold_mint">
               <span><strong>대관·시설</strong> 신청</span>
-              <button type="button" class="quick_link bg_white"></button>
+              <button type="button" class="btn_quickLink bg_white" aria-label="대관·시설 신청 바로가기"></button>
             </div>
           </div>
 
@@ -106,7 +129,7 @@
             <p class="font-clash-sb">LAB</p>
             <div class="btn_visual bg_yellow line_bold_yellow">
               <span><strong>비즈컨설팅</strong> 신청</span>
-              <button type="button" class="quick_link bg_white"></button>
+              <button type="button" class="btn_quickLink bg_white" aria-label="비즈컨설팅 신청 바로가기"></button>
             </div>
           </div>
         </div>
@@ -208,12 +231,15 @@
             <!-- 스와이퍼 -->
             <div class="flex_row container_swiper_banner">
               <div class="wrapper_pagination_pc flex_row_center">
-                <button type="button" class="btn_pagination_pc flex_row_center bg_transparent line_purple"
-                  aria-label="이전"></button>
-                <button type="button" class="btn_pagination_pc flex_row_center bg_transparent line_purple"
-                  aria-label="정지"></button>
-                <button type="button" class="btn_pagination_pc flex_row_center bg_transparent line_purple"
-                  aria-label="다음"></button>
+                <button type="button"
+                  class="btn_subFunc_pc flex_row_center bg_transparent line_purple"
+                  data-icon="prev" data-pagination-button="prev" aria-label="이전"></button>
+                <button type="button"
+                  class="btn_subFunc_pc flex_row_center bg_transparent line_purple"
+                  data-icon="stop" data-pagination-button="stop" aria-label="정지"></button>
+                <button type="button"
+                  class="btn_subFunc_pc flex_row_center bg_transparent line_purple"
+                  data-icon="next" data-pagination-button="next" aria-label="다음"></button>
               </div>
 
               <div class="gallery_wrapper_banner flex_col">
@@ -248,7 +274,7 @@
           <section class="container_notice_pc flex_col_stretch">
             <div class="wrapper_notice_header_pc flex_row_between">
               <h2 class="title_notice_pc">공지사항</h2>
-              <button type="button" class="quick_link bg_white" aria-label="공지사항 더보기"></button>
+              <button type="button" class="btn_quickLink bg_white" aria-label="공지사항 더보기"></button>
             </div>
 
             <ul class="list_notice_pc">
@@ -260,8 +286,8 @@
                   </div>
                   <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
                 </div>
-                <button type="button" class="btn_notice_plus_pc flex_row_center bg_white text_black line_lightGray"
-                  aria-label="공지사항 열기"></button>
+                <button type="button" class="btn_subFunc_pc flex_row_center bg_white text_black line_lightGray"
+                  data-icon="plus" aria-label="공지사항 열기"></button>
               </li>
 
               <li class="item_notice_pc flex_row_between">
@@ -272,8 +298,8 @@
                   </div>
                   <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
                 </div>
-                <button type="button" class="btn_notice_plus_pc flex_row_center bg_white text_black line_lightGray"
-                  aria-label="공지사항 열기"></button>
+                <button type="button" class="btn_subFunc_pc flex_row_center bg_white text_black line_lightGray"
+                  data-icon="plus" aria-label="공지사항 열기"></button>
               </li>
 
               <li class="item_notice_pc flex_row_between">
@@ -283,8 +309,8 @@
                   </div>
                   <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
                 </div>
-                <button type="button" class="btn_notice_plus_pc flex_row_center bg_white text_black line_lightGray"
-                  aria-label="공지사항 열기"></button>
+                <button type="button" class="btn_subFunc_pc flex_row_center bg_white text_black line_lightGray"
+                  data-icon="plus" aria-label="공지사항 열기"></button>
               </li>
 
               <li class="item_notice_pc flex_row_between">
@@ -294,8 +320,8 @@
                   </div>
                   <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
                 </div>
-                <button type="button" class="btn_notice_plus_pc flex_row_center bg_white text_black line_lightGray"
-                  aria-label="공지사항 열기"></button>
+                <button type="button" class="btn_subFunc_pc flex_row_center bg_white text_black line_lightGray"
+                  data-icon="plus" aria-label="공지사항 열기"></button>
               </li>
             </ul>
           </section>
@@ -303,7 +329,7 @@
           <section class="container_notice_pc flex_col_stretch">
             <div class="wrapper_notice_header_pc flex_row_between">
               <h2 class="title_notice_pc">공모소식</h2>
-              <button type="button" class="quick_link bg_white" aria-label="공모소식 더보기"></button>
+              <button type="button" class="btn_quickLink bg_white" aria-label="공모소식 더보기"></button>
             </div>
 
             <ul class="list_notice_pc">
@@ -315,8 +341,8 @@
                   </div>
                   <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
                 </div>
-                <button type="button" class="btn_notice_plus_pc flex_row_center bg_white text_black line_lightGray"
-                  aria-label="공모소식 열기"></button>
+                <button type="button" class="btn_subFunc_pc flex_row_center bg_white text_black line_lightGray"
+                  data-icon="plus" aria-label="공모소식 열기"></button>
               </li>
 
               <li class="item_notice_pc flex_row_between">
@@ -326,8 +352,8 @@
                   </div>
                   <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
                 </div>
-                <button type="button" class="btn_notice_plus_pc flex_row_center bg_white text_black line_lightGray"
-                  aria-label="공모소식 열기"></button>
+                <button type="button" class="btn_subFunc_pc flex_row_center bg_white text_black line_lightGray"
+                  data-icon="plus" aria-label="공모소식 열기"></button>
               </li>
 
               <li class="item_notice_pc flex_row_between">
@@ -337,8 +363,8 @@
                   </div>
                   <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
                 </div>
-                <button type="button" class="btn_notice_plus_pc flex_row_center bg_white text_black line_lightGray"
-                  aria-label="공모소식 열기"></button>
+                <button type="button" class="btn_subFunc_pc flex_row_center bg_white text_black line_lightGray"
+                  data-icon="plus" aria-label="공모소식 열기"></button>
               </li>
 
               <li class="item_notice_pc flex_row_between">
@@ -348,8 +374,8 @@
                   </div>
                   <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
                 </div>
-                <button type="button" class="btn_notice_plus_pc flex_row_center bg_white text_black line_lightGray"
-                  aria-label="공모소식 열기"></button>
+                <button type="button" class="btn_subFunc_pc flex_row_center bg_white text_black line_lightGray"
+                  data-icon="plus" aria-label="공모소식 열기"></button>
               </li>
             </ul>
           </section>
@@ -365,12 +391,15 @@
 
             <div class="wrapper_main3_panel_top flex_row_between">
               <div class="wrapper_main3_tab_menu flex_row">
-                <button type="button" class="btn_tab_menu bg_white is_active" data-main3-filter="all">전체</button>
-                <button type="button" class="btn_tab_menu bg_white" data-main3-filter="space">공간대관</button>
-                <button type="button" class="btn_tab_menu bg_white" data-main3-filter="equipment">장비대여</button>
+                <button type="button" class="btn_tab_menu bg_white is_active" data-main3-filter="all"
+                  aria-pressed="true">전체</button>
+                <button type="button" class="btn_tab_menu bg_white" data-main3-filter="space"
+                  aria-pressed="false">공간대관</button>
+                <button type="button" class="btn_tab_menu bg_white" data-main3-filter="equipment"
+                  aria-pressed="false">장비대여</button>
               </div>
 
-              <button type="button" class="quick_link main3_panel_top_link" aria-label="다음 섹션 이동"></button>
+              <button type="button" class="btn_quickLink main3_panel_top_link" aria-label="다음 섹션 이동"></button>
             </div>
           </div>
 
@@ -397,7 +426,7 @@
         </div>
 
         <div class="wrapper_main3_panel_quick_link">
-          <button type="button" class="quick_link main3_panel_quick_link" aria-label="다음 섹션 이동"></button>
+          <button type="button" class="btn_quickLink main3_panel_quick_link" aria-label="다음 섹션 이동"></button>
         </div>
       </div>
 
@@ -464,7 +493,7 @@
                     <h2 class="text_main4_function_title">교육 프로그램</h2>
                     <p class="text_main4_function_description">예술가, 예술기업의 네트워크와 유통, 역량 강화를 지원합니다.</p>
                   </div>
-                  <button type="button" class="quick_link bg_white" aria-label="교육 프로그램 더보기"></button>
+                  <button type="button" class="btn_quickLink bg_white" aria-label="교육 프로그램 더보기"></button>
                 </div>
               </article>
 
@@ -476,7 +505,7 @@
                     <h2 class="text_main4_function_title">예술기업 입주지원</h2>
                     <p class="text_main4_function_description">입주 공간과 협업 환경을 통해 예술기업의 성장을 지원합니다.</p>
                   </div>
-                  <button type="button" class="quick_link bg_white" aria-label="예술기업 입주지원 더보기"></button>
+                  <button type="button" class="btn_quickLink bg_white" aria-label="예술기업 입주지원 더보기"></button>
                 </div>
               </article>
 
@@ -488,7 +517,7 @@
                     <h2 class="text_main4_function_title">페스티벌</h2>
                     <p class="text_main4_function_description">실험적인 전시와 쇼케이스, 현장형 프로그램을 경험할 수 있습니다.</p>
                   </div>
-                  <button type="button" class="quick_link bg_white" aria-label="페스티벌 더보기"></button>
+                  <button type="button" class="btn_quickLink bg_white" aria-label="페스티벌 더보기"></button>
                 </div>
               </article>
 
@@ -500,7 +529,7 @@
                     <h2 class="text_main4_function_title">기술용어 사전</h2>
                     <p class="text_main4_function_description">예술기술 이해를 돕는 핵심 용어와 참고 자료를 탐색할 수 있습니다.</p>
                   </div>
-                  <button type="button" class="quick_link bg_white" aria-label="기술용어 사전 더보기"></button>
+                  <button type="button" class="btn_quickLink bg_white" aria-label="기술용어 사전 더보기"></button>
                 </div>
               </article>
             </div>
@@ -511,7 +540,7 @@
           <div class="wrapper_main4_partners_heading flex_row_between">
             <div class="wrapper_main4_partners_title flex_row">
               <p class="title_main4_partners font-clash-sb">PARTNERS</p>
-              <button type="button" class="quick_link bg_white" aria-label="파트너 더보기"></button>
+              <button type="button" class="btn_quickLink bg_white" aria-label="파트너 더보기"></button>
             </div>
 
             <div class="wrapper_main4_partners_visual flex_row_center">
@@ -563,12 +592,13 @@
 
             <div class="wrapper_footer_family_site">
               <button type="button" class="btn_footer_family_site flex_row_between bg_dateGray text_white"
-                aria-label="Family Site">
+                aria-label="Family Site" aria-expanded="false" aria-controls="footer-family-links">
                 <span>Family Site</span>
                 <span class="text_footer_family_plus" aria-hidden="true">+</span>
               </button>
 
-              <div class="wrapper_footer_family_links flex_col_start" aria-label="패밀리 사이트 링크">
+              <div class="wrapper_footer_family_links flex_col_start" id="footer-family-links" aria-label="패밀리 사이트 링크"
+                hidden>
                 <button type="button" class="btn_footer_family_link bg_white text_black">문화체육관광부</button>
                 <button type="button" class="btn_footer_family_link bg_white text_black">예술경영지원센터</button>
                 <button type="button" class="btn_footer_family_link bg_white text_black">아트모아</button>

@@ -124,6 +124,18 @@
         display: inline-flex;
     }
 
+    .container_mobile_sidebar {
+        display: block;
+    }
+
+    .container_mobile_sidebar[hidden] {
+        display: none !important;
+    }
+
+    .container_mobile_sidebar .btn_header_lang {
+        display: inline-flex;
+    }
+
     .snap_page {
         gap: 70px;
     }
@@ -456,7 +468,7 @@
     }
 
     .text_main4_function_description,
-    .wrapper_main4_function_copy .quick_link {
+    .wrapper_main4_function_copy .btn_quickLink {
         display: none;
     }
 
