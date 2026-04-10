@@ -1,7 +1,3 @@
-﻿import './style/global.css';
-import './style/layout.css';
-import './style/responsive.css';
-import './style/swiper-custom.css';
 import './components/common/pagination/index.js';
 import './components/common/calendar/index.js';
 import './components/common/scroll-snap/index.js';
