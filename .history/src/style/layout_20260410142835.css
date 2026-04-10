@@ -42,7 +42,7 @@ body {
     position: relative;
 }
 
-.container_wide_bg_patterns {
+.container_main1_bg_patterns {
     display: none;
 }
 
@@ -926,14 +926,6 @@ body {
     justify-content: flex-start;
 }
 
-.container_main2_bg_patterns {
-    display: none;
-}
-
-.container_main3_bg_patterns {
-    display: none;
-}
-
 #main-4.snap_section {
     justify-content: flex-start;
 }
@@ -941,8 +933,6 @@ body {
 .container_noticeBanner {
     gap: 3%;
     width: 100%;
-    position: relative;
-    z-index: 1;
 }
 
 /* main-2 banner */

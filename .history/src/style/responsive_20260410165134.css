@@ -1,4 +1,4 @@
-@media (min-width: 2200px) {
+@media (min-width: 1920px) {
     .container_wide_bg_patterns {
         position: absolute;
         inset: 0;
@@ -71,8 +71,8 @@
     }
 
     .bg_main3_pattern_left_bottom {
-        left: -250px;
-        top: 600px;
+        left: -200px;
+        bottom: 150px;
         width: 450px;
         height: 450px;
     }
@@ -166,10 +166,6 @@
 }
 
 @media (max-height: 900px) and (min-width: 768px) {
-    .bg_wide_pattern {
-        display: none !important;
-    }
-
     .container_side_section_navigation {
         display: none;
     }

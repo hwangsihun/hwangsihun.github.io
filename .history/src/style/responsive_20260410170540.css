@@ -1,4 +1,4 @@
-@media (min-width: 2200px) {
+@media (min-width: 1940px) {
     .container_wide_bg_patterns {
         position: absolute;
         inset: 0;
@@ -72,7 +72,7 @@
 
     .bg_main3_pattern_left_bottom {
         left: -250px;
-        top: 600px;
+        top: 480px;
         width: 450px;
         height: 450px;
     }
