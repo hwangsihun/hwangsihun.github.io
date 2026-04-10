@@ -2,7 +2,7 @@
 import './style/layout.css';
 import './style/responsive.css';
 import './style/swiper-custom.css';
-import './components/common/buttons/pagination/index.js';
+import './components/common/pagination/index.js';
 import './components/common/calendar/index.js';
 import './components/common/scroll-snap/index.js';
 import './pages/home.js';
@@ -53,36 +53,6 @@ const SWIPER_BASE_OPTIONS = {
 const SNAP_SECTION_SELECTOR = '.snap_section, .snap_visual_section, .footer_section';
 const SNAP_MIN_WIDTH = 768;
 const SNAP_MIN_HEIGHT = 901;
-const LEGACY_HEADER_SUBMENU_ITEMS = {
-    akl: [
-        { label: '소개', target: '#main-1' },
-        { label: '공간/시설', target: '#main-3' },
-        { label: '프로그램', target: '#main-4' },
-        { label: '입주기업', target: '#main-5' },
-    ],
-    rental: [
-        { label: '공간/시설', target: '#main-3' },
-        { label: '대관 안내', target: '#main-3' },
-        { label: '이용 안내', target: '#main-3' },
-    ],
-    biz: [
-        { label: '프로그램', target: '#main-4' },
-        { label: '비즈컨설팅', target: '#main-4' },
-        { label: '입주기업', target: '#main-5' },
-    ],
-    community: [
-        { label: '공지사항', target: '#main-2' },
-        { label: '공모소식', target: '#main-2' },
-        { label: '뉴스레터', target: '#main-2' },
-    ],
-    archive: [
-        { label: '페스티벌', target: '#main-4' },
-        { label: '기술용어 사전', target: '#main-4' },
-        { label: '자료실', target: '#main-5' },
-    ],
-};
-
-const HEADER_SHIFT_SECTION_IDS = new Set(['main-2', 'main-3', 'main-4', 'main-5']);
 const HEADER_SUBMENU_ITEMS = {
     akl: [
         { label: '소개', target: '#main-1' },
@@ -533,7 +503,7 @@ function initializeSideSectionNavigation() {
     const snapRoot = getSnapRoot();
     const currentSectionText = sideSectionNavigation?.querySelector('.text_section_nav_current');
     const sectionNavButtons = Array.from(
-        sideSectionNavigation?.querySelectorAll('.button_section_nav_dot[data-section-nav-target]') || [],
+        sideSectionNavigation?.querySelectorAll('.btn_section_nav_dot[data-section-nav-target]') || [],
     );
 
     if (
@@ -610,7 +580,7 @@ function initializeSideSectionNavigation() {
 }
 
 function initializeScrollTopButton() {
-    const scrollTopButton = document.querySelector('.button_scroll_top');
+    const scrollTopButton = document.querySelector('.btn_scroll_top');
     const snapRoot = getSnapRoot();
 
     if (!scrollTopButton || !snapRoot || scrollTopButton.dataset.scrollTopInitialized === 'true') return;
@@ -630,8 +600,8 @@ function initializeGlobalHeader() {
     const snapRoot = getSnapRoot();
     const headerGnbHolder = headerElement?.querySelector('[data-header-gnb]');
     const headerGnbBar = headerElement?.querySelector('.wrapper_header_gnb');
-    const headerLogoButtons = Array.from(document.querySelectorAll('.button_header_logo[data-header-target]'));
-    const headerMenuButtons = Array.from(headerElement?.querySelectorAll('.button_header_gnb[data-header-menu]') || []);
+    const headerLogoButtons = Array.from(document.querySelectorAll('.btn_header_logo[data-header-target]'));
+    const headerMenuButtons = Array.from(headerElement?.querySelectorAll('.btn_header_gnb[data-header-menu]') || []);
     const submenuContainer = headerElement?.querySelector('.container_header_submenu');
     const submenuList = headerElement?.querySelector('[data-header-submenu-list]');
 
@@ -684,7 +654,7 @@ function initializeGlobalHeader() {
             const submenuButton = document.createElement('button');
 
             submenuButton.type = 'button';
-            submenuButton.className = 'button_header_submenu';
+            submenuButton.className = 'btn_header_submenu';
             submenuButton.textContent = submenuItem.label;
             submenuButton.dataset.headerTarget = submenuItem.target;
             submenuFragment.appendChild(submenuButton);
@@ -719,7 +689,7 @@ function initializeGlobalHeader() {
     }
 
     function focusSubmenuButton(step) {
-        const submenuButtons = Array.from(submenuList.querySelectorAll('.button_header_submenu'));
+        const submenuButtons = Array.from(submenuList.querySelectorAll('.btn_header_submenu'));
 
         if (!submenuButtons.length) return;
 
@@ -741,12 +711,6 @@ function initializeGlobalHeader() {
     }
 
     function updateHeaderState() {
-        const closestSectionState = getClosestSnapSectionState(snapRoot);
-        const shouldShiftGnb =
-            getViewportMode() === 'pc' &&
-            HEADER_SHIFT_SECTION_IDS.has(closestSectionState?.section?.id || '');
-
-        headerElement.classList.toggle('is_gnb_shifted', shouldShiftGnb);
         syncSubmenuWidth();
 
         if (getViewportMode() !== 'pc') {
@@ -803,7 +767,7 @@ function initializeGlobalHeader() {
             if (event.key === 'ArrowDown') {
                 openSubmenu(headerMenuButton);
                 requestAnimationFrame(() => {
-                    submenuList.querySelector('.button_header_submenu')?.focus();
+                    submenuList.querySelector('.btn_header_submenu')?.focus();
                 });
                 event.preventDefault();
             }
@@ -818,7 +782,7 @@ function initializeGlobalHeader() {
         const targetSelector = headerTargetButton.dataset.headerTarget;
         scrollToHeaderTarget(targetSelector);
 
-        if (headerTargetButton.classList.contains('button_header_submenu')) {
+        if (headerTargetButton.classList.contains('btn_header_submenu')) {
             closeSubmenu();
         }
     });
@@ -841,12 +805,12 @@ function initializeGlobalHeader() {
         }
 
         if (event.key === 'Home') {
-            submenuList.querySelector('.button_header_submenu')?.focus();
+            submenuList.querySelector('.btn_header_submenu')?.focus();
             event.preventDefault();
         }
 
         if (event.key === 'End') {
-            submenuList.querySelector('.button_header_submenu:last-child')?.focus();
+            submenuList.querySelector('.btn_header_submenu:last-child')?.focus();
             event.preventDefault();
         }
 

@@ -1,4 +1,4 @@
-# ARTSKOREALAB Renewal
+# ARTS KOREA LAB Renewal
 
 ## Current Structure
 
@@ -9,32 +9,38 @@ pages/
   README.md
 src/
   components/
-    calendar/
     common/
-    gallery/
+      calendar/
+      pagination/
+      scroll-snap/
   pages/
     home.js
   style/
     fonts.css
-    layout.css
     global.css
+    layout.css
+    responsive.css
     swiper-custom.css
   main.js
 index.html
 ```
 
-## Why This Was Reorganized
+## Structure Rules
 
-- `src/main.js` was the real entry, but `index.html` also loaded extra module files directly.
-- `src/js/main.js` and `src/main.js` had confusingly similar names.
-- Reusable UI behavior like calendar and gallery lived next to page logic instead of component logic.
-- `pages/` existed but had no purpose documented.
-- Tailwind usage was removed in favor of plain CSS utilities in `global.css` and page-level rules in `layout.css`.
+- `src/main.js`
+  - shared bootstrapping entry
+  - wires page-wide interactions such as swipers, section navigation, and global header behavior
+- `src/components/common/`
+  - reusable UI behavior modules
+  - keep widget-like logic here when it can be reused without page coupling
+- `src/pages/home.js`
+  - reserved for home-only behavior
+  - keep this as the place for future main-page scripts instead of growing `main.js` forever
+- `pages/`
+  - preview markup space for future sub pages before splitting into separate entries
 
-## Suggested JSP Mapping
+## Notes
 
-- `src/components/common/` -> shared JSP include candidates
-- `src/components/calendar/` -> widget-level behavior
-- `src/components/gallery/` -> widget-level behavior
-- `src/pages/home.js` -> page-specific behavior for the main screen
-- `pages/` -> static preview HTML collection before JSP conversion
+- Legacy wrapper files that only re-exported other modules were removed.
+- Reusable widget scripts were flattened where the nested path added no value.
+- Layout and visual output should stay identical; this structure only aims to make maintenance easier.

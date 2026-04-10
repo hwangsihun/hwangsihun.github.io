@@ -955,7 +955,7 @@ body {
 }
 
 .wrapper_main3_swiper_buttons {
-    gap: 8px;
+    gap: 10px;
     flex-shrink: 0;
 }
 

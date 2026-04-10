@@ -109,13 +109,9 @@
         display: block;
     }
 
-    .container_header_main1_inner {
-        align-items: center;
-    }
-
-    .button_header_logo_pc,
-    .button_header_auth,
-    .button_header_lang {
+    .btn_header_logo_pc,
+    .btn_header_auth,
+    .btn_header_lang {
         display: none;
     }
 
@@ -124,7 +120,7 @@
         width: 150px;
     }
 
-    .button_header_icon.button_header_menu {
+    .btn_header_icon.btn_header_menu {
         display: inline-flex;
     }
 
