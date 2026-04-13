@@ -17,6 +17,42 @@
 </head>
 
 <body class="page_body">
+  <header class="container_header_global" aria-label="주요 메뉴">
+    <div class="container_header_global_inner flex_row_center">
+      <div class="wrapper_header_gnb_holder flex_col_center" data-header-gnb>
+        <nav class="wrapper_header_gnb bg_white" aria-label="주요 메뉴">
+          <ul class="list_header_gnb flex_row">
+            <li class="item_header_gnb">
+              <button type="button" class="btn_header_gnb" data-header-menu="akl" aria-haspopup="true"
+                aria-expanded="false" aria-controls="header-submenu-panel">아트코리아랩</button>
+            </li>
+            <li class="item_header_gnb">
+              <button type="button" class="btn_header_gnb" data-header-menu="rental" aria-haspopup="true"
+                aria-expanded="false" aria-controls="header-submenu-panel">대관/시설</button>
+            </li>
+            <li class="item_header_gnb">
+              <button type="button" class="btn_header_gnb" data-header-menu="biz" aria-haspopup="true"
+                aria-expanded="false" aria-controls="header-submenu-panel">비즈센터</button>
+            </li>
+            <li class="item_header_gnb">
+              <button type="button" class="btn_header_gnb" data-header-menu="community" aria-haspopup="true"
+                aria-expanded="false" aria-controls="header-submenu-panel">커뮤니티</button>
+            </li>
+            <li class="item_header_gnb">
+              <button type="button" class="btn_header_gnb" data-header-menu="archive" aria-haspopup="true"
+                aria-expanded="false" aria-controls="header-submenu-panel">아카이브</button>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="container_header_submenu" id="header-submenu-panel" hidden>
+          <nav class="wrapper_header_submenu flex_row_center bg_disabledStroke" data-header-submenu-list
+            aria-label="하위 메뉴"></nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <div class="container_header_main1">
     <div class="container_header_main1_inner flex_row_between">
       <div class="wrapper_header_brand">
@@ -66,42 +102,6 @@
     </aside>
   </div>
 
-  <header class="container_header_global" aria-label="주요 메뉴">
-    <div class="container_header_global_inner flex_row_center">
-      <div class="wrapper_header_gnb_holder flex_col_center" data-header-gnb>
-        <nav class="wrapper_header_gnb bg_white" aria-label="주요 메뉴">
-          <ul class="list_header_gnb flex_row">
-            <li class="item_header_gnb">
-              <button type="button" class="btn_header_gnb" data-header-menu="akl" aria-haspopup="true"
-                aria-expanded="false" aria-controls="header-submenu-panel">아트코리아랩</button>
-            </li>
-            <li class="item_header_gnb">
-              <button type="button" class="btn_header_gnb" data-header-menu="rental" aria-haspopup="true"
-                aria-expanded="false" aria-controls="header-submenu-panel">대관/시설</button>
-            </li>
-            <li class="item_header_gnb">
-              <button type="button" class="btn_header_gnb" data-header-menu="biz" aria-haspopup="true"
-                aria-expanded="false" aria-controls="header-submenu-panel">비즈센터</button>
-            </li>
-            <li class="item_header_gnb">
-              <button type="button" class="btn_header_gnb" data-header-menu="community" aria-haspopup="true"
-                aria-expanded="false" aria-controls="header-submenu-panel">커뮤니티</button>
-            </li>
-            <li class="item_header_gnb">
-              <button type="button" class="btn_header_gnb" data-header-menu="archive" aria-haspopup="true"
-                aria-expanded="false" aria-controls="header-submenu-panel">아카이브</button>
-            </li>
-          </ul>
-        </nav>
-
-        <div class="container_header_submenu" id="header-submenu-panel" hidden>
-          <nav class="wrapper_header_submenu flex_row_center bg_disabledStroke" data-header-submenu-list
-            aria-label="하위 메뉴"></nav>
-        </div>
-      </div>
-    </div>
-  </header>
-
   <main class="snap_page flex_col" data-snap-duration="800">
     <nav class="container_side_section_navigation flex_col_center" aria-label="섹션 이동">
       <div class="wrapper_section_nav_dots flex_col_center">
@@ -116,6 +116,7 @@
       </div>
       <p class="text_section_nav_current" aria-live="polite">1</p>
     </nav>
+    <button type="button" class="btn_scroll_top" aria-label="최상단으로 이동"></button>
 
     <section id="main-1" class="flex_col_center snap_section pt70px">
       <div class="container_main1_bg_patterns container_wide_bg_patterns" aria-hidden="true">
@@ -309,7 +310,7 @@
 
             <ul class="list_notice_pc">
               <li class="item_notice_pc flex_row_between">
-                <div class="wrapper_notice_copy_pc flex_row">
+                <div class="wrapper_notice_copy_pc flex_row_start">
                   <span class="tag_notice_new_pc flex_row_center bg_red text_white">N</span>
                   <div class="wrapper_notice_body_pc flex_col_start">
                     <p class="text_notice_pc">예시텍스트 예시텍스트 예시텍스트 예시텍스트</p>
@@ -321,7 +322,7 @@
               </li>
 
               <li class="item_notice_pc flex_row_between">
-                <div class="wrapper_notice_copy_pc flex_row">
+                <div class="wrapper_notice_copy_pc flex_row_start">
                   <span class="tag_notice_new_pc flex_row_center bg_red text_white">N</span>
                   <div class="wrapper_notice_body_pc flex_col_start">
                     <p class="text_notice_pc">예시텍스트 예시텍스트 예시텍스트 예시텍스트</p>
@@ -333,7 +334,7 @@
               </li>
 
               <li class="item_notice_pc flex_row_between">
-                <div class="wrapper_notice_copy_pc flex_row">
+                <div class="wrapper_notice_copy_pc flex_row_start">
                   <div class="wrapper_notice_body_pc flex_col_start">
                     <p class="text_notice_pc">예시텍스트 예시텍스트 예시텍스트 예시텍스트</p>
                     <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
@@ -344,7 +345,7 @@
               </li>
 
               <li class="item_notice_pc flex_row_between">
-                <div class="wrapper_notice_copy_pc flex_row">
+                <div class="wrapper_notice_copy_pc flex_row_start">
                   <div class="wrapper_notice_body_pc flex_col_start">
                     <p class="text_notice_pc">예시텍스트 예시텍스트 예시텍스트 예시텍스트</p>
                     <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
@@ -364,7 +365,7 @@
 
             <ul class="list_notice_pc">
               <li class="item_notice_pc flex_row_between">
-                <div class="wrapper_notice_copy_pc flex_row">
+                <div class="wrapper_notice_copy_pc flex_row_start">
                   <span class="tag_notice_new_pc flex_row_center bg_red text_white">N</span>
                   <div class="wrapper_notice_body_pc flex_col_start">
                     <p class="text_notice_pc">예시텍스트 예시텍스트 예시텍스트 예시텍스트</p>
@@ -376,7 +377,7 @@
               </li>
 
               <li class="item_notice_pc flex_row_between">
-                <div class="wrapper_notice_copy_pc flex_row">
+                <div class="wrapper_notice_copy_pc flex_row_start">
                   <div class="wrapper_notice_body_pc flex_col_start">
                     <p class="text_notice_pc">예시텍스트 예시텍스트 예시텍스트 예시텍스트</p>
                     <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
@@ -387,7 +388,7 @@
               </li>
 
               <li class="item_notice_pc flex_row_between">
-                <div class="wrapper_notice_copy_pc flex_row">
+                <div class="wrapper_notice_copy_pc flex_row_start">
                   <div class="wrapper_notice_body_pc flex_col_start">
                     <p class="text_notice_pc">예시텍스트 예시텍스트 예시텍스트 예시텍스트</p>
                     <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
@@ -398,7 +399,7 @@
               </li>
 
               <li class="item_notice_pc flex_row_between">
-                <div class="wrapper_notice_copy_pc flex_row">
+                <div class="wrapper_notice_copy_pc flex_row_start">
                   <div class="wrapper_notice_body_pc flex_col_start">
                     <p class="text_notice_pc">예시텍스트 예시텍스트 예시텍스트 예시텍스트</p>
                     <p class="text_notice_date_pc font_darkGrayFont">2026.00.00</p>
@@ -682,8 +683,6 @@
       </footer>
 
     </section>
-
-    <button type="button" class="btn_scroll_top" aria-label="최상단으로 이동"></button>
 
 
   </main>

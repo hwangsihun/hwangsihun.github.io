@@ -1,14 +1,8 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
-    updateMonthDisplay();
-    initializeCalendar();
-    initializeMobileCalendar();
-});
-
 const CALENDAR_SELECTOR = '.container_calendar_pc';
 const TRACK_SELECTOR = '.track_calendar_pc';
 const MOBILE_GRID_SELECTOR = '#mobile-calendar-grid';
 const WEEKDAY_LABELS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-const highlightDates = [
+const HIGHLIGHT_DATES = [
     '2026-04-02',
     '2026-04-05',
     '2026-04-09',
@@ -21,7 +15,7 @@ const highlightDates = [
 
 function getDateStyle(iso, dayOfWeek) {
     const isWeekend = [0, 6].includes(dayOfWeek);
-    const isHighlighted = highlightDates.includes(iso);
+    const isHighlighted = HIGHLIGHT_DATES.includes(iso);
 
     return {
         isWeekend,
@@ -33,7 +27,7 @@ function getLocalISODate(year, month, day) {
     return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
 
-function updateMonthDisplay() {
+export function updateMonthDisplay() {
     const monthElements = document.querySelectorAll('.current-month');
     const today = new Date();
     const currentMonth = today.getMonth() + 1;
@@ -95,7 +89,9 @@ function createMobileDayItem(year, month, day) {
 
     if (style.isWeekend || style.isHighlighted) {
         const number = document.createElement('span');
-        number.className = `number_calendar_mobile flex_row_center ${style.isHighlighted ? 'bg_mint text_black' : 'bg_lightGray text_lightgray'}`;
+        number.className = `number_calendar_mobile flex_row_center ${
+            style.isHighlighted ? 'bg_mint text_black' : 'bg_lightGray text_lightgray'
+        }`;
         number.textContent = day;
         dateCell.appendChild(number);
     } else {
@@ -105,8 +101,9 @@ function createMobileDayItem(year, month, day) {
     return dateCell;
 }
 
-function initializeCalendar() {
+export function initializeCalendar() {
     const calendars = document.querySelectorAll(CALENDAR_SELECTOR);
+
     if (calendars.length === 0) return;
 
     const today = new Date();
@@ -129,6 +126,7 @@ function initializeCalendar() {
 
     calendars.forEach((calendarRoot) => {
         const dateBar = calendarRoot.querySelector(TRACK_SELECTOR);
+
         if (!dateBar) return;
 
         dateBar.innerHTML = '';
@@ -143,14 +141,14 @@ function initializeCalendar() {
     });
 }
 
-function initializeMobileCalendar() {
+export function initializeMobileCalendar() {
     const calendarGrid = document.querySelector(MOBILE_GRID_SELECTOR);
+
     if (!calendarGrid) return;
 
     const today = new Date();
     const currentMonth = today.getMonth();
     const currentYear = today.getFullYear();
-
     const firstDay = new Date(currentYear, currentMonth, 1);
     const lastDay = new Date(currentYear, currentMonth + 1, 0);
     const daysInMonth = lastDay.getDate();
@@ -160,6 +158,7 @@ function initializeMobileCalendar() {
 
     for (let index = 0; index < startingDayOfWeek; index += 1) {
         const emptyCell = document.createElement('div');
+
         emptyCell.className = 'empty_calendar_mobile';
         calendarGrid.appendChild(emptyCell);
     }
@@ -167,4 +166,10 @@ function initializeMobileCalendar() {
     for (let day = 1; day <= daysInMonth; day += 1) {
         calendarGrid.appendChild(createMobileDayItem(currentYear, currentMonth, day));
     }
+}
+
+export function initializeCalendarModule() {
+    updateMonthDisplay();
+    initializeCalendar();
+    initializeMobileCalendar();
 }

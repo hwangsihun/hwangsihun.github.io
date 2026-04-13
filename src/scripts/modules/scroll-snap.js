@@ -1,9 +1,14 @@
-﻿const SNAP_ROOT_SELECTOR = '.snap_page';
-const SNAP_SECTION_SELECTOR = '.snap_section, .snap_visual_section, .footer_section';
-const SNAP_MIN_WIDTH = 768;
-const SNAP_MIN_HEIGHT = 901;
+import {
+    SNAP_MIN_HEIGHT,
+    SNAP_MIN_WIDTH,
+    getSnapRoot,
+    getSnapSectionScrollTop,
+    getSnapSections,
+} from '../core/snap.js';
+import { waitForMain2Warmup } from '../features/gallery-swipers.js';
+
 const DEFAULT_DURATION = 1200;
-const DEFAULT_WHEEL_THRESHOLD = 20;
+const DEFAULT_WHEEL_THRESHOLD = 10;
 
 function easeInOutCubic(progress) {
     if (progress < 0.5) {
@@ -13,23 +18,20 @@ function easeInOutCubic(progress) {
     return 1 - Math.pow(-2 * progress + 2, 3) / 2;
 }
 
-function initializeCustomScrollSnap() {
-    const snapRoot = document.querySelector(SNAP_ROOT_SELECTOR);
+export function initializeCustomScrollSnap() {
+    const snapRoot = getSnapRoot();
 
-    if (!snapRoot) return;
+    if (!snapRoot || snapRoot.dataset.customScrollSnapInitialized === 'true') return;
 
-    const sections = Array.from(snapRoot.querySelectorAll(SNAP_SECTION_SELECTOR));
+    const sections = getSnapSections(snapRoot);
 
     if (sections.length === 0) return;
 
     const duration = Number(snapRoot.dataset.snapDuration) || DEFAULT_DURATION;
     const wheelThreshold = Number(snapRoot.dataset.snapWheelThreshold) || DEFAULT_WHEEL_THRESHOLD;
     let isAnimating = false;
+    let isPreparingTargetSection = false;
     let touchStartY = 0;
-
-    function getMaxScrollTop() {
-        return Math.max(0, snapRoot.scrollHeight - snapRoot.clientHeight);
-    }
 
     function getViewportHeight() {
         return window.visualViewport?.height || window.innerHeight;
@@ -39,33 +41,22 @@ function initializeCustomScrollSnap() {
         return window.innerWidth >= SNAP_MIN_WIDTH && getViewportHeight() >= SNAP_MIN_HEIGHT;
     }
 
-    function getTargetScrollTop(targetSection) {
-        if (!targetSection) return snapRoot.scrollTop;
-
-        const alignToViewportBottom =
-            targetSection.classList.contains('footer_section') ||
-            targetSection.dataset.snapAlign === 'end';
-
-        const targetScrollTop = alignToViewportBottom
-            ? targetSection.offsetTop + targetSection.offsetHeight - snapRoot.clientHeight
-            : targetSection.offsetTop;
-
-        return Math.max(0, Math.min(getMaxScrollTop(), targetScrollTop));
-    }
-
     function animateToSection(targetSection) {
         if (!targetSection || isAnimating) return;
 
         isAnimating = true;
 
         const startScrollTop = snapRoot.scrollTop;
-        const targetScrollTop = getTargetScrollTop(targetSection);
+        const targetScrollTop = getSnapSectionScrollTop(snapRoot, targetSection);
         const distance = targetScrollTop - startScrollTop;
         const startTime = performance.now();
+        const isFirstMain2Entry =
+            targetSection.id === 'main-2' && document.body?.dataset.main2FirstEntryComplete !== 'true';
+        const effectiveDuration = isFirstMain2Entry ? Math.min(duration, 560) : duration;
 
         function step(currentTime) {
             const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
+            const progress = Math.min(elapsed / effectiveDuration, 1);
             const easedProgress = easeInOutCubic(progress);
 
             snapRoot.scrollTop = startScrollTop + distance * easedProgress;
@@ -76,6 +67,10 @@ function initializeCustomScrollSnap() {
             }
 
             isAnimating = false;
+
+            if (targetSection.id === 'main-2') {
+                document.body.dataset.main2FirstEntryComplete = 'true';
+            }
         }
 
         requestAnimationFrame(step);
@@ -87,7 +82,7 @@ function initializeCustomScrollSnap() {
         let smallestDistance = Number.POSITIVE_INFINITY;
 
         sections.forEach((section, index) => {
-            const sectionScrollTop = getTargetScrollTop(section);
+            const sectionScrollTop = getSnapSectionScrollTop(snapRoot, section);
             const distance = Math.abs(currentScrollTop - sectionScrollTop);
 
             if (distance < smallestDistance) {
@@ -103,10 +98,23 @@ function initializeCustomScrollSnap() {
         const currentIndex = getCurrentSectionIndex();
         const safeIndex = currentIndex === -1 ? 0 : currentIndex;
         const nextIndex = Math.max(0, Math.min(sections.length - 1, safeIndex + direction));
+        const targetSection = sections[nextIndex];
 
         if (nextIndex === safeIndex) return;
+        if (!targetSection) return;
 
-        animateToSection(sections[nextIndex]);
+        if (targetSection.id === 'main-2' && document.body?.dataset.main2WarmupReady !== 'true') {
+            if (isPreparingTargetSection) return;
+
+            isPreparingTargetSection = true;
+            waitForMain2Warmup().finally(() => {
+                isPreparingTargetSection = false;
+                animateToSection(targetSection);
+            });
+            return;
+        }
+
+        animateToSection(targetSection);
     }
 
     snapRoot.addEventListener(
@@ -116,7 +124,7 @@ function initializeCustomScrollSnap() {
 
             event.preventDefault();
 
-            if (isAnimating || Math.abs(event.deltaY) < wheelThreshold) return;
+            if (isAnimating || isPreparingTargetSection || Math.abs(event.deltaY) < wheelThreshold) return;
 
             moveToAdjacentSection(event.deltaY > 0 ? 1 : -1);
         },
@@ -134,7 +142,7 @@ function initializeCustomScrollSnap() {
     snapRoot.addEventListener(
         'touchend',
         (event) => {
-            if (!isSnapEnabled() || isAnimating) return;
+            if (!isSnapEnabled() || isAnimating || isPreparingTargetSection) return;
 
             const touchEndY = event.changedTouches[0].clientY;
             const deltaY = touchStartY - touchEndY;
@@ -145,10 +153,6 @@ function initializeCustomScrollSnap() {
         },
         { passive: true },
     );
-}
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeCustomScrollSnap);
-} else {
-    initializeCustomScrollSnap();
+    snapRoot.dataset.customScrollSnapInitialized = 'true';
 }

@@ -8,4 +8,4 @@ Examples:
 - `pages/sub/about.html`
 - `pages/sub/archive/list.html`
 
-When sub pages are added later, give each page its own script entry under `src/pages/`.
+When sub pages are added later, keep shared JS under `src/scripts/` and add page-specific modules under `src/scripts/features/` only when a page really needs isolated behavior.

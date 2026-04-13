@@ -8,39 +8,38 @@ assets/
 pages/
   README.md
 src/
-  components/
-    common/
-      calendar/
-      pagination/
-      scroll-snap/
-  pages/
-    home.js
+  scripts/
+    core/
+    data/
+    features/
+    modules/
+    main.js
   style/
     fonts.css
     global.css
     layout.css
     responsive.css
     swiper-custom.css
-  main.js
 index.html
 ```
 
 ## Structure Rules
 
-- `src/main.js`
+- `src/scripts/main.js`
   - shared bootstrapping entry
-  - wires page-wide interactions such as swipers, section navigation, and global header behavior
-- `src/components/common/`
-  - reusable UI behavior modules
-  - keep widget-like logic here when it can be reused without page coupling
-- `src/pages/home.js`
-  - reserved for home-only behavior
-  - keep this as the place for future main-page scripts instead of growing `main.js` forever
+  - keeps initialization order only, without page feature details
+- `src/scripts/core/`
+  - app-wide environment utilities such as viewport and snap helpers
+- `src/scripts/data/`
+  - menu data and other small UI configuration sources
+- `src/scripts/features/`
+  - page section or layout-level behavior such as header, sidebar, marquee, and section navigation
+- `src/scripts/modules/`
+  - reusable widget scripts such as calendar, pagination, and custom scroll snap
 - `pages/`
   - preview markup space for future sub pages before splitting into separate entries
 
 ## Notes
 
-- Legacy wrapper files that only re-exported other modules were removed.
-- Reusable widget scripts were flattened where the nested path added no value.
+- `src/scripts/` is the single JS root so the project can stay easy to scan in a publishing-heavy workflow.
 - Layout and visual output should stay identical; this structure only aims to make maintenance easier.

@@ -4,14 +4,12 @@
 
 ```text
 src/
-  main.js
-  components/
-    common/
-      buttons/
-    calendar/
-    gallery/
-  pages/
-    home.js
+  scripts/
+    core/
+    data/
+    features/
+    modules/
+    main.js
   style/
     fonts.css
     global.css
@@ -30,9 +28,11 @@ WEB-INF/
 
 ## Practical Rule
 
-- `src/components/common/`에는 버튼, 링크, 카드, 헤더처럼 여러 화면에서 다시 쓰는 마크업과 동작을 둡니다.
-- `src/components/*`에는 캘린더, 갤러리처럼 위젯 단위의 스크립트를 둡니다.
-- `src/pages/*`에는 페이지 전용 스크립트를 둡니다.
+- `src/scripts/`를 JS 단일 루트로 두고, 하위에서 책임만 나눕니다.
+- `src/scripts/core/`에는 뷰포트, 스냅 좌표 같은 앱 공통 계산을 둡니다.
+- `src/scripts/modules/`에는 캘린더, 페이지네이션처럼 재사용 가능한 위젯 스크립트를 둡니다.
+- `src/scripts/features/`에는 헤더, 모바일 오버레이, 메인 섹션 인터랙션처럼 화면 구조에 가까운 동작을 둡니다.
+- `src/scripts/data/`에는 메뉴나 UI 설정값처럼 작은 정적 데이터를 둡니다.
 - JSP에서는 공통 마크업을 `include`나 tag file로 분리하는 편이 관리에 유리합니다.
 
 ## Framework Recommendation
