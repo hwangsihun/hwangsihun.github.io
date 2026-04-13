@@ -1,3 +1,5 @@
+import { getViewportMode } from '../core/viewport.js';
+
 const SWIPER_SECTION_CONFIGS = [
     {
         sectionSelector: '#main-2',
@@ -42,10 +44,19 @@ const SWIPER_BASE_OPTIONS = {
     touchEventsTarget: 'wrapper',
 };
 
-const MAIN2_CRITICAL_IMAGE_SOURCES = [
+const MAIN2_DESKTOP_IMAGE_SOURCES = [
+    '/assets/imgs/img/poster_1.png',
+    '/assets/imgs/img/poster_2.png',
+    '/assets/imgs/img/poster_3.png',
+];
+
+const MAIN2_MOBILE_IMAGE_SOURCES = [
     '/assets/imgs/img/example_1.png',
     '/assets/imgs/img/example_2.png',
     '/assets/imgs/img/example_3.png',
+];
+
+const MAIN2_SHARED_IMAGE_SOURCES = [
     '/assets/imgs/img/keyVisual_4.svg',
     '/assets/imgs/img/keyVisual_4_1.svg',
 ];
@@ -55,6 +66,13 @@ let main2WarmupPromise = null;
 
 function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
+}
+
+function getMain2CriticalImageSources() {
+    const main2SlideImageSources =
+        getViewportMode() === 'mobile' ? MAIN2_MOBILE_IMAGE_SOURCES : MAIN2_DESKTOP_IMAGE_SOURCES;
+
+    return [...main2SlideImageSources, ...MAIN2_SHARED_IMAGE_SOURCES];
 }
 
 function getGallerySlideDefinitions(mainSection, swiperContainer) {
@@ -413,7 +431,7 @@ export function waitForMain2Warmup() {
 
     main2WarmupPromise = Promise.all(
         [
-            ...MAIN2_CRITICAL_IMAGE_SOURCES.map((src) => preloadImageSource(src)),
+            ...getMain2CriticalImageSources().map((src) => preloadImageSource(src)),
             preloadImageElement(document.querySelector('#main-2 .icon_visual4')),
             preloadImageElement(document.querySelector('#main-2 .bgicon_noticeBanner_1')),
             preloadImageElement(document.querySelector('#main-2 .bgicon_noticeBanner_2')),

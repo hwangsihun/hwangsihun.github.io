@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARTS KOREA LAB</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="preload" as="image" href="/assets/imgs/img/example_1.png" />
+  <link rel="preload" as="image" href="/assets/imgs/img/poster_1.png" media="(min-width: 768px)" />
+  <link rel="preload" as="image" href="/assets/imgs/img/example_1.png" media="(max-width: 767px)" />
   <link rel="preload" as="image" href="/assets/imgs/img/keyVisual_4.svg" type="image/svg+xml" />
   <link rel="preload" as="image" href="/assets/imgs/img/keyVisual_4_1.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/src/style/fonts.css" />
@@ -276,13 +277,22 @@
                 <div class="main2-swiper swiper">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                      <img src="/assets/imgs/img/example_1.png" alt="예시 배너 1" fetchpriority="high" loading="eager">
+                      <picture>
+                        <source media="(min-width: 768px)" srcset="/assets/imgs/img/poster_1.png">
+                        <img src="/assets/imgs/img/example_1.png" alt="메인 배너 1" fetchpriority="high" loading="eager">
+                      </picture>
                     </div>
                     <div class="swiper-slide">
-                      <img src="/assets/imgs/img/example_2.png" alt="예시 배너 2">
+                      <picture>
+                        <source media="(min-width: 768px)" srcset="/assets/imgs/img/poster_2.png">
+                        <img src="/assets/imgs/img/example_2.png" alt="메인 배너 2">
+                      </picture>
                     </div>
                     <div class="swiper-slide">
-                      <img src="/assets/imgs/img/example_3.png" alt="예시 배너 3">
+                      <picture>
+                        <source media="(min-width: 768px)" srcset="/assets/imgs/img/poster_3.png">
+                        <img src="/assets/imgs/img/example_3.png" alt="메인 배너 3">
+                      </picture>
                     </div>
                   </div>
                   <div class="main2-swiper-pagination swiper-pagination"></div>

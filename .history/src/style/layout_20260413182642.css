@@ -43,25 +43,7 @@ body {
 }
 
 .container_wide_bg_patterns {
-    position: absolute;
-    inset: 0;
-    left: 50%;
-    width: 100vw;
-    transform: translateX(-50%);
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.bg_wide_pattern {
-    position: absolute;
-    display: block;
-    opacity: 0;
-    transform: translate3d(0, 32px, 0) scale(0.96);
-    transition:
-        opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
+    display: none;
 }
 
 /* side navigation */
@@ -971,6 +953,14 @@ body {
 
 #main-2.snap_section {
     justify-content: flex-start;
+}
+
+.container_main2_bg_patterns {
+    display: none;
+}
+
+.container_main3_bg_patterns {
+    display: none;
 }
 
 #main-4.snap_section {

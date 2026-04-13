@@ -5,7 +5,6 @@
 }
 
 .swiper-container,
-.main2-swiper,
 .main3-swiper {
     width: 100%;
     aspect-ratio: 452 / 305;
@@ -13,7 +12,20 @@
     overflow: hidden;
 }
 
+.main2-swiper {
+    width: 100%;
+    aspect-ratio: 91 / 30;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
 .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide picture {
+    display: block;
     width: 100%;
     height: 100%;
 }
@@ -91,6 +103,12 @@
     width: 100%;
     height: var(--app-height);
     border-radius: 0;
+}
+
+@media (max-width: 767px) {
+    .main2-swiper {
+        aspect-ratio: 751 / 504;
+    }
 }
 
 @media (max-width: 767px) {
