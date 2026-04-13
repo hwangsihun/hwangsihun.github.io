@@ -244,6 +244,34 @@
     }
 }
 
+@media (max-width: 767px) and (max-height: 799px) {
+    .frame_calendar_mobile {
+        padding: 12px 20px;
+        gap: 8px;
+    }
+
+    .legend_calendar_mobile {
+        padding: 8px 16px;
+    }
+
+    .body_calendar_mobile {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .week_calendar_mobile {
+        padding-bottom: 8px;
+    }
+
+    .grid_calendar_mobile {
+        row-gap: 0;
+    }
+
+    .number_calendar_mobile {
+        width: 32px;
+    }
+}
+
 @media (max-width: 767px) {
     .container_side_section_navigation,
     .container_header_global {
