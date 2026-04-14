@@ -2096,10 +2096,14 @@ h6 {
 
 /* effect */
 .box_shadow_navySoft {
-    box-shadow: 8px 8px 24px rgba(0, 30, 70, 0.2);
+    box-shadow: 8px 8px 20px rgba(0, 30, 70, 0.2);
+    transition: box-shadow 0.28s ease;
 }
 .box_shadow_navySoft_after::after {
-    box-shadow: 8px 8px 24px rgba(0, 30, 70, 0.2);
+    box-shadow: 8px 8px 20px rgba(0, 30, 70, 0.2);
+}
+.box_shadow_navySoft:hover {
+    box-shadow: none;
 }
 .rotate180 {
     transform: rotate(180deg);
