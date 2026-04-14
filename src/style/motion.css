@@ -1,0 +1,281 @@
+/* pattern motion */
+.bg_wide_pattern {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0) scale(0.96);
+    transition:
+        opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+@media (min-width: 2200px) {
+    .bg_wide_pattern {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    .bg_main1_pattern_left_top {
+        transition-delay: 0.05s;
+    }
+
+    .bg_main1_pattern_left_middle {
+        transition-delay: 0.14s;
+    }
+
+    .bg_main1_pattern_right_top {
+        transition-delay: 0.22s;
+    }
+
+    .bg_main1_pattern_right_middle {
+        transition-delay: 0.3s;
+    }
+
+    .bg_main2_pattern_left {
+        transition-delay: 0.18s;
+    }
+
+    .bg_main2_pattern_right {
+        transition-delay: 0.28s;
+    }
+
+    .bg_main3_pattern_left_top {
+        transition-delay: 0.12s;
+    }
+
+    .bg_main3_pattern_left_bottom {
+        transition-delay: 0.24s;
+    }
+}
+
+/* common motion */
+.btn_section_nav_dot {
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.container_header_main1 {
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.container_header_global::after {
+    transition: opacity 0.3s ease;
+}
+
+.btn_header_gnb {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.container_header_submenu {
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.btn_header_submenu {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn_mobile_sidebar_menu {
+    transition:
+        border-radius 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.line_mobile_sidebar_toggle {
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.list_mobile_sidebar_submenu {
+    transition:
+        max-height 0.28s ease,
+        padding-top 0.28s ease,
+        padding-bottom 0.28s ease;
+}
+
+.btn_quickLink,
+.btn_subFunc_pc,
+.btn_notice_arrow_pc {
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.btn_quickLink::before,
+.btn_subFunc_pc::before,
+.btn_notice_arrow_pc::before {
+    transition:
+        filter 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn_tab_menu {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.swiper-progress-fill {
+    transition:
+        left 0.3s ease,
+        width 0.3s ease;
+}
+
+.wrapper_main4_function_grid {
+    transition: grid-template-columns 0.8s ease;
+}
+
+.wrapper_main4_function_card {
+    transition:
+        transform 0.8s ease,
+        border-radius 0.8s ease;
+}
+
+.image_main4_function_card {
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+.wrapper_main4_function_dim {
+    transition: background 0.8s ease;
+}
+
+.wrapper_main4_function_copy {
+    transition: gap 0.8s ease;
+}
+
+.wrapper_main4_function_text {
+    transition: gap 0.8s ease;
+}
+
+.text_main4_function_title {
+    transition:
+        font-size 0.8s ease,
+        transform 0.8s ease,
+        opacity 0.8s ease;
+}
+
+.text_main4_function_description {
+    transition:
+        max-height 0.8s ease,
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.wrapper_main4_function_copy .btn_quickLink {
+    transition:
+        width 0.8s ease,
+        height 0.8s ease,
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0s linear var(--main4-card-button-visibility-delay);
+}
+
+.wrapper_main4_partners_track {
+    animation: main4PartnersMarquee 34s linear infinite;
+}
+
+.wrapper_footer_family_site::after {
+    transition: opacity 0.3s ease;
+}
+
+.wrapper_footer_family_links {
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* main-1 btn_visual intro */
+@keyframes main1VisualButtonRise {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 28px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.group_visual_pc .btn_visual {
+    opacity: 0;
+    animation: main1VisualButtonRise 1.12s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    will-change: opacity, transform;
+}
+
+.wrapper_visual_pc .btn_visual {
+    animation-delay: 0.12s;
+}
+
+.wrapper_visual_pc_arrow1 .btn_visual {
+    animation-delay: 0.34s;
+}
+
+.wrapper_visual_pc_arrow2 .btn_visual {
+    animation-delay: 0.56s;
+}
+
+@keyframes main4PartnersMarquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-1 * var(--main4-partners-cycle-width, 0px)));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg_wide_pattern,
+    .btn_section_nav_dot,
+    .container_header_main1,
+    .container_header_global::after,
+    .btn_header_gnb,
+    .container_header_submenu,
+    .btn_header_submenu,
+    .btn_mobile_sidebar_menu,
+    .line_mobile_sidebar_toggle,
+    .list_mobile_sidebar_submenu,
+    .btn_quickLink,
+    .btn_subFunc_pc,
+    .btn_notice_arrow_pc,
+    .btn_quickLink::before,
+    .btn_subFunc_pc::before,
+    .btn_notice_arrow_pc::before,
+    .btn_tab_menu,
+    .swiper-progress-fill,
+    .wrapper_main4_function_grid,
+    .wrapper_main4_function_card,
+    .image_main4_function_card,
+    .wrapper_main4_function_dim,
+    .wrapper_main4_function_copy,
+    .wrapper_main4_function_text,
+    .text_main4_function_title,
+    .text_main4_function_description,
+    .wrapper_main4_function_copy .btn_quickLink,
+    .wrapper_footer_family_site::after,
+    .wrapper_footer_family_links {
+        transition: none !important;
+    }
+
+    .group_visual_pc .btn_visual,
+    .wrapper_main4_partners_track {
+        animation: none !important;
+    }
+
+    .group_visual_pc .btn_visual {
+        opacity: 1;
+        transform: none;
+    }
+}

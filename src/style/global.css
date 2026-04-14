@@ -2095,11 +2095,11 @@ h6 {
 }
 
 /* effect */
-.box_shadow_card {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+.box_shadow_navySoft {
+    box-shadow: 8px 8px 24px rgba(0, 30, 70, 0.2);
 }
-.transition {
-    transition: all 0.3s ease;
+.box_shadow_navySoft_after::after {
+    box-shadow: 8px 8px 24px rgba(0, 30, 70, 0.2);
 }
 .rotate180 {
     transform: rotate(180deg);

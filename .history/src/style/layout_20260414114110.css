@@ -957,7 +957,7 @@ body {
     height: 50vh;
     min-height: 50vh;
     margin-inline: calc(50% - 50vw);
-    padding-block: 3%;
+    padding-block: 4%;
     box-sizing: border-box;
     border-radius: 0 0 0 248px;
     overflow: hidden;

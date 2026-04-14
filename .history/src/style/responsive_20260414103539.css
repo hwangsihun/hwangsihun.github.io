@@ -1,9 +1,15 @@
 @media (min-width: 2200px) {
+    .bg_wide_pattern {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
     .bg_main1_pattern_left_top {
         top: 50px;
         left: 10px;
         width: 450px;
         height: 450px;
+        transition-delay: 0.05s;
     }
 
     .bg_main1_pattern_left_middle {
@@ -11,6 +17,7 @@
         left: -150px;
         width: 550px;
         height: 550px;
+        transition-delay: 0.14s;
     }
 
     .bg_main1_pattern_right_top {
@@ -18,6 +25,7 @@
         right: 0;
         width: 550px;
         height: 550px;
+        transition-delay: 0.22s;
     }
 
     .bg_main1_pattern_right_middle {
@@ -25,6 +33,7 @@
         right: -200px;
         width: 450px;
         height: 450px;
+        transition-delay: 0.3s;
     }
 
     .bg_main2_pattern_left {
@@ -32,6 +41,7 @@
         bottom: -50px;
         width: 550px;
         height: 550px;
+        transition-delay: 0.18s;
     }
 
     .bg_main2_pattern_right {
@@ -39,6 +49,7 @@
         bottom: 150px;
         width: 450px;
         height: 450px;
+        transition-delay: 0.28s;
     }
 
     .container_main3_bg_patterns {
@@ -50,6 +61,7 @@
         left: -220px;
         width: 550px;
         height: 550px;
+        transition-delay: 0.12s;
     }
 
     .bg_main3_pattern_left_bottom {
@@ -57,6 +69,13 @@
         top: 600px;
         width: 450px;
         height: 450px;
+        transition-delay: 0.24s;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg_wide_pattern {
+        transition: none !important;
     }
 }
 
@@ -83,7 +102,10 @@
 
     .gallery_wrapper_banner {
         width: min(100%, 925px);
-        max-width: 100%;
+        max-width: 925px;
+        min-width: 0;
+        margin-left: auto;
+        flex: 0 1 auto;
     }
 
     .wrapper_pagination_pc {
@@ -129,6 +151,7 @@
     }
 
     .gallery_wrapper_banner {
+        width: min(100%, 760px);
     }
 
     .wrapper_pagination_pc {
@@ -574,8 +597,8 @@
     .container_main4_partners::before {
         content: '';
         position: absolute;
-        top: -24px;
-        bottom: -40px;
+        top: -320px;
+        bottom: 0;
         left: 50%;
         width: 100vw;
         height: auto;
@@ -696,4 +719,8 @@
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+/* mobile */
+@media (min-width: 360px) {
 }
