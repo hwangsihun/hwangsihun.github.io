@@ -99,10 +99,6 @@
 }
 
 @media (max-width: 1260px) {
-    .container_banner_inner {
-        gap: 0;
-    }
-
     .wrapper_header_gnb {
         padding: 2px 4px;
     }
