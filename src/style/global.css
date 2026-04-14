@@ -2105,6 +2105,13 @@ h6 {
 .box_shadow_navySoft:hover {
     box-shadow: none;
 }
+.box_shadow_blackSoft {
+    box-shadow: 8px 8px 20px rgba(25, 31, 40, 0.2);
+    transition: box-shadow 0.28s ease;
+}
+.box_shadow_blackSoft:hover {
+    box-shadow: none;
+}
 .rotate180 {
     transform: rotate(180deg);
 }

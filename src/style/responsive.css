@@ -245,13 +245,10 @@
     }
 }
 
-@media (max-height: 900px) and (min-width: 768px) {
-    .bg_wide_pattern {
-        display: none !important;
-    }
-
-    .container_side_section_navigation {
-        display: none;
+@media (max-height: 1150px) and (min-width: 768px) {
+    .container_banner {
+        height: 60vh;
+        min-height: 60vh;
     }
 
     .list_notice_pc .item_notice_pc:nth-child(n + 4) {
@@ -260,6 +257,16 @@
 
     .list_notice_pc .item_notice_pc:nth-child(3) {
         border-bottom: none;
+    }
+}
+
+@media (max-height: 900px) and (min-width: 768px) {
+    .bg_wide_pattern {
+        display: none !important;
+    }
+
+    .container_side_section_navigation {
+        display: none;
     }
 }
 

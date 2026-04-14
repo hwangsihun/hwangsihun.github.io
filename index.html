@@ -68,42 +68,6 @@
     </aside>
   </div>
 
-  <header class="container_header_global" aria-label="주요 메뉴">
-    <div class="container_header_global_inner flex_row_center">
-      <div class="wrapper_header_gnb_holder flex_col_center" data-header-gnb>
-        <nav class="wrapper_header_gnb bg_white" aria-label="주요 메뉴">
-          <ul class="list_header_gnb flex_row">
-            <li class="item_header_gnb">
-              <button type="button" class="btn_header_gnb" data-header-menu="akl" aria-haspopup="true"
-                aria-expanded="false" aria-controls="header-submenu-panel">아트코리아랩</button>
-            </li>
-            <li class="item_header_gnb">
-              <button type="button" class="btn_header_gnb" data-header-menu="rental" aria-haspopup="true"
-                aria-expanded="false" aria-controls="header-submenu-panel">대관/시설</button>
-            </li>
-            <li class="item_header_gnb">
-              <button type="button" class="btn_header_gnb" data-header-menu="biz" aria-haspopup="true"
-                aria-expanded="false" aria-controls="header-submenu-panel">비즈센터</button>
-            </li>
-            <li class="item_header_gnb">
-              <button type="button" class="btn_header_gnb" data-header-menu="community" aria-haspopup="true"
-                aria-expanded="false" aria-controls="header-submenu-panel">커뮤니티</button>
-            </li>
-            <li class="item_header_gnb">
-              <button type="button" class="btn_header_gnb" data-header-menu="archive" aria-haspopup="true"
-                aria-expanded="false" aria-controls="header-submenu-panel">아카이브</button>
-            </li>
-          </ul>
-        </nav>
-
-        <div class="container_header_submenu" id="header-submenu-panel" hidden>
-          <nav class="wrapper_header_submenu flex_row_center bg_disabledStroke" data-header-submenu-list
-            aria-label="하위 메뉴"></nav>
-        </div>
-      </div>
-    </div>
-  </header>
-
   <main class="snap_page flex_col" data-snap-duration="800">
     <nav class="container_side_section_navigation flex_col_center" aria-label="섹션 이동">
       <div class="wrapper_section_nav_dots flex_col_center">
@@ -130,6 +94,42 @@
         <img class="bg_main1_pattern bg_wide_pattern bg_main1_pattern_right_middle"
           src="/assets/imgs/img/bg_pattern.svg" alt="">
       </div>
+      <header class="container_header_global" aria-label="주요 메뉴">
+        <div class="container_header_global_inner flex_row_center">
+          <div class="wrapper_header_gnb_holder flex_col_center" data-header-gnb>
+            <nav class="wrapper_header_gnb bg_white" aria-label="주요 메뉴">
+              <ul class="list_header_gnb flex_row">
+                <li class="item_header_gnb">
+                  <button type="button" class="btn_header_gnb" data-header-menu="akl" aria-haspopup="true"
+                    aria-expanded="false" aria-controls="header-submenu-panel">아트코리아랩</button>
+                </li>
+                <li class="item_header_gnb">
+                  <button type="button" class="btn_header_gnb" data-header-menu="rental" aria-haspopup="true"
+                    aria-expanded="false" aria-controls="header-submenu-panel">대관/시설</button>
+                </li>
+                <li class="item_header_gnb">
+                  <button type="button" class="btn_header_gnb" data-header-menu="biz" aria-haspopup="true"
+                    aria-expanded="false" aria-controls="header-submenu-panel">비즈센터</button>
+                </li>
+                <li class="item_header_gnb">
+                  <button type="button" class="btn_header_gnb" data-header-menu="community" aria-haspopup="true"
+                    aria-expanded="false" aria-controls="header-submenu-panel">커뮤니티</button>
+                </li>
+                <li class="item_header_gnb">
+                  <button type="button" class="btn_header_gnb" data-header-menu="archive" aria-haspopup="true"
+                    aria-expanded="false" aria-controls="header-submenu-panel">아카이브</button>
+                </li>
+              </ul>
+            </nav>
+
+            <div class="container_header_submenu" id="header-submenu-panel" hidden>
+              <nav class="wrapper_header_submenu flex_row_center bg_disabledStroke" data-header-submenu-list
+                aria-label="하위 메뉴"></nav>
+            </div>
+          </div>
+        </div>
+      </header>
+
       <div class="container_visual_pc flex_col_between">
 
         <div class="group_visual_pc flex_col_start">
@@ -645,8 +645,8 @@
               <img src="/assets/imgs/img/instagram.svg" alt="">
             </a>
 
-            <div class="wrapper_footer_family_site box_shadow_navySoft_after">
-              <button type="button" class="btn_footer_family_site flex_row_between bg_dateGray text_white"
+            <div class="wrapper_footer_family_site">
+              <button type="button" class="btn_footer_family_site flex_row_between bg_dateGray text_white box_shadow_blackSoft"
                 aria-label="Family Site" aria-expanded="false" aria-controls="footer-family-links">
                 <span>Family Site</span>
                 <span class="text_footer_family_plus" aria-hidden="true">+</span>
@@ -654,9 +654,9 @@
 
               <div class="wrapper_footer_family_links flex_col_start" id="footer-family-links" aria-label="패밀리 사이트 링크"
                 hidden>
-                <button type="button" class="btn_footer_family_link bg_white text_black">문화체육관광부</button>
-                <button type="button" class="btn_footer_family_link bg_white text_black">예술경영지원센터</button>
-                <button type="button" class="btn_footer_family_link bg_white text_black">아트모아</button>
+                <button type="button" class="btn_footer_family_link bg_white text_black box_shadow_blackSoft">문화체육관광부</button>
+                <button type="button" class="btn_footer_family_link bg_white text_black box_shadow_blackSoft">예술경영지원센터</button>
+                <button type="button" class="btn_footer_family_link bg_white text_black box_shadow_blackSoft">아트모아</button>
               </div>
             </div>
           </div>

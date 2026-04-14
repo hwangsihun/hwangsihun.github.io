@@ -185,10 +185,6 @@
     animation: main4PartnersMarquee 34s linear infinite;
 }
 
-.wrapper_footer_family_site::after {
-    transition: opacity 0.3s ease;
-}
-
 .wrapper_footer_family_links {
     transition:
         opacity 0.3s ease,
@@ -264,7 +260,6 @@
     .text_main4_function_title,
     .text_main4_function_description,
     .wrapper_main4_function_copy .btn_quickLink,
-    .wrapper_footer_family_site::after,
     .wrapper_footer_family_links {
         transition: none !important;
     }

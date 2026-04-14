@@ -3,6 +3,7 @@ export function initializeFooterFamilySite() {
     const familySiteButton = familySiteRoot?.querySelector('.btn_footer_family_site');
     const familySiteLinks = familySiteRoot?.querySelector('.wrapper_footer_family_links');
     const familySiteItems = Array.from(familySiteRoot?.querySelectorAll('.btn_footer_family_link') || []);
+    let closeTimer = 0;
 
     if (
         !familySiteRoot ||
@@ -15,19 +16,23 @@ export function initializeFooterFamilySite() {
     }
 
     function setExpanded(isExpanded) {
+        window.clearTimeout(closeTimer);
         familySiteRoot.classList.toggle('is_open', isExpanded);
         familySiteButton.setAttribute('aria-expanded', String(isExpanded));
         familySiteLinks.hidden = !isExpanded;
+    }
+
+    function scheduleClose() {
+        window.clearTimeout(closeTimer);
+        closeTimer = window.setTimeout(() => {
+            setExpanded(false);
+        }, 140);
     }
 
     familySiteButton.addEventListener('click', () => {
         const nextExpanded = familySiteButton.getAttribute('aria-expanded') !== 'true';
 
         setExpanded(nextExpanded);
-
-        if (nextExpanded) {
-            familySiteItems[0]?.focus();
-        }
     });
 
     familySiteButton.addEventListener('keydown', (event) => {
@@ -43,6 +48,22 @@ export function initializeFooterFamilySite() {
             setExpanded(false);
             familySiteButton.focus();
             event.preventDefault();
+        }
+    });
+
+    familySiteButton.addEventListener('pointerenter', () => {
+        if (familySiteButton.getAttribute('aria-expanded') === 'true') {
+            window.clearTimeout(closeTimer);
+        }
+    });
+
+    familySiteLinks.addEventListener('pointerenter', () => {
+        window.clearTimeout(closeTimer);
+    });
+
+    familySiteRoot.addEventListener('pointerleave', () => {
+        if (familySiteButton.getAttribute('aria-expanded') === 'true') {
+            scheduleClose();
         }
     });
 
