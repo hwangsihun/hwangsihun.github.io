@@ -64,6 +64,7 @@ h6 {
     --app-height: 100dvh;
     --app-width: 100vw;
     --color-black: #191f28;
+    --color-white: #ffffff;
     --color-purple: #d390ff;
     --color-mint: #00ced4;
     --color-yellow: #ffff00;
@@ -1978,7 +1979,7 @@ h6 {
 
 /* text color */
 .text_white {
-    color: #ffffff;
+    color: var(--color-white);
 }
 .text_black {
     color: #191f28;
@@ -2004,7 +2005,7 @@ h6 {
     background-color: var(--color-black);
 }
 .bg_white {
-    background-color: #ffffff;
+    background-color: var(--color-white);
 }
 .bg_purple {
     background-color: var(--color-purple);

@@ -106,6 +106,56 @@
     .main2-swiper {
         aspect-ratio: 751 / 504;
     }
+
+    .main2-swiper-pagination {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        bottom: 26px;
+        left: 0;
+        z-index: 2;
+        line-height: 0;
+        min-height: 8px;
+        padding: 2px 0;
+        overflow: visible;
+    }
+
+    .main2-swiper .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+        margin: 0 4px !important;
+        background-color: rgba(255, 255, 255, 0.7);
+        opacity: 1;
+    }
+
+    .main2-swiper .swiper-pagination-bullet-active {
+        background-color: #ffffff;
+    }
+
+    .main2-swiper-progress.swiper-progress {
+        height: 7px;
+        overflow: visible;
+        background-color: transparent;
+    }
+
+    .main2-swiper-progress.swiper-progress::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        height: 1px;
+        background-color: var(--color-black);
+        transform: translateY(-50%);
+    }
+
+    .main2-swiper-progress .swiper-progress-fill {
+        top: 50%;
+        height: 6px;
+        transform: translateY(-50%);
+    }
 }
 
 @media (max-width: 767px) {

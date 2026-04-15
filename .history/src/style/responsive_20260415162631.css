@@ -287,27 +287,6 @@
 
     .snap_page {
         gap: 70px;
-        padding-bottom: 108px;
-    }
-
-    .container_mobile_bottom_bar {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 25;
-        display: flex;
-        align-items: stretch;
-        height: 84px;
-    }
-
-    .page_body.is_mobile_sidebar_open .container_mobile_bottom_bar {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .btn_scroll_top {
-        bottom: 108px;
     }
 
     #main-1.snap_section {

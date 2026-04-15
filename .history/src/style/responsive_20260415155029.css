@@ -127,36 +127,6 @@
         --page-inline-padding: 20px;
     }
 
-    .container_header_main1 {
-        top: 0;
-        padding: 20px 0 16px;
-        background-color: transparent;
-    }
-
-    .container_header_main1::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-color: white;
-        z-index: 0;
-    }
-
-    .container_header_main1_inner {
-        align-items: center;
-    }
-
-    .wrapper_header_actions {
-        gap: 16px;
-    }
-
-    .btn_header_search,
-    .btn_header_menu {
-        width: 24px;
-        height: 24px;
-        padding: 0;
-        flex: 0 0 24px;
-    }
-
     .container_header_global {
         display: none;
     }
@@ -186,6 +156,10 @@
 
     .container_mobile_sidebar[hidden] {
         display: none !important;
+    }
+
+    .container_mobile_sidebar .btn_header_lang {
+        display: inline-flex;
     }
 
     /* main-1 visual_pc */
@@ -287,27 +261,6 @@
 
     .snap_page {
         gap: 70px;
-        padding-bottom: 108px;
-    }
-
-    .container_mobile_bottom_bar {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 25;
-        display: flex;
-        align-items: stretch;
-        height: 84px;
-    }
-
-    .page_body.is_mobile_sidebar_open .container_mobile_bottom_bar {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .btn_scroll_top {
-        bottom: 108px;
     }
 
     #main-1.snap_section {
