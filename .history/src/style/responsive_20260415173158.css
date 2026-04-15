@@ -204,7 +204,7 @@
     }
 }
 
-@media (max-height: 1070px) and (min-width: 768px) {
+@media (max-height: 1080px) and (min-width: 768px) {
     .container_banner {
         height: 55vh;
         min-height: 55vh;

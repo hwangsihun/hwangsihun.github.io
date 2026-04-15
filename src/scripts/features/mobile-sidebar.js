@@ -148,16 +148,12 @@ export function initializeMobileSidebarMenu() {
 
         if (isOpen && !mobileSidebarMediaQuery.matches) return;
 
-        if (isOpen) {
-            closeAllAccordions(null, { immediate: true });
-        }
+        closeAllAccordions(null, { immediate: true });
 
         sidebar.hidden = !isOpen;
         sidebar.setAttribute('aria-hidden', String(!isOpen));
         document.body.classList.toggle('is_mobile_sidebar_open', isOpen);
         syncOpenButtonState(isOpen);
-
-        closeAllAccordions(null, { immediate: true });
 
         if (!isOpen && restoreFocus) {
             openButton.focus();
