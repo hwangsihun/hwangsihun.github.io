@@ -582,7 +582,7 @@
 
     .container_main4_partners {
         isolation: isolate;
-        padding-bottom: 88px;
+        padding-bottom: 132px;
     }
 
     .bg_main4_checkerboard {
@@ -593,7 +593,7 @@
         content: '';
         position: absolute;
         top: -24px;
-        bottom: -40px;
+        bottom: -16px;
         left: 50%;
         width: 100vw;
         height: auto;
@@ -617,7 +617,7 @@
     .wrapper_main4_partners_marquee {
         position: absolute;
         left: 50%;
-        bottom: -8%;
+        bottom: 24px;
         width: calc(100% + 40px);
         margin-inline: 0;
         transform: translateX(-50%);
@@ -697,10 +697,10 @@
 
     /* main-5 footer */
     #main-5.footer_section {
-        margin-top: -100px;
+        margin-top: -70px;
     }
 
-    .wrapper_footer_info_group_1 {
+    .wrapper_footer_info_group_2 {
         display: none;
     }
     .wrapper_footer_top {
