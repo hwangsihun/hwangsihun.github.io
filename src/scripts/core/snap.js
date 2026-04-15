@@ -1,6 +1,8 @@
+import { MOBILE_HEADER_MAX_WIDTH, SNAP_SCROLL_DISABLED_MAX_HEIGHT } from './breakpoints.js';
+
 export const SNAP_SECTION_SELECTOR = '.snap_section, .footer_section';
-export const SNAP_MIN_WIDTH = 768;
-export const SNAP_MIN_HEIGHT = 901;
+export const SNAP_MIN_WIDTH = MOBILE_HEADER_MAX_WIDTH + 1;
+export const SNAP_MIN_HEIGHT = SNAP_SCROLL_DISABLED_MAX_HEIGHT + 1;
 
 export function getSnapRoot() {
     return document.querySelector('.snap_page');

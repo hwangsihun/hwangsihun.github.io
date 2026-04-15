@@ -1131,7 +1131,7 @@ body {
 }
 
 .main3_panel_top_link {
-    display: inline-flex;
+    display: none;
 }
 
 .wrapper_main3_panel_top {

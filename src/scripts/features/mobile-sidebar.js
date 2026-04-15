@@ -1,8 +1,8 @@
-﻿import { getViewportMode } from '../core/viewport.js';
 import {
     MOBILE_SIDEBAR_ACCORDION_DURATION,
     MOBILE_SIDEBAR_MENU_ITEMS,
 } from '../data/header-menu.js';
+import { MOBILE_HEADER_MEDIA_QUERY } from '../core/breakpoints.js';
 
 function renderMobileSidebarMenu(sidebarList) {
     if (!sidebarList || sidebarList.dataset.mobileSidebarRendered === 'true') return;
@@ -71,7 +71,7 @@ export function initializeMobileSidebarMenu() {
     const sidebar = document.querySelector('[data-mobile-sidebar]');
     const sidebarList = sidebar?.querySelector('[data-mobile-sidebar-list]');
     const openButton = document.querySelector('.btn_header_menu');
-    const mobileSidebarMediaQuery = window.matchMedia('(max-width: 992px)');
+    const mobileSidebarMediaQuery = window.matchMedia(MOBILE_HEADER_MEDIA_QUERY);
 
     if (
         !sidebar ||
@@ -220,4 +220,3 @@ export function initializeMobileSidebarMenu() {
     closeAllAccordions(null, { immediate: true });
     setSidebarOpen(false, { restoreFocus: false });
 }
-

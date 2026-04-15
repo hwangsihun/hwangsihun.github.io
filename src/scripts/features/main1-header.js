@@ -1,10 +1,11 @@
 import { getClosestSnapSectionState, getSnapRoot } from '../core/snap.js';
+import { MOBILE_HEADER_MEDIA_QUERY } from '../core/breakpoints.js';
 
 export function initializeMain1HeaderOverlay() {
     const headerElement = document.querySelector('.container_header_main1');
     const snapRoot = getSnapRoot();
     const main1Section = document.querySelector('#main-1');
-    const mobileMediaQuery = window.matchMedia('(max-width: 992px)');
+    const mobileMediaQuery = window.matchMedia(MOBILE_HEADER_MEDIA_QUERY);
 
     if (
         !headerElement ||
