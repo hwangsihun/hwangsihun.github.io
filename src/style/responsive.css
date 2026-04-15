@@ -204,18 +204,20 @@
     }
 }
 
-@media (max-height: 1070px) and (min-width: 768px) {
-    .container_banner {
-        height: 55vh;
-        min-height: 55vh;
-    }
-
+@media (max-height: 1000px) and (min-width: 768px) {
     .list_notice_pc .item_notice_pc:nth-child(n + 4) {
         display: none;
     }
 
     .list_notice_pc .item_notice_pc:nth-child(3) {
         background-image: none;
+    }
+}
+
+@media (max-height: 900px) and (min-width: 768px) {
+    .container_banner {
+        height: 55vh;
+        min-height: 55vh;
     }
 
     .snap_page {
@@ -231,7 +233,7 @@
     }
 }
 
-@media (max-width: 767px) and (max-height: 799px) {
+@media (max-height: 900px) {
     .frame_calendar_mobile {
         padding: 12px 20px;
         gap: 8px;
