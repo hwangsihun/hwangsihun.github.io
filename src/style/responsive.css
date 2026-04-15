@@ -149,6 +149,8 @@
         gap: 16px;
     }
 
+    .btn_header_auth_page,
+    .btn_header_lang,
     .btn_header_search,
     .btn_header_menu {
         width: 24px;
@@ -165,19 +167,19 @@
         display: block;
     }
 
-    .btn_header_auth_page,
-    .btn_header_lang,
     .image_header_logo_pc {
         display: none;
+    }
+
+    .btn_header_auth_page,
+    .btn_header_lang,
+    .btn_header_icon.btn_header_menu {
+        display: inline-flex;
     }
 
     .image_header_logo_mobile {
         display: block;
         width: 150px;
-    }
-
-    .btn_header_icon.btn_header_menu {
-        display: inline-flex;
     }
 
     .container_mobile_sidebar {

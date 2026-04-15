@@ -71,6 +71,7 @@ export function initializeMobileSidebarMenu() {
     const sidebar = document.querySelector('[data-mobile-sidebar]');
     const sidebarList = sidebar?.querySelector('[data-mobile-sidebar-list]');
     const openButton = document.querySelector('.btn_header_menu');
+    const mobileSidebarMediaQuery = window.matchMedia('(max-width: 992px)');
 
     if (
         !sidebar ||
@@ -145,7 +146,7 @@ export function initializeMobileSidebarMenu() {
     function setSidebarOpen(isOpen, options = {}) {
         const { restoreFocus = true } = options;
 
-        if (isOpen && getViewportMode() !== 'mobile') return;
+        if (isOpen && !mobileSidebarMediaQuery.matches) return;
 
         if (isOpen) {
             closeAllAccordions(null, { immediate: true });
@@ -164,7 +165,7 @@ export function initializeMobileSidebarMenu() {
     }
 
     openButton.addEventListener('click', () => {
-        if (getViewportMode() !== 'mobile') return;
+        if (!mobileSidebarMediaQuery.matches) return;
 
         const shouldOpen = openButton.getAttribute('aria-expanded') !== 'true';
         setSidebarOpen(shouldOpen);
@@ -213,7 +214,7 @@ export function initializeMobileSidebarMenu() {
     });
 
     window.addEventListener('app:viewport-resized', () => {
-        if (getViewportMode() !== 'mobile' && openButton.getAttribute('aria-expanded') === 'true') {
+        if (!mobileSidebarMediaQuery.matches && openButton.getAttribute('aria-expanded') === 'true') {
             setSidebarOpen(false, { restoreFocus: false });
         }
     });

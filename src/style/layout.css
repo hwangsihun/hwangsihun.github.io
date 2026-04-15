@@ -483,8 +483,8 @@ body {
 
 .icon_mobile_sidebar_toggle {
     position: relative;
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
 }
 
@@ -492,7 +492,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 14px;
+    width: 18px;
     height: 1.5px;
     background-color: var(--color-black);
     transform-origin: center;
@@ -511,11 +511,11 @@ body {
 }
 
 .btn_mobile_sidebar_menu[aria-expanded='true'] .line_mobile_sidebar_toggle_horizontal {
-    transform: translate(calc(-50% - 2px), calc(-50% + 1px)) rotate(45deg) scaleX(0.56);
+    transform: translate(calc(-50% - 3px), calc(-50% + 1px)) rotate(45deg) scaleX(0.56);
 }
 
 .btn_mobile_sidebar_menu[aria-expanded='true'] .line_mobile_sidebar_toggle_vertical {
-    transform: translate(calc(-50% + 2px), calc(-50% + 1px)) rotate(-45deg) scaleX(0.56);
+    transform: translate(calc(-50% + 3px), calc(-50% + 1px)) rotate(-45deg) scaleX(0.56);
 }
 
 .list_mobile_sidebar_submenu {
@@ -1121,9 +1121,12 @@ body {
 }
 
 .title_main3_section,
-.main3_panel_top_link,
 .wrapper_main3_slide_title {
     display: none;
+}
+
+.main3_panel_top_link {
+    display: inline-flex;
 }
 
 .wrapper_main3_panel_top {
