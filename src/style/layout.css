@@ -70,7 +70,7 @@ body {
     --main1-arrow-right-gap: max(100px, 6vw);
     --main1-arrow-top-bleed: clamp(24px, 4vh, 72px);
     --main1-arrow-bottom-extend: clamp(80px, 12vh, 180px);
-    --main1-arrow-size-grow: 100px;
+    --main1-arrow-size-grow: 180px;
     --main1-arrow-height-reduce: 100px;
     position: absolute;
     right: var(--main1-arrow-right-gap);
