@@ -19,43 +19,6 @@
 </head>
 
 <body class="page_body">
-  <div class="container_header_main1">
-    <div class="container_header_main1_inner flex_row_between">
-      <div class="wrapper_header_brand">
-        <a href="/" class="btn_header_logo" aria-label="아트코리아랩 홈">
-          <img class="image_header_logo image_header_logo_pc" src="/assets/imgs/img/artskorealab_pc.svg" alt="아트코리아랩">
-          <img class="image_header_logo image_header_logo_mobile" src="/assets/imgs/img/artskorealab_mobile.svg"
-            alt="아트코리아랩">
-        </a>
-      </div>
-
-      <div class="wrapper_header_actions flex_row">
-        <button type="button" class="btn_header_icon btn_header_auth_page" aria-label="로그인 및 회원가입">
-          <img class="icon_header_auth_page" src="/assets/imgs/icons/auth.svg" alt="로그인 및 회원가입">
-        </button>
-        <button type="button" class="btn_header_icon btn_header_lang" aria-label="영문홈페이지">
-          <img class="icon_header_lang" src="/assets/imgs/icons/eng.svg" alt="영문홈페이지">
-        </button>
-        <button type="button" class="btn_header_icon btn_header_search" aria-label="검색">
-          <img class="icon_header_search" src="/assets/imgs/icons/search.svg" alt="검색">
-        </button>
-        <button type="button" class="btn_header_icon btn_header_menu" aria-label="전체 메뉴" aria-expanded="false"
-          aria-controls="mobile-sidebar">
-          <img class="icon_header_menu" src="/assets/imgs/icons/sideMenu.svg" alt="">
-        </button>
-      </div>
-    </div>
-
-    <aside class="container_mobile_sidebar bg_lightGray" id="mobile-sidebar" data-mobile-sidebar hidden
-      aria-hidden="true" role="dialog" aria-modal="true" aria-label="전체 메뉴">
-      <div class="container_mobile_sidebar_inner flex_col_start">
-        <nav class="container_mobile_sidebar_nav" aria-label="전체 메뉴">
-          <ul class="list_mobile_sidebar_menu flex_col_start" data-mobile-sidebar-list></ul>
-        </nav>
-      </div>
-    </aside>
-  </div>
-
   <main class="snap_page flex_col" data-snap-duration="800">
     <nav class="container_side_section_navigation flex_col_center" aria-label="섹션 이동">
       <div class="wrapper_section_nav_dots flex_col_center">
@@ -72,6 +35,43 @@
     </nav>
 
     <section id="main-1" class="flex_col_center snap_section pt70px">
+      <div class="container_header_main1">
+        <div class="container_header_main1_inner flex_row_between">
+          <div class="wrapper_header_brand">
+            <a href="/" class="btn_header_logo" aria-label="아트코리아랩 홈">
+              <img class="image_header_logo image_header_logo_pc" src="/assets/imgs/img/artskorealab_pc.svg" alt="아트코리아랩">
+              <img class="image_header_logo image_header_logo_mobile" src="/assets/imgs/img/artskorealab_mobile.svg"
+                alt="아트코리아랩">
+            </a>
+          </div>
+
+          <div class="wrapper_header_actions flex_row">
+            <button type="button" class="btn_header_icon btn_header_auth_page" aria-label="로그인 및 회원가입">
+              <img class="icon_header_auth_page" src="/assets/imgs/icons/auth.svg" alt="로그인 및 회원가입">
+            </button>
+            <button type="button" class="btn_header_icon btn_header_lang" aria-label="영문홈페이지">
+              <img class="icon_header_lang" src="/assets/imgs/icons/eng.svg" alt="영문홈페이지">
+            </button>
+            <button type="button" class="btn_header_icon btn_header_search" aria-label="검색">
+              <img class="icon_header_search" src="/assets/imgs/icons/search.svg" alt="검색">
+            </button>
+            <button type="button" class="btn_header_icon btn_header_menu" aria-label="전체 메뉴" aria-expanded="false"
+              aria-controls="mobile-sidebar">
+              <img class="icon_header_menu" src="/assets/imgs/icons/sideMenu.svg" alt="">
+            </button>
+          </div>
+        </div>
+
+        <aside class="container_mobile_sidebar bg_lightGray" id="mobile-sidebar" data-mobile-sidebar hidden
+          aria-hidden="true" role="dialog" aria-modal="true" aria-label="전체 메뉴">
+          <div class="container_mobile_sidebar_inner flex_col_start">
+            <nav class="container_mobile_sidebar_nav" aria-label="전체 메뉴">
+              <ul class="list_mobile_sidebar_menu flex_col_start" data-mobile-sidebar-list></ul>
+            </nav>
+          </div>
+        </aside>
+      </div>
+
       <header class="container_header_global" aria-label="주요 메뉴">
         <div class="container_header_global_inner flex_row_center">
           <div class="wrapper_header_gnb_holder flex_col_center" data-header-gnb>

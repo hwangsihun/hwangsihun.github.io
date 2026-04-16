@@ -154,10 +154,11 @@ body {
 }
 
 .container_header_main1 {
-    position: fixed;
+    position: absolute;
     top: 24px;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
     z-index: 26;
     pointer-events: none;
 }
