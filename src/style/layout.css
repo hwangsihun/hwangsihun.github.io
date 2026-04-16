@@ -71,13 +71,14 @@ body {
     --main1-arrow-top-bleed: clamp(24px, 4vh, 72px);
     --main1-arrow-bottom-extend: clamp(80px, 12vh, 180px);
     --main1-arrow-size-grow: 100px;
+    --main1-arrow-height-reduce: 100px;
     position: absolute;
     right: var(--main1-arrow-right-gap);
     bottom: calc(-1 * var(--main1-arrow-bottom-extend));
     z-index: -1;
     width: calc(var(--app-width, 100vw) - var(--main1-arrow-right-gap) + var(--main1-arrow-size-grow));
-    height: calc(100% + var(--main1-arrow-top-bleed) + var(--main1-arrow-bottom-extend) + var(--main1-arrow-size-grow));
-    transform: translateX(200px);
+    height: calc(100% + var(--main1-arrow-top-bleed) + var(--main1-arrow-bottom-extend) + var(--main1-arrow-size-grow) - var(--main1-arrow-height-reduce));
+    transform: translateX(120px);
 }
 
 /* side navigation */
