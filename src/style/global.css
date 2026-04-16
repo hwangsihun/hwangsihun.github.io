@@ -141,6 +141,11 @@ h6 {
     align-items: center;
     justify-content: center;
 }
+.flex_row_end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
 .flex_row_between {
     display: flex;
     align-items: center;

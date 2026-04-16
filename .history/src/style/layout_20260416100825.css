@@ -1000,6 +1000,7 @@ body {
 }
 
 .container_swiper_banner {
+    position: relative;
     display: flex;
     align-items: flex-end;
     gap: 24px;
@@ -1007,9 +1008,15 @@ body {
 }
 
 .wrapper_pagination_pc {
+    position: absolute;
+    right: calc(100% + 24px);
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
     flex-shrink: 0;
-    padding-bottom: 24px;
+    padding-bottom: 0;
 }
 
 .btn_subFunc_pc {

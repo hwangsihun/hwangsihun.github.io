@@ -1,23 +1,31 @@
 @media (max-width: 1600px) {
-    .container_swiper_banner {
-        width: min(100%, 925px);
-        max-width: 100%;
+    .container_banner_inner {
         flex-direction: column;
+        justify-content: flex-end;
         align-items: stretch;
-        gap: 16px;
-        align-self: flex-end;
+        gap: 24px;
+    }
+
+    .wrapper_banner_title {
+        width: 100%;
+    }
+
+    .container_swiper_banner {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        align-self: stretch;
+        justify-content: flex-end;
+        flex: 0 0 auto;
     }
 
     .gallery_wrapper_banner {
-        width: 100%;
-        max-width: none;
-        flex-shrink: 1;
-        gap: 16px;
+        width: min(100%, 925px);
+        max-width: 100%;
     }
 
     .wrapper_pagination_pc {
         padding-left: 32px;
-        padding-bottom: 0;
     }
 
     .icon_visual4,
@@ -28,17 +36,11 @@
     }
 }
 
-@media (min-width: 993px) and (max-width: 1260px) {
-    .wrapper_banner_title {
-        display: none;
-    }
-
-    .container_banner_inner {
-        justify-content: flex-end;
-    }
-}
-
 @media (max-width: 1260px) {
+    .container_banner_inner {
+        gap: 0;
+    }
+
     .wrapper_header_gnb {
         padding: 2px 4px;
     }
@@ -60,6 +62,16 @@
     .btn_header_submenu {
         padding: 0 20px;
         font-size: 16px;
+    }
+
+    .container_swiper_banner {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 16px;
+    }
+
+    .wrapper_pagination_pc {
+        padding-bottom: 0;
     }
 
     .group_visual_pc {
@@ -106,78 +118,7 @@
     }
 }
 
-@media (max-height: 1000px) and (min-width: 993px) {
-    .list_notice_pc .item_notice_pc:nth-child(n + 4) {
-        display: none;
-    }
-
-    .list_notice_pc .item_notice_pc:nth-child(3) {
-        background-image: none;
-    }
-}
-
-@media (max-height: 800px) and (min-width: 993px) {
-    #main-2.snap_section {
-        height: auto;
-        min-height: var(--app-height);
-    }
-
-    .container_main4_function_content {
-        height: auto;
-        min-height: 0;
-        padding-block: 70px;
-        border-radius: 0;
-    }
-
-    .container_banner {
-        display: block;
-        height: auto;
-        min-height: 0;
-        padding-block: 70px 90px;
-        border-radius: 0;
-    }
-
-    .snap_page {
-        gap: 70px;
-    }
-
-    #main-5.footer_section {
-        margin-top: -70px;
-    }
-
-    .container_side_section_navigation {
-        display: none;
-    }
-}
-
-@media (max-height: 900px) {
-    .frame_calendar_mobile {
-        padding: 12px 20px;
-        gap: 8px;
-    }
-
-    .legend_calendar_mobile {
-        padding: 8px 16px;
-    }
-
-    .body_calendar_mobile {
-        padding: 12px;
-        gap: 8px;
-    }
-
-    .week_calendar_mobile {
-        padding-bottom: 8px;
-    }
-
-    .grid_calendar_mobile {
-        row-gap: 0;
-    }
-
-    .number_calendar_mobile {
-        width: 32px;
-    }
-}
-
+/* laptop */
 @media (max-width: 992px) {
     .page_body {
         --page-inline-padding: 20px;
@@ -242,10 +183,9 @@
         display: none !important;
     }
 
+    /* main-1 visual_pc */
     .group_visual_pc {
         --visual-row-font-size: 80px;
-        width: 100%;
-        max-width: none;
     }
 
     .wrapper_visual_pc_arrow2 {
@@ -255,7 +195,71 @@
     .btn_visual {
         display: none;
     }
+}
 
+@media (max-width: 870px) {
+    .group_visual_pc {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-height: 1070px) and (min-width: 768px) {
+    .container_banner {
+        height: 55vh;
+        min-height: 55vh;
+    }
+
+    .list_notice_pc .item_notice_pc:nth-child(n + 4) {
+        display: none;
+    }
+
+    .list_notice_pc .item_notice_pc:nth-child(3) {
+        background-image: none;
+    }
+
+    .snap_page {
+        gap: 70px;
+    }
+
+    #main-5.footer_section {
+        margin-top: -70px;
+    }
+
+    .container_side_section_navigation {
+        display: none;
+    }
+}
+
+@media (max-height: 900px) {
+    .frame_calendar_mobile {
+        padding: 12px 20px;
+        gap: 8px;
+    }
+
+    .legend_calendar_mobile {
+        padding: 8px 16px;
+    }
+
+    .body_calendar_mobile {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .week_calendar_mobile {
+        padding-bottom: 8px;
+    }
+
+    .grid_calendar_mobile {
+        row-gap: 0;
+    }
+
+    .number_calendar_mobile {
+        width: 32px;
+    }
+}
+
+@media (max-width: 767px) {
     h2,
     h2[class] {
         font-size: 20px;
@@ -428,10 +432,6 @@
     .wrapper_main3_panel_top {
         width: 100%;
         align-items: center;
-    }
-
-    .main3_panel_top_link {
-        display: inline-flex;
     }
 
     .wrapper_main3_tab_menu {

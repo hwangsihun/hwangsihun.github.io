@@ -983,6 +983,7 @@ body {
 .container_banner_inner {
     display: flex;
     justify-content: space-between;
+    /* align-items: flex-end; */
 }
 
 .wrapper_banner_title {
@@ -1007,6 +1008,9 @@ body {
 }
 
 .wrapper_pagination_pc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
     flex-shrink: 0;
     padding-bottom: 24px;

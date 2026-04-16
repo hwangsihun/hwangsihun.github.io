@@ -1,4 +1,4 @@
-export const MOBILE_LAYOUT_MAX_WIDTH = 767;
+export const MOBILE_LAYOUT_MAX_WIDTH = 992;
 export const MOBILE_HEADER_MAX_WIDTH = 992;
 export const SNAP_SCROLL_DISABLED_MAX_HEIGHT = 800;
 

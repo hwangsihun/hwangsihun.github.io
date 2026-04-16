@@ -1007,6 +1007,9 @@ body {
 }
 
 .wrapper_pagination_pc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
     flex-shrink: 0;
     padding-bottom: 24px;
