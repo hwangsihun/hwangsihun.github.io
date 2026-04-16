@@ -1484,6 +1484,9 @@ body {
     left: 50%;
     bottom: 3%;
     width: 100vw;
+    padding-block: 20px;
+    margin-block: -20px;
+    box-sizing: border-box;
     transform: translateX(-50%);
     overflow: hidden;
 }
@@ -1501,11 +1504,22 @@ body {
 }
 
 .wrapper_main4_partner_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 204px;
     height: 100px;
     padding: 10px 32px;
+    border: none;
     border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 8px 8px 20px rgba(25, 31, 40, 0.2);
+    transition: box-shadow 0.28s ease;
     flex-shrink: 0;
+}
+
+.wrapper_main4_partner_logo:hover {
+    box-shadow: none;
 }
 
 .wrapper_main4_partner_logo img {

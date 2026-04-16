@@ -591,7 +591,9 @@
         left: auto;
         bottom: auto;
         width: calc(100% + 40px);
+        margin-block: 0;
         margin-inline: -20px;
+        padding-block: 0;
         transform: none;
     }
 
@@ -657,6 +659,7 @@
     .wrapper_main4_partner_logo {
         width: 142px;
         height: 70px;
+        box-shadow: none;
     }
 
     .image_main4_partners_visual {
