@@ -1154,7 +1154,8 @@ body {
     top: calc(clamp(-72px, -5vh, -28px) - 200px);
     left: 0;
     z-index: -1;
-    width: clamp(360px, 30vw, 520px);
+    aspect-ratio: 445 / 995;
+    width: auto;
     height: calc(100% + clamp(140px, 18vh, 260px) + 500px);
     transform: translateX(calc(-100% + var(--main3-arrow-x-offset)));
 }
