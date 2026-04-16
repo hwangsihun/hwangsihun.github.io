@@ -1149,12 +1149,14 @@ body {
 }
 
 .bg_main3_arrow {
+    --main3-arrow-x-offset: 400px;
     position: absolute;
-    top: clamp(-72px, -5vh, -28px);
-    right: 100%;
+    top: calc(clamp(-72px, -5vh, -28px) - 200px);
+    left: 0;
     z-index: -1;
     width: clamp(360px, 30vw, 520px);
-    height: calc(100% + clamp(140px, 18vh, 260px));
+    height: calc(100% + clamp(140px, 18vh, 260px) + 500px);
+    transform: translateX(calc(-100% + var(--main3-arrow-x-offset)));
 }
 
 .wrapper_main3_panel_content {
