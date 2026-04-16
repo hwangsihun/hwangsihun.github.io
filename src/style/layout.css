@@ -44,25 +44,38 @@ body {
     isolation: isolate;
 }
 
-.bg_main1_arrow {
-    --main1-arrow-right-gap: max(100px, 6vw);
-    --main1-arrow-width-extend: clamp(220px, 18vw, 420px);
-    --main1-arrow-width-shift: clamp(110px, 9vw, 210px);
-    --main1-arrow-right-shift: calc(max(50px, 3vw) + 50px + var(--main1-arrow-width-shift));
-    --main1-arrow-bottom-gap: -70px;
-    --main1-arrow-top-bleed: clamp(2rem, 6vh, 5rem);
-    --main1-arrow-extra-height: 240px;
-    position: absolute;
-    bottom: var(--main1-arrow-bottom-gap);
-    left: 50%;
-    z-index: -1;
-    width: calc(var(--app-width) - var(--main1-arrow-right-gap) + var(--main1-arrow-width-extend));
-    height: calc(100% + var(--main1-arrow-top-bleed) + var(--main1-arrow-extra-height));
+.bg_decor_arrow {
+    display: block;
     max-width: none;
-    transform: translateX(calc(-50% - var(--main1-arrow-right-shift)));
-    object-fit: fill;
+    overflow: visible;
     pointer-events: none;
     user-select: none;
+}
+
+.bg_arrow_path {
+    fill: none;
+    stroke: #424242;
+    stroke-width: 1px;
+    stroke-dasharray: 6px 6px;
+    stroke-linecap: butt;
+    stroke-miterlimit: 10;
+    vector-effect: non-scaling-stroke;
+}
+
+.bg_arrow_head {
+    fill: #424242;
+}
+
+.bg_main1_arrow {
+    --main1-arrow-right-gap: max(100px, 6vw);
+    --main1-arrow-top-bleed: clamp(24px, 4vh, 72px);
+    --main1-arrow-bottom-extend: clamp(80px, 12vh, 180px);
+    position: absolute;
+    top: calc(-1 * var(--main1-arrow-top-bleed));
+    right: var(--main1-arrow-right-gap);
+    z-index: -1;
+    width: calc(var(--app-width, 100vw) - var(--main1-arrow-right-gap));
+    height: calc(100% + var(--main1-arrow-top-bleed) + var(--main1-arrow-bottom-extend));
 }
 
 /* side navigation */
@@ -1125,10 +1138,20 @@ body {
 }
 
 .container_main3_panel {
+    position: relative;
     width: 100%;
     height: 56%;
     z-index: 10;
     pointer-events: none;
+}
+
+.bg_main3_arrow {
+    position: absolute;
+    top: clamp(-72px, -5vh, -28px);
+    right: 100%;
+    z-index: -1;
+    width: clamp(360px, 30vw, 520px);
+    height: calc(100% + clamp(140px, 18vh, 260px));
 }
 
 .wrapper_main3_panel_content {
