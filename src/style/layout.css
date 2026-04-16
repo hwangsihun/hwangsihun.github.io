@@ -5,6 +5,9 @@ body {
 
 .page_body {
     --page-inline-padding: 60px;
+    --decor-dash-width: 1px;
+    --decor-dash-length: 6px;
+    --decor-dash-gap: 6px;
     overflow: hidden;
     background-color: #ffffff;
 }
@@ -55,8 +58,8 @@ body {
 .bg_arrow_path {
     fill: none;
     stroke: #424242;
-    stroke-width: 1px;
-    stroke-dasharray: 6px 6px;
+    stroke-width: var(--decor-dash-width);
+    stroke-dasharray: var(--decor-dash-length) var(--decor-dash-gap);
     stroke-linecap: butt;
     stroke-miterlimit: 10;
     vector-effect: non-scaling-stroke;
@@ -1868,12 +1871,12 @@ body {
     border-bottom: 0;
     background-image: repeating-linear-gradient(
         to right,
-        var(--color-black) 0 4px,
-        transparent 4px 8px
+        var(--color-black) 0 var(--decor-dash-length),
+        transparent var(--decor-dash-length) calc(var(--decor-dash-length) + var(--decor-dash-gap))
     );
     background-repeat: repeat-x;
     background-position: left bottom;
-    background-size: auto 1px;
+    background-size: auto var(--decor-dash-width);
 }
 
 .item_notice_pc:first-child {

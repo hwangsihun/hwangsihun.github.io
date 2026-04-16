@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTS KOREA LAB Design System</title>
+    <link rel="stylesheet" href="./design-system.css">
+</head>
+<body>
+    <section class="page">
+        <header class="page-header">
+            <div>
+                <div class="eyebrow">ARTS KOREA LAB / Design System Audit</div>
+                <h1 class="page-title">프로젝트 코드 기반 디자인 시스템 문서</h1>
+                <p class="page-description">HTML, CSS, 아이콘 자산, 반응형 규칙을 실제로 분석해 foundations, components, patterns 순서로 재구성한 문서입니다.</p>
+            </div>
+            <div class="page-index">01</div>
+        </header>
+        <div class="page-body">
+            <div class="hero">
+                <div class="panel"><div class="panel-inner stack-24">
+                    <div class="eyebrow">System Snapshot</div>
+                    <h2 class="hero-title">ARTS KOREA LAB<br>Foundation / Component / Pattern Inventory</h2>
+                    <p class="hero-copy">문서용 UI는 요청대로 Pretendard 기준으로 구성했고, 프로젝트 구현값은 Noto Sans KR, Clash Display, Inter, CSS 변수, utility classes, layout/responsive rules를 기준으로 기록했습니다.</p>
+                    <div class="chips">
+                        <div class="chip">3 Fonts</div>
+                        <div class="chip">15 Colors</div>
+                        <div class="chip">12 Icons</div>
+                        <div class="chip">5 Style Files</div>
+                        <div class="chip">Responsive + Height Rules</div>
+                    </div>
+                </div></div>
+                <div class="metrics">
+                    <div class="metric"><div class="metric-value">115 → 9</div><div class="metric-label">유틸리티 기준 font-size 범위</div></div>
+                    <div class="metric"><div class="metric-value">0 / 10 / 20 / 32 / 44 / 999 / 248</div><div class="metric-label">주요 radius 스케일</div></div>
+                    <div class="metric"><div class="metric-value">4 / 8 / 12 / 16 / 20 / 24 / 40 / 70</div><div class="metric-label">반복 사용 gap·padding 스케일</div></div>
+                    <div class="metric"><div class="metric-value">1 / 1.5 / 2px</div><div class="metric-label">solid, dashed, repeating line 두께</div></div>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="panel"><div class="panel-inner stack-16">
+                    <h3 class="panel-title">소스 구조</h3>
+                    <p class="panel-description">디자인 시스템 분석에 사용한 핵심 소스입니다.</p>
+                    <div class="card-list">
+                        <div class="mini-card"><strong>`src/style/global.css`</strong><div class="small">리셋, CSS 변수, utility spacing / size / color / line / shadow 레이어.</div></div>
+                        <div class="mini-card"><strong>`src/style/layout.css`</strong><div class="small">PC 기준 레이아웃과 핵심 컴포넌트 명세.</div></div>
+                        <div class="mini-card"><strong>`src/style/responsive.css`</strong><div class="small">너비와 높이 기준 브레이크포인트, 모바일 전환 규칙.</div></div>
+                        <div class="mini-card"><strong>`src/style/motion.css` + `swiper-custom.css`</strong><div class="small">인터랙션 속도, 카드 전환, 마키, 스와이퍼 비율과 progress 규칙.</div></div>
+                    </div>
+                </div></div>
+                <div class="panel"><div class="panel-inner stack-16">
+                    <h3 class="panel-title">문서 구조</h3>
+                    <p class="panel-description">원티드 디자인 시스템처럼 foundations, components, patterns 구조를 따르되 시각 스타일은 요청한 회색 배경 구조로 설계했습니다.</p>
+                    <div class="mini-card"><strong>Foundations</strong><div class="small">Typography, color, spacing, padding, radius, line, motion, breakpoint.</div></div>
+                    <div class="mini-card"><strong>Components</strong><div class="small">Header GNB, quick link, sub function button, tab, panel action, calendar, notice list, progress.</div></div>
+                    <div class="mini-card"><strong>Patterns</strong><div class="small">Main2 banner shell, main3 rental module, main4 function card, partner tile, mobile sidebar.</div></div>
+                    <div class="mini-card"><strong>Reference Alignment</strong><div class="small">타이틀 24px, 설명 16px, Pretendard 문서 체계. 타입/컬러 페이지는 제공된 가이드 이미지 구조를 참고했습니다.</div></div>
+                </div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page">
+        <header class="page-header">
+            <div>
+                <div class="eyebrow">Foundations / Typography</div>
+                <h2 class="page-title">타이포그래피 시스템</h2>
+                <p class="page-description">프로젝트 구현 폰트와 실사용 size cluster를 분리해 정리했습니다. 제공된 타입 가이드 구조처럼 Display, Heading, Body, Caption 축으로 다시 묶었습니다.</p>
+            </div>
+            <div class="page-index">02</div>
+        </header>
+        <div class="page-body grid-2">
+            <div class="panel"><div class="panel-inner stack-20">
+                <h3 class="panel-title">Font Families</h3>
+                <p class="panel-description">문서용 기준과 프로젝트용 구현 폰트를 함께 표기합니다.</p>
+                <div class="mini-card"><strong>Pretendard / 문서 기준</strong><div class="small">제목 24px, 설명 16px, 카드 라벨 12–14px 체계로 문서 자체를 구성.</div><div style="font-size:30px;line-height:1.15;margin-top:8px;">Pretendard System Spec</div></div>
+                <div class="mini-card"><strong>Noto Sans KR / 프로젝트 기본 본문</strong><div class="small">`body` 기본 폰트. 본문, 캘린더, 공지, 버튼 대부분이 이 계열을 사용.</div><div style="font-family:'NotoSansKR',sans-serif;font-size:30px;line-height:1.15;margin-top:8px;">프로젝트 기본 본문</div></div>
+                <div class="mini-card"><strong>Clash Display / 브랜딩 타이틀</strong><div class="small">메인 비주얼, 배너, 파트너 섹션 영문 타이틀에 사용.</div><div style="font-family:'ClashDisplay',sans-serif;font-size:30px;line-height:1.05;margin-top:8px;">ARTS KOREA LAB</div></div>
+                <div class="mini-card"><strong>Inter Variable / 보조 영문</strong><div class="small">테크니컬 표기 또는 보조 텍스트에 대응 가능한 보조 폰트.</div><div style="font-family:'InterVariable',sans-serif;font-size:28px;line-height:1.1;margin-top:8px;">Inter Variable 123</div></div>
+            </div></div>
+            <div class="panel"><div class="panel-inner stack-20">
+                <h3 class="panel-title">Project Usage Scale</h3>
+                <p class="panel-description">실제 코드에서 확인된 타이포 스케일입니다.</p>
+                <table class="scale-table">
+                    <thead><tr><th>Tier</th><th>Size</th><th>Weight</th><th>Usage</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Display</strong></td><td>115 / 90 / 80 / 56</td><td>600</td><td>visual headline, mobile visual</td></tr>
+                        <tr><td><strong>Heading</strong></td><td>40 / 32 / 28 / 24</td><td>700 / 600</td><td>banner, main3, main4, notice titles</td></tr>
+                        <tr><td><strong>Body L</strong></td><td>20 / 18</td><td>500–700</td><td>GNB, card title, hero button label</td></tr>
+                        <tr><td><strong>Body M</strong></td><td>16 / 15 / 14</td><td>400–700</td><td>buttons, notice, schedule, descriptions</td></tr>
+                        <tr><td><strong>Caption</strong></td><td>11 / 9</td><td>600 / 400</td><td>calendar labels, micro meta</td></tr>
+                    </tbody>
+                </table>
+                <div class="type-sample"><span style="font-size:40px;font-weight:700;line-height:1.1;">Heading 40 / 700</span><span class="caption">Partners / Banner</span></div>
+                <div class="type-sample"><span style="font-size:24px;font-weight:700;line-height:1.25;">Section Title 24 / 700</span><span class="caption">Calendar / Notice</span></div>
+                <div class="type-sample"><span style="font-size:16px;font-weight:500;line-height:1.5;">Body 16 / 500</span><span class="caption">Buttons / Descriptions</span></div>
+                <div class="type-sample"><span style="font-size:11px;font-weight:600;line-height:1;">Caption 11 / 600</span><span class="caption">Calendar label</span></div>
+            </div></div>
+        </div>
+    </section>
+
+    <section class="page">
+        <header class="page-header">
+            <div>
+                <div class="eyebrow">Foundations / Color</div>
+                <h2 class="page-title">컬러 시스템</h2>
+                <p class="page-description">코드의 `:root`와 utility layer를 기준으로 실제 사용 색상을 정리했습니다. 제공된 컬러 가이드처럼 Main, Line, Surface, Neutral, State 그룹으로 분리했습니다.</p>
+            </div>
+            <div class="page-index">03</div>
+        </header>
+        <div class="page-body">
+            <div class="panel"><div class="panel-inner stack-20">
+                <h3 class="panel-title">Project Palette</h3>
+                <p class="panel-description">배너, 액션, 선, 배경, 메타 텍스트에 쓰이는 실사용 팔레트.</p>
+                <div class="swatch-list">
+                    <div>
+                        <div class="small" style="font-weight:700;margin-bottom:10px;">Main / Accent</div>
+                        <div class="swatch-row">
+                            <div class="swatch"><div class="swatch-color" style="background:#191f28"></div><div class="swatch-meta"><strong>Black</strong><div class="caption">#191F28</div></div></div>
+                            <div class="swatch"><div class="swatch-color" style="background:#d390ff"></div><div class="swatch-meta"><strong>Purple</strong><div class="caption">#D390FF</div></div></div>
+                            <div class="swatch"><div class="swatch-color" style="background:#00ced4"></div><div class="swatch-meta"><strong>Mint</strong><div class="caption">#00CED4</div></div></div>
+                            <div class="swatch"><div class="swatch-color" style="background:#ffff00"></div><div class="swatch-meta"><strong>Yellow</strong><div class="caption">#FFFF00</div></div></div>
+                            <div class="swatch"><div class="swatch-color" style="background:#006eff"></div><div class="swatch-meta"><strong>Blue</strong><div class="caption">#006EFF</div></div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small" style="font-weight:700;margin-bottom:10px;">Line / Stroke</div>
+                        <div class="swatch-row">
+                            <div class="swatch"><div class="swatch-color" style="background:#b254f0"></div><div class="swatch-meta"><strong>Purple Line</strong><div class="caption">#B254F0</div></div></div>
+                            <div class="swatch"><div class="swatch-color" style="background:#00a4a9"></div><div class="swatch-meta"><strong>Mint Line</strong><div class="caption">#00A4A9</div></div></div>
+                            <div class="swatch"><div class="swatch-color" style="background:#b2b200"></div><div class="swatch-meta"><strong>Yellow Line</strong><div class="caption">#B2B200</div></div></div>
+                            <div class="swatch"><div class="swatch-color" style="background:#588ac9"></div><div class="swatch-meta"><strong>Blue Line</strong><div class="caption">#588AC9</div></div></div>
+                            <div class="swatch"><div class="swatch-color" style="background:#e0e0e0"></div><div class="swatch-meta"><strong>Disabled Stroke</strong><div class="caption">#E0E0E0</div></div></div>
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="stack-12">
+                            <div class="small" style="font-weight:700;">Surface / Neutral</div>
+                            <div class="swatch-row" style="grid-template-columns:repeat(4,minmax(0,1fr));">
+                                <div class="swatch"><div class="swatch-color" style="background:#ffffff"></div><div class="swatch-meta"><strong>White</strong><div class="caption">#FFFFFF</div></div></div>
+                                <div class="swatch"><div class="swatch-color" style="background:#eeeeee"></div><div class="swatch-meta"><strong>Gray BG</strong><div class="caption">#EEEEEE</div></div></div>
+                                <div class="swatch"><div class="swatch-color" style="background:#f5f5f5"></div><div class="swatch-meta"><strong>Light Gray BG</strong><div class="caption">#F5F5F5</div></div></div>
+                                <div class="swatch"><div class="swatch-color" style="background:#dbeeff"></div><div class="swatch-meta"><strong>Blue BG</strong><div class="caption">#DBEEFF</div></div></div>
+                            </div>
+                        </div>
+                        <div class="stack-12">
+                            <div class="small" style="font-weight:700;">Text / State</div>
+                            <div class="swatch-row" style="grid-template-columns:repeat(4,minmax(0,1fr));">
+                                <div class="swatch"><div class="swatch-color" style="background:#616161"></div><div class="swatch-meta"><strong>Dark Gray</strong><div class="caption">#616161</div></div></div>
+                                <div class="swatch"><div class="swatch-color" style="background:#8f8f8f"></div><div class="swatch-meta"><strong>Date Gray</strong><div class="caption">#8F8F8F</div></div></div>
+                                <div class="swatch"><div class="swatch-color" style="background:#bdbdbd"></div><div class="swatch-meta"><strong>Light Gray</strong><div class="caption">#BDBDBD</div></div></div>
+                                <div class="swatch"><div class="swatch-color" style="background:#ff0000"></div><div class="swatch-meta"><strong>Alert / New</strong><div class="caption">#FF0000</div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+        </div>
+    </section>
+
+    <section class="page">
+        <header class="page-header">
+            <div>
+                <div class="eyebrow">Foundations / Layout Tokens</div>
+                <h2 class="page-title">간격, 패딩, radius, 선, 모션</h2>
+                <p class="page-description">utility class와 component spec에 걸쳐 반복되는 값만 추려 foundations로 정리했습니다.</p>
+            </div>
+            <div class="page-index">04</div>
+        </header>
+        <div class="page-body grid-2">
+            <div class="panel"><div class="panel-inner stack-20">
+                <h3 class="panel-title">Spacing / Padding / Radius</h3>
+                <p class="panel-description">실제로 반복 사용되는 키 스케일.</p>
+                <div class="token-list">
+                    <div class="token-row"><span class="token-label">Gap</span><span class="small">0, 4, 6, 8, 10, 12, 16, 20, 24, 32, 40, 70</span></div>
+                    <div class="token-row"><span class="token-label">Padding</span><span class="small">6×8, 12×16, 16×32, 24×32, 24×20, block 70</span></div>
+                    <div class="token-row"><span class="token-label">Radius</span><span class="small">0, 10, 20, 32, 40, 44, 999, 248</span></div>
+                    <div class="token-row"><span class="token-label">Shell</span><span class="small">page-inline-padding 60 → 20, shell radius flattening on tablet/mobile</span></div>
+                </div>
+                <div class="mini-card"><strong>대표 사용처</strong><div class="small">24px는 섹션과 카드 내부, 16px는 버튼과 schedule, 20px는 notice/item/cards, 40px는 컬럼 간격, 70px는 섹션 호흡에 사용됩니다.</div></div>
+            </div></div>
+            <div class="stack-20">
+                <div class="panel"><div class="panel-inner stack-16">
+                    <h3 class="panel-title">Line System</h3>
+                    <p class="panel-description">solid, dashed, repeating line 조합.</p>
+                    <div class="token-row"><span class="stroke" style="border:1px solid #191f28;"></span><span class="small">1px solid · pills / tabs / shells</span></div>
+                    <div class="token-row"><span class="stroke" style="border:1px dashed #191f28;"></span><span class="small">1px dashed · section nav dot</span></div>
+                    <div class="token-row"><span class="stroke" style="border:1.5px solid #191f28;"></span><span class="small">1.5px solid · calendar frame</span></div>
+                    <div class="token-row"><span class="stroke" style="border-left:1.5px dashed #191f28;border-radius:0;width:1px;height:36px;background:transparent;"></span><span class="small">1.5px dashed · calendar divider</span></div>
+                    <div class="token-row"><span class="stroke" style="border:2px solid #b254f0;"></span><span class="small">2px solid · bold accent outline</span></div>
+                    <div class="token-row"><span class="stroke" style="border:0;background-image:repeating-linear-gradient(to right,#191f28 0 4px,transparent 4px 8px);background-position:left center;background-repeat:repeat-x;background-size:auto 1px;"></span><span class="small">repeating 1px line · notice divider</span></div>
+                </div></div>
+                <div class="panel"><div class="panel-inner stack-16">
+                    <h3 class="panel-title">Motion / Breakpoints</h3>
+                    <p class="panel-description">짧은 버튼 반응과 길게 변형되는 카드 모션이 공존합니다.</p>
+                    <div class="mini-card"><strong>Motion</strong><div class="small">Buttons / tabs / quick links 0.2s ease, submenu 0.25–0.3s, main4 grid & cards 0.8s, partners marquee 34s linear infinite.</div></div>
+                    <div class="mini-card"><strong>Breakpoints</strong><div class="small">992px 모바일 헤더 전환, 767px 모바일 레이아웃 전환, 800px height에서 scroll snap off, 900px height에서 notice 축약.</div></div>
+                </div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page">
+        <header class="page-header">
+            <div>
+                <div class="eyebrow">Foundations / Iconography</div>
+                <h2 class="page-title">아이콘 시스템</h2>
+                <p class="page-description">`assets/imgs/icons`에 정의된 실제 아이콘 자산 목록입니다. quick link, 헤더 액션, swiper control, 상태/이동 affordance로 주로 사용됩니다.</p>
+            </div>
+            <div class="page-index">05</div>
+        </header>
+        <div class="page-body">
+            <div class="panel"><div class="panel-inner stack-20">
+                <h3 class="panel-title">Core Icons</h3>
+                <p class="panel-description">실제 파일 기준 12개 핵심 자산.</p>
+                <div class="icon-grid">
+                    <div class="icon-card"><div class="icon-head"><strong>Arrow</strong><img class="icon-preview" src="../../assets/imgs/icons/arrow.svg" alt=""></div><div class="small">quick link / notice / CTA 이동, 16px</div><div class="caption">arrow.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>Auth</strong><img class="icon-preview" src="../../assets/imgs/icons/auth.svg" alt=""></div><div class="small">header account action</div><div class="caption">auth.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>Search</strong><img class="icon-preview" src="../../assets/imgs/icons/search.svg" alt=""></div><div class="small">header search action</div><div class="caption">search.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>Menu</strong><img class="icon-preview" src="../../assets/imgs/icons/sideMenu.svg" alt=""></div><div class="small">mobile drawer open</div><div class="caption">sideMenu.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>Close</strong><img class="icon-preview" src="../../assets/imgs/icons/close.svg" alt=""></div><div class="small">mobile drawer close</div><div class="caption">close.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>Prev / Next</strong><img class="icon-preview" src="../../assets/imgs/icons/next,prev.svg" alt=""></div><div class="small">swiper navigation</div><div class="caption">next,prev.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>Stop</strong><img class="icon-preview" src="../../assets/imgs/icons/stop.svg" alt=""></div><div class="small">autoplay toggle</div><div class="caption">stop.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>Start</strong><img class="icon-preview" src="../../assets/imgs/icons/start.svg" alt=""></div><div class="small">autoplay resume</div><div class="caption">start.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>Info</strong><img class="icon-preview" src="../../assets/imgs/icons/info.svg" alt=""></div><div class="small">calendar notice hint</div><div class="caption">info.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>Move Up</strong><img class="icon-preview" src="../../assets/imgs/icons/moveUp.svg" alt=""></div><div class="small">scroll top action</div><div class="caption">moveUp.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>ENG</strong><img class="icon-preview" src="../../assets/imgs/icons/eng.svg" alt=""></div><div class="small">language switch</div><div class="caption">eng.svg</div></div>
+                    <div class="icon-card"><div class="icon-head"><strong>Link</strong><img class="icon-preview" src="../../assets/imgs/icons/link.svg" alt=""></div><div class="small">external / reference affordance</div><div class="caption">link.svg</div></div>
+                </div>
+            </div></div>
+        </div>
+    </section>
+
+    <section class="page">
+        <header class="page-header">
+            <div>
+                <div class="eyebrow">Components / Actions</div>
+                <h2 class="page-title">버튼과 정보 컴포넌트</h2>
+                <p class="page-description">프로젝트 버튼은 대부분 pill 또는 compact rounded square 패턴에 수렴합니다. 공지, 캘린더, 탭, GNB도 이 축 위에서 동작합니다.</p>
+            </div>
+            <div class="page-index">06</div>
+        </header>
+        <div class="page-body">
+            <div class="component-grid">
+                <div class="component-card"><div class="component-head"><div><div class="component-name">Header GNB</div><div class="code">.wrapper_header_gnb / .btn_header_gnb</div></div></div><div class="demo"><div style="display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border:1px solid #191f28;border-radius:999px;background:#fff;"><span style="height:44px;padding:0 24px;border-radius:999px;background:#191f28;color:#fff;display:inline-flex;align-items:center;font-size:18px;font-weight:500;">아트코리아랩</span><span style="height:44px;padding:0 24px;border-radius:999px;display:inline-flex;align-items:center;font-size:18px;font-weight:500;">대관/시설</span></div></div><ul class="notes"><li>58px shell, 1px outline, 999 radius</li><li>18px / 500 pill navigation</li><li>active는 black fill + white text</li></ul></div>
+                <div class="component-card"><div class="component-head"><div><div class="component-name">Quick Link / Sub Action</div><div class="code">.btn_quickLink / .btn_subFunc_pc</div></div></div><div class="demo" style="gap:16px;"><span style="width:40px;height:40px;border-radius:999px;background:#fff;border:1px solid rgba(25,31,40,.08);display:inline-flex;align-items:center;justify-content:center;"><img src="../../assets/imgs/icons/arrow.svg" alt="" style="width:16px;height:16px;"></span><span style="width:40px;height:40px;border-radius:10px;border:1px solid #b254f0;display:inline-flex;align-items:center;justify-content:center;"><img src="../../assets/imgs/icons/stop.svg" alt="" style="width:18px;height:18px;"></span></div><ul class="notes"><li>quick link 40×40 / full pill / arrow 16</li><li>sub action 40×40 / radius 10 / icon 18 전후</li><li>hover 시 background·border·icon 색상 전환</li></ul></div>
+                <div class="component-card"><div class="component-head"><div><div class="component-name">Tab / Panel Action</div><div class="code">.btn_tab_menu / .btn_panel_action</div></div></div><div class="demo" style="flex-direction:column;gap:16px;"><div style="display:flex;gap:12px;"><span style="width:96px;height:36px;border-radius:999px;background:#191f28;color:#fff;border:1px solid #191f28;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:500;">전체</span><span style="width:96px;height:36px;border-radius:999px;background:#fff;border:1px solid #191f28;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:500;">공간대관</span></div><div style="min-width:216px;height:48px;padding:12px 16px;border-radius:999px;background:#00ced4;box-shadow:8px 8px 20px rgba(0,30,70,.2);display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">시설 확인하기</div></div><ul class="notes"><li>tab 96×36 / 15px / 1px outline</li><li>panel action 216×48 / 16px / shadow</li><li>둘 다 999 radius 중심 시스템</li></ul></div>
+                <div class="component-card"><div class="component-head"><div><div class="component-name">Calendar / Notice</div><div class="code">.frame_calendar_pc / .item_notice_pc</div></div></div><div class="demo" style="flex-direction:column;align-items:stretch;gap:14px;"><div style="padding:14px 18px;border:1.5px solid #191f28;border-radius:999px;background:#fff;display:flex;align-items:center;gap:4px;"><div style="width:32px;text-align:center;"><div style="font-size:11px;font-weight:600;line-height:1;margin-bottom:4px;">SUN</div><div style="width:32px;height:32px;border-radius:999px;background:rgba(0,206,212,.18);display:inline-flex;align-items:center;justify-content:center;font-size:16px;">1</div></div><div style="width:1px;height:36px;border-left:1.5px dashed #191f28;margin:0 8px;"></div><div style="width:32px;text-align:center;"><div style="font-size:11px;font-weight:600;line-height:1;margin-bottom:4px;">MON</div><div style="width:32px;height:32px;border-radius:999px;background:rgba(0,206,212,.18);display:inline-flex;align-items:center;justify-content:center;font-size:16px;">2</div></div></div><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:12px;background-image:repeating-linear-gradient(to right,#191f28 0 4px,transparent 4px 8px);background-position:left bottom;background-repeat:repeat-x;background-size:auto 1px;"><div style="display:flex;gap:8px;"><span style="width:22px;height:22px;border-radius:999px;background:#ff0000;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">N</span><div><div style="font-size:16px;font-weight:600;line-height:1.4;">예시텍스트 예시텍스트</div><div style="font-size:15px;line-height:1.3;color:#616161;">2026.00.00</div></div></div><span style="width:40px;height:40px;border-radius:10px;border:1px solid #bdbdbd;display:inline-flex;align-items:center;justify-content:center;font-size:24px;">+</span></div></div><ul class="notes"><li>calendar frame는 1.5px solid/dashed 체계</li><li>notice item은 repeating 1px divider 사용</li><li>16px body + 15px meta 조합</li></ul></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page">
+        <header class="page-header">
+            <div>
+                <div class="eyebrow">Patterns / Sections & Responsive</div>
+                <h2 class="page-title">섹션 패턴과 반응형 동작</h2>
+                <p class="page-description">메인 섹션은 대형 shell, rental module, function card, logo tile처럼 비교적 큰 패턴으로 구성되며, 너비와 높이 기준 규칙이 함께 적용됩니다.</p>
+            </div>
+            <div class="page-index">07</div>
+        </header>
+        <div class="page-body grid-2">
+            <div class="panel"><div class="panel-inner stack-16">
+                <h3 class="panel-title">Section Patterns</h3>
+                <div class="mini-card"><strong>Main2 Banner Shell</strong><div class="small">`container_banner`는 기본적으로 248px asymmetric radius를 가지는 대형 accent shell입니다. 내부에는 Clash title, quick link, sub controls, swiper가 결합됩니다.</div></div>
+                <div class="mini-card"><strong>Main3 Rental Module</strong><div class="small">32px title, 16px schedule, 48px CTA, 96×36 탭, swiper controls, progress bar가 결합된 정보 모듈입니다.</div></div>
+                <div class="mini-card"><strong>Main4 Function Cards</strong><div class="small">20px radius image cards + gradient overlay + active state expansion. grid-template-columns와 copy gap이 함께 애니메이션됩니다.</div></div>
+                <div class="mini-card"><strong>Partner Logo Tile</strong><div class="small">white tile surface 위에 logo만 배치하는 단순 카드. marquee track 안에서 반복 사용됩니다.</div></div>
+            </div></div>
+            <div class="stack-20">
+                <div class="panel"><div class="panel-inner stack-16">
+                    <h3 class="panel-title">Responsive Map</h3>
+                    <div class="breakpoints">
+                        <div class="bp-card"><div class="bp-size">1600</div><div class="small">배너 내부 정렬 재배치</div></div>
+                        <div class="bp-card"><div class="bp-size">1260</div><div class="small">GNB padding 축소</div></div>
+                        <div class="bp-card"><div class="bp-size">1110 / 870</div><div class="small">visual offset 조정</div></div>
+                        <div class="bp-card"><div class="bp-size">992</div><div class="small">모바일 헤더 + 일반 스크롤</div></div>
+                        <div class="bp-card"><div class="bp-size">768–992</div><div class="small">banner/main4 shell radius 0 + block padding 70</div></div>
+                        <div class="bp-card"><div class="bp-size">767</div><div class="small">모바일 레이아웃 본격 전환</div></div>
+                        <div class="bp-card"><div class="bp-size">900H</div><div class="small">notice item 축약</div></div>
+                        <div class="bp-card"><div class="bp-size">800H</div><div class="small">scroll snap off</div></div>
+                    </div>
+                </div></div>
+                <div class="panel"><div class="panel-inner stack-16">
+                    <h3 class="panel-title">Audit Notes</h3>
+                    <div class="mini-card"><strong>문서 UI</strong><div class="small">Pretendard를 우선 사용하고, 미설치 환경에서는 Noto Sans KR로 fallback됩니다.</div></div>
+                    <div class="mini-card"><strong>토큰 구조</strong><div class="small">global utility와 layout component 규칙이 함께 디자인 시스템을 형성하므로 둘을 분리해서 읽는 것이 중요합니다.</div></div>
+                    <div class="mini-card"><strong>재생성 가능성</strong><div class="small">HTML 원본과 PDF export 스크립트를 같이 제공해 이후 업데이트도 같은 방식으로 생성 가능하게 구성했습니다.</div></div>
+                </div></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
