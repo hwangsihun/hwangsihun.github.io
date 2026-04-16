@@ -5,7 +5,8 @@ body {
 
 .page_body {
     --page-inline-padding: 60px;
-    --decor-dash-width: 1px;
+    --decor-dash-width: 2px;
+    --notice-list-dash-width: 1.5px;
     --decor-dash-length: 6px;
     --decor-dash-gap: 6px;
     overflow: hidden;
@@ -1876,7 +1877,7 @@ body {
     );
     background-repeat: repeat-x;
     background-position: left bottom;
-    background-size: auto var(--decor-dash-width);
+    background-size: auto var(--notice-list-dash-width);
 }
 
 .item_notice_pc:first-child {
