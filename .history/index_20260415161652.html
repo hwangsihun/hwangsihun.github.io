@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARTS KOREA LAB</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="preload" as="image" href="/assets/imgs/img/poster_1.png" media="(min-width: 993px)" />
-  <link rel="preload" as="image" href="/assets/imgs/img/example_1.png" media="(max-width: 992px)" />
+  <link rel="preload" as="image" href="/assets/imgs/img/poster_1.png" media="(min-width: 768px)" />
+  <link rel="preload" as="image" href="/assets/imgs/img/example_1.png" media="(max-width: 767px)" />
   <link rel="preload" as="image" href="/assets/imgs/img/keyVisual_4.svg" type="image/svg+xml" />
   <link rel="preload" as="image" href="/assets/imgs/img/keyVisual_4_1.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/src/style/fonts.css" />
@@ -19,6 +19,43 @@
 </head>
 
 <body class="page_body">
+  <div class="container_header_main1 bg_purple">
+    <div class="container_header_main1_inner flex_row_between">
+      <div class="wrapper_header_brand">
+        <a href="/" class="btn_header_logo" aria-label="아트코리아랩 홈">
+          <img class="image_header_logo image_header_logo_pc" src="/assets/imgs/img/artskorealab_pc.svg" alt="아트코리아랩">
+          <img class="image_header_logo image_header_logo_mobile" src="/assets/imgs/img/artskorealab_mobile.svg"
+            alt="아트코리아랩">
+        </a>
+      </div>
+
+      <div class="wrapper_header_actions flex_row">
+        <button type="button" class="btn_header_icon btn_header_auth_page" aria-label="로그인 및 회원가입">
+          <img class="icon_header_auth_page" src="/assets/imgs/icons/auth.svg" alt="로그인 및 회원가입">
+        </button>
+        <button type="button" class="btn_header_icon btn_header_lang" aria-label="영문홈페이지">
+          <img class="icon_header_lang" src="/assets/imgs/icons/eng.svg" alt="영문홈페이지">
+        </button>
+        <button type="button" class="btn_header_icon btn_header_search" aria-label="검색">
+          <img class="icon_header_search" src="/assets/imgs/icons/search.svg" alt="검색">
+        </button>
+        <button type="button" class="btn_header_icon btn_header_menu" aria-label="전체 메뉴" aria-expanded="false"
+          aria-controls="mobile-sidebar">
+          <img class="icon_header_menu" src="/assets/imgs/icons/sideMenu.svg" alt="">
+        </button>
+      </div>
+    </div>
+
+    <aside class="container_mobile_sidebar bg_lightGray" id="mobile-sidebar" data-mobile-sidebar hidden
+      aria-hidden="true" role="dialog" aria-modal="true" aria-label="전체 메뉴">
+      <div class="container_mobile_sidebar_inner flex_col_start">
+        <nav class="container_mobile_sidebar_nav" aria-label="전체 메뉴">
+          <ul class="list_mobile_sidebar_menu flex_col_start" data-mobile-sidebar-list></ul>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
   <main class="snap_page flex_col" data-snap-duration="800">
     <nav class="container_side_section_navigation flex_col_center" aria-label="섹션 이동">
       <div class="wrapper_section_nav_dots flex_col_center">
@@ -35,51 +72,6 @@
     </nav>
 
     <section id="main-1" class="flex_col_center snap_section pt70px">
-      <svg class="bg_decor_arrow bg_main1_arrow" viewBox="0 0 2439 1172" preserveAspectRatio="none"
-        aria-hidden="true" focusable="false">
-        <path class="bg_arrow_head" d="M2248.34 1164.91L2250.54 1143.72L2267.79 1156.22L2248.34 1164.91Z" />
-        <path class="bg_arrow_path"
-          d="M0.456055 1032.48C72.2152 872.372 223.446 595.143 520.29 361.298C638.243 268.362 985.188 18.2436 1474.35 1.1723C1779.08 -9.46608 2107.3 106.875 2259.2 298.748C2282.01 327.571 2347.71 410.584 2322.53 450.394C2306.79 475.278 2269.27 477.689 2225.82 468.031C2105.08 436.864 2055.61 376.175 2055.61 376.175C2047.58 367.847 1998.08 315.503 2014.45 281.56C2015.71 278.95 2017.84 275.443 2022.28 271.304C2048.06 247.135 2101.7 247.617 2151.84 257.507C2151.84 257.507 2234.18 275.31 2287.24 314.323C2363.01 366.102 2514.65 521.854 2391.86 893.849C2391.86 893.849 2357.85 997.307 2312.84 1068.67C2308.55 1075.94 2291.4 1102.97 2257.16 1152.88" />
-      </svg>
-
-      <div class="container_header_main1">
-        <div class="container_header_main1_inner flex_row_between">
-          <div class="wrapper_header_brand">
-            <a href="/" class="btn_header_logo bg_white" aria-label="아트코리아랩 홈">
-              <img class="image_header_logo image_header_logo_pc" src="/assets/imgs/img/artskorealab_pc.svg"
-                alt="아트코리아랩">
-              <img class="image_header_logo image_header_logo_mobile" src="/assets/imgs/img/artskorealab_mobile.svg"
-                alt="아트코리아랩">
-            </a>
-          </div>
-
-          <div class="wrapper_header_actions flex_row">
-            <button type="button" class="btn_header_icon btn_header_auth_page" aria-label="로그인 및 회원가입">
-              <img class="icon_header_auth_page" src="/assets/imgs/icons/auth.svg" alt="로그인 및 회원가입">
-            </button>
-            <button type="button" class="btn_header_icon btn_header_lang" aria-label="영문홈페이지">
-              <img class="icon_header_lang" src="/assets/imgs/icons/eng.svg" alt="영문홈페이지">
-            </button>
-            <button type="button" class="btn_header_icon btn_header_search" aria-label="검색">
-              <img class="icon_header_search" src="/assets/imgs/icons/search.svg" alt="검색">
-            </button>
-            <button type="button" class="btn_header_icon btn_header_menu" aria-label="전체 메뉴" aria-expanded="false"
-              aria-controls="mobile-sidebar">
-              <img class="icon_header_menu" src="/assets/imgs/icons/sideMenu.svg" alt="">
-            </button>
-          </div>
-        </div>
-
-        <aside class="container_mobile_sidebar bg_lightGray" id="mobile-sidebar" data-mobile-sidebar hidden
-          aria-hidden="true" role="dialog" aria-modal="true" aria-label="전체 메뉴">
-          <div class="container_mobile_sidebar_inner flex_col_start">
-            <nav class="container_mobile_sidebar_nav" aria-label="전체 메뉴">
-              <ul class="list_mobile_sidebar_menu flex_col_start" data-mobile-sidebar-list></ul>
-            </nav>
-          </div>
-        </aside>
-      </div>
-
       <header class="container_header_global" aria-label="주요 메뉴">
         <div class="container_header_global_inner flex_row_center">
           <div class="wrapper_header_gnb_holder flex_col_center" data-header-gnb>
@@ -245,7 +237,7 @@
 
             <!-- 스와이퍼 -->
             <div class="container_swiper_banner">
-              <div class="wrapper_pagination_pc flex_row_end">
+              <div class="wrapper_pagination_pc">
                 <button type="button" class="btn_subFunc_pc bg_transparent line_purple" data-icon="prev"
                   data-pagination-button="prev" aria-label="이전"></button>
                 <button type="button" class="btn_subFunc_pc bg_transparent line_purple" data-icon="stop"
@@ -259,19 +251,19 @@
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <picture>
-                        <source media="(min-width: 993px)" srcset="/assets/imgs/img/poster_1.png">
+                        <source media="(min-width: 768px)" srcset="/assets/imgs/img/poster_1.png">
                         <img src="/assets/imgs/img/example_1.png" alt="메인 배너 1" fetchpriority="high" loading="eager">
                       </picture>
                     </div>
                     <div class="swiper-slide">
                       <picture>
-                        <source media="(min-width: 993px)" srcset="/assets/imgs/img/poster_2.png">
+                        <source media="(min-width: 768px)" srcset="/assets/imgs/img/poster_2.png">
                         <img src="/assets/imgs/img/example_2.png" alt="메인 배너 2">
                       </picture>
                     </div>
                     <div class="swiper-slide">
                       <picture>
-                        <source media="(min-width: 993px)" srcset="/assets/imgs/img/poster_3.png">
+                        <source media="(min-width: 768px)" srcset="/assets/imgs/img/poster_3.png">
                         <img src="/assets/imgs/img/example_3.png" alt="메인 배너 3">
                       </picture>
                     </div>
@@ -406,12 +398,6 @@
 
     <section id="main-3" class="flex_col_justify_center snap_section">
       <div class="container_main3_panel">
-        <svg class="bg_decor_arrow bg_main3_arrow" viewBox="0 0 445 995" preserveAspectRatio="xMinYMin meet"
-          aria-hidden="true" focusable="false">
-          <path class="bg_arrow_path"
-            d="M360.141 994.235C-21.6828 744.765 -12.0311 446.465 8.44683 333.339C8.44683 333.339 24.5732 221.207 108.834 193.366C125.472 188.518 143.059 187.599 159.893 191.785C194.962 200.533 223.857 234.081 222.065 270.158C221.914 273.2 220.379 276.166 218.511 278.576C216.072 281.723 212.91 283.002 208.95 283.499C182.976 286.782 155.647 276.091 138.813 256.05C125.307 239.984 118.877 218.301 120.85 197.447C120.85 197.447 124.584 33.6533 444.175 0.49707" />
-        </svg>
-
         <div class="wrapper_main3_panel_content flex_col_start">
           <div class="wrapper_main3_panel_intro flex_col_start">
             <h2 class="title_main3_section">대관 공간 · 장비 안내</h2>
@@ -582,21 +568,21 @@
 
           <div class="wrapper_main4_partners_marquee" aria-label="파트너 로고 목록">
             <div class="wrapper_main4_partners_track">
-              <div class="wrapper_main4_partners_group flex_row">
-                <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 1"><img src="/assets/imgs/img/logo_1.webp" alt="파트너 로고 1"></button>
-                <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 2"><img src="/assets/imgs/img/logo_2.webp" alt="파트너 로고 2"></button>
-                <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 3"><img src="/assets/imgs/img/logo_3.webp" alt="파트너 로고 3"></button>
-                <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 4"><img src="/assets/imgs/img/logo_4.webp" alt="파트너 로고 4"></button>
-                <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 5"><img src="/assets/imgs/img/logo_5.webp" alt="파트너 로고 5"></button>
-                <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 6"><img src="/assets/imgs/img/logo_6.webp" alt="파트너 로고 6"></button>
-                <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 7"><img src="/assets/imgs/img/logo_7.webp" alt="파트너 로고 7"></button>
+              <div class="wrapper_main4_partners_group flex_row" role="list">
+                <div class="wrapper_main4_partner_logo flex_row_center bg_white" role="listitem"><img
+                    src="/assets/imgs/img/logo_1.webp" alt="파트너 로고 1"></div>
+                <div class="wrapper_main4_partner_logo flex_row_center bg_white" role="listitem"><img
+                    src="/assets/imgs/img/logo_2.webp" alt="파트너 로고 2"></div>
+                <div class="wrapper_main4_partner_logo flex_row_center bg_white" role="listitem"><img
+                    src="/assets/imgs/img/logo_3.webp" alt="파트너 로고 3"></div>
+                <div class="wrapper_main4_partner_logo flex_row_center bg_white" role="listitem"><img
+                    src="/assets/imgs/img/logo_4.webp" alt="파트너 로고 4"></div>
+                <div class="wrapper_main4_partner_logo flex_row_center bg_white" role="listitem"><img
+                    src="/assets/imgs/img/logo_5.webp" alt="파트너 로고 5"></div>
+                <div class="wrapper_main4_partner_logo flex_row_center bg_white" role="listitem"><img
+                    src="/assets/imgs/img/logo_6.webp" alt="파트너 로고 6"></div>
+                <div class="wrapper_main4_partner_logo flex_row_center bg_white" role="listitem"><img
+                    src="/assets/imgs/img/logo_7.webp" alt="파트너 로고 7"></div>
               </div>
             </div>
           </div>
@@ -676,21 +662,6 @@
       </footer>
 
     </section>
-
-    <nav class="container_mobile_bottom_bar bg_white box_shadow_navySoft" aria-label="빠른 이동">
-      <button type="button" class="item_mobile_bottom_bar flex_col_center text_black" aria-label="투어">
-        <img class="icon_mobile_bottom_bar" src="/assets/imgs/img/keyVisual_6.svg" alt="">
-        <span class="text_mobile_bottom_bar">투어</span>
-      </button>
-      <button type="button" class="item_mobile_bottom_bar flex_col_center text_black" aria-label="공간·장비">
-        <img class="icon_mobile_bottom_bar" src="/assets/imgs/img/keyVisual_7.svg" alt="">
-        <span class="text_mobile_bottom_bar">공간·장비</span>
-      </button>
-      <button type="button" class="item_mobile_bottom_bar flex_col_center text_black" aria-label="비즈 컨설팅">
-        <img class="icon_mobile_bottom_bar" src="/assets/imgs/img/keyVisual_8.svg" alt="">
-        <span class="text_mobile_bottom_bar">비즈 컨설팅</span>
-      </button>
-    </nav>
 
     <button type="button" class="btn_scroll_top" aria-label="최상단으로 이동"></button>
 

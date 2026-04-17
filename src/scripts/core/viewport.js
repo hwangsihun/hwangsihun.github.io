@@ -1,10 +1,12 @@
+import { MOBILE_LAYOUT_MAX_WIDTH } from './breakpoints.js';
+
 let previousViewportWidth = null;
 let previousViewportHeight = null;
 let previousViewportMode = null;
 let viewportSyncFrame = 0;
 
 export function getViewportMode(viewportWidth = window.innerWidth) {
-    return viewportWidth >= 768 ? 'pc' : 'mobile';
+    return viewportWidth <= MOBILE_LAYOUT_MAX_WIDTH ? 'mobile' : 'pc';
 }
 
 export function syncViewportSize() {

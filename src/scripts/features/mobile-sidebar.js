@@ -1,8 +1,8 @@
-import { getViewportMode } from '../core/viewport.js';
 import {
     MOBILE_SIDEBAR_ACCORDION_DURATION,
     MOBILE_SIDEBAR_MENU_ITEMS,
 } from '../data/header-menu.js';
+import { MOBILE_HEADER_MEDIA_QUERY } from '../core/breakpoints.js';
 
 function renderMobileSidebarMenu(sidebarList) {
     if (!sidebarList || sidebarList.dataset.mobileSidebarRendered === 'true') return;
@@ -71,13 +71,12 @@ export function initializeMobileSidebarMenu() {
     const sidebar = document.querySelector('[data-mobile-sidebar]');
     const sidebarList = sidebar?.querySelector('[data-mobile-sidebar-list]');
     const openButton = document.querySelector('.btn_header_menu');
-    const closeButton = sidebar?.querySelector('[data-mobile-sidebar-close]');
+    const mobileSidebarMediaQuery = window.matchMedia(MOBILE_HEADER_MEDIA_QUERY);
 
     if (
         !sidebar ||
         !sidebarList ||
         !openButton ||
-        !closeButton ||
         sidebar.dataset.mobileSidebarInitialized === 'true'
     ) {
         return;
@@ -147,40 +146,25 @@ export function initializeMobileSidebarMenu() {
     function setSidebarOpen(isOpen, options = {}) {
         const { restoreFocus = true } = options;
 
-        if (isOpen && getViewportMode() !== 'mobile') return;
+        if (isOpen && !mobileSidebarMediaQuery.matches) return;
 
-        if (isOpen) {
-            closeAllAccordions(null, { immediate: true });
-        }
+        closeAllAccordions(null, { immediate: true });
 
         sidebar.hidden = !isOpen;
         sidebar.setAttribute('aria-hidden', String(!isOpen));
         document.body.classList.toggle('is_mobile_sidebar_open', isOpen);
         syncOpenButtonState(isOpen);
 
-        if (isOpen) {
-            requestAnimationFrame(() => {
-                closeButton.focus();
-            });
-            return;
-        }
-
-        closeAllAccordions(null, { immediate: true });
-
-        if (restoreFocus) {
+        if (!isOpen && restoreFocus) {
             openButton.focus();
         }
     }
 
     openButton.addEventListener('click', () => {
-        if (getViewportMode() !== 'mobile') return;
+        if (!mobileSidebarMediaQuery.matches) return;
 
         const shouldOpen = openButton.getAttribute('aria-expanded') !== 'true';
         setSidebarOpen(shouldOpen);
-    });
-
-    closeButton.addEventListener('click', () => {
-        setSidebarOpen(false);
     });
 
     accordionButtons.forEach((button) => {
@@ -203,24 +187,30 @@ export function initializeMobileSidebarMenu() {
 
         const focusableElements = getSidebarFocusableElements();
 
-        if (!focusableElements.length) return;
+        if (!focusableElements.length) {
+            if (!event.shiftKey) {
+                openButton.focus();
+                event.preventDefault();
+            }
+            return;
+        }
 
         const firstFocusableElement = focusableElements[0];
         const lastFocusableElement = focusableElements.at(-1);
 
         if (event.shiftKey && document.activeElement === firstFocusableElement) {
-            lastFocusableElement?.focus();
+            openButton.focus();
             event.preventDefault();
         }
 
         if (!event.shiftKey && document.activeElement === lastFocusableElement) {
-            firstFocusableElement?.focus();
+            openButton.focus();
             event.preventDefault();
         }
     });
 
     window.addEventListener('app:viewport-resized', () => {
-        if (getViewportMode() !== 'mobile' && openButton.getAttribute('aria-expanded') === 'true') {
+        if (!mobileSidebarMediaQuery.matches && openButton.getAttribute('aria-expanded') === 'true') {
             setSidebarOpen(false, { restoreFocus: false });
         }
     });
