@@ -187,6 +187,11 @@
         --page-inline-padding: 20px;
     }
 
+    .bg_main1_arrow,
+    .bg_main3_arrow {
+        display: none;
+    }
+
     .container_header_main1 {
         position: fixed;
         top: 0;
