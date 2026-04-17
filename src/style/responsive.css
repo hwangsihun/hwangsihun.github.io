@@ -137,6 +137,10 @@
         border-radius: 0;
     }
 
+    .wrapper_main4_partners_marquee {
+        bottom: 16%;
+    }
+
     .snap_page {
         gap: 70px;
     }
@@ -591,9 +595,9 @@
         left: auto;
         bottom: auto;
         width: calc(100% + 40px);
-        margin-block: 0;
+        margin-block: -20px;
         margin-inline: -20px;
-        padding-block: 0;
+        padding-block: 20px;
         transform: none;
     }
 
@@ -659,7 +663,6 @@
     .wrapper_main4_partner_logo {
         width: 142px;
         height: 70px;
-        box-shadow: none;
     }
 
     .image_main4_partners_visual {
