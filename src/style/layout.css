@@ -1690,6 +1690,7 @@ body {
 .btn_footer_family_site {
     min-width: 184px;
     gap: 12px;
+    border: 1px solid #ffffff;
 }
 
 .text_footer_family_plus {
