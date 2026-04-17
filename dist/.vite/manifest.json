@@ -120,12 +120,12 @@
     "src": "assets/imgs/img/편집실A.webp"
   },
   "index.html": {
-    "file": "assets/index-PZn5GfAy.js",
+    "file": "assets/index-BxNyPUQ8.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-CPldmiqS.css"
+      "assets/index-BxnNqU96.css"
     ],
     "assets": [
       "assets/ClashDisplay-Regular-RJ1gwrr2.otf",
