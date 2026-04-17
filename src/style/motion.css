@@ -142,11 +142,11 @@
         transform 0.3s ease;
 }
 
-/* main-1 btn_visual intro */
-@keyframes main1VisualButtonRise {
+/* main-1 first load intro */
+@keyframes main1LoadFloatUp {
     from {
         opacity: 0;
-        transform: translate3d(0, 28px, 0);
+        transform: translate3d(0, var(--main1-load-rise, 44px), 0) scale(0.985);
     }
 
     to {
@@ -155,22 +155,72 @@
     }
 }
 
-.group_visual_pc .btn_visual {
+#main-1 .bg_main1_geer,
+#main-1 .wrapper_visual_pc,
+#main-1 .wrapper_visual_pc_arrow1,
+#main-1 .wrapper_visual_pc_arrow2,
+#main-1 .wrapper_visual_mobile,
+#main-1 .wrapper_calendar_pc,
+#main-1 .frame_calendar_pc,
+#main-1 .title_calendar_mobile,
+#main-1 .frame_calendar_mobile {
     opacity: 0;
-    animation: main1VisualButtonRise 1.12s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: main1LoadFloatUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--main1-load-delay, 0s);
     will-change: opacity, transform;
 }
 
-.wrapper_visual_pc .btn_visual {
-    animation-delay: 0.12s;
+#main-1 .bg_main1_geer_right_top {
+    --main1-load-delay: 0.04s;
+    --main1-load-rise: 34px;
 }
 
-.wrapper_visual_pc_arrow1 .btn_visual {
-    animation-delay: 0.34s;
+#main-1 .bg_main1_geer_left {
+    --main1-load-delay: 0.24s;
 }
 
-.wrapper_visual_pc_arrow2 .btn_visual {
-    animation-delay: 0.56s;
+#main-1 .wrapper_visual_pc {
+    --main1-load-delay: 0.32s;
+}
+
+#main-1 .bg_main1_geer_right_mid {
+    --main1-load-delay: 0.44s;
+}
+
+#main-1 .wrapper_visual_pc_arrow1 {
+    --main1-load-delay: 0.52s;
+}
+
+#main-1 .bg_main1_geer_left_bottom {
+    --main1-load-delay: 0.64s;
+}
+
+#main-1 .wrapper_visual_pc_arrow2 {
+    --main1-load-delay: 0.74s;
+}
+
+#main-1 .wrapper_calendar_pc {
+    --main1-load-delay: 0.9s;
+}
+
+#main-1 .frame_calendar_pc {
+    --main1-load-delay: 1.04s;
+}
+
+#main-1 .wrapper_visual_mobile:first-child {
+    --main1-load-delay: 0.28s;
+}
+
+#main-1 .wrapper_visual_mobile:nth-child(2) {
+    --main1-load-delay: 0.42s;
+}
+
+#main-1 .title_calendar_mobile {
+    --main1-load-delay: 0.62s;
+}
+
+#main-1 .frame_calendar_mobile {
+    --main1-load-delay: 0.76s;
 }
 
 @keyframes main4PartnersMarquee {
@@ -214,12 +264,28 @@
         transition: none !important;
     }
 
-    .group_visual_pc .btn_visual,
+    #main-1 .bg_main1_geer,
+    #main-1 .wrapper_visual_pc,
+    #main-1 .wrapper_visual_pc_arrow1,
+    #main-1 .wrapper_visual_pc_arrow2,
+    #main-1 .wrapper_visual_mobile,
+    #main-1 .wrapper_calendar_pc,
+    #main-1 .frame_calendar_pc,
+    #main-1 .title_calendar_mobile,
+    #main-1 .frame_calendar_mobile,
     .wrapper_main4_partners_track {
         animation: none !important;
     }
 
-    .group_visual_pc .btn_visual {
+    #main-1 .bg_main1_geer,
+    #main-1 .wrapper_visual_pc,
+    #main-1 .wrapper_visual_pc_arrow1,
+    #main-1 .wrapper_visual_pc_arrow2,
+    #main-1 .wrapper_visual_mobile,
+    #main-1 .wrapper_calendar_pc,
+    #main-1 .frame_calendar_pc,
+    #main-1 .title_calendar_mobile,
+    #main-1 .frame_calendar_mobile {
         opacity: 1;
         transform: none;
     }

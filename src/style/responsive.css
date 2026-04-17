@@ -244,8 +244,7 @@
         --mobile-header-z-index: 1000;
     }
 
-    .bg_main1_arrow,
-    .bg_main3_arrow {
+    .bg_main1_geer_layer {
         display: none;
     }
 
