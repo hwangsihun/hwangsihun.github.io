@@ -45,9 +45,9 @@ const SWIPER_BASE_OPTIONS = {
 };
 
 const MAIN2_DESKTOP_IMAGE_SOURCES = [
-    '/assets/imgs/img/poster_1.png',
-    '/assets/imgs/img/poster_2.png',
-    '/assets/imgs/img/poster_3.png',
+    '/assets/imgs/img/poster_1.jpg',
+    '/assets/imgs/img/poster_2.jpg',
+    '/assets/imgs/img/poster_3.jpg',
 ];
 
 const MAIN2_MOBILE_IMAGE_SOURCES = [
@@ -63,6 +63,7 @@ const MAIN2_SHARED_IMAGE_SOURCES = [
 
 let hasInitializedGallerySwipers = false;
 let main2WarmupPromise = null;
+const initializedGallerySections = new Set();
 
 function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
@@ -343,6 +344,7 @@ function initializeGallerySwiper(config) {
             swiperContainer.swiper.destroy(true, true);
         }
 
+        initializedGallerySections.delete(mainSection);
         delete mainSection.__syncGallerySwiperLayout;
         delete mainSection.__cleanupGallerySwiper;
     };
@@ -351,6 +353,7 @@ function initializeGallerySwiper(config) {
         swiper.update();
         updateSlideState();
     };
+    initializedGallerySections.add(mainSection);
 }
 
 function initializeGallerySwipers() {
@@ -415,8 +418,13 @@ function warmMain2RenderSurface() {
 }
 
 export function syncGallerySwiperLayouts() {
-    SWIPER_SECTION_CONFIGS.forEach((config) => {
-        document.querySelector(config.sectionSelector)?.__syncGallerySwiperLayout?.();
+    initializedGallerySections.forEach((mainSection) => {
+        if (!mainSection.isConnected) {
+            initializedGallerySections.delete(mainSection);
+            return;
+        }
+
+        mainSection.__syncGallerySwiperLayout?.();
     });
 }
 

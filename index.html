@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARTS KOREA LAB</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="preload" as="image" href="/assets/imgs/img/poster_1.png" media="(min-width: 993px)" />
+  <link rel="preload" as="image" href="/assets/imgs/img/poster_1.jpg" media="(min-width: 993px)" />
   <link rel="preload" as="image" href="/assets/imgs/img/example_1.png" media="(max-width: 992px)" />
   <link rel="preload" as="image" href="/assets/imgs/img/keyVisual_4.svg" type="image/svg+xml" />
   <link rel="preload" as="image" href="/assets/imgs/img/keyVisual_4_1.svg" type="image/svg+xml" />
@@ -34,13 +34,13 @@
       <p class="text_section_nav_current" aria-live="polite">1</p>
     </nav>
 
-    <section id="main-1" class="flex_col_center snap_section pt70px">
-      <svg class="bg_decor_arrow bg_main1_arrow" viewBox="0 0 2439 1172" preserveAspectRatio="none" aria-hidden="true"
-        focusable="false">
-        <path class="bg_arrow_head" d="M2248.34 1164.91L2250.54 1143.72L2267.79 1156.22L2248.34 1164.91Z" />
-        <path class="bg_arrow_path"
-          d="M0.456055 1032.48C72.2152 872.372 223.446 595.143 520.29 361.298C638.243 268.362 985.188 18.2436 1474.35 1.1723C1779.08 -9.46608 2107.3 106.875 2259.2 298.748C2282.01 327.571 2347.71 410.584 2322.53 450.394C2306.79 475.278 2269.27 477.689 2225.82 468.031C2105.08 436.864 2055.61 376.175 2055.61 376.175C2047.58 367.847 1998.08 315.503 2014.45 281.56C2015.71 278.95 2017.84 275.443 2022.28 271.304C2048.06 247.135 2101.7 247.617 2151.84 257.507C2151.84 257.507 2234.18 275.31 2287.24 314.323C2363.01 366.102 2514.65 521.854 2391.86 893.849C2391.86 893.849 2357.85 997.307 2312.84 1068.67C2308.55 1075.94 2291.4 1102.97 2257.16 1152.88" />
-      </svg>
+    <section id="main-1" class="section_main1 flex_col_center snap_section">
+      <div class="bg_main1_geer_layer" aria-hidden="true">
+        <img class="bg_main1_geer bg_main1_geer_left" src="/assets/imgs/img/bg_geer.svg?v=neutral97" alt="">
+        <img class="bg_main1_geer bg_main1_geer_left_bottom" src="/assets/imgs/img/bg_geer.svg?v=neutral97" alt="">
+        <img class="bg_main1_geer bg_main1_geer_right_top" src="/assets/imgs/img/bg_geer.svg?v=neutral97" alt="">
+        <img class="bg_main1_geer bg_main1_geer_right_mid" src="/assets/imgs/img/bg_geer.svg?v=neutral97" alt="">
+      </div>
 
       <div class="container_header_main1">
         <div class="container_header_main1_inner flex_row_between">
@@ -70,12 +70,13 @@
           </div>
         </div>
 
-        <aside class="container_mobile_sidebar bg_lightGray" id="mobile-sidebar" data-mobile-sidebar hidden
+        <aside class="container_mobile_sidebar bg_white" id="mobile-sidebar" data-mobile-sidebar hidden
           aria-hidden="true" role="dialog" aria-modal="true" aria-label="전체 메뉴">
           <div class="container_mobile_sidebar_inner flex_col_start">
             <nav class="container_mobile_sidebar_nav" aria-label="전체 메뉴">
               <ul class="list_mobile_sidebar_menu flex_col_start" data-mobile-sidebar-list></ul>
             </nav>
+            <button type="button" class="btn_mobile_sidebar_bottom_text">로그아웃</button>
           </div>
         </aside>
       </div>
@@ -174,7 +175,7 @@
             </div>
           </div>
 
-          <div class="frame_calendar_pc bg_white">
+          <div class="frame_calendar_pc bg_white line_darkGray">
             <div class="viewport_calendar_pc">
               <ol class="track_calendar_pc flex_row_between_start"></ol>
             </div>
@@ -259,19 +260,19 @@
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <picture>
-                        <source media="(min-width: 993px)" srcset="/assets/imgs/img/poster_1.png">
+                        <source media="(min-width: 993px)" srcset="/assets/imgs/img/poster_1.jpg">
                         <img src="/assets/imgs/img/example_1.png" alt="메인 배너 1" fetchpriority="high" loading="eager">
                       </picture>
                     </div>
                     <div class="swiper-slide">
                       <picture>
-                        <source media="(min-width: 993px)" srcset="/assets/imgs/img/poster_2.png">
+                        <source media="(min-width: 993px)" srcset="/assets/imgs/img/poster_2.jpg">
                         <img src="/assets/imgs/img/example_2.png" alt="메인 배너 2">
                       </picture>
                     </div>
                     <div class="swiper-slide">
                       <picture>
-                        <source media="(min-width: 993px)" srcset="/assets/imgs/img/poster_3.png">
+                        <source media="(min-width: 993px)" srcset="/assets/imgs/img/poster_3.jpg">
                         <img src="/assets/imgs/img/example_3.png" alt="메인 배너 3">
                       </picture>
                     </div>
@@ -406,12 +407,6 @@
 
     <section id="main-3" class="flex_col_justify_center snap_section">
       <div class="container_main3_panel">
-        <svg class="bg_decor_arrow bg_main3_arrow" viewBox="0 0 445 995" preserveAspectRatio="xMinYMin meet"
-          aria-hidden="true" focusable="false">
-          <path class="bg_arrow_path"
-            d="M360.141 994.235C-21.6828 744.765 -12.0311 446.465 8.44683 333.339C8.44683 333.339 24.5732 221.207 108.834 193.366C125.472 188.518 143.059 187.599 159.893 191.785C194.962 200.533 223.857 234.081 222.065 270.158C221.914 273.2 220.379 276.166 218.511 278.576C216.072 281.723 212.91 283.002 208.95 283.499C182.976 286.782 155.647 276.091 138.813 256.05C125.307 239.984 118.877 218.301 120.85 197.447C120.85 197.447 124.584 33.6533 444.175 0.49707" />
-        </svg>
-
         <div class="wrapper_main3_panel_content flex_col_start">
           <div class="wrapper_main3_panel_intro flex_col_start">
             <h2 class="title_main3_section">대관 공간 · 장비 안내</h2>
@@ -469,31 +464,31 @@
             <div class="swiper-wrapper">
               <div class="swiper-slide" data-title="6층 공유오피스" data-schedule="화-수 09:00~21:00, 목 09:00~18:00"
                 data-category="space">
-                <img src="/assets/imgs/img/6층 공유오피스.webp" alt="6층 공유오피스">
+                <img src="/assets/imgs/img/6층 공유오피스.webp" alt="6층 공유오피스" decoding="async">
               </div>
               <div class="swiper-slide" data-title="AKL아고라" data-schedule="월-금 10:00~18:00, 주말 휴관"
                 data-category="space">
-                <img src="/assets/imgs/img/AKL아고라.webp" alt="AKL아고라">
+                <img src="/assets/imgs/img/AKL아고라.webp" alt="AKL아고라" decoding="async">
               </div>
               <div class="swiper-slide" data-title="강의실 A" data-schedule="월-금 09:00~18:00, 사전 예약 운영"
                 data-category="space">
-                <img src="/assets/imgs/img/강의실A.webp" alt="강의실 A">
+                <img src="/assets/imgs/img/강의실A.webp" alt="강의실 A" decoding="async">
               </div>
               <div class="swiper-slide" data-title="강의실 B" data-schedule="월-금 09:00~18:00, 사전 예약 운영"
                 data-category="space">
-                <img src="/assets/imgs/img/강의실B.webp" alt="강의실 B">
+                <img src="/assets/imgs/img/강의실B.webp" alt="강의실 B" decoding="async">
               </div>
               <div class="swiper-slide" data-title="미디어월" data-schedule="월-금 10:00~17:00, 장비 점검 시간 제외"
                 data-category="equipment">
-                <img src="/assets/imgs/img/미디어월.webp" alt="미디어월">
+                <img src="/assets/imgs/img/미디어월.webp" alt="미디어월" decoding="async">
               </div>
               <div class="swiper-slide" data-title="편집실 A" data-schedule="월-금 10:00~18:00, 예약 후 이용 가능"
                 data-category="equipment">
-                <img src="/assets/imgs/img/편집실A.webp" alt="편집실 A">
+                <img src="/assets/imgs/img/편집실A.webp" alt="편집실 A" decoding="async">
               </div>
               <div class="swiper-slide" data-title="편집실 B" data-schedule="월-금 10:00~18:00, 예약 후 이용 가능"
                 data-category="equipment">
-                <img src="/assets/imgs/img/편집실B.webp" alt="편집실 B">
+                <img src="/assets/imgs/img/편집실B.webp" alt="편집실 B" decoding="async">
               </div>
             </div>
             <div class="main3-swiper-pagination swiper-pagination"></div>
@@ -518,7 +513,7 @@
 
             <div class="wrapper_main4_function_grid">
               <article class="wrapper_main4_function_card is_active">
-                <img class="image_main4_function_card" src="/assets/imgs/img/교육프로그램.webp" alt="교육 프로그램">
+                <img class="image_main4_function_card" src="/assets/imgs/img/교육프로그램.webp" alt="교육 프로그램" loading="lazy" decoding="async">
                 <div class="wrapper_main4_function_dim"></div>
                 <div class="wrapper_main4_function_copy flex_col_center text_white">
                   <div class="wrapper_main4_function_text flex_col_center">
@@ -530,7 +525,7 @@
               </article>
 
               <article class="wrapper_main4_function_card main4_card_support">
-                <img class="image_main4_function_card" src="/assets/imgs/img/예술기업입주지원.webp" alt="예술기업 입주지원">
+                <img class="image_main4_function_card" src="/assets/imgs/img/예술기업입주지원.webp" alt="예술기업 입주지원" loading="lazy" decoding="async">
                 <div class="wrapper_main4_function_dim"></div>
                 <div class="wrapper_main4_function_copy flex_col_center text_white">
                   <div class="wrapper_main4_function_text flex_col_center">
@@ -542,7 +537,7 @@
               </article>
 
               <article class="wrapper_main4_function_card main4_card_festival">
-                <img class="image_main4_function_card" src="/assets/imgs/img/페스티벌.webp" alt="페스티벌">
+                <img class="image_main4_function_card" src="/assets/imgs/img/페스티벌.webp" alt="페스티벌" loading="lazy" decoding="async">
                 <div class="wrapper_main4_function_dim"></div>
                 <div class="wrapper_main4_function_copy flex_col_center text_white">
                   <div class="wrapper_main4_function_text flex_col_center">
@@ -554,7 +549,7 @@
               </article>
 
               <article class="wrapper_main4_function_card main4_card_glossary">
-                <img class="image_main4_function_card" src="/assets/imgs/img/기술용어사전.webp" alt="기술용어 사전">
+                <img class="image_main4_function_card" src="/assets/imgs/img/기술용어사전.webp" alt="기술용어 사전" loading="lazy" decoding="async">
                 <div class="wrapper_main4_function_dim"></div>
                 <div class="wrapper_main4_function_copy flex_col_center text_white">
                   <div class="wrapper_main4_function_text flex_col_center">
@@ -576,7 +571,7 @@
             </div>
 
             <div class="wrapper_main4_partners_visual flex_row_center">
-              <img class="image_main4_partners_visual" src="/assets/imgs/img/keyVisual_5.svg" alt="파트너 비주얼">
+              <img class="image_main4_partners_visual" src="/assets/imgs/img/keyVisual_5.svg" alt="파트너 비주얼" loading="lazy" decoding="async">
             </div>
           </div>
 
@@ -584,19 +579,19 @@
             <div class="wrapper_main4_partners_track">
               <div class="wrapper_main4_partners_group flex_row">
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 1"><img src="/assets/imgs/img/logo_1.webp" alt="파트너 로고 1"></button>
+                  aria-label="파트너 로고 1"><img src="/assets/imgs/img/logo_1.webp" alt="파트너 로고 1" loading="lazy" decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 2"><img src="/assets/imgs/img/logo_2.webp" alt="파트너 로고 2"></button>
+                  aria-label="파트너 로고 2"><img src="/assets/imgs/img/logo_2.webp" alt="파트너 로고 2" loading="lazy" decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 3"><img src="/assets/imgs/img/logo_3.webp" alt="파트너 로고 3"></button>
+                  aria-label="파트너 로고 3"><img src="/assets/imgs/img/logo_3.webp" alt="파트너 로고 3" loading="lazy" decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 4"><img src="/assets/imgs/img/logo_4.webp" alt="파트너 로고 4"></button>
+                  aria-label="파트너 로고 4"><img src="/assets/imgs/img/logo_4.webp" alt="파트너 로고 4" loading="lazy" decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 5"><img src="/assets/imgs/img/logo_5.webp" alt="파트너 로고 5"></button>
+                  aria-label="파트너 로고 5"><img src="/assets/imgs/img/logo_5.webp" alt="파트너 로고 5" loading="lazy" decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 6"><img src="/assets/imgs/img/logo_6.webp" alt="파트너 로고 6"></button>
+                  aria-label="파트너 로고 6"><img src="/assets/imgs/img/logo_6.webp" alt="파트너 로고 6" loading="lazy" decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 7"><img src="/assets/imgs/img/logo_7.webp" alt="파트너 로고 7"></button>
+                  aria-label="파트너 로고 7"><img src="/assets/imgs/img/logo_7.webp" alt="파트너 로고 7" loading="lazy" decoding="async"></button>
               </div>
             </div>
           </div>
@@ -609,9 +604,9 @@
       <footer class="container_footer_content flex_col_start text_white bg_darkGray">
         <div class="wrapper_footer_top">
           <div class="wrapper_footer_brand flex_row">
-            <img class="image_footer_brand image_footer_brand_kams" src="/assets/imgs/img/예술경영지원센터.webp" alt="예술경영지원센터">
+            <img class="image_footer_brand image_footer_brand_kams" src="/assets/imgs/img/예술경영지원센터.webp" alt="예술경영지원센터" loading="lazy" decoding="async">
             <img class="image_footer_brand image_footer_brand_akl" src="/assets/imgs/img/artskorealab_footer.webp"
-              alt="아트코리아랩">
+              alt="아트코리아랩" loading="lazy" decoding="async">
           </div>
 
           <div class="wrapper_footer_actions flex_row">
@@ -624,7 +619,7 @@
 
             <div class="wrapper_footer_family_site">
               <button type="button"
-                class="btn_footer_family_site flex_row_between bg_dateGray text_white box_shadow_blackSoft"
+                class="btn_footer_family_site flex_row_between bg_darkGray text_white"
                 aria-label="Family Site" aria-expanded="false" aria-controls="footer-family-links">
                 <span>Family Site</span>
                 <span class="text_footer_family_plus" aria-hidden="true">+</span>

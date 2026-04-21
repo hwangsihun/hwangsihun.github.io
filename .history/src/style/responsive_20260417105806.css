@@ -146,10 +146,6 @@
         max-height: none;
     }
 
-    .bg_main1_geer_left_bottom {
-        display: none;
-    }
-
     .container_main4_function_content {
         height: auto;
         min-height: 0;
@@ -248,13 +244,9 @@
         --mobile-header-z-index: 1000;
     }
 
-    .bg_main1_geer_layer {
+    .bg_main1_arrow,
+    .bg_main3_arrow {
         display: none;
-    }
-
-    #main-1.snap_section {
-        z-index: auto;
-        isolation: auto;
     }
 
     .container_header_main1 {
@@ -273,13 +265,11 @@
         position: absolute;
         inset: 0;
         background-color: var(--color-white);
-        z-index: 2;
-        pointer-events: none;
+        z-index: 0;
     }
 
     .container_header_main1_inner {
         align-items: center;
-        z-index: 3;
     }
 
     .wrapper_header_actions {
@@ -377,29 +367,14 @@
         pointer-events: none;
     }
 
-    .page_body.is_mobile_sidebar_open .btn_header_logo {
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .page_body.is_mobile_sidebar_open .btn_scroll_top {
-        opacity: 0;
-        pointer-events: none;
-    }
-
     .btn_scroll_top {
-        bottom: 100px;
+        bottom: 108px;
     }
 
     #main-1.snap_section {
         height: var(--app-height);
         min-height: var(--app-height);
         padding-bottom: 0;
-    }
-
-    .section_main1 {
-        padding-top: 70px;
     }
 
     /* main-1 visual_pc */
@@ -603,25 +578,11 @@
 
     #main-3 .swiper-progress,
     #main-3 .swiper-progress.is-white {
-        height: 7px;
-        overflow: visible;
-        background-color: transparent;
-    }
-
-    #main-3 .swiper-progress::before,
-    #main-3 .swiper-progress.is-white::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 0;
-        left: 0;
         height: 1px;
         background-color: var(--color-black);
-        transform: translateY(-50%);
     }
 
     #main-3 .swiper-progress.is-white .swiper-progress-fill {
-        height: 6px;
         background-color: var(--color-black);
     }
 

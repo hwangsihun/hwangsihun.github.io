@@ -184,11 +184,25 @@
 
     #main-3 .swiper-progress,
     #main-3 .swiper-progress.is-white {
+        height: 7px;
+        overflow: visible;
+        background-color: transparent;
+    }
+
+    #main-3 .swiper-progress::before,
+    #main-3 .swiper-progress.is-white::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
         height: 1px;
         background-color: var(--color-black);
+        transform: translateY(-50%);
     }
 
     #main-3 .swiper-progress.is-white .swiper-progress-fill {
+        height: 6px;
         background-color: var(--color-black);
     }
 }
