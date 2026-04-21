@@ -121,7 +121,11 @@ export function initializeGlobalHeader() {
 
         if (!gnbWidth) return;
 
-        headerGnbHolder.style.setProperty('--header-gnb-width', `${gnbWidth}px`);
+        const nextWidth = `${gnbWidth}px`;
+
+        if (headerGnbHolder.style.getPropertyValue('--header-gnb-width') !== nextWidth) {
+            headerGnbHolder.style.setProperty('--header-gnb-width', nextWidth);
+        }
     }
 
     function openSubmenu(menuButton) {
@@ -130,6 +134,11 @@ export function initializeGlobalHeader() {
         const submenuItems = HEADER_SUBMENU_ITEMS[menuButton.dataset.headerMenu] || [];
 
         cancelScheduledSubmenuClose();
+
+        if (activeMenuButton === menuButton && !submenuContainer.hidden) {
+            syncSubmenuWidth();
+            return;
+        }
 
         if (!submenuItems.length) {
             closeSubmenu();

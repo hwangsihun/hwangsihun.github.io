@@ -11,6 +11,10 @@ export function initializeMain4FunctionGrid() {
 
     if (!functionGrid || !functionCards.length) return;
 
+    const functionCardItems = functionCards.map((functionCard) => ({
+        card: functionCard,
+        quickLinkButton: functionCard.querySelector('.btn_quickLink'),
+    }));
     let activeCard = functionGrid.querySelector('.wrapper_main4_function_card.is_active');
 
     if (!activeCard) {
@@ -20,13 +24,12 @@ export function initializeMain4FunctionGrid() {
     function setActiveCard(nextActiveCard) {
         if (!nextActiveCard) return;
 
-        const activeCardIndex = functionCards.findIndex((functionCard) => functionCard === nextActiveCard);
+        const activeCardIndex = functionCardItems.findIndex(({ card }) => card === nextActiveCard);
         const gridColumns =
             MAIN4_GRID_COLUMN_PRESETS[activeCardIndex] || MAIN4_GRID_COLUMN_PRESETS[0];
 
-        functionCards.forEach((functionCard) => {
+        functionCardItems.forEach(({ card: functionCard, quickLinkButton }) => {
             const isActive = functionCard === nextActiveCard;
-            const quickLinkButton = functionCard.querySelector('.btn_quickLink');
 
             functionCard.classList.toggle('is_active', isActive);
             functionCard.setAttribute('tabindex', '0');
@@ -58,10 +61,6 @@ export function initializeMain4FunctionGrid() {
         });
 
         functionCard.addEventListener('click', () => {
-            setActiveCard(functionCard);
-        });
-
-        functionCard.addEventListener('focus', () => {
             setActiveCard(functionCard);
         });
 

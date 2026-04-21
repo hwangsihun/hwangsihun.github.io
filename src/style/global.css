@@ -80,6 +80,7 @@ h6 {
     --ds-atomic-neutral-80: #B0B0B0;
     --ds-atomic-neutral-90: #C4C4C4;
     --ds-atomic-neutral-95: #DCDCDC;
+    --ds-atomic-neutral-97: #F0F0F0;
     --ds-atomic-neutral-99: #F7F7F7;
     --ds-atomic-neutral-100: #FFFFFF;
     --ds-atomic-cool-neutral-0: #000000;
@@ -281,6 +282,7 @@ h6 {
     --ds-color-neutral-40: var(--ds-atomic-neutral-40);
     --ds-color-neutral-60: var(--ds-atomic-neutral-60);
     --ds-color-neutral-90: var(--ds-atomic-neutral-90);
+    --ds-color-neutral-97: var(--ds-atomic-neutral-97);
     --ds-color-neutral-99: var(--ds-atomic-neutral-99);
     --ds-color-cool-neutral-96: var(--ds-atomic-cool-neutral-96);
     --ds-color-cool-neutral-97: var(--ds-atomic-cool-neutral-97);
@@ -347,6 +349,8 @@ h6 {
     --color-blueBg: var(--ds-color-light-blue-95);
     --color-GrayBg: var(--ds-color-cool-neutral-97);
     --color-lightGrayBg: var(--ds-color-cool-neutral-98);
+    --color-neutral96: var(--ds-color-cool-neutral-96);
+    --color-neutral97: var(--ds-color-neutral-97);
     --color-neutral99: var(--ds-color-neutral-99);
     --color-dateGray: var(--ds-color-neutral-60);
     --color-DisabledGrayBg: var(--ds-color-cool-neutral-98);
@@ -853,6 +857,9 @@ h6 {
 .pt24px {
     padding-top: 24px !important;
 }
+.pt70px {
+    padding-top: 70px !important;
+}
 .pt120px {
     padding-top: 120px !important;
 }
@@ -1090,6 +1097,12 @@ h6 {
 .text_darkgray {
     color: var(--color-darkGray);
 }
+.text_neutral96 {
+    color: var(--color-neutral96);
+}
+.text_neutral97 {
+    color: var(--color-neutral97);
+}
 .text_neutral99 {
     color: var(--color-neutral99);
 }
@@ -1185,11 +1198,25 @@ h6 {
 .bg_lightGray {
     background-color: var(--color-lightGrayBg);
 }
+.bg_neutral96 {
+    background-color: var(--color-neutral96);
+}
+.bg_neutral97 {
+    background-color: var(--color-neutral97);
+}
 .bg_neutral99 {
     background-color: var(--color-neutral99);
 }
 .bg_DisabledGray {
     background-color: var(--color-DisabledGrayBg);
+}
+.line_neutral96 {
+    border: var(--ds-border-base) solid;
+    border-color: var(--color-neutral96);
+}
+.line_neutral97 {
+    border: var(--ds-border-base) solid;
+    border-color: var(--color-neutral97);
 }
 
 /* effect */

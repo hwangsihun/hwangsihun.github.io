@@ -16,9 +16,25 @@ export function syncViewportSize() {
     const lastViewportWidth = previousViewportWidth ?? viewportWidth;
     const lastViewportHeight = previousViewportHeight ?? viewportHeight;
     const lastViewportMode = previousViewportMode ?? nextViewportMode;
+    const isFirstSync = previousViewportWidth === null || previousViewportHeight === null;
+    const heightChanged = viewportHeight !== lastViewportHeight;
+    const widthChanged = viewportWidth !== lastViewportWidth;
+    const modeChanged = nextViewportMode !== lastViewportMode;
+
+    if (!isFirstSync && !heightChanged && !widthChanged && !modeChanged) {
+        return;
+    }
 
     document.documentElement.style.setProperty('--app-height', `${viewportHeight}px`);
     document.documentElement.style.setProperty('--app-width', `${viewportWidth}px`);
+
+    previousViewportHeight = viewportHeight;
+    previousViewportWidth = viewportWidth;
+    previousViewportMode = nextViewportMode;
+
+    if (!heightChanged && !widthChanged && !modeChanged) {
+        return;
+    }
 
     window.dispatchEvent(
         new CustomEvent('app:viewport-resized', {
@@ -29,16 +45,12 @@ export function syncViewportSize() {
                 previousWidth: lastViewportWidth,
                 mode: nextViewportMode,
                 previousMode: lastViewportMode,
-                heightChanged: viewportHeight !== lastViewportHeight,
-                widthChanged: viewportWidth !== lastViewportWidth,
-                modeChanged: nextViewportMode !== lastViewportMode,
+                heightChanged,
+                widthChanged,
+                modeChanged,
             },
         }),
     );
-
-    previousViewportHeight = viewportHeight;
-    previousViewportWidth = viewportWidth;
-    previousViewportMode = nextViewportMode;
 }
 
 export function scheduleViewportSync() {

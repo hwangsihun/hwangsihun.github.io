@@ -12,10 +12,11 @@ const HIGHLIGHT_DATES = [
     '2026-04-23',
     '2026-04-26',
 ];
+const HIGHLIGHT_DATE_SET = new Set(HIGHLIGHT_DATES);
 
 function getDateStyle(iso, dayOfWeek) {
     const isWeekend = [0, 6].includes(dayOfWeek);
-    const isHighlighted = HIGHLIGHT_DATES.includes(iso);
+    const isHighlighted = HIGHLIGHT_DATE_SET.has(iso);
 
     return {
         isWeekend,
@@ -101,6 +102,18 @@ function createMobileDayItem(year, month, day) {
     return dateCell;
 }
 
+function getDaysInMonth(year, month) {
+    const days = [];
+    const date = new Date(year, month, 1);
+
+    while (date.getMonth() === month) {
+        days.push(new Date(date));
+        date.setDate(date.getDate() + 1);
+    }
+
+    return days;
+}
+
 export function initializeCalendar() {
     const calendars = document.querySelectorAll(CALENDAR_SELECTOR);
 
@@ -109,19 +122,6 @@ export function initializeCalendar() {
     const today = new Date();
     const currentMonth = today.getMonth();
     const currentYear = today.getFullYear();
-
-    const getDaysInMonth = (year, month) => {
-        const days = [];
-        const date = new Date(year, month, 1);
-
-        while (date.getMonth() === month) {
-            days.push(new Date(date));
-            date.setDate(date.getDate() + 1);
-        }
-
-        return days;
-    };
-
     const days = getDaysInMonth(currentYear, currentMonth);
 
     calendars.forEach((calendarRoot) => {
@@ -129,15 +129,17 @@ export function initializeCalendar() {
 
         if (!dateBar) return;
 
-        dateBar.innerHTML = '';
+        const fragment = document.createDocumentFragment();
 
         days.forEach((dayItem, index) => {
-            dateBar.appendChild(createDayItem(dayItem));
+            fragment.appendChild(createDayItem(dayItem));
 
             if (dayItem.getDay() === 0 && index !== days.length - 1) {
-                dateBar.appendChild(createSeparator());
+                fragment.appendChild(createSeparator());
             }
         });
+
+        dateBar.replaceChildren(fragment);
     });
 }
 
@@ -154,18 +156,20 @@ export function initializeMobileCalendar() {
     const daysInMonth = lastDay.getDate();
     const startingDayOfWeek = firstDay.getDay();
 
-    calendarGrid.innerHTML = '';
+    const fragment = document.createDocumentFragment();
 
     for (let index = 0; index < startingDayOfWeek; index += 1) {
         const emptyCell = document.createElement('div');
 
         emptyCell.className = 'empty_calendar_mobile';
-        calendarGrid.appendChild(emptyCell);
+        fragment.appendChild(emptyCell);
     }
 
     for (let day = 1; day <= daysInMonth; day += 1) {
-        calendarGrid.appendChild(createMobileDayItem(currentYear, currentMonth, day));
+        fragment.appendChild(createMobileDayItem(currentYear, currentMonth, day));
     }
+
+    calendarGrid.replaceChildren(fragment);
 }
 
 export function initializeCalendarModule() {
