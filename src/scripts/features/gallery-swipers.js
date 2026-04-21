@@ -45,9 +45,9 @@ const SWIPER_BASE_OPTIONS = {
 };
 
 const MAIN2_DESKTOP_IMAGE_SOURCES = [
-    '/assets/imgs/img/poster_1.png',
-    '/assets/imgs/img/poster_2.png',
-    '/assets/imgs/img/poster_3.png',
+    '/assets/imgs/img/poster_1.jpg',
+    '/assets/imgs/img/poster_2.jpg',
+    '/assets/imgs/img/poster_3.jpg',
 ];
 
 const MAIN2_MOBILE_IMAGE_SOURCES = [

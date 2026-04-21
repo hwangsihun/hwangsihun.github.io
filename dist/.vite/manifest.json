@@ -7,9 +7,45 @@
     "file": "assets/ClashDisplay-Semibold-DtmhZ-xU.otf",
     "src": "assets/fonts/clash-display/ClashDisplay-Semibold.otf"
   },
-  "assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf": {
-    "file": "assets/Inter-VariableFont_opsz_wght-c8O0ljhh.ttf",
-    "src": "assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf"
+  "assets/imgs/icons/arrow.svg": {
+    "file": "assets/arrow-CjVkxS1j.svg",
+    "src": "assets/imgs/icons/arrow.svg"
+  },
+  "assets/imgs/icons/auth.svg": {
+    "file": "assets/auth-BJQMn32y.svg",
+    "src": "assets/imgs/icons/auth.svg"
+  },
+  "assets/imgs/icons/eng.svg": {
+    "file": "assets/eng-A-AawlAy.svg",
+    "src": "assets/imgs/icons/eng.svg"
+  },
+  "assets/imgs/icons/moveUp.svg": {
+    "file": "assets/moveUp-1eA8e-s-.svg",
+    "src": "assets/imgs/icons/moveUp.svg"
+  },
+  "assets/imgs/icons/mv_arrow.svg": {
+    "file": "assets/mv_arrow-Df5u1xJb.svg",
+    "src": "assets/imgs/icons/mv_arrow.svg"
+  },
+  "assets/imgs/icons/next,prev.svg": {
+    "file": "assets/next_prev-CrLGsDdf.svg",
+    "src": "assets/imgs/icons/next,prev.svg"
+  },
+  "assets/imgs/icons/search.svg": {
+    "file": "assets/search-CCNK8qaG.svg",
+    "src": "assets/imgs/icons/search.svg"
+  },
+  "assets/imgs/icons/sideMenu.svg": {
+    "file": "assets/sideMenu-Cj7nghII.svg",
+    "src": "assets/imgs/icons/sideMenu.svg"
+  },
+  "assets/imgs/icons/start.svg": {
+    "file": "assets/start-CpPlUvU4.svg",
+    "src": "assets/imgs/icons/start.svg"
+  },
+  "assets/imgs/icons/stop.svg": {
+    "file": "assets/stop-DAZn3lpZ.svg",
+    "src": "assets/imgs/icons/stop.svg"
   },
   "assets/imgs/img/6층 공유오피스.webp": {
     "file": "assets/6층 공유오피스-FqE4DxVL.webp",
@@ -19,6 +55,10 @@
     "file": "assets/AKL아고라-B2Rdah6L.webp",
     "src": "assets/imgs/img/AKL아고라.webp"
   },
+  "assets/imgs/img/artskorealab_footer.webp": {
+    "file": "assets/artskorealab_footer-CyTrxPXB.webp",
+    "src": "assets/imgs/img/artskorealab_footer.webp"
+  },
   "assets/imgs/img/artskorealab_mobile.svg": {
     "file": "assets/artskorealab_mobile-BrArxd3A.svg",
     "src": "assets/imgs/img/artskorealab_mobile.svg"
@@ -26,6 +66,10 @@
   "assets/imgs/img/artskorealab_pc.svg": {
     "file": "assets/artskorealab_pc-BKaR2kZV.svg",
     "src": "assets/imgs/img/artskorealab_pc.svg"
+  },
+  "assets/imgs/img/bg_geer.svg": {
+    "file": "assets/bg_geer-D6smxz5F.svg",
+    "src": "assets/imgs/img/bg_geer.svg"
   },
   "assets/imgs/img/example_1.png": {
     "file": "assets/example_1-CrgcXSGN.png",
@@ -43,13 +87,25 @@
     "file": "assets/instagram-h1R-BVF7.svg",
     "src": "assets/imgs/img/instagram.svg"
   },
+  "assets/imgs/img/keyVisual_1.svg": {
+    "file": "assets/keyVisual_1-CvHrjUYu.svg",
+    "src": "assets/imgs/img/keyVisual_1.svg"
+  },
   "assets/imgs/img/keyVisual_2.svg": {
     "file": "assets/keyVisual_2-CpV6-sYM.svg",
     "src": "assets/imgs/img/keyVisual_2.svg"
   },
+  "assets/imgs/img/keyVisual_3.svg": {
+    "file": "assets/keyVisual_3-BnpxGfYr.svg",
+    "src": "assets/imgs/img/keyVisual_3.svg"
+  },
   "assets/imgs/img/keyVisual_4.svg": {
     "file": "assets/keyVisual_4-BGJ_8Eqz.svg",
     "src": "assets/imgs/img/keyVisual_4.svg"
+  },
+  "assets/imgs/img/keyVisual_4_1.svg": {
+    "file": "assets/keyVisual_4_1-DVwVWAwU.svg",
+    "src": "assets/imgs/img/keyVisual_4_1.svg"
   },
   "assets/imgs/img/keyVisual_5.svg": {
     "file": "assets/keyVisual_5-C2KAEk-l.svg",
@@ -67,21 +123,49 @@
     "file": "assets/keyVisual_8-C9SNdIZf.svg",
     "src": "assets/imgs/img/keyVisual_8.svg"
   },
+  "assets/imgs/img/logo_1.webp": {
+    "file": "assets/logo_1-cyohfaON.webp",
+    "src": "assets/imgs/img/logo_1.webp"
+  },
+  "assets/imgs/img/logo_2.webp": {
+    "file": "assets/logo_2-BC5E4prq.webp",
+    "src": "assets/imgs/img/logo_2.webp"
+  },
   "assets/imgs/img/logo_3.webp": {
     "file": "assets/logo_3-DVvF7zME.webp",
     "src": "assets/imgs/img/logo_3.webp"
   },
-  "assets/imgs/img/poster_1.png": {
-    "file": "assets/poster_1-Da_h-V1P.png",
-    "src": "assets/imgs/img/poster_1.png"
+  "assets/imgs/img/logo_4.webp": {
+    "file": "assets/logo_4-CNmN9Wmp.webp",
+    "src": "assets/imgs/img/logo_4.webp"
   },
-  "assets/imgs/img/poster_2.png": {
-    "file": "assets/poster_2-DSwpV4Va.png",
-    "src": "assets/imgs/img/poster_2.png"
+  "assets/imgs/img/logo_5.webp": {
+    "file": "assets/logo_5-CwI_V1s2.webp",
+    "src": "assets/imgs/img/logo_5.webp"
   },
-  "assets/imgs/img/poster_3.png": {
-    "file": "assets/poster_2-DSwpV4Va.png",
-    "src": "assets/imgs/img/poster_2.png"
+  "assets/imgs/img/logo_6.webp": {
+    "file": "assets/logo_6-BPc3YlVO.webp",
+    "src": "assets/imgs/img/logo_6.webp"
+  },
+  "assets/imgs/img/logo_7.webp": {
+    "file": "assets/logo_7-BCEZE26N.webp",
+    "src": "assets/imgs/img/logo_7.webp"
+  },
+  "assets/imgs/img/poster_1.jpg": {
+    "file": "assets/poster_1-BqNxnMc9.jpg",
+    "src": "assets/imgs/img/poster_1.jpg"
+  },
+  "assets/imgs/img/poster_2.jpg": {
+    "file": "assets/poster_2-CdZ66N13.jpg",
+    "src": "assets/imgs/img/poster_2.jpg"
+  },
+  "assets/imgs/img/poster_3.jpg": {
+    "file": "assets/poster_2-CdZ66N13.jpg",
+    "src": "assets/imgs/img/poster_2.jpg"
+  },
+  "assets/imgs/img/youTube.svg": {
+    "file": "assets/youTube-C6htdm5Y.svg",
+    "src": "assets/imgs/img/youTube.svg"
   },
   "assets/imgs/img/강의실A.webp": {
     "file": "assets/강의실A-BelkZcDv.webp",
@@ -103,6 +187,10 @@
     "file": "assets/미디어월-CJs24xOX.webp",
     "src": "assets/imgs/img/미디어월.webp"
   },
+  "assets/imgs/img/예술경영지원센터.webp": {
+    "file": "assets/예술경영지원센터-Bgos8C8X.webp",
+    "src": "assets/imgs/img/예술경영지원센터.webp"
+  },
   "assets/imgs/img/예술기업입주지원.webp": {
     "file": "assets/예술기업입주지원-B5CsZBX3.webp",
     "src": "assets/imgs/img/예술기업입주지원.webp"
@@ -120,25 +208,38 @@
     "src": "assets/imgs/img/편집실A.webp"
   },
   "index.html": {
-    "file": "assets/index-DxoMtumV.js",
+    "file": "assets/index-CCE_7dIA.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-DIjkI663.css"
+      "assets/index-C-KUtJtW.css"
     ],
     "assets": [
       "assets/ClashDisplay-Regular-RJ1gwrr2.otf",
       "assets/ClashDisplay-Semibold-DtmhZ-xU.otf",
-      "assets/Inter-VariableFont_opsz_wght-c8O0ljhh.ttf",
-      "assets/poster_1-Da_h-V1P.png",
+      "assets/arrow-CjVkxS1j.svg",
+      "assets/moveUp-1eA8e-s-.svg",
+      "assets/next_prev-CrLGsDdf.svg",
+      "assets/stop-DAZn3lpZ.svg",
+      "assets/start-CpPlUvU4.svg",
+      "assets/poster_1-BqNxnMc9.jpg",
       "assets/example_1-CrgcXSGN.png",
       "assets/keyVisual_4-BGJ_8Eqz.svg",
+      "assets/keyVisual_4_1-DVwVWAwU.svg",
+      "assets/bg_geer-D6smxz5F.svg",
       "assets/artskorealab_pc-BKaR2kZV.svg",
       "assets/artskorealab_mobile-BrArxd3A.svg",
+      "assets/auth-BJQMn32y.svg",
+      "assets/eng-A-AawlAy.svg",
+      "assets/search-CCNK8qaG.svg",
+      "assets/sideMenu-Cj7nghII.svg",
+      "assets/keyVisual_1-CvHrjUYu.svg",
+      "assets/mv_arrow-Df5u1xJb.svg",
       "assets/keyVisual_2-CpV6-sYM.svg",
       "assets/keyVisual_5-C2KAEk-l.svg",
-      "assets/poster_2-DSwpV4Va.png",
+      "assets/keyVisual_3-BnpxGfYr.svg",
+      "assets/poster_2-CdZ66N13.jpg",
       "assets/example_2-RnaHDLn-.png",
       "assets/example_3-_zTd-Tnu.png",
       "assets/6층 공유오피스-FqE4DxVL.webp",
@@ -151,7 +252,16 @@
       "assets/예술기업입주지원-B5CsZBX3.webp",
       "assets/페스티벌-BlnnCnuk.webp",
       "assets/기술용어사전-YJUJWShB.webp",
+      "assets/logo_1-cyohfaON.webp",
+      "assets/logo_2-BC5E4prq.webp",
       "assets/logo_3-DVvF7zME.webp",
+      "assets/logo_4-CNmN9Wmp.webp",
+      "assets/logo_5-CwI_V1s2.webp",
+      "assets/logo_6-BPc3YlVO.webp",
+      "assets/logo_7-BCEZE26N.webp",
+      "assets/예술경영지원센터-Bgos8C8X.webp",
+      "assets/artskorealab_footer-CyTrxPXB.webp",
+      "assets/youTube-C6htdm5Y.svg",
       "assets/instagram-h1R-BVF7.svg",
       "assets/keyVisual_6-C4g5zsnx.svg",
       "assets/keyVisual_7-D4YM3uYQ.svg",

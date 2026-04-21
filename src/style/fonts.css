@@ -22,15 +22,3 @@
     font-family: 'clash-display', sans-serif;
     font-weight: 600;
 }
-
-/* ============ Inter ============ */
-@font-face {
-    font-family: 'Inter-VariableFont_opsz';
-    font-weight: 100 900;
-    font-style: normal;
-    src: url('/assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
-}
-
-.font-inter {
-    font-family: 'Inter-VariableFont_opsz', sans-serif;
-}

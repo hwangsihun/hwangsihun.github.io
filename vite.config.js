@@ -9,6 +9,7 @@ export default defineConfig({
         outDir: 'dist',
         emptyOutDir: true,
         manifest: true,
+        assetsInlineLimit: 0,
         rollupOptions: {
             input: './index.html',
         },
