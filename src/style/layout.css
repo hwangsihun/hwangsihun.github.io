@@ -784,7 +784,7 @@ body {
 }
 
 .title_calendar_pc {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.3;
 }
@@ -903,7 +903,7 @@ body {
 }
 
 .title_calendar_mobile {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.25;
 }
@@ -1353,7 +1353,7 @@ body {
 }
 
 .title_main4_function {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.4;
     font-weight: 700;
     letter-spacing: -0.04em;
@@ -1857,7 +1857,7 @@ body {
 }
 
 .title_notice_pc {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.25;
     font-weight: 700;
 }

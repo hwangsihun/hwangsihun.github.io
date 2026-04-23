@@ -10,8 +10,8 @@
   <link rel="preload" as="image" href="/assets/example_1-CrgcXSGN.png" media="(max-width: 992px)" />
   <link rel="preload" as="image" href="/assets/keyVisual_4-BGJ_8Eqz.svg" type="image/svg+xml" />
   <link rel="preload" as="image" href="/assets/keyVisual_4_1-DVwVWAwU.svg" type="image/svg+xml" />
-  <script type="module" crossorigin src="/assets/index-DrrD7er9.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-VKsc-KlB.css">
+  <script type="module" crossorigin src="/assets/index-UlymiHNX.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CvHh6lMQ.css">
 </head>
 
 <body class="page_body">
@@ -440,10 +440,12 @@
             <p class="text_main3_panel_schedule">화-수 09:00~21:00, 목 09:00~18:00</p>
 
             <div class="wrapper_main3_action_buttons flex_col_start">
-              <button type="button" class="btn_panel_action flex_row_center bg_mint text_black box_shadow_navySoft">시설
-                확인하기</button>
-              <button type="button"
-                class="btn_panel_action flex_row_center bg_darkGray text_white box_shadow_navySoft">시설 공지사항</button>
+              <a href="/example/facilities/6f-shared-office"
+                class="btn_panel_action flex_row_center bg_mint text_black box_shadow_navySoft"
+                data-main3-action="detail" aria-label="6층 공유오피스 시설 확인하기">시설 확인하기</a>
+              <a href="/example/notices/6f-shared-office"
+                class="btn_panel_action flex_row_center bg_darkGray text_white box_shadow_navySoft"
+                data-main3-action="notice" aria-label="6층 공유오피스 시설 공지사항">시설 공지사항</a>
             </div>
           </div>
         </div>
@@ -459,31 +461,38 @@
           <div class="main3-swiper swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide" data-title="6층 공유오피스" data-schedule="화-수 09:00~21:00, 목 09:00~18:00"
-                data-category="space">
+                data-category="space" data-detail-url="/example/facilities/6f-shared-office"
+                data-notice-url="/example/notices/6f-shared-office">
                 <img src="/assets/6%EC%B8%B5%20%EA%B3%B5%EC%9C%A0%EC%98%A4%ED%94%BC%EC%8A%A4-FqE4DxVL.webp" alt="6층 공유오피스" decoding="async">
               </div>
               <div class="swiper-slide" data-title="AKL아고라" data-schedule="월-금 10:00~18:00, 주말 휴관"
-                data-category="space">
+                data-category="space" data-detail-url="/example/facilities/akl-agora"
+                data-notice-url="/example/notices/akl-agora">
                 <img src="/assets/AKL%EC%95%84%EA%B3%A0%EB%9D%BC-B2Rdah6L.webp" alt="AKL아고라" decoding="async">
               </div>
               <div class="swiper-slide" data-title="강의실 A" data-schedule="월-금 09:00~18:00, 사전 예약 운영"
-                data-category="space">
+                data-category="space" data-detail-url="/example/facilities/lecture-room-a"
+                data-notice-url="/example/notices/lecture-room-a">
                 <img src="/assets/%EA%B0%95%EC%9D%98%EC%8B%A4A-BelkZcDv.webp" alt="강의실 A" decoding="async">
               </div>
               <div class="swiper-slide" data-title="강의실 B" data-schedule="월-금 09:00~18:00, 사전 예약 운영"
-                data-category="space">
+                data-category="space" data-detail-url="/example/facilities/lecture-room-b"
+                data-notice-url="/example/notices/lecture-room-b">
                 <img src="/assets/%EA%B0%95%EC%9D%98%EC%8B%A4B-9PYyz7kn.webp" alt="강의실 B" decoding="async">
               </div>
               <div class="swiper-slide" data-title="미디어월" data-schedule="월-금 10:00~17:00, 장비 점검 시간 제외"
-                data-category="equipment">
+                data-category="equipment" data-detail-url="/example/facilities/media-wall"
+                data-notice-url="/example/notices/media-wall">
                 <img src="/assets/%EB%AF%B8%EB%94%94%EC%96%B4%EC%9B%94-CJs24xOX.webp" alt="미디어월" decoding="async">
               </div>
               <div class="swiper-slide" data-title="편집실 A" data-schedule="월-금 10:00~18:00, 예약 후 이용 가능"
-                data-category="equipment">
+                data-category="equipment" data-detail-url="/example/facilities/edit-suite-a"
+                data-notice-url="/example/notices/edit-suite-a">
                 <img src="/assets/%ED%8E%B8%EC%A7%91%EC%8B%A4A-Cr03VQKg.webp" alt="편집실 A" decoding="async">
               </div>
               <div class="swiper-slide" data-title="편집실 B" data-schedule="월-금 10:00~18:00, 예약 후 이용 가능"
-                data-category="equipment">
+                data-category="equipment" data-detail-url="/example/facilities/edit-suite-b"
+                data-notice-url="/example/notices/edit-suite-b">
                 <img src="/assets/%ED%8E%B8%EC%A7%91%EC%8B%A4A-Cr03VQKg.webp" alt="편집실 B" decoding="async">
               </div>
             </div>
