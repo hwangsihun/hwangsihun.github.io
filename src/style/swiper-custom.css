@@ -168,9 +168,9 @@
 
 @media (max-width: 992px) {
     #main-3 .main3-swiper {
-        height: auto;
+        height: 100%;
         min-height: 0;
-        aspect-ratio: 452 / 305;
+        aspect-ratio: auto;
         border-radius: 20px;
     }
 

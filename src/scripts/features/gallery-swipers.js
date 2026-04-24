@@ -18,6 +18,8 @@ const SWIPER_SECTION_CONFIGS = [
         filterButtonSelector: '[data-main3-filter]',
         titleSelector: '.title_main3_panel, .text_main3_slide_title',
         scheduleSelector: '.text_main3_panel_schedule',
+        detailActionSelector: '[data-main3-action="detail"]',
+        noticeActionSelector: '[data-main3-action="notice"]',
         prevButtonSelector: '[data-main3-swiper-controls] [data-pagination-button="prev"]',
         toggleButtonSelector: '[data-main3-swiper-controls] [data-pagination-button="stop"]',
         nextButtonSelector: '[data-main3-swiper-controls] [data-pagination-button="next"]',
@@ -88,6 +90,8 @@ function getGallerySlideDefinitions(mainSection, swiperContainer) {
         title: slideElement.dataset.title || slideElement.querySelector('img')?.alt || '',
         schedule: slideElement.dataset.schedule || '',
         category: slideElement.dataset.category || 'all',
+        detailUrl: slideElement.dataset.detailUrl || '',
+        noticeUrl: slideElement.dataset.noticeUrl || '',
     }));
 
     return mainSection.__gallerySlideDefinitions;
@@ -126,6 +130,12 @@ function initializeGallerySwiper(config) {
     const scheduleElements = config.scheduleSelector
         ? Array.from(mainSection.querySelectorAll(config.scheduleSelector))
         : [];
+    const detailActionElement = config.detailActionSelector
+        ? mainSection.querySelector(config.detailActionSelector)
+        : null;
+    const noticeActionElement = config.noticeActionSelector
+        ? mainSection.querySelector(config.noticeActionSelector)
+        : null;
     const slideDefinitions = getGallerySlideDefinitions(mainSection, swiperContainer);
     const activeSlides = getFilteredGallerySlides(slideDefinitions, activeFilter);
 
@@ -174,8 +184,11 @@ function initializeGallerySwiper(config) {
 
     function updateSlideState(realIndex = swiper.realIndex) {
         const currentIndex = realIndex + 1;
-        const nextTitle = activeSlides[realIndex]?.title || activeSlides[0]?.title || '';
-        const nextSchedule = activeSlides[realIndex]?.schedule || activeSlides[0]?.schedule || '';
+        const activeSlide = activeSlides[realIndex] || activeSlides[0];
+        const nextTitle = activeSlide?.title || '';
+        const nextSchedule = activeSlide?.schedule || '';
+        const nextDetailUrl = activeSlide?.detailUrl || '';
+        const nextNoticeUrl = activeSlide?.noticeUrl || '';
 
         titleElements.forEach((titleElement) => {
             titleElement.textContent = nextTitle;
@@ -183,6 +196,16 @@ function initializeGallerySwiper(config) {
         scheduleElements.forEach((scheduleElement) => {
             scheduleElement.textContent = nextSchedule;
         });
+
+        if (detailActionElement) {
+            detailActionElement.href = nextDetailUrl;
+            detailActionElement.setAttribute('aria-label', `${nextTitle} 시설 확인하기`);
+        }
+
+        if (noticeActionElement) {
+            noticeActionElement.href = nextNoticeUrl;
+            noticeActionElement.setAttribute('aria-label', `${nextTitle} 시설 공지사항`);
+        }
 
         if (progressFill) {
             const segmentWidth = 100 / totalSlides;
