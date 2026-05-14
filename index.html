@@ -45,7 +45,7 @@
       <div class="container_header_main1">
         <div class="container_header_main1_inner flex_row_between">
           <div class="wrapper_header_brand">
-            <a href="/" class="btn_header_logo bg_white" aria-label="아트코리아랩 홈">
+            <a href="/" class="btn_header_logo" aria-label="아트코리아랩 홈">
               <img class="image_header_logo image_header_logo_pc" src="/assets/imgs/img/artskorealab_pc.svg"
                 alt="아트코리아랩">
               <img class="image_header_logo image_header_logo_mobile" src="/assets/imgs/img/artskorealab_mobile.svg"
@@ -70,6 +70,42 @@
           </div>
         </div>
 
+        <header class="container_header_global" aria-label="주요 메뉴">
+          <div class="container_header_global_inner flex_row_center">
+            <div class="wrapper_header_gnb_holder flex_col_center" data-header-gnb>
+              <nav class="wrapper_header_gnb bg_white" aria-label="주요 메뉴">
+                <ul class="list_header_gnb flex_row">
+                  <li class="item_header_gnb">
+                    <button type="button" class="btn_header_gnb" data-header-menu="akl" aria-haspopup="true"
+                      aria-expanded="false" aria-controls="header-submenu-panel">아트코리아랩</button>
+                  </li>
+                  <li class="item_header_gnb">
+                    <button type="button" class="btn_header_gnb" data-header-menu="rental" aria-haspopup="true"
+                      aria-expanded="false" aria-controls="header-submenu-panel">대관/시설</button>
+                  </li>
+                  <li class="item_header_gnb">
+                    <button type="button" class="btn_header_gnb" data-header-menu="biz" aria-haspopup="true"
+                      aria-expanded="false" aria-controls="header-submenu-panel">비즈센터</button>
+                  </li>
+                  <li class="item_header_gnb">
+                    <button type="button" class="btn_header_gnb" data-header-menu="community" aria-haspopup="true"
+                      aria-expanded="false" aria-controls="header-submenu-panel">커뮤니티</button>
+                  </li>
+                  <li class="item_header_gnb">
+                    <button type="button" class="btn_header_gnb" data-header-menu="archive" aria-haspopup="true"
+                      aria-expanded="false" aria-controls="header-submenu-panel">아카이브</button>
+                  </li>
+                </ul>
+              </nav>
+
+              <div class="container_header_submenu" id="header-submenu-panel" hidden>
+                <nav class="wrapper_header_submenu flex_row_center bg_disabledStroke" data-header-submenu-list
+                  aria-label="하위 메뉴"></nav>
+              </div>
+            </div>
+          </div>
+        </header>
+
         <aside class="container_mobile_sidebar bg_white" id="mobile-sidebar" data-mobile-sidebar hidden
           aria-hidden="true" role="dialog" aria-modal="true" aria-label="전체 메뉴">
           <div class="container_mobile_sidebar_inner flex_col_start">
@@ -80,42 +116,6 @@
           </div>
         </aside>
       </div>
-
-      <header class="container_header_global" aria-label="주요 메뉴">
-        <div class="container_header_global_inner flex_row_center">
-          <div class="wrapper_header_gnb_holder flex_col_center" data-header-gnb>
-            <nav class="wrapper_header_gnb bg_white" aria-label="주요 메뉴">
-              <ul class="list_header_gnb flex_row">
-                <li class="item_header_gnb">
-                  <button type="button" class="btn_header_gnb" data-header-menu="akl" aria-haspopup="true"
-                    aria-expanded="false" aria-controls="header-submenu-panel">아트코리아랩</button>
-                </li>
-                <li class="item_header_gnb">
-                  <button type="button" class="btn_header_gnb" data-header-menu="rental" aria-haspopup="true"
-                    aria-expanded="false" aria-controls="header-submenu-panel">대관/시설</button>
-                </li>
-                <li class="item_header_gnb">
-                  <button type="button" class="btn_header_gnb" data-header-menu="biz" aria-haspopup="true"
-                    aria-expanded="false" aria-controls="header-submenu-panel">비즈센터</button>
-                </li>
-                <li class="item_header_gnb">
-                  <button type="button" class="btn_header_gnb" data-header-menu="community" aria-haspopup="true"
-                    aria-expanded="false" aria-controls="header-submenu-panel">커뮤니티</button>
-                </li>
-                <li class="item_header_gnb">
-                  <button type="button" class="btn_header_gnb" data-header-menu="archive" aria-haspopup="true"
-                    aria-expanded="false" aria-controls="header-submenu-panel">아카이브</button>
-                </li>
-              </ul>
-            </nav>
-
-            <div class="container_header_submenu" id="header-submenu-panel" hidden>
-              <nav class="wrapper_header_submenu flex_row_center bg_disabledStroke" data-header-submenu-list
-                aria-label="하위 메뉴"></nav>
-            </div>
-          </div>
-        </div>
-      </header>
 
       <div class="container_visual_pc flex_col_between">
 
@@ -524,7 +524,8 @@
 
             <div class="wrapper_main4_function_grid">
               <article class="wrapper_main4_function_card is_active">
-                <img class="image_main4_function_card" src="/assets/imgs/img/교육프로그램.webp" alt="교육 프로그램" loading="lazy" decoding="async">
+                <img class="image_main4_function_card" src="/assets/imgs/img/교육프로그램.webp" alt="교육 프로그램" loading="lazy"
+                  decoding="async">
                 <div class="wrapper_main4_function_dim"></div>
                 <div class="wrapper_main4_function_copy flex_col_center text_white">
                   <div class="wrapper_main4_function_text flex_col_center">
@@ -536,7 +537,8 @@
               </article>
 
               <article class="wrapper_main4_function_card main4_card_support">
-                <img class="image_main4_function_card" src="/assets/imgs/img/예술기업입주지원.webp" alt="예술기업 입주지원" loading="lazy" decoding="async">
+                <img class="image_main4_function_card" src="/assets/imgs/img/예술기업입주지원.webp" alt="예술기업 입주지원"
+                  loading="lazy" decoding="async">
                 <div class="wrapper_main4_function_dim"></div>
                 <div class="wrapper_main4_function_copy flex_col_center text_white">
                   <div class="wrapper_main4_function_text flex_col_center">
@@ -548,7 +550,8 @@
               </article>
 
               <article class="wrapper_main4_function_card main4_card_festival">
-                <img class="image_main4_function_card" src="/assets/imgs/img/페스티벌.webp" alt="페스티벌" loading="lazy" decoding="async">
+                <img class="image_main4_function_card" src="/assets/imgs/img/페스티벌.webp" alt="페스티벌" loading="lazy"
+                  decoding="async">
                 <div class="wrapper_main4_function_dim"></div>
                 <div class="wrapper_main4_function_copy flex_col_center text_white">
                   <div class="wrapper_main4_function_text flex_col_center">
@@ -560,7 +563,8 @@
               </article>
 
               <article class="wrapper_main4_function_card main4_card_glossary">
-                <img class="image_main4_function_card" src="/assets/imgs/img/기술용어사전.webp" alt="기술용어 사전" loading="lazy" decoding="async">
+                <img class="image_main4_function_card" src="/assets/imgs/img/기술용어사전.webp" alt="기술용어 사전" loading="lazy"
+                  decoding="async">
                 <div class="wrapper_main4_function_dim"></div>
                 <div class="wrapper_main4_function_copy flex_col_center text_white">
                   <div class="wrapper_main4_function_text flex_col_center">
@@ -582,7 +586,8 @@
             </div>
 
             <div class="wrapper_main4_partners_visual flex_row_center">
-              <img class="image_main4_partners_visual" src="/assets/imgs/img/keyVisual_5.svg" alt="파트너 비주얼" loading="lazy" decoding="async">
+              <img class="image_main4_partners_visual" src="/assets/imgs/img/keyVisual_5.svg" alt="파트너 비주얼"
+                loading="lazy" decoding="async">
             </div>
           </div>
 
@@ -590,19 +595,26 @@
             <div class="wrapper_main4_partners_track">
               <div class="wrapper_main4_partners_group flex_row">
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 1"><img src="/assets/imgs/img/logo_1.webp" alt="파트너 로고 1" loading="lazy" decoding="async"></button>
+                  aria-label="파트너 로고 1"><img src="/assets/imgs/img/logo_1.webp" alt="파트너 로고 1" loading="lazy"
+                    decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 2"><img src="/assets/imgs/img/logo_2.webp" alt="파트너 로고 2" loading="lazy" decoding="async"></button>
+                  aria-label="파트너 로고 2"><img src="/assets/imgs/img/logo_2.webp" alt="파트너 로고 2" loading="lazy"
+                    decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 3"><img src="/assets/imgs/img/logo_3.webp" alt="파트너 로고 3" loading="lazy" decoding="async"></button>
+                  aria-label="파트너 로고 3"><img src="/assets/imgs/img/logo_3.webp" alt="파트너 로고 3" loading="lazy"
+                    decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 4"><img src="/assets/imgs/img/logo_4.webp" alt="파트너 로고 4" loading="lazy" decoding="async"></button>
+                  aria-label="파트너 로고 4"><img src="/assets/imgs/img/logo_4.webp" alt="파트너 로고 4" loading="lazy"
+                    decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 5"><img src="/assets/imgs/img/logo_5.webp" alt="파트너 로고 5" loading="lazy" decoding="async"></button>
+                  aria-label="파트너 로고 5"><img src="/assets/imgs/img/logo_5.webp" alt="파트너 로고 5" loading="lazy"
+                    decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 6"><img src="/assets/imgs/img/logo_6.webp" alt="파트너 로고 6" loading="lazy" decoding="async"></button>
+                  aria-label="파트너 로고 6"><img src="/assets/imgs/img/logo_6.webp" alt="파트너 로고 6" loading="lazy"
+                    decoding="async"></button>
                 <button type="button" class="wrapper_main4_partner_logo flex_row_center bg_white"
-                  aria-label="파트너 로고 7"><img src="/assets/imgs/img/logo_7.webp" alt="파트너 로고 7" loading="lazy" decoding="async"></button>
+                  aria-label="파트너 로고 7"><img src="/assets/imgs/img/logo_7.webp" alt="파트너 로고 7" loading="lazy"
+                    decoding="async"></button>
               </div>
             </div>
           </div>
@@ -615,7 +627,8 @@
       <footer class="container_footer_content flex_col_start text_white bg_darkGray">
         <div class="wrapper_footer_top">
           <div class="wrapper_footer_brand flex_row">
-            <img class="image_footer_brand image_footer_brand_kams" src="/assets/imgs/img/예술경영지원센터.webp" alt="예술경영지원센터" loading="lazy" decoding="async">
+            <img class="image_footer_brand image_footer_brand_kams" src="/assets/imgs/img/예술경영지원센터.webp" alt="예술경영지원센터"
+              loading="lazy" decoding="async">
             <img class="image_footer_brand image_footer_brand_akl" src="/assets/imgs/img/artskorealab_footer.webp"
               alt="아트코리아랩" loading="lazy" decoding="async">
           </div>
@@ -629,8 +642,7 @@
             </a>
 
             <div class="wrapper_footer_family_site">
-              <button type="button"
-                class="btn_footer_family_site flex_row_between bg_darkGray text_white"
+              <button type="button" class="btn_footer_family_site flex_row_between bg_darkGray text_white"
                 aria-label="Family Site" aria-expanded="false" aria-controls="footer-family-links">
                 <span>Family Site</span>
                 <span class="text_footer_family_plus" aria-hidden="true">+</span>

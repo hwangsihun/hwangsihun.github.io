@@ -245,7 +245,6 @@
     .page_body {
         --page-inline-padding: 20px;
         --mobile-header-clearance: 88px;
-        --mobile-header-z-index: 1000;
     }
 
     .bg_main1_geer_layer {
@@ -262,7 +261,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        z-index: var(--mobile-header-z-index);
+        z-index: var(--global-header-z-index);
         transform: none;
         padding: 20px 0 16px;
         background-color: transparent;

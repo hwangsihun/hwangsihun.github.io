@@ -7,7 +7,6 @@ import {
 } from './features/gallery-swipers.js';
 import { initializeFooterFamilySite } from './features/footer-family-site.js';
 import { initializeGlobalHeader } from './features/header.js';
-import { initializeMain1HeaderOverlay } from './features/main1-header.js';
 import {
     initializeMain4FunctionGrid,
     initializeMain4PartnersMarquee,
@@ -34,7 +33,6 @@ function initializeSite() {
     initializeScrollTopButton();
     initializeGlobalHeader();
     initializeMobileSidebarMenu();
-    initializeMain1HeaderOverlay();
     initializeFooterFamilySite();
     ensureGallerySwipersInitialized();
 }
