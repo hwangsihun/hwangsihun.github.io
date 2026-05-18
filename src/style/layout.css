@@ -1352,7 +1352,7 @@ body {
 .container_main4_function_content {
     min-height: 60vh;
     padding-block: 0 4%;
-    border-radius: 0 0 248px 0;
+    border-radius: 0 0 0 248px;
     align-items: center;
 }
 
